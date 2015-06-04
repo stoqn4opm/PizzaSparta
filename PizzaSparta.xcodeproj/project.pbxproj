@@ -26,6 +26,7 @@
 		90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */; };
 		90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CE1B202546006A0D8E /* SPCartTableViewController.m */; };
 		90A954D21B20255A006A0D8E /* SPSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */; };
+		90A954D51B2031F9006A0D8E /* colorPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954D41B2031F9006A0D8E /* colorPreview.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		90A954CE1B202546006A0D8E /* SPCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCartTableViewController.m; path = UserInterface/SPCartTableViewController.m; sourceTree = "<group>"; };
 		90A954D01B20255A006A0D8E /* SPSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPSettingsTableViewController.h; path = UserInterface/SPSettingsTableViewController.h; sourceTree = "<group>"; };
 		90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPSettingsTableViewController.m; path = UserInterface/SPSettingsTableViewController.m; sourceTree = "<group>"; };
+		90A954D31B202D44006A0D8E /* SPColorPreset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SPColorPreset.h; path = UserInterface/UIResources/SPColorPreset.h; sourceTree = "<group>"; };
+		90A954D41B2031F9006A0D8E /* colorPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = colorPreview.png; path = UserInterface/UIResources/colorPreview.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +151,12 @@
 		90A954A01B202395006A0D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90A954D31B202D44006A0D8E /* SPColorPreset.h */,
+				90A954D41B2031F9006A0D8E /* colorPreview.png */,
 				90A954B81B2024C8006A0D8E /* logo.png */,
+				90A954C11B2024C8006A0D8E /* tiledBackground.png */,
 				90A954B91B2024C8006A0D8E /* origin */,
 				90A954BD1B2024C8006A0D8E /* psd */,
-				90A954C11B2024C8006A0D8E /* tiledBackground.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A954D51B2031F9006A0D8E /* colorPreview.png in Resources */,
 				90A954C21B2024C8006A0D8E /* logo.png in Resources */,
 				9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */,
 				90A954C61B2024C8006A0D8E /* ColorPresets.psd in Resources */,
