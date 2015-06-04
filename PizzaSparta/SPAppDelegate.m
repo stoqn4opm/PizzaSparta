@@ -3,16 +3,16 @@
 //  PizzaSparta
 //
 //  Created by Stoqn Stoqnov on 6/3/15.
-//  Copyright (c) 2015 Stoyan Stoyanov. All rights reserved.
+//  Copyright (c) 2015 MentorMate Academy. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SPAppDelegate.h"
 
-@interface AppDelegate ()
+@interface SPAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SPAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

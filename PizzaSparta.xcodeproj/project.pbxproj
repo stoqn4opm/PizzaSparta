@@ -8,13 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		9007CE9F1B1F2A4C00F4650F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CE9E1B1F2A4C00F4650F /* main.m */; };
-		9007CEA21B1F2A4C00F4650F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEA11B1F2A4C00F4650F /* AppDelegate.m */; };
+		9007CEA21B1F2A4C00F4650F /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */; };
 		9007CEA51B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEA31B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld */; };
-		9007CEA81B1F2A4C00F4650F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEA71B1F2A4C00F4650F /* ViewController.m */; };
 		9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEA91B1F2A4D00F4650F /* Main.storyboard */; };
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
 		9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */; };
 		9007CEBC1B1F2A4D00F4650F /* PizzaSpartaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */; };
+		90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954B51B2024AE006A0D8E /* SPMenuTableViewController.m */; };
+		90A954C21B2024C8006A0D8E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954B81B2024C8006A0D8E /* logo.png */; };
+		90A954C31B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BA1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png */; };
+		90A954C41B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BB1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png */; };
+		90A954C51B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BC1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png */; };
+		90A954C61B2024C8006A0D8E /* ColorPresets.psd in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BE1B2024C8006A0D8E /* ColorPresets.psd */; };
+		90A954C71B2024C8006A0D8E /* logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BF1B2024C8006A0D8E /* logo.psd */; };
+		90A954C81B2024C8006A0D8E /* tiledBackground.psd in Resources */ = {isa = PBXBuildFile; fileRef = 90A954C01B2024C8006A0D8E /* tiledBackground.psd */; };
+		90A954C91B2024C8006A0D8E /* tiledBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954C11B2024C8006A0D8E /* tiledBackground.png */; };
+		90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */; };
+		90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CE1B202546006A0D8E /* SPCartTableViewController.m */; };
+		90A954D21B20255A006A0D8E /* SPSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,17 +42,31 @@
 		9007CE991B1F2A4C00F4650F /* PizzaSparta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSparta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CE9D1B1F2A4C00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CE9E1B1F2A4C00F4650F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9007CEA01B1F2A4C00F4650F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9007CEA11B1F2A4C00F4650F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9007CEA01B1F2A4C00F4650F /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
+		9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		9007CEA41B1F2A4C00F4650F /* PizzaSparta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSparta.xcdatamodel; sourceTree = "<group>"; };
-		9007CEA61B1F2A4C00F4650F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9007CEA71B1F2A4C00F4650F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9007CEAA1B1F2A4D00F4650F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9007CEAC1B1F2A4D00F4650F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9007CEAF1B1F2A4D00F4650F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9007CEB51B1F2A4D00F4650F /* PizzaSpartaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaSpartaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CEBA1B1F2A4D00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaSpartaTests.m; sourceTree = "<group>"; };
+		90A954B41B2024AE006A0D8E /* SPMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMenuTableViewController.h; path = UserInterface/SPMenuTableViewController.h; sourceTree = "<group>"; };
+		90A954B51B2024AE006A0D8E /* SPMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMenuTableViewController.m; path = UserInterface/SPMenuTableViewController.m; sourceTree = "<group>"; };
+		90A954B81B2024C8006A0D8E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = UserInterface/UIResources/logo.png; sourceTree = "<group>"; };
+		90A954BA1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-06-03 at 2.53.05 PM.png"; sourceTree = "<group>"; };
+		90A954BB1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-06-03 at 2.54.12 PM.png"; sourceTree = "<group>"; };
+		90A954BC1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-06-03 at 2.54.56 PM.png"; sourceTree = "<group>"; };
+		90A954BE1B2024C8006A0D8E /* ColorPresets.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = ColorPresets.psd; sourceTree = "<group>"; };
+		90A954BF1B2024C8006A0D8E /* logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.psd; sourceTree = "<group>"; };
+		90A954C01B2024C8006A0D8E /* tiledBackground.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = tiledBackground.psd; sourceTree = "<group>"; };
+		90A954C11B2024C8006A0D8E /* tiledBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiledBackground.png; path = UserInterface/UIResources/tiledBackground.png; sourceTree = "<group>"; };
+		90A954CA1B202525006A0D8E /* SPPromoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPPromoTableViewController.h; path = UserInterface/SPPromoTableViewController.h; sourceTree = "<group>"; };
+		90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPPromoTableViewController.m; path = UserInterface/SPPromoTableViewController.m; sourceTree = "<group>"; };
+		90A954CD1B202546006A0D8E /* SPCartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCartTableViewController.h; path = UserInterface/SPCartTableViewController.h; sourceTree = "<group>"; };
+		90A954CE1B202546006A0D8E /* SPCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCartTableViewController.m; path = UserInterface/SPCartTableViewController.m; sourceTree = "<group>"; };
+		90A954D01B20255A006A0D8E /* SPSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPSettingsTableViewController.h; path = UserInterface/SPSettingsTableViewController.h; sourceTree = "<group>"; };
+		90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPSettingsTableViewController.m; path = UserInterface/SPSettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +108,9 @@
 		9007CE9B1B1F2A4C00F4650F /* PizzaSparta */ = {
 			isa = PBXGroup;
 			children = (
-				9007CEA01B1F2A4C00F4650F /* AppDelegate.h */,
-				9007CEA11B1F2A4C00F4650F /* AppDelegate.m */,
-				9007CEA61B1F2A4C00F4650F /* ViewController.h */,
-				9007CEA71B1F2A4C00F4650F /* ViewController.m */,
-				9007CEA91B1F2A4D00F4650F /* Main.storyboard */,
+				9007CEA01B1F2A4C00F4650F /* SPAppDelegate.h */,
+				9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */,
+				90C1E34E1B1FB0A600B6605B /* User Interface */,
 				9007CEAC1B1F2A4D00F4650F /* Images.xcassets */,
 				9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */,
 				9007CEA31B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld */,
@@ -120,6 +143,64 @@
 				9007CEBA1B1F2A4D00F4650F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90A954A01B202395006A0D8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90A954B81B2024C8006A0D8E /* logo.png */,
+				90A954B91B2024C8006A0D8E /* origin */,
+				90A954BD1B2024C8006A0D8E /* psd */,
+				90A954C11B2024C8006A0D8E /* tiledBackground.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		90A954B91B2024C8006A0D8E /* origin */ = {
+			isa = PBXGroup;
+			children = (
+				90A954BA1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png */,
+				90A954BB1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png */,
+				90A954BC1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png */,
+			);
+			name = origin;
+			path = UserInterface/UIResources/origin;
+			sourceTree = "<group>";
+		};
+		90A954BD1B2024C8006A0D8E /* psd */ = {
+			isa = PBXGroup;
+			children = (
+				90A954BE1B2024C8006A0D8E /* ColorPresets.psd */,
+				90A954BF1B2024C8006A0D8E /* logo.psd */,
+				90A954C01B2024C8006A0D8E /* tiledBackground.psd */,
+			);
+			name = psd;
+			path = UserInterface/UIResources/psd;
+			sourceTree = "<group>";
+		};
+		90C1E34E1B1FB0A600B6605B /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				9007CEA91B1F2A4D00F4650F /* Main.storyboard */,
+				90A954A01B202395006A0D8E /* Resources */,
+				90C1E34F1B1FB0B700B6605B /* View Controllers */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				90A954B41B2024AE006A0D8E /* SPMenuTableViewController.h */,
+				90A954B51B2024AE006A0D8E /* SPMenuTableViewController.m */,
+				90A954CA1B202525006A0D8E /* SPPromoTableViewController.h */,
+				90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */,
+				90A954CD1B202546006A0D8E /* SPCartTableViewController.h */,
+				90A954CE1B202546006A0D8E /* SPCartTableViewController.m */,
+				90A954D01B20255A006A0D8E /* SPSettingsTableViewController.h */,
+				90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,8 +247,9 @@
 		9007CE911B1F2A4C00F4650F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SP;
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = "Stoyan Stoyanov";
+				ORGANIZATIONNAME = "MentorMate Academy";
 				TargetAttributes = {
 					9007CE981B1F2A4C00F4650F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -202,9 +284,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A954C21B2024C8006A0D8E /* logo.png in Resources */,
 				9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */,
+				90A954C61B2024C8006A0D8E /* ColorPresets.psd in Resources */,
 				9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */,
+				90A954C91B2024C8006A0D8E /* tiledBackground.png in Resources */,
+				90A954C71B2024C8006A0D8E /* logo.psd in Resources */,
+				90A954C31B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png in Resources */,
+				90A954C81B2024C8006A0D8E /* tiledBackground.psd in Resources */,
+				90A954C41B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png in Resources */,
 				9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */,
+				90A954C51B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,9 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9007CEA21B1F2A4C00F4650F /* AppDelegate.m in Sources */,
+				9007CEA21B1F2A4C00F4650F /* SPAppDelegate.m in Sources */,
+				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
+				90A954D21B20255A006A0D8E /* SPSettingsTableViewController.m in Sources */,
+				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
-				9007CEA81B1F2A4C00F4650F /* ViewController.m in Sources */,
+				90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */,
 				9007CEA51B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +517,7 @@
 				9007CEC11B1F2A4D00F4650F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9007CEC21B1F2A4D00F4650F /* Build configuration list for PBXNativeTarget "PizzaSpartaTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +526,7 @@
 				9007CEC41B1F2A4D00F4650F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
