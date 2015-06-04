@@ -9,7 +9,7 @@
 /*
  COLOR_WHITE will be for all the text
  COLOR_GREEN will be for the background (may change it later)
- COLOR_RED will be the tint color
+ COLOR_RED   will be the tint color
  
  COLOR_DARK_GRAY, COLOR_LIGHT_GRAY will be used in a tiled pattern
  */

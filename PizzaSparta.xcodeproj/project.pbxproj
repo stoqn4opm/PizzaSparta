@@ -14,19 +14,17 @@
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
 		9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */; };
 		9007CEBC1B1F2A4D00F4650F /* PizzaSpartaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */; };
+		906E599B1B20F8DC00186629 /* UI Sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59921B20F8DC00186629 /* UI Sample.png */; };
+		906E599C1B20F8DC00186629 /* cartTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59931B20F8DC00186629 /* cartTabBarIcon.png */; };
+		906E599D1B20F8DC00186629 /* colorPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59941B20F8DC00186629 /* colorPreview.png */; };
+		906E599E1B20F8DC00186629 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59951B20F8DC00186629 /* logo.png */; };
+		906E59A01B20F8DC00186629 /* pizzaTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59971B20F8DC00186629 /* pizzaTabBarIcon.png */; };
+		906E59A11B20F8DC00186629 /* promoTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59981B20F8DC00186629 /* promoTabBarIcon.png */; };
+		906E59A21B20F8DC00186629 /* settingsTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59991B20F8DC00186629 /* settingsTabBarIcon.png */; };
 		90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954B51B2024AE006A0D8E /* SPMenuTableViewController.m */; };
-		90A954C21B2024C8006A0D8E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954B81B2024C8006A0D8E /* logo.png */; };
-		90A954C31B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BA1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png */; };
-		90A954C41B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BB1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png */; };
-		90A954C51B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BC1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png */; };
-		90A954C61B2024C8006A0D8E /* ColorPresets.psd in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BE1B2024C8006A0D8E /* ColorPresets.psd */; };
-		90A954C71B2024C8006A0D8E /* logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = 90A954BF1B2024C8006A0D8E /* logo.psd */; };
-		90A954C81B2024C8006A0D8E /* tiledBackground.psd in Resources */ = {isa = PBXBuildFile; fileRef = 90A954C01B2024C8006A0D8E /* tiledBackground.psd */; };
-		90A954C91B2024C8006A0D8E /* tiledBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954C11B2024C8006A0D8E /* tiledBackground.png */; };
 		90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */; };
 		90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CE1B202546006A0D8E /* SPCartTableViewController.m */; };
 		90A954D21B20255A006A0D8E /* SPSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */; };
-		90A954D51B2031F9006A0D8E /* colorPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A954D41B2031F9006A0D8E /* colorPreview.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,16 +50,15 @@
 		9007CEB51B1F2A4D00F4650F /* PizzaSpartaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaSpartaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CEBA1B1F2A4D00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaSpartaTests.m; sourceTree = "<group>"; };
+		906E59921B20F8DC00186629 /* UI Sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI Sample.png"; sourceTree = "<group>"; };
+		906E59931B20F8DC00186629 /* cartTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartTabBarIcon.png; sourceTree = "<group>"; };
+		906E59941B20F8DC00186629 /* colorPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorPreview.png; sourceTree = "<group>"; };
+		906E59951B20F8DC00186629 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		906E59971B20F8DC00186629 /* pizzaTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizzaTabBarIcon.png; sourceTree = "<group>"; };
+		906E59981B20F8DC00186629 /* promoTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = promoTabBarIcon.png; sourceTree = "<group>"; };
+		906E59991B20F8DC00186629 /* settingsTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsTabBarIcon.png; sourceTree = "<group>"; };
 		90A954B41B2024AE006A0D8E /* SPMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMenuTableViewController.h; path = UserInterface/SPMenuTableViewController.h; sourceTree = "<group>"; };
 		90A954B51B2024AE006A0D8E /* SPMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMenuTableViewController.m; path = UserInterface/SPMenuTableViewController.m; sourceTree = "<group>"; };
-		90A954B81B2024C8006A0D8E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = UserInterface/UIResources/logo.png; sourceTree = "<group>"; };
-		90A954BA1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-06-03 at 2.53.05 PM.png"; sourceTree = "<group>"; };
-		90A954BB1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-06-03 at 2.54.12 PM.png"; sourceTree = "<group>"; };
-		90A954BC1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-06-03 at 2.54.56 PM.png"; sourceTree = "<group>"; };
-		90A954BE1B2024C8006A0D8E /* ColorPresets.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = ColorPresets.psd; sourceTree = "<group>"; };
-		90A954BF1B2024C8006A0D8E /* logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.psd; sourceTree = "<group>"; };
-		90A954C01B2024C8006A0D8E /* tiledBackground.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = tiledBackground.psd; sourceTree = "<group>"; };
-		90A954C11B2024C8006A0D8E /* tiledBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiledBackground.png; path = UserInterface/UIResources/tiledBackground.png; sourceTree = "<group>"; };
 		90A954CA1B202525006A0D8E /* SPPromoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPPromoTableViewController.h; path = UserInterface/SPPromoTableViewController.h; sourceTree = "<group>"; };
 		90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPPromoTableViewController.m; path = UserInterface/SPPromoTableViewController.m; sourceTree = "<group>"; };
 		90A954CD1B202546006A0D8E /* SPCartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCartTableViewController.h; path = UserInterface/SPCartTableViewController.h; sourceTree = "<group>"; };
@@ -69,7 +66,6 @@
 		90A954D01B20255A006A0D8E /* SPSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPSettingsTableViewController.h; path = UserInterface/SPSettingsTableViewController.h; sourceTree = "<group>"; };
 		90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPSettingsTableViewController.m; path = UserInterface/SPSettingsTableViewController.m; sourceTree = "<group>"; };
 		90A954D31B202D44006A0D8E /* SPColorPreset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SPColorPreset.h; path = UserInterface/UIResources/SPColorPreset.h; sourceTree = "<group>"; };
-		90A954D41B2031F9006A0D8E /* colorPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = colorPreview.png; path = UserInterface/UIResources/colorPreview.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,39 +144,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		906E59911B20F8DC00186629 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				906E59921B20F8DC00186629 /* UI Sample.png */,
+				906E59931B20F8DC00186629 /* cartTabBarIcon.png */,
+				906E59941B20F8DC00186629 /* colorPreview.png */,
+				906E59951B20F8DC00186629 /* logo.png */,
+				906E59971B20F8DC00186629 /* pizzaTabBarIcon.png */,
+				906E59981B20F8DC00186629 /* promoTabBarIcon.png */,
+				906E59991B20F8DC00186629 /* settingsTabBarIcon.png */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
 		90A954A01B202395006A0D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				906E59911B20F8DC00186629 /* Samples */,
 				90A954D31B202D44006A0D8E /* SPColorPreset.h */,
-				90A954D41B2031F9006A0D8E /* colorPreview.png */,
-				90A954B81B2024C8006A0D8E /* logo.png */,
-				90A954C11B2024C8006A0D8E /* tiledBackground.png */,
-				90A954B91B2024C8006A0D8E /* origin */,
-				90A954BD1B2024C8006A0D8E /* psd */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		90A954B91B2024C8006A0D8E /* origin */ = {
-			isa = PBXGroup;
-			children = (
-				90A954BA1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png */,
-				90A954BB1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png */,
-				90A954BC1B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png */,
-			);
-			name = origin;
-			path = UserInterface/UIResources/origin;
-			sourceTree = "<group>";
-		};
-		90A954BD1B2024C8006A0D8E /* psd */ = {
-			isa = PBXGroup;
-			children = (
-				90A954BE1B2024C8006A0D8E /* ColorPresets.psd */,
-				90A954BF1B2024C8006A0D8E /* logo.psd */,
-				90A954C01B2024C8006A0D8E /* tiledBackground.psd */,
-			);
-			name = psd;
-			path = UserInterface/UIResources/psd;
 			sourceTree = "<group>";
 		};
 		90C1E34E1B1FB0A600B6605B /* User Interface */ = {
@@ -289,18 +273,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90A954D51B2031F9006A0D8E /* colorPreview.png in Resources */,
-				90A954C21B2024C8006A0D8E /* logo.png in Resources */,
+				906E59A11B20F8DC00186629 /* promoTabBarIcon.png in Resources */,
+				906E59A01B20F8DC00186629 /* pizzaTabBarIcon.png in Resources */,
+				906E599D1B20F8DC00186629 /* colorPreview.png in Resources */,
+				906E59A21B20F8DC00186629 /* settingsTabBarIcon.png in Resources */,
+				906E599C1B20F8DC00186629 /* cartTabBarIcon.png in Resources */,
+				906E599B1B20F8DC00186629 /* UI Sample.png in Resources */,
 				9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */,
-				90A954C61B2024C8006A0D8E /* ColorPresets.psd in Resources */,
+				906E599E1B20F8DC00186629 /* logo.png in Resources */,
 				9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */,
-				90A954C91B2024C8006A0D8E /* tiledBackground.png in Resources */,
-				90A954C71B2024C8006A0D8E /* logo.psd in Resources */,
-				90A954C31B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.53.05 PM.png in Resources */,
-				90A954C81B2024C8006A0D8E /* tiledBackground.psd in Resources */,
-				90A954C41B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.12 PM.png in Resources */,
 				9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */,
-				90A954C51B2024C8006A0D8E /* Screen Shot 2015-06-03 at 2.54.56 PM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,6 +31,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Al5-0O-Cr4">
+                            <rect key="frame" x="0.0" y="64" width="600" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <sections>
                             <tableViewSection id="SnA-5d-ynT">
                                 <cells>
@@ -70,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF2-6q-fIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857" y="-1601.25"/>
+            <point key="canvasLocation" x="1857" y="-1602"/>
         </scene>
         <!--Promo-->
         <scene sceneID="Yce-Tp-2F3">
@@ -103,7 +108,7 @@
         <scene sceneID="pGf-3d-OYT">
             <objects>
                 <navigationController title="Promo Navigation Controller" id="WcM-k9-hWj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Promo" id="SFj-4G-DDS"/>
+                    <tabBarItem key="tabBarItem" title="Promo" image="PromoTabBarIcon" id="SFj-4G-DDS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gxz-1f-WuQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -120,7 +125,7 @@
         <scene sceneID="pab-Ee-keV">
             <objects>
                 <navigationController title="Menu Navigation Controller" id="4Jm-Az-29d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu" id="vSI-6s-dNY"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="MenuTabBarIcon" id="vSI-6s-dNY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yvy-Bi-Nom">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -191,7 +196,7 @@
         <scene sceneID="vhP-Ts-tnC">
             <objects>
                 <navigationController title="Settings Navigation Controller" id="k08-BQ-Egj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="c0s-t9-KRW"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsTabBarIcon" id="c0s-t9-KRW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mSh-od-Nxo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -229,7 +234,7 @@
         <scene sceneID="QUR-uG-nEw">
             <objects>
                 <navigationController title="Cart Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Cbp-CU-ufJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cart" id="nQO-MR-cUS"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="CartTabBarIcon" id="nQO-MR-cUS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u9b-KU-DKO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -245,4 +250,10 @@
             <point key="canvasLocation" x="1038" y="-255"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CartTabBarIcon" width="30" height="30"/>
+        <image name="MenuTabBarIcon" width="30" height="30"/>
+        <image name="PromoTabBarIcon" width="30" height="30"/>
+        <image name="SettingsTabBarIcon" width="30" height="30"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 //
 
 #import "SPAppDelegate.h"
+#import "SPColorPreset.h"
 
 @interface SPAppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self.window setTintColor:COLOR_RED];
     return YES;
 }
 
