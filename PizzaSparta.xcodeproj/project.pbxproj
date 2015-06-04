@@ -110,7 +110,6 @@
 				9007CEA01B1F2A4C00F4650F /* SPAppDelegate.h */,
 				9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */,
 				90C1E34E1B1FB0A600B6605B /* User Interface */,
-				9007CEAC1B1F2A4D00F4650F /* Images.xcassets */,
 				9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */,
 				9007CEA31B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld */,
 				9007CE9C1B1F2A4C00F4650F /* Supporting Files */,
@@ -170,6 +169,7 @@
 		90C1E34E1B1FB0A600B6605B /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				9007CEAC1B1F2A4D00F4650F /* Images.xcassets */,
 				9007CEA91B1F2A4D00F4650F /* Main.storyboard */,
 				90A954A01B202395006A0D8E /* Resources */,
 				90C1E34F1B1FB0B700B6605B /* View Controllers */,
