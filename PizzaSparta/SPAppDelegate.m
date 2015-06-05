@@ -8,6 +8,7 @@
 
 #import "SPAppDelegate.h"
 #import "SPColorPreset.h"
+#import "SPManager.h"
 
 @interface SPAppDelegate ()
 
@@ -43,7 +44,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
+    [[SPManager sharedManager] saveParentContextToStore];
 }
 
 #pragma mark - Core Data stack

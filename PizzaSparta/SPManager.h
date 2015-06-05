@@ -18,7 +18,7 @@
 
 
 + (instancetype) sharedManager;
--(NSManagedObjectContext *)privateChildMOContext;
-- (void)saveParentContextToStore;
+- (NSManagedObjectContext *) privateChildMOContext;
+- (void) saveParentContextToStore;
 
 @end

@@ -11,10 +11,15 @@
 @class Customer, Product;
 
 @interface Order (Modify)
+
+//goes throuth the products set and sums their prices
 - (NSInteger) total;
+
+//order's isDelivered setter - deletes custom products in the order
 - (void) isDelivered: (BOOL) isDelivered;
 
-+ (Order *) newOrderWithCurrentTimeByCustomer: (Customer *) customer;
+//creates a new order with current time and set time and generats an unique ID for them
++ (Order *) orderWithCurrentTimeByCustomer: (Customer *) customer;
 + (Order *) orderWithDatePlaced: (NSDate *) datePlaced andCustomer: (Customer *) customer;
 
 + (BOOL) orderDoesExist: (NSString *) id;

@@ -14,7 +14,7 @@
 + (Customer *) customerWithUsername: (NSString *) username
                            password: (NSString *) password
                                name: (NSString *) name
-                            address: (NSString *) address{
+                            andAddress: (NSString *) address{
 
     Customer *newCustomer = nil;
     if (![Customer customerDoesExist: username]) {
@@ -44,10 +44,10 @@
         return YES;
     }else{
         if ([matches count] == 0){
-            NSLog( @"%lu should be 0 matches (from Customer+Create.m)", [matches count]);
+            NSLog( @"%lu should be 0 matches (from Customer+Modify.m)", [matches count]);
             return NO;
         } else{
-            NSLog( @"%lu user already exist(from Customer+Create.m)", [matches count]);
+            NSLog( @"%lu user already exist(from Customer+Modify.m)", [matches count]);
             return YES;
         }
     }

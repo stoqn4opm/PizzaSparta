@@ -12,7 +12,7 @@
 @implementation Order (Modify)
 
 
-+ (Order *) newOrderWithCurrentTimeByCustomer: (Customer *) customer{
++ (Order *) orderWithCurrentTimeByCustomer: (Customer *) customer{
     Order *newOrder = nil;
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     newOrder = [NSEntityDescription insertNewObjectForEntityForName: @"Order" inManagedObjectContext: context];
@@ -56,6 +56,7 @@
     }
 }
 
+// IDGenerator
 + (NSString*) generateID{
     NSString *ID;
     do {
@@ -74,14 +75,14 @@
     NSArray *matches = [[[SPManager sharedManager] privateChildMOContext] executeFetchRequest:request error:NULL];
     
     if (matches == nil){
-        NSLog( @"no fetched results(from Customer+Create.m)");
+        NSLog( @"no fetched results(from Ored+Modufy.m)");
         return YES;
     }else{
         if ([matches count] == 0){
-            NSLog( @"%lu should be 0 matches (from Customer+Create.m)", [matches count]);
+            NSLog( @"%lu should be 0 matches (from Ored+Modufy.m)", [matches count]);
             return NO;
         } else{
-            NSLog( @"%lu order already exist(from Customer+Create.m)", [matches count]);
+            NSLog( @"%lu order already exist(from Ored+Modufy.m)", [matches count]);
             return YES;
         }
     }
