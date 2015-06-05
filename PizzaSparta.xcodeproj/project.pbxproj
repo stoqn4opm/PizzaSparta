@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085A112B1B21F7F100500F8B /* PizzaSparta.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 085A111E1B21F7F100500F8B /* PizzaSparta.xcdatamodel */; };
+		085A112C1B21F7F100500F8B /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11201B21F7F100500F8B /* Customer.m */; };
+		085A112D1B21F7F100500F8B /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11221B21F7F100500F8B /* Order.m */; };
+		085A112E1B21F7F100500F8B /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11241B21F7F100500F8B /* Product.m */; };
+		085A112F1B21F7F100500F8B /* Customer+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11261B21F7F100500F8B /* Customer+Modify.m */; };
+		085A11301B21F7F100500F8B /* Order+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11281B21F7F100500F8B /* Order+Modify.m */; };
+		085A11311B21F7F100500F8B /* Product+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A112A1B21F7F100500F8B /* Product+Modify.m */; };
+		085A11371B21F82800500F8B /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11341B21F82800500F8B /* SPAppDelegate.m */; };
+		085A11381B21F82800500F8B /* SPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 085A11361B21F82800500F8B /* SPManager.m */; };
 		9007CE9F1B1F2A4C00F4650F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CE9E1B1F2A4C00F4650F /* main.m */; };
-		9007CEA21B1F2A4C00F4650F /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */; };
-		9007CEA51B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEA31B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld */; };
 		9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEA91B1F2A4D00F4650F /* Main.storyboard */; };
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
 		9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */; };
@@ -38,12 +45,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		085A111E1B21F7F100500F8B /* PizzaSparta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSparta.xcdatamodel; sourceTree = "<group>"; };
+		085A111F1B21F7F100500F8B /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
+		085A11201B21F7F100500F8B /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
+		085A11211B21F7F100500F8B /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		085A11221B21F7F100500F8B /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		085A11231B21F7F100500F8B /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		085A11241B21F7F100500F8B /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		085A11251B21F7F100500F8B /* Customer+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Customer+Modify.h"; sourceTree = "<group>"; };
+		085A11261B21F7F100500F8B /* Customer+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Customer+Modify.m"; sourceTree = "<group>"; };
+		085A11271B21F7F100500F8B /* Order+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Order+Modify.h"; sourceTree = "<group>"; };
+		085A11281B21F7F100500F8B /* Order+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Order+Modify.m"; sourceTree = "<group>"; };
+		085A11291B21F7F100500F8B /* Product+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Product+Modify.h"; sourceTree = "<group>"; };
+		085A112A1B21F7F100500F8B /* Product+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Product+Modify.m"; sourceTree = "<group>"; };
+		085A11331B21F82800500F8B /* SPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
+		085A11341B21F82800500F8B /* SPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
+		085A11351B21F82800500F8B /* SPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPManager.h; sourceTree = "<group>"; };
+		085A11361B21F82800500F8B /* SPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPManager.m; sourceTree = "<group>"; };
 		9007CE991B1F2A4C00F4650F /* PizzaSparta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSparta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CE9D1B1F2A4C00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CE9E1B1F2A4C00F4650F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9007CEA01B1F2A4C00F4650F /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
-		9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
-		9007CEA41B1F2A4C00F4650F /* PizzaSparta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSparta.xcdatamodel; sourceTree = "<group>"; };
 		9007CEAA1B1F2A4D00F4650F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9007CEAC1B1F2A4D00F4650F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9007CEAF1B1F2A4D00F4650F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,6 +107,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		085A111D1B21F7BA00500F8B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				085A111E1B21F7F100500F8B /* PizzaSparta.xcdatamodel */,
+				085A111F1B21F7F100500F8B /* Customer.h */,
+				085A11201B21F7F100500F8B /* Customer.m */,
+				085A11211B21F7F100500F8B /* Order.h */,
+				085A11221B21F7F100500F8B /* Order.m */,
+				085A11231B21F7F100500F8B /* Product.h */,
+				085A11241B21F7F100500F8B /* Product.m */,
+				085A11251B21F7F100500F8B /* Customer+Modify.h */,
+				085A11261B21F7F100500F8B /* Customer+Modify.m */,
+				085A11271B21F7F100500F8B /* Order+Modify.h */,
+				085A11281B21F7F100500F8B /* Order+Modify.m */,
+				085A11291B21F7F100500F8B /* Product+Modify.h */,
+				085A112A1B21F7F100500F8B /* Product+Modify.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		085A11321B21F80100500F8B /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				085A11331B21F82800500F8B /* SPAppDelegate.h */,
+				085A11341B21F82800500F8B /* SPAppDelegate.m */,
+				085A11351B21F82800500F8B /* SPManager.h */,
+				085A11361B21F82800500F8B /* SPManager.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		9007CE901B1F2A4C00F4650F = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +159,10 @@
 		9007CE9B1B1F2A4C00F4650F /* PizzaSparta */ = {
 			isa = PBXGroup;
 			children = (
-				9007CEA01B1F2A4C00F4650F /* SPAppDelegate.h */,
-				9007CEA11B1F2A4C00F4650F /* SPAppDelegate.m */,
+				085A11321B21F80100500F8B /* controller */,
+				085A111D1B21F7BA00500F8B /* model */,
 				90C1E34E1B1FB0A600B6605B /* User Interface */,
 				9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */,
-				9007CEA31B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld */,
 				9007CE9C1B1F2A4C00F4650F /* Supporting Files */,
 			);
 			path = PizzaSparta;
@@ -300,13 +351,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9007CEA21B1F2A4C00F4650F /* SPAppDelegate.m in Sources */,
+				085A11371B21F82800500F8B /* SPAppDelegate.m in Sources */,
+				085A112B1B21F7F100500F8B /* PizzaSparta.xcdatamodel in Sources */,
 				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
+				085A11381B21F82800500F8B /* SPManager.m in Sources */,
+				085A11311B21F7F100500F8B /* Product+Modify.m in Sources */,
+				085A112E1B21F7F100500F8B /* Product.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
+				085A112F1B21F7F100500F8B /* Customer+Modify.m in Sources */,
+				085A11301B21F7F100500F8B /* Order+Modify.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */,
-				9007CEA51B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld in Sources */,
+				085A112D1B21F7F100500F8B /* Order.m in Sources */,
+				085A112C1B21F7F100500F8B /* Customer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,19 +575,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9007CEA31B1F2A4C00F4650F /* PizzaSparta.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9007CEA41B1F2A4C00F4650F /* PizzaSparta.xcdatamodel */,
-			);
-			currentVersion = 9007CEA41B1F2A4C00F4650F /* PizzaSparta.xcdatamodel */;
-			path = PizzaSparta.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9007CE911B1F2A4C00F4650F /* Project object */;
 }
