@@ -78,10 +78,10 @@
         return YES;
     }else{
         if ([matches count] == 0){
-            NSLog( @"%lu should be 0 matches (from Customer+Create.m)", [matches count]);
+            NSLog( @"%lu should be 0 matches (from Customer+Create.m)", (unsigned long)[matches count]);
             return NO;
         } else{
-            NSLog( @"%lu order already exist(from Customer+Create.m)", [matches count]);
+            NSLog( @"%lu order already exist(from Customer+Create.m)", (unsigned long)[matches count]);
             return YES;
         }
     }
