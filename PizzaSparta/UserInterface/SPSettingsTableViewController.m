@@ -17,11 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self.navigationController.navigationBar
+     setBackgroundImage:[UIImage imageNamed:@"TiledBackgroundWithStatusBar"]
+     forBarMetrics:UIBarMetricsDefault];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.navigationItem
+     setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"SettingsLabel"]]];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

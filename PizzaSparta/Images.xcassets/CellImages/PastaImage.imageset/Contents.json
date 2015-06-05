@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "MenuCell@1x.png"
+      "filename" : "Pasta@1x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "MenuCell@2x.png"
+      "filename" : "Pasta@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "MenuCell@3x.png"
+      "filename" : "Pasta@3x.png"
     }
   ],
   "info" : {
