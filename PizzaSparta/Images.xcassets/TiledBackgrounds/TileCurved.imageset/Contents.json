@@ -2,18 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "LaunchImage@1x.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "LaunchImage@2x.png"
+      "filename" : "Tile@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "LaunchImage@3x.png"
+      "filename" : "Tile@3x.png"
     }
   ],
   "info" : {
