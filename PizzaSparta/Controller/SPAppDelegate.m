@@ -8,6 +8,7 @@
 
 #import "SPAppDelegate.h"
 #import "SPColorPreset.h"
+#import "SPManager.h"
 
 @interface SPAppDelegate ()
 

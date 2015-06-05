@@ -14,7 +14,7 @@
 + (Customer *) customerWithUsername: (NSString *) username
                            password: (NSString *) password
                                name: (NSString *) name
-                            address: (NSString *) address{
+                            andAddress: (NSString *) address{
 
     Customer *newCustomer = nil;
     if (![Customer customerDoesExist: username]) {

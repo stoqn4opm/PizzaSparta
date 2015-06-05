@@ -11,10 +11,13 @@
 
 @interface Customer (Modify)
 
+
+// creates a new customer in CD if the username is available with log and returns it (nil if username taken)
 + (Customer *) customerWithUsername: (NSString *) username
                            password: (NSString *) password
                                name: (NSString *) name
-                            address: (NSString *) address;
+                            andAddress: (NSString *) address;
 
+//chechs if a customer with that username exists - done in the cusomerWithUsername: password: name: adress: method
 + (BOOL) customerDoesExist: (NSString *) username;
 @end

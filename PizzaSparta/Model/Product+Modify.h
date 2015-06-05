@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Product.h"
-//@property (nonatomic, retain) NSString * discription;
-//@property (nonatomic, retain) NSNumber * price;
-//@property (nonatomic, retain) NSString * type;
-//@property (nonatomic, retain) NSString * title;
-//@property (nonatomic, retain) Order *order;
 
 @interface Product (Modify)
 
