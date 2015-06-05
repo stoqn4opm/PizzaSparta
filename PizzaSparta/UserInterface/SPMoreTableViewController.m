@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 MentorMate Academy. All rights reserved.
 //
 
-#import "SPSettingsTableViewController.h"
+#import "SPMoreTableViewController.h"
 
-@interface SPSettingsTableViewController ()
+@interface SPMoreTableViewController ()
 
 @end
 
-@implementation SPSettingsTableViewController
+@implementation SPMoreTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

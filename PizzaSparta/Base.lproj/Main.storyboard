@@ -247,7 +247,7 @@
         <!--Settings-->
         <scene sceneID="mTk-UW-HHU">
             <objects>
-                <tableViewController title="Settings" id="WSc-ZX-1Py" customClass="SPSettingsTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Settings" id="WSc-ZX-1Py" customClass="SPMoreTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="NbW-lf-3sX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -440,7 +440,7 @@
         <scene sceneID="vhP-Ts-tnC">
             <objects>
                 <navigationController title="Settings Navigation Controller" id="k08-BQ-Egj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsTabBarIcon" id="c0s-t9-KRW"/>
+                    <tabBarItem key="tabBarItem" title="More" image="SettingsTabBarIcon" id="c0s-t9-KRW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mSh-od-Nxo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

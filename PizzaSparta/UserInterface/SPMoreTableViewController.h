@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPSettingsTableViewController : UITableViewController
+@interface SPMoreTableViewController : UITableViewController
 
 @end

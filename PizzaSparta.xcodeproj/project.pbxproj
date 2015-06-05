@@ -24,7 +24,7 @@
 		90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954B51B2024AE006A0D8E /* SPMenuTableViewController.m */; };
 		90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */; };
 		90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954CE1B202546006A0D8E /* SPCartTableViewController.m */; };
-		90A954D21B20255A006A0D8E /* SPSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */; };
+		90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A954D11B20255A006A0D8E /* SPMoreTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 		90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPPromoTableViewController.m; path = UserInterface/SPPromoTableViewController.m; sourceTree = "<group>"; };
 		90A954CD1B202546006A0D8E /* SPCartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCartTableViewController.h; path = UserInterface/SPCartTableViewController.h; sourceTree = "<group>"; };
 		90A954CE1B202546006A0D8E /* SPCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCartTableViewController.m; path = UserInterface/SPCartTableViewController.m; sourceTree = "<group>"; };
-		90A954D01B20255A006A0D8E /* SPSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPSettingsTableViewController.h; path = UserInterface/SPSettingsTableViewController.h; sourceTree = "<group>"; };
-		90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPSettingsTableViewController.m; path = UserInterface/SPSettingsTableViewController.m; sourceTree = "<group>"; };
+		90A954D01B20255A006A0D8E /* SPMoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMoreTableViewController.h; path = UserInterface/SPMoreTableViewController.h; sourceTree = "<group>"; };
+		90A954D11B20255A006A0D8E /* SPMoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMoreTableViewController.m; path = UserInterface/SPMoreTableViewController.m; sourceTree = "<group>"; };
 		90A954D31B202D44006A0D8E /* SPColorPreset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SPColorPreset.h; path = UserInterface/UIResources/SPColorPreset.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,8 +186,8 @@
 				90A954CB1B202525006A0D8E /* SPPromoTableViewController.m */,
 				90A954CD1B202546006A0D8E /* SPCartTableViewController.h */,
 				90A954CE1B202546006A0D8E /* SPCartTableViewController.m */,
-				90A954D01B20255A006A0D8E /* SPSettingsTableViewController.h */,
-				90A954D11B20255A006A0D8E /* SPSettingsTableViewController.m */,
+				90A954D01B20255A006A0D8E /* SPMoreTableViewController.h */,
+				90A954D11B20255A006A0D8E /* SPMoreTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			files = (
 				9007CEA21B1F2A4C00F4650F /* SPAppDelegate.m in Sources */,
 				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
-				90A954D21B20255A006A0D8E /* SPSettingsTableViewController.m in Sources */,
+				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */,
