@@ -60,9 +60,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     
-    NSArray *sections = [self.fetchController sections];
-    id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    return [[self.fetchController fetchedObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView

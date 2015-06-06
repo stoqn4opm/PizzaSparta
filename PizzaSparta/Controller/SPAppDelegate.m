@@ -23,11 +23,11 @@
     [self.window setTintColor:SPCOLOR_RED];
 
 //    Uncomment these to test population of data across views and core data
-//    Product *pr1 = [Product productWithTitle:@"Pizza 1" description:@"Short desc" andType:SPPizza];
-//    Product *pr2 = [Product productWithTitle:@"Pizza 2" description:@"Short desc 2" andType:SPPizza];
-//    
-//    Product *pr3 = [Product productWithTitle:@"Pasta 1" description:@"Short desc" andType:SPPasta];
-//    Product *pr4 = [Product productWithTitle:@"Pasta 2" description:@"Short desc 2" andType:SPPasta];
+    Product *pr1 = [Product productWithTitle:@"Pizza 1" description:@"Short desc" andType:SPPizza];
+    Product *pr2 = [Product productWithTitle:@"Pizza 2" description:@"Short desc 2" andType:SPPizza];
+    
+    Product *pr3 = [Product productWithTitle:@"Pasta 1" description:@"Short desc" andType:SPPasta];
+    Product *pr4 = [Product productWithTitle:@"Pasta 2" description:@"Short desc 2" andType:SPPasta];
     return YES;
 }
 
