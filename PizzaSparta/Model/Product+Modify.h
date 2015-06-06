@@ -12,7 +12,7 @@
 @interface Product (Modify)
 
 +(Product *) productWithTitle: (NSString *) title
-                  discription: (NSString *) discription
+                  description: (NSString *) description
                       andType: (NSString *) type;
 
 @end

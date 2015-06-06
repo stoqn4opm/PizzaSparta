@@ -1,5 +1,5 @@
 //
-//  SPColorPreset.h
+//  SPUIHeader.h
 //  PizzaSparta
 //
 //  Created by Stoqn Stoqnov on 6/4/15.
@@ -19,3 +19,11 @@
 #define SPCOLOR_WHITE         [UIColor colorWithRed:0.82 green:0.82 blue:0.82 alpha:1.0]
 #define SPCOLOR_GREEN         [UIColor colorWithRed:0.27 green:0.46 blue:0.32 alpha:1.0]
 #define SPCOLOR_RED           [UIColor colorWithRed:0.67 green:0.21 blue:0.16 alpha:1.0]
+
+
+#define SPCORNER_RADIUS 9.0f
+
+typedef NSString SPMenuType;
+#define SPPizza @"Pizza"
+#define SPPasta @"Pasta"
+#define SPDrinks @"Drinks"

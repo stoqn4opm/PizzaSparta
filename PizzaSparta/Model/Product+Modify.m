@@ -12,7 +12,7 @@
 @implementation Product (Modify)
 
 +(Product *) productWithTitle: (NSString *) title
-                  discription: (NSString *) discription
+                  description: (NSString *) description
                       andType: (NSString *) type{
 
     Product *newProduct = nil;
@@ -20,7 +20,7 @@
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
     newProduct.title = title;
-    newProduct.discription = discription;
+    newProduct.productDesc = description;
     newProduct.type = type;
     [context save: NULL];
     return newProduct;

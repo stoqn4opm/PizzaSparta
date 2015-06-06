@@ -1,9 +1,9 @@
 //
 //  Product.m
-//  
+//  PizzaSparta
 //
-//  Created by Petar Kanev on 6/5/15.
-//
+//  Created by Stoqn Stoqnov on 6/6/15.
+//  Copyright (c) 2015 MentorMate Academy. All rights reserved.
 //
 
 #import "Product.h"
@@ -12,10 +12,10 @@
 
 @implementation Product
 
-@dynamic discription;
+@dynamic productDesc;
 @dynamic price;
-@dynamic type;
 @dynamic title;
+@dynamic type;
 @dynamic order;
 
 @end

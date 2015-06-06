@@ -34,6 +34,8 @@
                 <constraint firstItem="Lnt-Zu-WXl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j3p-sv-XN1"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
