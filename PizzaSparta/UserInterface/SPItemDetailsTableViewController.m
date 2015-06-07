@@ -7,8 +7,19 @@
 //
 
 #import "SPItemDetailsTableViewController.h"
+#import "SPUIHeader.h"
+#import "UIViewController+SPImageBackButton.h"
 
 @interface SPItemDetailsTableViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UITextView *lblDescription;
+@property (weak, nonatomic) IBOutlet UITextField *txtAmmount;
+@property (weak, nonatomic) IBOutlet UILabel *lblCurrency;
+@property (weak, nonatomic) IBOutlet UIView *priceBackgroundView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgMinus;
+@property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
+@property (weak, nonatomic) IBOutlet UILabel *lblPrice;
 
 @end
 
@@ -17,84 +28,80 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self.lblName setText:self.selectedProduct.title];
+    [self.lblDescription setText:self.selectedProduct.productDesc];
+    [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+#warning TODO load Item image when imageURL added to Product model
     
-    // Configure the cell...
+    [self prepareUI];
+}
+
+- (void)prepareUI{
     
-    return cell;
+    [self.navigationItem setTitle:@""];
+    [self shoppingCartActionsInit];
+    [self setUpImageBackButton];
+    
+    [self.priceBackgroundView.layer setCornerRadius:SPCORNER_RADIUS];
+    [self.priceBackgroundView setClipsToBounds:YES];
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - Cart Actions
+- (void)shoppingCartActionsInit{
+    
+    UITapGestureRecognizer *minusTap = [[UITapGestureRecognizer alloc]
+                                        initWithTarget:self action:@selector(minusPressed)];
+    
+    [minusTap setNumberOfTapsRequired:1];
+    [minusTap setNumberOfTouchesRequired:1];
+    [self.imgMinus setUserInteractionEnabled:YES];
+    [self.imgMinus addGestureRecognizer:minusTap];
+    
+    UITapGestureRecognizer *plusTap = [[UITapGestureRecognizer alloc]
+                                        initWithTarget:self action:@selector(plusPressed)];
+    
+    [plusTap setNumberOfTapsRequired:1];
+    [plusTap setNumberOfTouchesRequired:1];
+    [self.imgPlus setUserInteractionEnabled:YES];
+    [self.imgPlus addGestureRecognizer:plusTap];
+    
+    
+    UITapGestureRecognizer *resignKB = [[UITapGestureRecognizer alloc]
+                                        initWithTarget:self.txtAmmount
+                                        action:@selector(resignFirstResponder)];
+    
+    [resignKB setNumberOfTapsRequired:1];
+    [resignKB setNumberOfTouchesRequired:1];
+    [self.view setUserInteractionEnabled:YES];
+    [self.view addGestureRecognizer:resignKB];
+
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void) minusPressed{
+
+    [self.imgMinus setAlpha:0];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.imgMinus setAlpha:1];
+    }];
+    
+    NSInteger amm = self.txtAmmount.text.integerValue;
+    if (amm > 0) {
+        
+        [self.txtAmmount setText:[NSString stringWithFormat:@"%d",--amm]];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+
+-(void) plusPressed{
+    
+    [self.imgPlus setAlpha:0];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.imgPlus setAlpha:1];
+    }];
+    
+    NSInteger amm = self.txtAmmount.text.integerValue;
+    [self.txtAmmount setText:[NSString stringWithFormat:@"%d",++amm]];
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -85,8 +85,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
     
-//    Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
-//    [[segue destinationViewController] setSelectedProduct:selectedProduct];
+    Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
+    [[segue destinationViewController] setSelectedProduct:selectedProduct];
     NSLog(@"Not yet implemented");
 }
 
