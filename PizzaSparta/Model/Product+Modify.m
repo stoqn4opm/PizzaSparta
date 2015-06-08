@@ -11,19 +11,55 @@
 
 @implementation Product (Modify)
 
-+(Product *) productWithTitle: (NSString *) title
-                  description: (NSString *) description
-                      andType: (NSString *) type{
++ (Product *) productWithTitle: (NSString *) title
+                          size: (NSString *) size
+                         price: (NSNumber *) price
+                   description: (NSString *) description
+                          Type: (NSString *) type
+                   andPhotoURL: (NSString *) URL{
 
     Product *newProduct = nil;
     
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
     newProduct.title = title;
+    newProduct.size = size;
+    newProduct.price = price;
     newProduct.productDesc = description;
     newProduct.type = type;
+    newProduct.isPromo = @0;
+    newProduct.photoURL = URL;
     [context save: NULL];
     return newProduct;
 }
 
+#pragma mark - property setters and getters
+
+- (BOOL) isPromo{
+    if ([self.isPromo  isEqual: @1])
+        return YES;
+    else
+        return NO;
+}
+
+- (void) isPromo: (BOOL) isPromo{
+    if (isPromo)
+        self.isPromo = @1;
+    else
+        self.isPromo = @0;
+}
+
+- (NSURL *) photoURL{
+    return [NSURL URLWithString: self.photoURL];
+}
+
+- (void) setPromo: (BOOL) isPromo andNewPrice: (NSNumber *) newPrice{
+
+    if (isPromo) {
+        self.isPromo = @1;
+    }else
+        self.isPromo = @0;
+    
+    self.price = newPrice;
+}
 @end
