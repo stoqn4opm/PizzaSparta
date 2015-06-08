@@ -36,21 +36,68 @@
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
     
     request.predicate = [NSPredicate predicateWithFormat: @"username = %@", username];
-    
-    NSArray *matches = [[[SPManager sharedManager] privateChildMOContext] executeFetchRequest:request error:NULL];
-    
+    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+    NSArray *matches = [context
+                        executeFetchRequest:request error:NULL];
+    NSLog(@"%@", matches);
     if (matches == nil){
         NSLog( @"no fetched results(from Customer+Create.m)");
         return YES;
+        
     }else{
         if ([matches count] == 0){
             NSLog( @"%lu should be 0 matches (from Customer+Create.m)", (unsigned long)[matches count]);
             return NO;
         } else{
             NSLog( @"%lu user already exist(from Customer+Create.m)", (unsigned long)[matches count]);
+            NSLog(@"%@", [matches[0] username]);
             return YES;
         }
     }
 }
 
+//check if user exist
++(BOOL)validateCustomersWithUsername:(NSString *)username andPassword:(NSString *)password{
+    if([self customerDoesExist:username] == NO){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
+                                                        message:[NSString stringWithFormat:@"No user with username: %@", username]
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+    else{
+        NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Customer"];
+    
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"username = %@ AND password = %@", username, password];
+        NSError *error = nil;
+        NSArray* results = [[[SPManager sharedManager] privateChildMOContext] executeFetchRequest:fetchRequest    error:&error];
+        if(error){
+            NSLog(@"validation error - %@", error);
+        }
+        else if ([results count] > 0){
+           // NSArray *result = [[[SPManager sharedManager] privateChildMOContext] executeFetchRequest:fetchRequest error:&error];
+            //[result objectAtIndex:0];
+
+            [[SPManager sharedManager] setLoggedCustomer:results[0]];
+            NSLog(@"usename - %@", [[[SPManager sharedManager] loggedCustomer] username]);
+            
+            return YES;
+            
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error"
+                                                            message:@"Wrong username/password"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+            return NO;
+        }
+    
+    }
+    return NO;
+}
 @end

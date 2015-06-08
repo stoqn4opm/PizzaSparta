@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Customer.h"
 
 
 @interface SPManager : NSObject
@@ -15,7 +16,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *mainUIMOContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
+@property (strong, nonatomic) Customer* loggedCustomer;
 
 + (instancetype) sharedManager;
 - (NSManagedObjectContext *) privateChildMOContext;

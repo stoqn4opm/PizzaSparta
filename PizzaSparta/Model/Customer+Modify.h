@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Customer.h"
-
+#import "NSString+Check.h"
+#import <UIKit/UIKit.h>
 @interface Customer (Modify)
 
 
@@ -20,4 +21,6 @@
 
 //chechs if a customer with that username exists - done in the cusomerWithUsername: password: name: adress: method
 + (BOOL) customerDoesExist: (NSString *) username;
+
++ (BOOL) validateCustomersWithUsername:(NSString*) username andPassword:(NSString*)password;
 @end

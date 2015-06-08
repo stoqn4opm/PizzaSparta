@@ -10,6 +10,7 @@
 #import "SPUIHeader.h"
 #import "SPManager.h"
 #import "Product+Modify.h"
+#import "Customer+Modify.h"
 
 @interface SPAppDelegate ()
 
@@ -28,6 +29,21 @@
     
     Product *pr3 = [Product productWithTitle:@"Pasta 1" description:@"Short desc" andType:SPPasta];
     Product *pr4 = [Product productWithTitle:@"Pasta 2" description:@"Short desc 2" andType:SPPasta];
+   // [Customer customerWithUsername:@"nik2" password:@"1234" name:@"Nikolai" andAddress:@"Sofia"];
+    /*__block BOOL success = YES;
+    while ([[SPManager sharedManager] privateChildMOContext] && success) {
+        [[[SPManager sharedManager] privateChildMOContext] performBlockAndWait:^{
+            NSError * error_context=nil;
+            
+            success = [[[SPManager sharedManager] privateChildMOContext] [[SPManager sharedManager] saveParentContextToStore]:&error_context];
+            if(success == false){
+                NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
+            }
+        }];
+        [[SPManager sharedManager] [[SPManager sharedManager] privateChildMOContext]] = context.parentContext;
+    }*/
+    //[[SPManager sharedManager] saveParentContextToStore];
+    [Customer customerDoesExist:@"nik2"];
     return YES;
 }
 
