@@ -17,6 +17,7 @@
 @interface SPMenuItemsTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchController;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+@property (nonatomic, strong) UIImageView *createCustomPizza;
 @end
 
 @implementation SPMenuItemsTableViewController
@@ -81,13 +82,61 @@
     [self performSegueWithIdentifier:@"ShowDetails" sender:nil];
 }
 
+#pragma mark - <UITableViewDelegate> Methods
+-(UIView *)tableView:(UITableView *)tableView
+    viewForHeaderInSection:(NSInteger)section{
+    
+    if (section > 0 ||
+        [self.selectedType isEqualToString:SPPasta] ||
+        [self.selectedType isEqualToString:SPDrinks] ) {
+        return nil;
+    }
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    
+    
+    self.createCustomPizza = [[UIImageView alloc]
+                                      initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
+
+    [self.createCustomPizza setBackgroundColor:SPCOLOR_GREEN];
+    [self.createCustomPizza setImage:[UIImage imageNamed:@"CreateCustomPizza"]];
+    [self.createCustomPizza setContentMode:UIViewContentModeScaleAspectFit];
+    [self.createCustomPizza setUserInteractionEnabled:YES];
+    
+    UIView *brownLine = [[UIView alloc]
+                         initWithFrame:CGRectMake(0, 30, header.frame.size.width, 10)];
+    
+    [brownLine setBackgroundColor:SPCOLOR_DARK_BROWN];
+    [header addSubview:self.createCustomPizza];
+    [header addSubview:brownLine];
+    
+    UITapGestureRecognizer *customPizzaTapped = [[UITapGestureRecognizer alloc]
+                                                 initWithTarget:self
+                                                 action:@selector(createCustomPizzaTapped)];
+    [customPizzaTapped setNumberOfTapsRequired:1];
+    [customPizzaTapped setNumberOfTouchesRequired:1];
+    
+    [self.createCustomPizza addGestureRecognizer:customPizzaTapped];
+    return header;
+}
+
+#pragma mark - Create Custom Pizza Handler
+-(void) createCustomPizzaTapped{
+    
+    [self.createCustomPizza setAlpha:0];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.createCustomPizza setAlpha:1.0];
+    }];
+    NSLog(@"custom pizza");
+    //[self performSegueWithIdentifier:@"CustomPizza" sender:nil];
+}
+
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
     
     Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
     [[segue destinationViewController] setSelectedProduct:selectedProduct];
-    NSLog(@"Not yet implemented");
 }
 
 #pragma mark - NSResultsFetchController Init
