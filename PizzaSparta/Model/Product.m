@@ -11,13 +11,14 @@
 
 @implementation Product
 
+@dynamic isPromo;
+@dynamic photoURL;
 @dynamic price;
 @dynamic productDesc;
+@dynamic size;
 @dynamic title;
 @dynamic type;
-@dynamic isPromo;
-@dynamic size;
-@dynamic photoURL;
+@dynamic id;
 @dynamic order;
 
 @end
