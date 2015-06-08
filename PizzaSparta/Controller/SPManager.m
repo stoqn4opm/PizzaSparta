@@ -23,7 +23,10 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        // init properties
+        _cart = [[NSMutableDictionary alloc] init];
+        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
+        [_cart setValue: emptyArr forKey: @"Product"];
+        [_cart setValue: emptyArr forKey: @"Amount"];
     }
     return self;
 }
