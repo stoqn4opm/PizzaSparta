@@ -26,7 +26,6 @@
 		90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B1D1B2359000045788C /* SPMenuItemsTableViewController.m */; };
 		90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B201B235BA90045788C /* SPItemTableViewCell.m */; };
 		90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */; };
-		90C16B271B237C400045788C /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B261B237C400045788C /* Product.m */; };
 		90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */; };
 		90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */; };
 		90F111B01B21FD7C0044AA63 /* Customer+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F1119D1B21FD7C0044AA63 /* Customer+Modify.m */; };
@@ -83,8 +82,6 @@
 		90C16B201B235BA90045788C /* SPItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPItemTableViewCell.m; path = UserInterface/SPItemTableViewCell.m; sourceTree = "<group>"; };
 		90C16B221B23621F0045788C /* SPItemDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPItemDetailsTableViewController.h; path = UserInterface/SPItemDetailsTableViewController.h; sourceTree = "<group>"; };
 		90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPItemDetailsTableViewController.m; path = UserInterface/SPItemDetailsTableViewController.m; sourceTree = "<group>"; };
-		90C16B251B237C400045788C /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		90C16B261B237C400045788C /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		90C16B281B2393FE0045788C /* UIViewController+SPImageBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SPImageBackButton.h"; path = "UserInterface/UIResources/UIViewController+SPImageBackButton.h"; sourceTree = "<group>"; };
 		90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SPImageBackButton.m"; path = "UserInterface/UIResources/UIViewController+SPImageBackButton.m"; sourceTree = "<group>"; };
 		90C16B2B1B23AA640045788C /* SPAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAboutTableViewController.h; path = UserInterface/SPAboutTableViewController.h; sourceTree = "<group>"; };
@@ -279,16 +276,18 @@
 		90F1119B1B21FD7C0044AA63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				90C16B251B237C400045788C /* Product.h */,
-				90C16B261B237C400045788C /* Product.m */,
-				90F1119C1B21FD7C0044AA63 /* Customer+Modify.h */,
-				90F1119D1B21FD7C0044AA63 /* Customer+Modify.m */,
+				F1448E351B25C25C009CCF1E /* Product.h */,
+				F1448E361B25C25C009CCF1E /* Product.m */,
+				90F111A71B21FD7C0044AA63 /* Product+Modify.h */,
+				90F111A81B21FD7C0044AA63 /* Product+Modify.m */,
 				90F1119E1B21FD7C0044AA63 /* Customer.h */,
 				90F1119F1B21FD7C0044AA63 /* Customer.m */,
-				90F111A01B21FD7C0044AA63 /* Order+Modify.h */,
-				90F111A11B21FD7C0044AA63 /* Order+Modify.m */,
+				90F1119C1B21FD7C0044AA63 /* Customer+Modify.h */,
+				90F1119D1B21FD7C0044AA63 /* Customer+Modify.m */,
 				90F111A21B21FD7C0044AA63 /* Order.h */,
 				90F111A31B21FD7C0044AA63 /* Order.m */,
+				90F111A01B21FD7C0044AA63 /* Order+Modify.h */,
+				90F111A11B21FD7C0044AA63 /* Order+Modify.m */,
 				90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */,
 				90F111A71B21FD7C0044AA63 /* Product+Modify.h */,
 				90F111A81B21FD7C0044AA63 /* Product+Modify.m */,
@@ -428,8 +427,8 @@
 			files = (
 				90F111B31B21FD7C0044AA63 /* Order.m in Sources */,
 				90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */,
+				F1448E371B25C25C009CCF1E /* Product.m in Sources */,
 				90F111B21B21FD7C0044AA63 /* Order+Modify.m in Sources */,
-				90C16B271B237C400045788C /* Product.m in Sources */,
 				90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */,
 				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
 				90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */,

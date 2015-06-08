@@ -11,8 +11,21 @@
 
 @interface Product (Modify)
 
-+(Product *) productWithTitle: (NSString *) title
+// creates a new product and returns it and sets it's isPromo property to NO (0)
++ (Product *) productWithTitle: (NSString *) title
+                         size: (NSString *) size
+                        price: (NSNumber *) price
                   description: (NSString *) description
-                      andType: (NSString *) type;
+                      Type: (NSString *) type
+                   andPhotoURL: (NSString *) URL;
+
+//isPromo setters and getters
+- (BOOL) isPromo;
+- (void) isPromo: (BOOL) isPromo;
+
+- (NSURL *) photoURL;
+
+- (void) setPromo: (BOOL) isPromo andNewPrice: (NSNumber *) newPrice;
+
 
 @end
