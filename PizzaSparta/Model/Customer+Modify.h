@@ -19,8 +19,17 @@
                                name: (NSString *) name
                             andAddress: (NSString *) address;
 
+// creates a new customer in your MOC and if not saved will dissaper
++ (Customer *) customerWithUsername: (NSString *) username
+                           password: (NSString *) password
+                               name: (NSString *) name
+                         andAddress: (NSString *) address
+                              inMOC: (NSManagedObjectContext *) context;
+
 //chechs if a customer with that username exists - done in the cusomerWithUsername: password: name: adress: method
 + (BOOL) customerDoesExist: (NSString *) username;
 
 + (BOOL) validateCustomersWithUsername:(NSString*) username andPassword:(NSString*)password;
+
+//+ (Customer *) storedCustomer;
 @end

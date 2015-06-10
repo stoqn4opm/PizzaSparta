@@ -31,6 +31,23 @@
     return newCustomer;
 }
 
++ (Customer *) customerWithUsername: (NSString *) username
+                           password: (NSString *) password
+                               name: (NSString *) name
+                         andAddress: (NSString *) address
+                              inMOC: (NSManagedObjectContext *) context{
+
+    Customer *newCustomer = nil;
+    if (![Customer customerDoesExist: username]) {
+        newCustomer = [NSEntityDescription insertNewObjectForEntityForName: @"Customer" inManagedObjectContext: context];
+        newCustomer.username = username;
+        newCustomer.password = password;
+        newCustomer.name = name;
+        newCustomer.address = address;
+    }
+    return newCustomer;
+}
+
 + (BOOL) customerDoesExist: (NSString *) username{
     
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
@@ -41,23 +58,32 @@
                         executeFetchRequest:request error:NULL];
     NSLog(@"%@", matches);
     if (matches == nil){
-        NSLog( @"no fetched results(from Customer+Create.m)");
+        NSLog( @"no fetched results(from Customer+Modify.m)");
         return YES;
         
     }else{
         if ([matches count] == 0){
-            NSLog( @"%lu should be 0 matches (from Customer+Create.m)", (unsigned long)[matches count]);
+            NSLog( @"%lu should be 0 matches (from Customer+Modify.m)", (unsigned long)[matches count]);
             return NO;
         } else{
-            NSLog( @"%lu user already exist(from Customer+Create.m)", (unsigned long)[matches count]);
+            NSLog( @"%lu user already exist(from Customer+Modify.m)", (unsigned long)[matches count]);
             NSLog(@"%@", [matches[0] username]);
             return YES;
         }
     }
 }
 
+//+ (Customer *) storedCustomer{
+//    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
+//        NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+//    NSArray *matches = [context executeFetchRequest:request error:NULL];
+//    NSLog(@"stored customers in core data: %lud (from Customer+Modify.m)", (unsigned long)[matches count]);
+//    return matches[0];
+//}
+
 //check if user exist
-+(BOOL)validateCustomersWithUsername:(NSString *)username andPassword:(NSString *)password{
+
++ (BOOL) validateCustomersWithUsername:(NSString *)username andPassword:(NSString *)password{
     if([self customerDoesExist:username] == NO){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
                                                         message:[NSString stringWithFormat:@"No user with username: %@", username]
@@ -81,6 +107,7 @@
             //[result objectAtIndex:0];
 
             [[SPManager sharedManager] setLoggedCustomer:results[0]];
+            
             NSLog(@"usename - %@", [[[SPManager sharedManager] loggedCustomer] username]);
             
             return YES;

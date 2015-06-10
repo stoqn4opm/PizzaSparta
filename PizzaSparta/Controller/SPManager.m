@@ -10,6 +10,7 @@
 #import "Customer+Modify.h"
 #import "Product+Modify.h"
 #import "SPUIHeader.h"
+
 @implementation SPManager
 
 + (instancetype) sharedManager{
@@ -17,6 +18,7 @@
     @synchronized(self){
         if (sharedManager == nil) {
             sharedManager = [[self alloc] init];
+            
         }
     }
     return sharedManager;
@@ -31,6 +33,21 @@
         [_cart setValue: emptyArr forKey: @"Amount"];
     }
     return self;
+}
+
+#pragma mark - logged in customers
+- (void) logInCustomerWithUsername: (NSString *) username{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
+    request.predicate = [NSPredicate predicateWithFormat: @"username = %@", username];
+    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+    NSArray *matches = [context executeFetchRequest:request error:NULL];
+    self.loggedCustomer = matches[0];
+}
+
+- (NSArray *) loggedInCustomers{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
+    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+    return [context executeFetchRequest:request error:NULL];
 }
 
 #pragma mark - Core Data stack
@@ -140,20 +157,16 @@
     }
 }
 
-- (void) storeLoggedInCustomerWithUsername: (NSString *) username andPassword: (NSString *) password{
-    
-//    if ([[SPServerAPI sharedAPI] customerDoesExist: username andPassword: password]) {
-//    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
-//    NSDictionary *userDict = [[SPServerAPI sharedAPI] userDetailesFor: username andPassword: password];
-//    }
-    
-}
 
 
 #pragma mark - Set up menu
 
-- (void) setUpMenu{
-
+- (void) updateMenu{
+    Product *pr1 = [Product productWithTitle: @"Pizza margherita" size: @"medium" price: @12 description: @"A classic pizza margherita" Type: SPPizza andPhotoURL: @"http://pizzaexpress071.nl/wp-content/uploads/2014/01/Pizza-Margherita.jpg"];
+    Product *pr2 = [Product productWithTitle: @"Pizza pepperoni"size: @"medium" price: @15 description: @"A classic pizza pepperoni" Type: SPPizza andPhotoURL: @"http://bluewallpaperhd.com/wp-content/uploads/2014/08/pepperoni-pizza-pizza-hut-slice.jpg"];
+    
+    Product *pr3 = [Product productWithTitle: @"Pasta bolognese" size: @"400g" price: @7 description: @"A portion of the classic bolognese pasta" Type: SPPasta andPhotoURL: @"http://031b7b3.netsolhost.com/WordPress/wp-content/uploads/2013/12/tofu-bolognese.jpg"];
+    Product *pt4 = [Product productWithTitle: @"Four cheese pasta" size: @"400g" price: @8 description: @"A portion of the classic four cheese pasta" Type: SPPasta andPhotoURL: @"http://www.cellocheese.com/wp-content/uploads/2012/02/fourcheesepasta.jpg"];
 }
 
 

@@ -18,7 +18,7 @@
 @dynamic size;
 @dynamic title;
 @dynamic type;
-@dynamic id;
+@dynamic productID;
 @dynamic order;
 
 @end
