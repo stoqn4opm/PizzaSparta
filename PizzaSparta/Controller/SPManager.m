@@ -7,7 +7,9 @@
 //
 
 #import "SPManager.h"
-
+#import "Customer+Modify.h"
+#import "Product+Modify.h"
+#import "SPUIHeader.h"
 @implementation SPManager
 
 + (instancetype) sharedManager{
@@ -137,4 +139,36 @@
         }
     }
 }
+
+- (void) storeLoggedInCustomerWithUsername: (NSString *) username andPassword: (NSString *) password{
+    
+//    if ([[SPServerAPI sharedAPI] customerDoesExist: username andPassword: password]) {
+//    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+//    NSDictionary *userDict = [[SPServerAPI sharedAPI] userDetailesFor: username andPassword: password];
+//    }
+    
+}
+
+
+#pragma mark - Set up menu
+
+- (void) setUpMenu{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
