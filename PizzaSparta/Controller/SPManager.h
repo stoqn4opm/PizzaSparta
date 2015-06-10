@@ -22,11 +22,11 @@
 + (instancetype) sharedManager;
 - (NSManagedObjectContext *) privateChildMOContext;
 
-// returns all of the logged in customers
-- (NSArray *) loggedInCustomers;
+// returns all of the logged in accounts
+- (NSArray *) savedAccounts;
 
-// use this method to log in an already stored customer
-- (void) logInCustomerWithUsername: (NSString *) username;
+// use this method to log in an already stored accounts
+- (void) logInCustomerWithAccountName: (NSString *) username;
 
 - (void) saveParentContextToStore;
 

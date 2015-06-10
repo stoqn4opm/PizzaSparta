@@ -36,6 +36,7 @@
 		90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */; };
 		90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AF1B21FD7C0044AA63 /* SPManager.m */; };
 		F12FCDE31B284C0900CCE789 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE21B284C0900CCE789 /* Customer.m */; };
+		F12FCDE61B287E7500CCE789 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE51B287E7500CCE789 /* Account.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439291B25BA3C00356D1F /* SPLogInViewController.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
@@ -102,6 +103,8 @@
 		90F111AF1B21FD7C0044AA63 /* SPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPManager.m; sourceTree = "<group>"; };
 		F12FCDE11B284C0900CCE789 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
 		F12FCDE21B284C0900CCE789 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
+		F12FCDE41B287E7500CCE789 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		F12FCDE51B287E7500CCE789 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		F27439281B25BA3C00356D1F /* SPLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPLogInViewController.h; path = UserInterface/SPLogInViewController.h; sourceTree = "<group>"; };
@@ -288,6 +291,8 @@
 				90F111A01B21FD7C0044AA63 /* Order+Modify.h */,
 				90F111A11B21FD7C0044AA63 /* Order+Modify.m */,
 				90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */,
+				F12FCDE41B287E7500CCE789 /* Account.h */,
+				F12FCDE51B287E7500CCE789 /* Account.m */,
 				F1448E3B1B25EA2B009CCF1E /* Product.h */,
 				F1448E3C1B25EA2B009CCF1E /* Product.m */,
 				90F111A71B21FD7C0044AA63 /* Product+Modify.h */,
@@ -435,6 +440,7 @@
 				90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */,
 				90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
+				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,

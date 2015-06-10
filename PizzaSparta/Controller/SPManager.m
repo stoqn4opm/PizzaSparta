@@ -35,17 +35,18 @@
     return self;
 }
 
-#pragma mark - logged in customers
-- (void) logInCustomerWithUsername: (NSString *) username{
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
+#pragma mark - logged in accounts
+
+- (void) logInCustomerWithAccountName: (NSString *) username{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
     request.predicate = [NSPredicate predicateWithFormat: @"username = %@", username];
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
-    NSArray *matches = [context executeFetchRequest:request error:NULL];
+    NSArray *matches = [context executeFetchRequest: request error: NULL];
     self.loggedCustomer = matches[0];
 }
 
-- (NSArray *) loggedInCustomers{
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Customer"];
+- (NSArray *) savedAccounts{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Accounts"];
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     return [context executeFetchRequest:request error:NULL];
 }
