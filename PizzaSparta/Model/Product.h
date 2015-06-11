@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * size;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSNumber * idProduct;
 @property (nonatomic, retain) NSManagedObject *order;
 
 @end

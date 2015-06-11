@@ -39,6 +39,10 @@
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439291B25BA3C00356D1F /* SPLogInViewController.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
+		F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */; };
+		F2E9DD351B285D1B00F2E3BD /* SPJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD341B285D1B00F2E3BD /* SPJSONParser.m */; };
+		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
+		F2E9DD3B1B28790B00F2E3BD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD3A1B28790B00F2E3BD /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,14 @@
 		F27439291B25BA3C00356D1F /* SPLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPLogInViewController.m; path = UserInterface/SPLogInViewController.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		F2B2CD331B29BD150015C1F0 /* SPRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRegistrationViewController.h; path = UserInterface/SPRegistrationViewController.h; sourceTree = "<group>"; };
+		F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationViewController.m; path = UserInterface/SPRegistrationViewController.m; sourceTree = "<group>"; };
+		F2E9DD331B285D1B00F2E3BD /* SPJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPJSONParser.h; sourceTree = "<group>"; };
+		F2E9DD341B285D1B00F2E3BD /* SPJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPJSONParser.m; sourceTree = "<group>"; };
+		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
+		F2E9DD371B2874AF00F2E3BD /* UserAdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAdress.m; sourceTree = "<group>"; };
+		F2E9DD391B28790B00F2E3BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		F2E9DD3A1B28790B00F2E3BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +277,7 @@
 		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2B2CD321B29BCC10015C1F0 /* Registration */,
 				F274392B1B25BA4A00356D1F /* LogIn */,
 				90C16B2E1B23AA7A0045788C /* Menu */,
 				90C16B2F1B23AA900045788C /* More */,
@@ -294,6 +307,10 @@
 				90F111A81B21FD7C0044AA63 /* Product+Modify.m */,
 				F274392F1B25BFA700356D1F /* NSString+Check.h */,
 				F27439301B25BFA700356D1F /* NSString+Check.m */,
+				F2E9DD361B2874AF00F2E3BD /* UserAdress.h */,
+				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
+				F2E9DD391B28790B00F2E3BD /* User.h */,
+				F2E9DD3A1B28790B00F2E3BD /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +322,8 @@
 				90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */,
 				90F111AE1B21FD7C0044AA63 /* SPManager.h */,
 				90F111AF1B21FD7C0044AA63 /* SPManager.m */,
+				F2E9DD331B285D1B00F2E3BD /* SPJSONParser.h */,
+				F2E9DD341B285D1B00F2E3BD /* SPJSONParser.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,10 +331,19 @@
 		F274392B1B25BA4A00356D1F /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				F27439291B25BA3C00356D1F /* SPLogInViewController.m */,
 				F27439281B25BA3C00356D1F /* SPLogInViewController.h */,
+				F27439291B25BA3C00356D1F /* SPLogInViewController.m */,
 			);
 			name = LogIn;
+			sourceTree = "<group>";
+		};
+		F2B2CD321B29BCC10015C1F0 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				F2B2CD331B29BD150015C1F0 /* SPRegistrationViewController.h */,
+				F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */,
+			);
+			name = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,13 +462,17 @@
 				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
 				90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */,
 				90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */,
+				F2E9DD3B1B28790B00F2E3BD /* User.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
+				F2E9DD351B285D1B00F2E3BD /* SPJSONParser.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
+				F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
 				F12FCDE31B284C0900CCE789 /* Customer.m in Sources */,
 				F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */,
+				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
 				90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */,
 				90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */,

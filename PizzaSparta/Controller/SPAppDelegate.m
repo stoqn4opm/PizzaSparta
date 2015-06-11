@@ -11,6 +11,7 @@
 #import "SPManager.h"
 #import "Product+Modify.h"
 #import "Customer+Modify.h"
+#import "SPJSONParser.h"
 
 @interface SPAppDelegate ()
 
@@ -30,7 +31,7 @@
     
     Product *pr3 = [Product productWithTitle: @"Pasta bolognese" size: @"400g" price: @7 description: @"A portion of the classic bolognese pasta" Type: SPPasta andPhotoURL: @"http://031b7b3.netsolhost.com/WordPress/wp-content/uploads/2013/12/tofu-bolognese.jpg"];
     Product *pt4 = [Product productWithTitle: @"Four cheese pasta" size: @"400g" price: @8 description: @"A portion of the classic four cheese pasta" Type: SPPasta andPhotoURL: @"http://www.cellocheese.com/wp-content/uploads/2012/02/fourcheesepasta.jpg"];
-//    
+
 //    Product *pr3 = [Product productWithTitle:@"Pasta 1" description:@"Short desc" andType:SPPasta];
 //    Product *pr4 = [Product productWithTitle:@"Pasta 2" description:@"Short desc 2" andType:SPPasta];
    // [Customer customerWithUsername:@"nik2" password:@"1234" name:@"Nikolai" andAddress:@"Sofia"];
@@ -47,8 +48,7 @@
         [[SPManager sharedManager] [[SPManager sharedManager] privateChildMOContext]] = context.parentContext;
     }*/
     //[[SPManager sharedManager] saveParentContextToStore];
-    [Customer customerDoesExist:@"nik2"];
-    return YES;
+       return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

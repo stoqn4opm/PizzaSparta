@@ -12,6 +12,7 @@
 #import "Product+Modify.h"
 #import "SPItemDetailsTableViewController.h"
 #import "SPManager.h"
+#import "SPJSONParser.h"
 #import "UIViewController+SPImageBackButton.h"
 
 @interface SPMenuItemsTableViewController () <NSFetchedResultsControllerDelegate>
@@ -25,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.fetchController performFetch:nil];
-    
     [self prepareUI];
 }
 

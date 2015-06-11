@@ -32,7 +32,10 @@
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"MenuLabel"]]];
     
     // This will remove extra separators from tableview
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+   /* self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                    style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.rightBarButtonItem = rightButton;*/
 }
 
 #pragma mark - <UITableViewDataSource> Methods

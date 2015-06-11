@@ -29,6 +29,9 @@
         NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
         [_cart setValue: emptyArr forKey: @"Product"];
         [_cart setValue: emptyArr forKey: @"Amount"];
+        _loggedUser=[[User alloc] init];
+        _isUserLogIn = NO;
+        _doesUserExist= NO;
     }
     return self;
 }

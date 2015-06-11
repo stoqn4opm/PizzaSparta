@@ -19,6 +19,13 @@
                                name: (NSString *) name
                             andAddress: (NSString *) address;
 
++ (Customer *) customerWithUsername: (NSString *) username
+                           password: (NSString *) password
+                               name: (NSString *) name
+                            address: (NSString *) address
+                              andID: (NSNumber *) customerID
+                              inMOC: (NSManagedObjectContext *) context;
+
 //chechs if a customer with that username exists - done in the cusomerWithUsername: password: name: adress: method
 + (BOOL) customerDoesExist: (NSString *) username;
 
