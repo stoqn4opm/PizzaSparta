@@ -947,7 +947,7 @@
         <!--Sign In-->
         <scene sceneID="Noy-cY-nza">
             <objects>
-                <viewController title="Sign In" id="bM9-AT-NGe" customClass="SPLogInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginController" title="Sign In" id="bM9-AT-NGe" customClass="SPLogInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pEY-DE-kru"/>
                         <viewControllerLayoutGuide type="bottom" id="MfV-IH-WOs"/>
@@ -1209,6 +1209,7 @@
         <scene sceneID="67p-sz-87e">
             <objects>
                 <tabBarController storyboardIdentifier="mainController" id="pm1-gA-26D" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="nA3-cb-DFe"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="TabBarBackground" id="Jj2-Tc-lrI">
@@ -1423,6 +1424,6 @@
         <image name="TabBarBackground" width="10" height="10"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="M2n-aE-CSD"/>
+        <segue reference="kTk-RM-Bk4"/>
     </inferredMetricsTieBreakers>
 </document>
