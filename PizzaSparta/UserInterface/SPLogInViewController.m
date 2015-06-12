@@ -7,6 +7,7 @@
 //
 
 #import "SPLogInViewController.h"
+#define kOFFSET_FOR_KEYBOARD 80.0
 
 @interface SPLogInViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
     
     [self prepareUI];
     self.usernameField.delegate = self;
@@ -32,8 +33,9 @@
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
-   
+- (void)viewWillAppear:(BOOL)animated
+{
+    
 }
 /*
 #pragma mark - Navigation
@@ -62,6 +64,11 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     textField.text=@"";
+    if(textField.tag == 1){
+        [self.userPasswordField setSecureTextEntry:YES];
+    }
+   
+   
     return YES;
 }
 
@@ -72,8 +79,12 @@
 }
 
 -(void)setDefaultValuetoFields{
+    
     self.usernameField.text=@"username";
+    
+    [self.userPasswordField setSecureTextEntry:NO];
     self.userPasswordField.text=@"password";
+    
 }
 
 -(void)resetDefaultValues{
@@ -82,29 +93,72 @@
         self.usernameField.text=@"username";
     }
     if ([NSString isEmptyString:self.userPasswordField.text] == YES){
+        [self.userPasswordField setSecureTextEntry:NO];
         self.userPasswordField.text=@"password";
+        
     }
 }
 
 - (IBAction)LoginAction:(id)sender {
     if(([NSString isEmptyString:self.usernameField.text] == NO) && ([NSString isEmptyString:self.userPasswordField.text] == NO))
     {
-        [[SPJSONParser sharedJSONParser] LoggInUserWithUsername:self.usernameField.text AndPassword:self.userPasswordField.text completion:^(User *user){
+        [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:self.usernameField.text AndPassword:self.userPasswordField.text completion:^(User *user){
             if ( user ) {
                 [[SPManager sharedManager] setLoggedUser:user];
                 [[SPManager sharedManager] setIsUserLogIn:YES];
                 NSLog(@"%@", [[[SPManager sharedManager] loggedUser] username]);
-                for(id element in [[[SPManager sharedManager] loggedUser] addresses]){
+                /*for(id element in [[[SPManager sharedManager] loggedUser] addresses]){
                     NSLog(@"%@", [element address]);
-                }
-                [self setDefaultValuetoFields];
+                }*/
+                
+                //example for insert new adress
+                /*[[SPDatabaseManager sharedDatabaseManager] insertNewAddressForLoggedUser:user AndNewAddress:@"Burgas Nadezda" WithInsertCompletion:^(NSArray* array){
+                    if(array){
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InsertAddress"
+                                                                        message:@"new address insert"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                        
+                    }
+                    else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InsertAddress Error"
+                                                                        message:@"new address insert error"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                    }
+                    
+                }];*/
+                //example delete address for user
+                /*[[SPDatabaseManager sharedDatabaseManager] deleteAddressForLoggedUser:user AndNewAddress:[[user addresses] lastObject] WithDeleteCompletion:^(NSArray* array){
+                    if(array){
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Address"
+                                                                        message:@"succesful"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                        
+                    }
+                    else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Adress"
+                                                                        message:@"error"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                    }
+                    
+                }];*/
                 UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                 UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainController"];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
                 [self presentViewController:navController animated:YES completion:^{
-                    NSLog(@"Add Album View Controller presented");
+                    [self setDefaultValuetoFields];
                 }];
-                //[self performSegueWithIdentifier:@"show-main-app" sender:self];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error"
                                                                 message:@"Wrong username/password"
@@ -128,5 +182,6 @@
     
     
 }
+
 
 @end

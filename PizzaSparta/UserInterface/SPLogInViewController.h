@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Customer+Modify.h"
-#import "SPJSONParser.h"
+#import "SPDatabaseManager.h"
 
 @interface SPLogInViewController : UIViewController
 

@@ -21,7 +21,7 @@
     }
     return self;
 }
--(void)ReadAllAddresses:(NSArray*)alladdresses{
+-(void)readAllAddresses:(NSArray*)alladdresses{
     [self.addresses removeAllObjects];
     for(NSDictionary* element in alladdresses){
         UserAdress* newAddress=[[UserAdress alloc] init];
@@ -29,5 +29,17 @@
         [newAddress setAddress:[element valueForKey:@"adress"]];
         [self.addresses addObject:newAddress];
     }
+}
+
+
+-(BOOL)checkIfAddressExist:(NSString*)checkindAddress{
+    NSString* tmpAddress = [checkindAddress stringByReplacingOccurrencesOfString:@" " withString:@""];
+    for(UserAdress* element in self.addresses){
+        NSString* addressFromArray = [[element address] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if([addressFromArray isEqualToString:tmpAddress]){
+            return YES;
+        }
+    }
+    return NO;
 }
 @end

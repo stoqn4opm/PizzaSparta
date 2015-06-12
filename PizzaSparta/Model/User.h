@@ -16,6 +16,6 @@
     @property(strong, nonatomic)NSString* name;
     @property(strong, nonatomic)NSMutableArray* addresses;
 
--(void)ReadAllAddresses:(NSArray*)alladdresses;
-
+    -(void)readAllAddresses:(NSArray*)alladdresses;
+    -(BOOL)checkIfAddressExist:(NSString*)checkindAddress;
 @end

@@ -65,6 +65,12 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     textField.text=@"";
+    if(textField.tag == 1){
+        [self.userPasswordField setSecureTextEntry:YES];
+    }
+    if(textField.tag == 2){
+        [self.userRePasswordField setSecureTextEntry:YES];
+    }
     return YES;
 }
 
@@ -75,11 +81,15 @@
 }
 
 -(void)setDefaultValuetoFields{
+    
+    [self.userPasswordField setSecureTextEntry:NO];
+    [self.userRePasswordField setSecureTextEntry:NO];
     self.usernameField.text=@"username";
     self.userPasswordField.text=@"password";
     self.userRePasswordField.text=@"repeat password";
     self.userFullNameField.text=@"full name";
     self.userAddressField.text=@"address";
+    
 }
 
 -(void)resetDefaultValues{
@@ -88,9 +98,11 @@
         self.usernameField.text=@"username";
     }
     if ([NSString isEmptyString:self.userPasswordField.text] == YES){
+        [self.userPasswordField setSecureTextEntry:NO];
         self.userPasswordField.text=@"password";
     }
     if ([NSString isEmptyString:self.userRePasswordField.text] == YES){
+        [self.userRePasswordField setSecureTextEntry:NO];
         self.userRePasswordField.text=@"repeat password";
     }
     if ([NSString isEmptyString:self.userFullNameField.text] == YES){
@@ -121,7 +133,7 @@
 
 - (IBAction)signUpAction:(id)sender {
     if([self validateFields]){
-        [[SPJSONParser sharedJSONParser] RegisterNewUserWithUsername:self.usernameField.text Password:self.userPasswordField.text Name:self.userFullNameField.text AndFirstAdress:self.userAddressField.text completion:^(User *user){
+        [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:self.usernameField.text Password:self.userPasswordField.text Name:self.userFullNameField.text AndFirstAdress:self.userAddressField.text completion:^(User *user){
             if ( user ) {
                 [[SPManager sharedManager] setLoggedUser:user];
                 [[SPManager sharedManager] setIsUserLogIn:YES];

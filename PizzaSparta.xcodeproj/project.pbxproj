@@ -40,7 +40,7 @@
 		F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439291B25BA3C00356D1F /* SPLogInViewController.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
 		F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */; };
-		F2E9DD351B285D1B00F2E3BD /* SPJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD341B285D1B00F2E3BD /* SPJSONParser.m */; };
+		F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
 		F2E9DD3B1B28790B00F2E3BD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD3A1B28790B00F2E3BD /* User.m */; };
 /* End PBXBuildFile section */
@@ -114,8 +114,8 @@
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		F2B2CD331B29BD150015C1F0 /* SPRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRegistrationViewController.h; path = UserInterface/SPRegistrationViewController.h; sourceTree = "<group>"; };
 		F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationViewController.m; path = UserInterface/SPRegistrationViewController.m; sourceTree = "<group>"; };
-		F2E9DD331B285D1B00F2E3BD /* SPJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPJSONParser.h; sourceTree = "<group>"; };
-		F2E9DD341B285D1B00F2E3BD /* SPJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPJSONParser.m; sourceTree = "<group>"; };
+		F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
+		F2E5A3B71B2B1465002A9891 /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
 		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
 		F2E9DD371B2874AF00F2E3BD /* UserAdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAdress.m; sourceTree = "<group>"; };
 		F2E9DD391B28790B00F2E3BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -322,8 +322,8 @@
 				90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */,
 				90F111AE1B21FD7C0044AA63 /* SPManager.h */,
 				90F111AF1B21FD7C0044AA63 /* SPManager.m */,
-				F2E9DD331B285D1B00F2E3BD /* SPJSONParser.h */,
-				F2E9DD341B285D1B00F2E3BD /* SPJSONParser.m */,
+				F2E5A3B71B2B1465002A9891 /* SPDatabaseManager.h */,
+				F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
-				F2E9DD351B285D1B00F2E3BD /* SPJSONParser.m in Sources */,
+				F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,

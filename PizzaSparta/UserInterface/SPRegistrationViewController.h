@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SPManager.h"
-#import "SPJSONParser.h"
+#import "SPDatabaseManager.h"
 
 @interface SPRegistrationViewController : UIViewController
 
