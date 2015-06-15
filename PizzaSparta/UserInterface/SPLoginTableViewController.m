@@ -11,7 +11,9 @@
 #import "SPDatabaseManager.h"
 #import "NSString+Check.h"
 
-@interface SPLoginTableViewController () <UITextFieldDelegate>
+@interface SPLoginTableViewController () <UITextFieldDelegate>{
+    BOOL _firstEntrance;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *curvedTiles;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
@@ -29,18 +31,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    _firstEntrance = TRUE;
     [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
-    [self prepareUI];
+
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self prepareUI];
+}
 #pragma mark - UI Related
 -(void) prepareUI{
 
-    [self.btnLogin.layer setCornerRadius:SPCORNER_RADIUS];
-    [self.btnLogin setClipsToBounds:YES];
-    [self.btnRegister.layer setCornerRadius:SPCORNER_RADIUS];
-    [self.btnRegister setClipsToBounds:YES];
     [self.txtUsername setDelegate:self];
     [self.txtPassword setDelegate:self];
     [self.txtPassword setSecureTextEntry:YES];
@@ -54,7 +56,12 @@
     [self.view addGestureRecognizer:dismissKeyboardTap];
     [self.fbIcon addGestureRecognizer:fbIconTap];
     [self.fbIcon setUserInteractionEnabled:YES];
-    [self entranceAnimation];
+    if (_firstEntrance) {
+        [self firstEntranceAnimation];
+        _firstEntrance = FALSE;
+    }else{
+        [self secondEntranceAnimation];
+    }
 }
 
 - (void) dismissKB{
@@ -62,7 +69,7 @@
     [self.txtPassword resignFirstResponder];
 }
 
-- (void) entranceAnimation{
+- (void) firstEntranceAnimation{
     [self.logoImage setAlpha:0];
     [UIView animateWithDuration:2 animations:^{
         
@@ -76,7 +83,25 @@
         }];
     }];
 }
-
+-(void)secondEntranceAnimation{
+    self.curvedTiles.frame = CGRectMake(self.curvedTiles.frame.origin.x, 300,
+                                        self.curvedTiles.frame.size.width,
+                                        self.curvedTiles.frame.size.height);
+    
+    self.logoImage.frame = CGRectMake(self.logoImage.frame.origin.x, 300,
+                                      self.logoImage.frame.size.width,
+                                      self.logoImage.frame.size.height);
+    
+    [UIView animateWithDuration:2 animations:^{
+        self.curvedTiles.frame = CGRectMake(self.curvedTiles.frame.origin.x, 0,
+                                            self.curvedTiles.frame.size.width,
+                                            self.curvedTiles.frame.size.height);
+        
+        self.logoImage.frame = CGRectMake(self.logoImage.frame.origin.x, 20,
+                                          self.logoImage.frame.size.width,
+                                          self.logoImage.frame.size.height);
+    }];
+}
 - (void) presentRegistration{
     
     [UIView animateWithDuration:2 animations:^{
@@ -106,7 +131,7 @@
     
     [self.activityIndicator startAnimating];
     if ([self emptyFields]) {
-        [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_FIELDS];
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_LOGIN_FIELDS];
         [self.activityIndicator stopAnimating];
         return;
     }

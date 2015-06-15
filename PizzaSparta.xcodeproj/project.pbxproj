@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03C300C31B2F29EA00154C49 /* SPLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C21B2F29EA00154C49 /* SPLoginTableViewController.m */; };
 		03C300C51B2F4E1600154C49 /* SPUIHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C41B2F4E1600154C49 /* SPUIHeader.m */; };
+		03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */; };
 		9007CE9F1B1F2A4C00F4650F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CE9E1B1F2A4C00F4650F /* main.m */; };
 		9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEA91B1F2A4D00F4650F /* Main.storyboard */; };
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
@@ -37,7 +38,6 @@
 		F12FCDE61B287E7500CCE789 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE51B287E7500CCE789 /* Account.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
-		F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */; };
 		F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
 		F2E9DD3B1B28790B00F2E3BD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD3A1B28790B00F2E3BD /* User.m */; };
@@ -57,6 +57,8 @@
 		03C300C11B2F29EA00154C49 /* SPLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPLoginTableViewController.h; path = UserInterface/SPLoginTableViewController.h; sourceTree = "<group>"; };
 		03C300C21B2F29EA00154C49 /* SPLoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPLoginTableViewController.m; path = UserInterface/SPLoginTableViewController.m; sourceTree = "<group>"; };
 		03C300C41B2F4E1600154C49 /* SPUIHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPUIHeader.m; path = UserInterface/SPUIHeader.m; sourceTree = "<group>"; };
+		03C300C61B2F5A8700154C49 /* SPRegistrationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRegistrationTableViewController.h; path = UserInterface/SPRegistrationTableViewController.h; sourceTree = "<group>"; };
+		03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationTableViewController.m; path = UserInterface/SPRegistrationTableViewController.m; sourceTree = "<group>"; };
 		9007CE991B1F2A4C00F4650F /* PizzaSparta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSparta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CE9D1B1F2A4C00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CE9E1B1F2A4C00F4650F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,8 +107,6 @@
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
-		F2B2CD331B29BD150015C1F0 /* SPRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRegistrationViewController.h; path = UserInterface/SPRegistrationViewController.h; sourceTree = "<group>"; };
-		F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationViewController.m; path = UserInterface/SPRegistrationViewController.m; sourceTree = "<group>"; };
 		F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
 		F2E5A3B71B2B1465002A9891 /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
 		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
@@ -271,8 +271,7 @@
 		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F2B2CD321B29BCC10015C1F0 /* Registration */,
-				F274392B1B25BA4A00356D1F /* LogIn */,
+				F274392B1B25BA4A00356D1F /* LogIn and Registration */,
 				90C16B2E1B23AA7A0045788C /* Menu */,
 				90C16B2F1B23AA900045788C /* More */,
 				90C16B221B23621F0045788C /* SPItemDetailsTableViewController.h */,
@@ -316,22 +315,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		F274392B1B25BA4A00356D1F /* LogIn */ = {
+		F274392B1B25BA4A00356D1F /* LogIn and Registration */ = {
 			isa = PBXGroup;
 			children = (
+				03C300C61B2F5A8700154C49 /* SPRegistrationTableViewController.h */,
+				03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */,
 				03C300C11B2F29EA00154C49 /* SPLoginTableViewController.h */,
 				03C300C21B2F29EA00154C49 /* SPLoginTableViewController.m */,
 			);
-			name = LogIn;
-			sourceTree = "<group>";
-		};
-		F2B2CD321B29BCC10015C1F0 /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-				F2B2CD331B29BD150015C1F0 /* SPRegistrationViewController.h */,
-				F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */,
-			);
-			name = Registration;
+			name = "LogIn and Registration";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,10 +445,10 @@
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
+				03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
-				F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,

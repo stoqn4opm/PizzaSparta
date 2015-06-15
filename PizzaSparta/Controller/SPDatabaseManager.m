@@ -117,7 +117,7 @@
 
 
 -(void)registerNewUserWithUsername:(NSString *)username
-                          Password:(NSString *)password name:(NSString *)name
+                          password:(NSString *)password name:(NSString *)name
                     andFirstAdress:(NSString *)adress
                         completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
    

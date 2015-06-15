@@ -24,13 +24,46 @@
                      cancelButtonTitle:@"OK"
                      otherButtonTitles:nil];
             break;
-        case SPALERT_TYPE_EMPTY_FIELDS:
+        case SPALERT_TYPE_EMPTY_LOGIN_FIELDS:
             alert = [[UIAlertView alloc]
                      initWithTitle:@"Login Error"
                      message:@"Empty field/s"
                      delegate:self
                      cancelButtonTitle:@"OK"
                      otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_EMPTY_REGISTER_FIELDS:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Registration Error"
+                     message:@"Empty field/s"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_REGISTER_PASSWORD_MISSMATCH:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Registration Error"
+                     message:@"Second password do not match"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_USER_ALREADY_REGISTERED:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Registration Error"
+                     message:@"Try other username. Username is not free"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_REGISTER_ERROR:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Registration Error"
+                     message:@"Connection Error. Try again Later"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
         default:
             break;
     }

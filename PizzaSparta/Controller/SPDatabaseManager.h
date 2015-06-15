@@ -22,7 +22,7 @@ typedef void (^SPDatabaseManagerSuccessBlockAddress)(NSArray* array);
     -(void)getAllProductsFromDataBase;
 
     -(void)loginUserWithUsername:(NSString*)username andPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion;
-    -(void)registerNewUserWithUsername:(NSString*)username Password:(NSString*)password name:(NSString*)name andFirstAdress:(NSString*)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
+    -(void)registerNewUserWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name andFirstAdress:(NSString*)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
     -(void)readAllAddressesForLoggedUser:(User*) user WithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion;
     -(void)insertNewAddressForLoggedUser:(User*)user AndNewAddress:(NSString*)address WithInsertCompletion:(SPDatabaseManagerSuccessBlockAddress)completionInsert;
     -(void)deleteAddressForLoggedUser:(User*)user AndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete;
