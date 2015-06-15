@@ -19,6 +19,7 @@
                                name: (NSString *) name
                             andAddress: (NSString *) address;
 
+// creates a new customer in your MOC and if not saved will dissaper
 + (Customer *) customerWithUsername: (NSString *) username
                            password: (NSString *) password
                                name: (NSString *) name
