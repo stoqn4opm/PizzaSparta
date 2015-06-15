@@ -164,7 +164,7 @@
     _fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                            managedObjectContext:uiContext
                                                              sectionNameKeyPath:nil
-                                                                      cacheName:@"cache"];
+                                                                      cacheName:nil];
     [_fetchController setDelegate:self];
     return _fetchController;
     
