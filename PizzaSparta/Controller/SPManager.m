@@ -42,7 +42,7 @@
 
 #pragma mark - logged in accounts
 
-- (void) logInUser: (User *) user{
+- (void) saveUserAccount: (User *) user{
     [self clearLoggedAccounts];
     NSManagedObjectContext *context = [self privateChildMOContext];
     Account *acc = [NSEntityDescription insertNewObjectForEntityForName: @"Account" inManagedObjectContext: context];
@@ -72,6 +72,44 @@
     
     [context save: NULL];
     [self saveParentContextToStore];
+}
+
+- (NSString *) storedAccUsername{
+    if ([self hasAccountBeenLoggedIn]) {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
+        NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+        NSArray *matches = [context executeFetchRequest: request error: NULL];
+        return [matches[0] username];
+    }
+    return NULL;
+}
+
+- (NSString *) storedAccPassword{
+    if ([self hasAccountBeenLoggedIn]) {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
+        NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+        NSArray *matches = [context executeFetchRequest: request error: NULL];
+        return [matches[0] password];
+    }
+    return NULL;
+}
+
+
+#pragma mark - cart
+
+- (void) addProductToCart:(Product *) product amount:(NSInteger) count{
+    NSMutableArray *products = [[self cart] valueForKey: @"Product"];
+    NSMutableArray *amount = [[self cart] valueForKey: @"Amount"];
+    
+    for (int i = 0; i < [products count]; i++) {
+        if ([products[i] idProduct] == [product idProduct]) {
+            amount[i] = [NSNumber numberWithLong: ([amount[i] longValue] + count)];
+            return;
+        }
+    }
+    [products addObject: product];
+    [amount addObject: [NSNumber numberWithLong:count]];
+    
 }
 
 

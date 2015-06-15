@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "Product.h"
 
 
 @interface SPManager : NSObject
@@ -26,9 +27,15 @@
 
 - (NSManagedObjectContext *) privateChildMOContext;
 
-- (void) logInUser: (User *) user;
+//makes an account from user and stores it in CoreData
+- (void) saveUserAccount: (User *) user;
 - (BOOL) hasAccountBeenLoggedIn;
 - (void) clearLoggedAccounts;
+- (NSString *) storedAccUsername;
+- (NSString *) storedAccPassword;
+
+//cart
+- (void) addProductToCart:(Product *) product amount:(NSInteger) count;
 
 - (void) saveParentContextToStore;
 
