@@ -7,16 +7,16 @@
 //
 
 #import "NSString+Check.h"
-#import "SPLogInViewController.h"
+#import "SPOLDLogInViewController.h"
 #define kOFFSET_FOR_KEYBOARD 80.0
 
-@interface SPLogInViewController ()<UITextFieldDelegate>
+@interface SPOLDLogInViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *userPasswordField;
 
 @end
 
-@implementation SPLogInViewController
+@implementation SPOLDLogInViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,14 +105,12 @@
     if( (![NSString isEmptyString:self.usernameField.text]) &&
         (![NSString isEmptyString:self.userPasswordField.text]) )
     {
-        [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:self.usernameField.text AndPassword:self.userPasswordField.text completion:^(User *user){
+        [[SPDatabaseManager sharedDatabaseManager] loginUserWithUsername:self.usernameField.text andPassword:self.userPasswordField.text completion:^(User *user){
             if ( user ) {
                 [[SPManager sharedManager] setLoggedUser:user];
                 [[SPManager sharedManager] setIsUserLogIn:YES];
                 NSLog(@"%@", [[[SPManager sharedManager] loggedUser] username]);
-                /*for(id element in [[[SPManager sharedManager] loggedUser] addresses]){
-                    NSLog(@"%@", [element address]);
-                }*/
+                
                 
                 //example for insert new adress
                 /*[[SPDatabaseManager sharedDatabaseManager] insertNewAddressForLoggedUser:user AndNewAddress:@"Burgas Nadezda" WithInsertCompletion:^(NSArray* array){

@@ -13,6 +13,7 @@
  
  COLOR_DARK_GRAY, COLOR_LIGHT_GRAY will be used in a tiled pattern
  */
+#import <UIKit/UIKit.h>
 
 #define SPCOLOR_DARK_BROWN    [UIColor colorWithRed:0.63 green:0.37 blue:0.28 alpha:1.0]
 #define SPCOLOR_LIGHT_BROWN   [UIColor colorWithRed:0.83 green:0.77 blue:0.61 alpha:1.0]
@@ -27,3 +28,12 @@ typedef NSString SPMenuType;
 #define SPPizza @"Pizza"
 #define SPPasta @"Pasta"
 #define SPDrinks @"Drinks"
+
+typedef enum{
+    SPALERT_TYPE_WRONG_USERNAME_PASSWORD = 0,
+    SPALERT_TYPE_EMPTY_FIELDS
+}SPAlertType;
+
+@interface SPUIHeader : NSObject
++ (void) alertViewWithType:(SPAlertType) alertType;
+@end

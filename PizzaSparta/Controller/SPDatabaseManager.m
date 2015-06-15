@@ -82,7 +82,7 @@
     [test resume];
 }
 
--(void)loggInUserWithUsername:(NSString *)username AndPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{
+-(void)loginUserWithUsername:(NSString *)username andPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{
     
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=readData&username=%@&password=%@",username, password ]];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -143,7 +143,7 @@
                dispatch_async(dispatch_get_main_queue(), ^{
                    
                    if([[result valueForKey:@"username"] isEqualToString:@"successful"]){
-                       [self loggInUserWithUsername:username AndPassword:password completion:^(User *user){
+                       [self loginUserWithUsername:username andPassword:password completion:^(User *user){
                            
                            if (user) {
                                completionRegistration(user);

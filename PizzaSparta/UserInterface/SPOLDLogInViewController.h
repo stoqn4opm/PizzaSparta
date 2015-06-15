@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SPDatabaseManager.h"
 
-@interface SPLogInViewController : UIViewController
+@interface SPOLDLogInViewController : UIViewController
 
 @end
