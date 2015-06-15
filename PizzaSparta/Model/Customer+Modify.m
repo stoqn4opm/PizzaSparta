@@ -84,7 +84,8 @@
 //check if user exist
 
 + (BOOL) validateCustomersWithUsername:(NSString *)username andPassword:(NSString *)password{
-    if([self customerDoesExist:username] == NO){
+    
+    if(![self customerDoesExist:username]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login"
                                                         message:[NSString stringWithFormat:@"No user with username: %@", username]
                                                        delegate:self
@@ -103,13 +104,10 @@
             NSLog(@"validation error - %@", error);
         }
         else if ([results count] > 0){
-           // NSArray *result = [[[SPManager sharedManager] privateChildMOContext] executeFetchRequest:fetchRequest error:&error];
-            //[result objectAtIndex:0];
-
+            
             [[SPManager sharedManager] setLoggedCustomer:results[0]];
             
             NSLog(@"usename - %@", [[[SPManager sharedManager] loggedCustomer] username]);
-            
             return YES;
             
         }

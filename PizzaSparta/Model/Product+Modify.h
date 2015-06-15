@@ -21,9 +21,9 @@
 
 //isPromo setters and getters
 - (BOOL) isPromo;
-- (void) isPromo: (BOOL) isPromo;
+- (void) setIsPromo: (BOOL) isPromo;
 
-- (NSURL *) photoURL;
+- (NSURL *) urlPhoto;
 
 - (void) setPromo: (BOOL) isPromo andNewPrice: (NSNumber *) newPrice;
 

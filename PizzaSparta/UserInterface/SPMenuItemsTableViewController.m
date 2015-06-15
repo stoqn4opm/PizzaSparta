@@ -82,7 +82,6 @@
     [self performSegueWithIdentifier:@"ShowDetails" sender:nil];
 }
 
-#pragma mark - <UITableViewDelegate> Methods
 -(UIView *)tableView:(UITableView *)tableView
     viewForHeaderInSection:(NSInteger)section{
     
