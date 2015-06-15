@@ -7,8 +7,9 @@
 //
 
 #import "SPLogInViewController.h"
+#define kOFFSET_FOR_KEYBOARD 80.0
 
-@interface SPLogInViewController ()
+@interface SPLogInViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *userPasswordField;
 
@@ -19,7 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
     
+    [self prepareUI];
+    self.usernameField.delegate = self;
+    self.userPasswordField.delegate = self;
 }
 
 - (IBAction)LoginAction:(id)sender {
@@ -41,6 +46,8 @@
 
     }
     
+    
 }
+
 
 @end

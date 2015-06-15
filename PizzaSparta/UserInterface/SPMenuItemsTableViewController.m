@@ -25,8 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.fetchController performFetch:nil];
-    
     [self prepareUI];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
 }
 
 #pragma mark - UI Preparation
@@ -51,6 +52,9 @@
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setUpImageBackButton];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
+                                                                    style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 #pragma mark - <UITableViewDataSource> Methods
@@ -208,5 +212,15 @@
             break;
         }
     }
+}
+
+-(void)logOutAction{
+    NSLog(@"click");
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
+    [self presentViewController:navController animated:YES completion:^{
+        [[SPManager sharedManager] setLoggedUser:nil];
+    }];
 }
 @end

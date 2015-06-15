@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Customer.h"
+#import "User.h"
 
 
 @interface SPManager : NSObject
@@ -18,6 +19,9 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) Customer* loggedCustomer;
 @property (strong, nonatomic) NSMutableDictionary* cart;
+@property (strong, nonatomic) User* loggedUser;
+@property(nonatomic)BOOL isUserLogIn;
+@property(nonatomic)BOOL doesUserExist;
 
 + (instancetype) sharedManager;
 - (NSManagedObjectContext *) privateChildMOContext;

@@ -18,5 +18,4 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSNumber * customerID;
 @property (nonatomic, retain) NSManagedObject *orders;
-
 @end

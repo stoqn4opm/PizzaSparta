@@ -33,6 +33,9 @@
     
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
+                                                                    style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 #pragma mark - <UITableViewDataSource> Methods
