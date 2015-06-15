@@ -31,8 +31,11 @@
     [self.lblName setText:self.selectedProduct.title];
     [self.lblDescription setText:self.selectedProduct.productDesc];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
-    
-#warning TODO load Item image when imageURL added to Product model
+
+#warning TODO Load image in background thread
+    NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
+    [self.imageView setImage:[UIImage imageWithData:image]];
+
     
     [self prepareUI];
 }

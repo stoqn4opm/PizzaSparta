@@ -100,7 +100,9 @@
 }
 
 - (IBAction)LoginAction:(id)sender {
-    if(([NSString isEmptyString:self.usernameField.text] == NO) && ([NSString isEmptyString:self.userPasswordField.text] == NO))
+    
+    if( (![NSString isEmptyString:self.usernameField.text]) &&
+        (![NSString isEmptyString:self.userPasswordField.text]) )
     {
         [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:self.usernameField.text AndPassword:self.userPasswordField.text completion:^(User *user){
             if ( user ) {
@@ -171,6 +173,7 @@
         }];
     }
     else{
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error"
                                                         message:@"Empty field/s"
                                                        delegate:self

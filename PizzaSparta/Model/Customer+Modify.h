@@ -30,4 +30,6 @@
 + (BOOL) customerDoesExist: (NSString *) username;
 
 + (BOOL) validateCustomersWithUsername:(NSString*) username andPassword:(NSString*)password;
+
+//+ (Customer *) storedCustomer;
 @end

@@ -42,14 +42,14 @@
         return NO;
 }
 
-- (void) isPromo: (BOOL) isPromo{
+- (void) setIsPromo: (BOOL) isPromo{
     if (isPromo)
         self.isPromo = @1;
     else
         self.isPromo = @0;
 }
 
-- (NSURL *) photoURL{
+- (NSURL *) urlPhoto{
     return [NSURL URLWithString: self.photoURL];
 }
 

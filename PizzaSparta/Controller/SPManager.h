@@ -25,58 +25,15 @@
 
 + (instancetype) sharedManager;
 - (NSManagedObjectContext *) privateChildMOContext;
+
+// returns all of the logged in accounts
+- (NSArray *) savedAccounts;
+
+// use this method to log in an already stored accounts
+- (void) logInCustomerWithAccountName: (NSString *) username;
+
 - (void) saveParentContextToStore;
 
-- (void) storeLoggedInCustomerWithName: (NSString *) name andPassword: (NSString *) password;
-
-- (void) setUpMenu;
+- (void) updateMenu;
 
 @end
-
-//#import <Foundation/foundation.h>
-//
-//@interface SPServerAPI : NSObject
-//
-//
-//// this method will return Menu updates when invoked
-//// formed as dictionary from the incoming server JSON
-//+ (NSDictionary *)menuUpdate;
-//
-//// method for placing orders to user
-//// returns YES if order is placed successfully
-//// returns NO in case of error
-//+ (BOOL)placeOrderForUser:(NSString *)user
-//             withProducts:(NSArray *)products
-//           customProducts:(NSArray *)customProducts
-//                   adress:(NSString *)address;
-//
-//
-//// method that checks if such a user with that password exist in the database
-//+ (BOOL)checkIfSuchUserExistInDataBase:(NSString *)userName
-//                          withPassword:(NSString *)password;
-//
-//// method returns dictionary with user details formed like this
-////{
-////    @"userName": @"username1"
-////    @"password": @"password123"
-////    @"previousOrders": [@"order1", @"order2",...]
-////    @"adresses":[@"address1", @"address2",...]
-////}
-//// returns nil if user not logged in
-//+ (NSDictionary *)loggedUserDetails;
-//
-//// this method register user and automatically log him in
-//// so that loggedUserDetails gives corresponding info when invoked
-//+ (BOOL)registerUserWithUserName:(NSString *)userName
-//                        password:(NSString *)password
-//                            name:(NSString *)name
-//                        adresses:(NSArray *) addresses;
-//
-//// method for adding/removing address to user ********
-//+ (BOOL)addAdress:(NSString) address
-//           toUser:(NSString *)userName;
-//
-//+ (BOOL)removeAddress:(NSString *)address
-//             fromUser:(NSString *)userName;
-//// end methods for adding/removing address to user ***
-//@end
