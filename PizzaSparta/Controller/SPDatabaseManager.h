@@ -20,6 +20,7 @@ typedef void (^SPDatabaseManagerSuccessBlockAddress)(NSArray* array);
     + (instancetype) sharedDatabaseManager;
 
     -(void)getAllProductsFromDataBase;
+
     -(void)loggInUserWithUsername:(NSString*)username AndPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion;
     -(void)registerNewUserWithUsername:(NSString*)username Password:(NSString*)password name:(NSString*)name andFirstAdress:(NSString*)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
     -(void)readAllAddressesForLoggedUser:(User*) user WithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion;

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Product" representedClassName="Product" syncable="YES">
         <attribute name="idProduct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="isPromo" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -12,5 +16,6 @@
     </entity>
     <elements>
         <element name="Product" positionX="-36" positionY="9" width="128" height="165"/>
+        <element name="Account" positionX="-36" positionY="72" width="128" height="75"/>
     </elements>
 </model>

@@ -9,6 +9,9 @@
 #import "SPManager.h"
 #import "Product+Modify.h"
 #import "SPUIHeader.h"
+#import "Account.h"
+#import "Product+Modify.h"
+#import "SPDatabaseManager.h"
 
 @implementation SPManager
 
@@ -39,19 +42,39 @@
 
 #pragma mark - logged in accounts
 
-- (void) logInCustomerWithAccountName: (NSString *) username{
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
-    request.predicate = [NSPredicate predicateWithFormat: @"username = %@", username];
-    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
-    NSArray *matches = [context executeFetchRequest: request error: NULL];
-//    self.loggedCustomer = matches[0];
+- (void) logInUser: (User *) user{
+    [self clearLoggedAccounts];
+    NSManagedObjectContext *context = [self privateChildMOContext];
+    Account *acc = [NSEntityDescription insertNewObjectForEntityForName: @"Account" inManagedObjectContext: context];
+    [acc setUsername: user.username];
+    [acc setPassword: user.password];
+    [context save: NULL];
+    [self saveParentContextToStore];
 }
 
-- (NSArray *) savedAccounts{
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Accounts"];
+- (BOOL) hasAccountBeenLoggedIn{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
-    return [context executeFetchRequest:request error:NULL];
+    NSArray *matches = [context executeFetchRequest: request error: NULL];
+    if ([matches count] == 0) {
+        return NO;
+    }else
+        return YES;
 }
+
+- (void) clearLoggedAccounts{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
+    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+    NSArray *matches = [context executeFetchRequest: request error: NULL];
+    
+    for (Account *acc in matches)
+        [context deleteObject: acc];
+    
+    [context save: NULL];
+    [self saveParentContextToStore];
+}
+
+
 
 #pragma mark - Core Data stack
 @synthesize privateParentMOContext = _privateParentMOContext;
@@ -165,13 +188,17 @@
 #pragma mark - Set up menu
 
 - (void) updateMenu{
-    Product *pr1 = [Product productWithTitle: @"Pizza margherita" size: @"medium" price: @12 description: @"A classic pizza margherita" Type: SPPizza andPhotoURL: @"http://pizzaexpress071.nl/wp-content/uploads/2014/01/Pizza-Margherita.jpg"];
-    Product *pr2 = [Product productWithTitle: @"Pizza pepperoni"size: @"medium" price: @15 description: @"A classic pizza pepperoni" Type: SPPizza andPhotoURL: @"http://bluewallpaperhd.com/wp-content/uploads/2014/08/pepperoni-pizza-pizza-hut-slice.jpg"];
     
-    Product *pr3 = [Product productWithTitle: @"Pasta bolognese" size: @"400g" price: @7 description: @"A portion of the classic bolognese pasta" Type: SPPasta andPhotoURL: @"http://031b7b3.netsolhost.com/WordPress/wp-content/uploads/2013/12/tofu-bolognese.jpg"];
-    Product *pt4 = [Product productWithTitle: @"Four cheese pasta" size: @"400g" price: @8 description: @"A portion of the classic four cheese pasta" Type: SPPasta andPhotoURL: @"http://www.cellocheese.com/wp-content/uploads/2012/02/fourcheesepasta.jpg"];
-    
-    [pt4 setIsPromo:@1];
+    [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
+    //    Product *pr1 = [Product productWithTitle: @"Pizza margherita" size: @"medium" price: @12 description: @"A classic pizza margherita" Type: SPPizza isPromo: @1 poductID: @4 andPhotoURL: @"http://pizzaexpress071.nl/wp-content/uploads/2014/01/Pizza-Margherita.jpg"];
+//    
+////    Product *pr1 = [Product productWithTitle:  size:  price:  description:  Type:  andPhotoURL: ];
+////    Product *pr2 = [Product productWithTitle: @"Pizza pepperoni"size: @"medium" price: @15 description: @"A classic pizza pepperoni" Type: SPPizza andPhotoURL: @"http://bluewallpaperhd.com/wp-content/uploads/2014/08/pepperoni-pizza-pizza-hut-slice.jpg"];
+////    
+////    Product *pr3 = [Product productWithTitle: @"Pasta bolognese" size: @"400g" price: @7 description: @"A portion of the classic bolognese pasta" Type: SPPasta andPhotoURL: @"http://031b7b3.netsolhost.com/WordPress/wp-content/uploads/2013/12/tofu-bolognese.jpg"];
+////    Product *pt4 = [Product productWithTitle: @"Four cheese pasta" size: @"400g" price: @8 description: @"A portion of the classic four cheese pasta" Type: SPPasta andPhotoURL: @"http://www.cellocheese.com/wp-content/uploads/2012/02/fourcheesepasta.jpg"];
+////    
+////    [pt4 setIsPromo:@1];
 }
 
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mJn-EZ-IH7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mJn-EZ-IH7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -750,8 +750,7 @@
                             <rect key="frame" x="0.0" y="514" width="600" height="74"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Pomorie 8200, Slivnitsa st.  No:11
-Phone: 0889 627 384" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-NE-BCp">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Pomorie 8200, Slivnitsa st.  No:11 Phone: 0889 627 384" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-NE-BCp">
                                     <rect key="frame" x="8" y="8" width="584" height="66"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -950,10 +949,7 @@ Phone: 0889 627 384" selectable="NO" translatesAutoresizingMaskIntoConstraints="
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="awl-Mc-VKe" id="KZ1-0P-svy">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Created By:
-N. Tzonev - theniel14@gmail.com,
-S. Stoyanov - stoqn.stoqnov.93@gmail.com,
-P. Kanev - kanev.p@gmail.com" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-Ul-RV2">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Created By: N. Tzonev - theniel14@gmail.com, S. Stoyanov - stoqn.stoqnov.93@gmail.com, P. Kanev - kanev.p@gmail.com" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-Ul-RV2">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
