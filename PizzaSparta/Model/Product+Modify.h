@@ -20,8 +20,8 @@
                    andPhotoURL: (NSString *) URL;
 
 //isPromo setters and getters
-- (BOOL) isPromo;
-- (void) setIsPromo: (BOOL) isPromo;
+- (BOOL) promo;
+- (void) setPromo: (BOOL) isPromo;
 
 - (NSURL *) urlPhoto;
 

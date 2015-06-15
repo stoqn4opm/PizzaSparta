@@ -10,7 +10,6 @@
 #import "SPUIHeader.h"
 #import "SPManager.h"
 #import "Product+Modify.h"
-#import "Customer+Modify.h"
 
 @interface SPAppDelegate ()
 

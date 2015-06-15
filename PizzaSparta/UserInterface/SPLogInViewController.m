@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 MentorMate Academy. All rights reserved.
 //
 
+#import "NSString+Check.h"
 #import "SPLogInViewController.h"
 #define kOFFSET_FOR_KEYBOARD 80.0
 

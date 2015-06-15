@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Product+Modify.h"
-#import "Customer+Modify.h"
 #import "SPManager.h"
 #import <UIKit/UIKit.h>
 #import "User.h"

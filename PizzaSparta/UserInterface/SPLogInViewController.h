@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Customer+Modify.h"
 #import "SPDatabaseManager.h"
 
 @interface SPLogInViewController : UIViewController

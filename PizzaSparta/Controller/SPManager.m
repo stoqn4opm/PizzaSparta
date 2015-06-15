@@ -7,7 +7,6 @@
 //
 
 #import "SPManager.h"
-#import "Customer+Modify.h"
 #import "Product+Modify.h"
 #import "SPUIHeader.h"
 
@@ -45,7 +44,7 @@
     request.predicate = [NSPredicate predicateWithFormat: @"username = %@", username];
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     NSArray *matches = [context executeFetchRequest: request error: NULL];
-    self.loggedCustomer = matches[0];
+//    self.loggedCustomer = matches[0];
 }
 
 - (NSArray *) savedAccounts{

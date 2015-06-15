@@ -35,14 +35,14 @@
 
 #pragma mark - property setters and getters
 
-- (BOOL) isPromo{
+- (BOOL) promo{
     if ([self.isPromo  isEqual: @1])
         return YES;
     else
         return NO;
 }
 
-- (void) setIsPromo: (BOOL) isPromo{
+- (void) setPromo: (BOOL) isPromo{
     if (isPromo)
         self.isPromo = @1;
     else

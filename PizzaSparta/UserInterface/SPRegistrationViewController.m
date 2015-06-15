@@ -7,6 +7,7 @@
 //
 
 #import "SPRegistrationViewController.h"
+#import "NSString+Check.h"
 
 @interface SPRegistrationViewController ()<UITextFieldDelegate>
     @property (weak, nonatomic) IBOutlet UITextField *usernameField;

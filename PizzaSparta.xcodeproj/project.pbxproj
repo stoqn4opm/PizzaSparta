@@ -28,14 +28,10 @@
 		90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */; };
 		90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */; };
 		90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */; };
-		90F111B01B21FD7C0044AA63 /* Customer+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F1119D1B21FD7C0044AA63 /* Customer+Modify.m */; };
-		90F111B21B21FD7C0044AA63 /* Order+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A11B21FD7C0044AA63 /* Order+Modify.m */; };
-		90F111B31B21FD7C0044AA63 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A31B21FD7C0044AA63 /* Order.m */; };
 		90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */; };
 		90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A81B21FD7C0044AA63 /* Product+Modify.m */; };
 		90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */; };
 		90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AF1B21FD7C0044AA63 /* SPManager.m */; };
-		F12FCDE31B284C0900CCE789 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE21B284C0900CCE789 /* Customer.m */; };
 		F12FCDE61B287E7500CCE789 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE51B287E7500CCE789 /* Account.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439291B25BA3C00356D1F /* SPLogInViewController.m */; };
@@ -92,12 +88,6 @@
 		90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SPImageBackButton.m"; path = "UserInterface/UIResources/UIViewController+SPImageBackButton.m"; sourceTree = "<group>"; };
 		90C16B2B1B23AA640045788C /* SPAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAboutTableViewController.h; path = UserInterface/SPAboutTableViewController.h; sourceTree = "<group>"; };
 		90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAboutTableViewController.m; path = UserInterface/SPAboutTableViewController.m; sourceTree = "<group>"; };
-		90F1119C1B21FD7C0044AA63 /* Customer+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Customer+Modify.h"; sourceTree = "<group>"; };
-		90F1119D1B21FD7C0044AA63 /* Customer+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Customer+Modify.m"; sourceTree = "<group>"; };
-		90F111A01B21FD7C0044AA63 /* Order+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Order+Modify.h"; sourceTree = "<group>"; };
-		90F111A11B21FD7C0044AA63 /* Order+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Order+Modify.m"; sourceTree = "<group>"; };
-		90F111A21B21FD7C0044AA63 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
-		90F111A31B21FD7C0044AA63 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		90F111A61B21FD7C0044AA63 /* PizzaSparta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSparta.xcdatamodel; sourceTree = "<group>"; };
 		90F111A71B21FD7C0044AA63 /* Product+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Product+Modify.h"; sourceTree = "<group>"; };
 		90F111A81B21FD7C0044AA63 /* Product+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Product+Modify.m"; sourceTree = "<group>"; };
@@ -105,8 +95,6 @@
 		90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		90F111AE1B21FD7C0044AA63 /* SPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPManager.h; sourceTree = "<group>"; };
 		90F111AF1B21FD7C0044AA63 /* SPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPManager.m; sourceTree = "<group>"; };
-		F12FCDE11B284C0900CCE789 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
-		F12FCDE21B284C0900CCE789 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		F12FCDE41B287E7500CCE789 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		F12FCDE51B287E7500CCE789 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
@@ -295,14 +283,6 @@
 		90F1119B1B21FD7C0044AA63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F12FCDE11B284C0900CCE789 /* Customer.h */,
-				F12FCDE21B284C0900CCE789 /* Customer.m */,
-				90F1119C1B21FD7C0044AA63 /* Customer+Modify.h */,
-				90F1119D1B21FD7C0044AA63 /* Customer+Modify.m */,
-				90F111A21B21FD7C0044AA63 /* Order.h */,
-				90F111A31B21FD7C0044AA63 /* Order.m */,
-				90F111A01B21FD7C0044AA63 /* Order+Modify.h */,
-				90F111A11B21FD7C0044AA63 /* Order+Modify.m */,
 				90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */,
 				F12FCDE41B287E7500CCE789 /* Account.h */,
 				F12FCDE51B287E7500CCE789 /* Account.m */,
@@ -460,9 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */,
-				90F111B31B21FD7C0044AA63 /* Order.m in Sources */,
 				90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */,
-				90F111B21B21FD7C0044AA63 /* Order+Modify.m in Sources */,
 				90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */,
 				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
 				90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */,
@@ -476,7 +454,6 @@
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
-				F12FCDE31B284C0900CCE789 /* Customer.m in Sources */,
 				F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
@@ -484,7 +461,6 @@
 				90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */,
 				90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */,
 				F27439311B25BFA700356D1F /* NSString+Check.m in Sources */,
-				90F111B01B21FD7C0044AA63 /* Customer+Modify.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

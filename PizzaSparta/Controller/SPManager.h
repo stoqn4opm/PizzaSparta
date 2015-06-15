@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Customer.h"
 #import "User.h"
 
 
@@ -17,7 +16,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *mainUIMOContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (strong, nonatomic) Customer* loggedCustomer;
+//@property (strong, nonatomic) Customer* loggedCustomer;
 @property (strong, nonatomic) NSMutableDictionary* cart;
 @property (strong, nonatomic) User* loggedUser;
 @property(nonatomic)BOOL isUserLogIn;
