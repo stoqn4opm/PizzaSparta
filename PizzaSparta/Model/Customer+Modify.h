@@ -24,6 +24,8 @@
                            password: (NSString *) password
                                name: (NSString *) name
                          andAddress: (NSString *) address
+                            address: (NSString *) address
+                              andID: (NSNumber *) customerID
                               inMOC: (NSManagedObjectContext *) context;
 
 //chechs if a customer with that username exists - done in the cusomerWithUsername: password: name: adress: method

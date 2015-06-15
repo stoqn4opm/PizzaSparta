@@ -34,17 +34,20 @@
 + (Customer *) customerWithUsername: (NSString *) username
                            password: (NSString *) password
                                name: (NSString *) name
-                         andAddress: (NSString *) address
+                            address: (NSString *) address
+                              andID: (NSNumber *) customerID
                               inMOC: (NSManagedObjectContext *) context{
-
+    
     Customer *newCustomer = nil;
     if (![Customer customerDoesExist: username]) {
         newCustomer = [NSEntityDescription insertNewObjectForEntityForName: @"Customer" inManagedObjectContext: context];
         newCustomer.username = username;
         newCustomer.password = password;
         newCustomer.name = name;
-        newCustomer.address = address;
+        newCustomer.customerID = customerID;
+        newCustomer.address = address;        
     }
+    
     return newCustomer;
 }
 
