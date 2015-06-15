@@ -33,49 +33,52 @@
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
     
-    NSURLSessionDataTask *test = [session dataTaskWithURL:[NSURL URLWithString:@"http://geit-dev.info/public/ios/product.php"]
-                                        completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
-                                            NSError *parseError;
-                                            NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
-                                            if(parseError){
-                                                NSLog(@"parse Error-%@", parseError);
-                                            }
-                                            dispatch_async(dispatch_get_main_queue(), ^{
-                                                for(id element in result){
-                                                    
-                                                    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
-                                                    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
-                                                    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"idProduct  == %@ ", [element valueForKey:@"id"]];
-                                                    NSError *error = nil;
-                                                    NSInteger cn= [context countForFetchRequest:fetchRequest error:&error];
-                                                    if(cn < 1){
-                                                        Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
-                                                        [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
-                                                        [newProduct setTitle:[element objectForKey:@"title"]];
-                                                        [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
-                                                        [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
-                                                        [newProduct setType:[element objectForKey:@"type"]];
-                                                        [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
-                                                        [newProduct setSize:[element objectForKey:@"size"]];
-                                                        
-                                                        
-                                                        __block BOOL success = YES;
-                                                        while (context && success) {
-                                                            [context performBlockAndWait:^{
-                                                                NSError * error_context=nil;
-                                                                
-                                                                success = [context save:&error_context];
-                                                                if(success == false){
-                                                                    NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
-                                                                }
-                                                            }];
-                                                            context = context.parentContext;
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                            });
-                                        }];
+    NSURLSessionDataTask *test =
+    [session dataTaskWithURL:[NSURL URLWithString:@"http://geit-dev.info/public/ios/product.php"]
+           completionHandler:
+     
+     ^(NSData* data, NSURLResponse *response, NSError *error) {
+               
+               NSError *parseError;
+               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+               if(parseError){
+                   NSLog(@"parse Error-%@", parseError);
+               }
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   for(id element in result){
+                       
+                       NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+                       NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
+                       fetchRequest.predicate = [NSPredicate predicateWithFormat:@"idProduct  == %@ ", [element valueForKey:@"id"]];
+                       NSError *error = nil;
+                       NSInteger cn = [context countForFetchRequest:fetchRequest error:&error];
+                       if(cn < 1){
+                           Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
+                           [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
+                           [newProduct setTitle:[element objectForKey:@"title"]];
+                           [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
+                           [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
+                           [newProduct setType:[element objectForKey:@"type"]];
+                           [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
+                           [newProduct setSize:[element objectForKey:@"size"]];
+                           
+                           __block BOOL success = YES;
+                           while (context && success) {
+                               [context performBlockAndWait:^{
+                                   NSError * error_context = nil;
+                                   
+                                   success = [context save:&error_context];
+                                   if(success == false){
+                                       NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
+                                   }
+                               }];
+                               context = context.parentContext;
+                           }
+                       }
+                       
+                   }
+               });
+           }];
     [test resume];
 }
 -(void)loggInUserWithUsername:(NSString *)username AndPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{
@@ -112,69 +115,87 @@
 }
 
 
--(void)registerNewUserWithUsername:(NSString *)username Password:(NSString *)password Name:(NSString *)name AndFirstAdress:(NSString *)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
-    NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=insert&username=%@&password=%@&realName=%@&adress=%@",[username stringByReplacingOccurrencesOfString:@" " withString:@"+"], [password stringByReplacingOccurrencesOfString:@" " withString:@"+"], [name stringByReplacingOccurrencesOfString:@" " withString:@"+"], [adress stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
+-(void)registerNewUserWithUsername:(NSString *)username
+                          Password:(NSString *)password name:(NSString *)name
+                    andFirstAdress:(NSString *)adress
+                        completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
+   
+    NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=insert&username=%@&password=%@&realName=%@&adress=%@",[username stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                                              [password stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                                              [name stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                                              [adress stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
+    
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
     
-    NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
-                                                       completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
-                                                           NSError *parseError;
-                                                           NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
-                                                           if(parseError){
-                                                               NSLog(@"parse Error-%@", parseError);
-                                                           }
-                                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                                               
-                                                               if([[result valueForKey:@"username"] isEqualToString:@"successful"]){
-                                                                   [self loggInUserWithUsername:username AndPassword:password completion:^(User *user){
-                                                                       if ( user ) {
-                                                                           completionRegistration(user);
-                                                                       } else {
-                                                                           completionRegistration(nil);
-                                                                           
-                                                                       }
-                                                                   }];
-                                                               }
-                                                               else if([[result valueForKey:@"username"] isEqualToString:@"exist"]){
-                                                                   [[SPManager sharedManager] setDoesUserExist:YES];
-                                                                   completionRegistration(nil);
-                                                               }
-                                                               else{
-                                                                   completionRegistration(nil);
-                                                               }
-                                                               
-                                                           });
-                                                       }];
+    NSURLSessionDataTask *registrationSession =
+    [session dataTaskWithURL:url
+           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+               
+               NSError *parseError;
+               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data
+                                                                      options:NSJSONReadingMutableContainers
+                                                                        error:&parseError];
+               if(parseError){
+                   NSLog(@"parse Error-%@", parseError);
+               }
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                   if([[result valueForKey:@"username"] isEqualToString:@"successful"]){
+                       [self loggInUserWithUsername:username AndPassword:password completion:^(User *user){
+                           
+                           if (user) {
+                               completionRegistration(user);
+                           } else {
+                               completionRegistration(nil);
+                               
+                           }
+                       }];
+                   }
+                   else if([[result valueForKey:@"username"] isEqualToString:@"exist"]){
+                       [[SPManager sharedManager] setDoesUserExist:YES];
+                       completionRegistration(nil);
+                   }
+                   else{
+                       completionRegistration(nil);
+                   }
+                   
+               });
+           }];
     [registrationSession resume];
     
 }
 
 //returns array with dictionaries. Every dictionary has information for one address.
 -(void)readAllAddressesForLoggedUser:(User*) user WithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion{
-    if(([[SPManager sharedManager] isUserLogIn] == YES)&&(user != nil)){
+    
+    if( ([[SPManager sharedManager] isUserLogIn] == YES) && (user != nil) ){
+        
         [[[[SPManager sharedManager] loggedUser] addresses] removeAllObjects];
-        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=readData&userId=%ld",(long)[user userId] ]];
+        NSURL* url = [[NSURL alloc]
+                      initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=readData&userId=%ld",
+                                      (long)[user userId]]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
-        NSURLSessionDataTask *loginSession = [session dataTaskWithURL:url
-                                                    completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
-                                                        NSError *parseError;
-
-                                                        NSArray* result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
-                                                        if(parseError){
-                                                            NSLog(@"parse Error-%@", parseError);
-                                                            completion(nil);
-                                                        }
-                                                        else{
-                                                            dispatch_async(dispatch_get_main_queue(), ^{
-                                                                //NSLog(@"%@", result);
-                                                                completion(result);
-                                                            });
-                                                        }
-                                                        
-                                                    }];
+        NSURLSessionDataTask *loginSession =
+        [session dataTaskWithURL:url
+               completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                   
+                   NSError *parseError;
+                   NSArray* result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                   if(parseError){
+                       NSLog(@"parse Error-%@", parseError);
+                       completion(nil);
+                   }
+                   else{
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           //NSLog(@"%@", result);
+                           completion(result);
+                       });
+                   }
+                   
+               }];
         [loginSession resume];
     }
     

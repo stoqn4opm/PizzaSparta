@@ -13,10 +13,10 @@
 
 // creates a new product and returns it and sets it's isPromo property to NO (0)
 + (Product *) productWithTitle: (NSString *) title
-                         size: (NSString *) size
-                        price: (NSNumber *) price
-                  description: (NSString *) description
-                      Type: (NSString *) type
+                          size: (NSString *) size
+                         price: (NSNumber *) price
+                   description: (NSString *) description
+                          Type: (NSString *) type
                    andPhotoURL: (NSString *) URL;
 
 //isPromo setters and getters

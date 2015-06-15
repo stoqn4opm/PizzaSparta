@@ -91,7 +91,7 @@
     NSInteger amm = self.txtAmmount.text.integerValue;
     if (amm > 0) {
         
-        [self.txtAmmount setText:[NSString stringWithFormat:@"%d",--amm]];
+        [self.txtAmmount setText:[NSString stringWithFormat:@"%ld",(long)--amm]];
     }
 }
 
@@ -104,7 +104,7 @@
     }];
     
     NSInteger amm = self.txtAmmount.text.integerValue;
-    [self.txtAmmount setText:[NSString stringWithFormat:@"%d",++amm]];
+    [self.txtAmmount setText:[NSString stringWithFormat:@"%ld",(long)++amm]];
 }
 
 @end

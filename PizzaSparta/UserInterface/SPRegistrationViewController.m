@@ -134,7 +134,7 @@
 
 - (IBAction)signUpAction:(id)sender {
     if([self validateFields]){
-        [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:self.usernameField.text Password:self.userPasswordField.text Name:self.userFullNameField.text AndFirstAdress:self.userAddressField.text completion:^(User *user){
+        [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:self.usernameField.text Password:self.userPasswordField.text name:self.userFullNameField.text andFirstAdress:self.userAddressField.text completion:^(User *user){
             if ( user ) {
                 [[SPManager sharedManager] setLoggedUser:user];
                 [[SPManager sharedManager] setIsUserLogIn:YES];
