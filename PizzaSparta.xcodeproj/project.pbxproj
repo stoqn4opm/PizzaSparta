@@ -40,6 +40,7 @@
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F274392A1B25BA3C00356D1F /* SPLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439291B25BA3C00356D1F /* SPLogInViewController.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
+		F2A46E211B2EFD840038AD72 /* UserOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A46E201B2EFD840038AD72 /* UserOrders.m */; };
 		F2B2CD351B29BD150015C1F0 /* SPRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */; };
 		F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
@@ -115,6 +116,8 @@
 		F27439291B25BA3C00356D1F /* SPLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPLogInViewController.m; path = UserInterface/SPLogInViewController.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		F2A46E1F1B2EFD840038AD72 /* UserOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOrders.h; sourceTree = "<group>"; };
+		F2A46E201B2EFD840038AD72 /* UserOrders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOrders.m; sourceTree = "<group>"; };
 		F2B2CD331B29BD150015C1F0 /* SPRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRegistrationViewController.h; path = UserInterface/SPRegistrationViewController.h; sourceTree = "<group>"; };
 		F2B2CD341B29BD150015C1F0 /* SPRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationViewController.m; path = UserInterface/SPRegistrationViewController.m; sourceTree = "<group>"; };
 		F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
 				F2E9DD391B28790B00F2E3BD /* User.h */,
 				F2E9DD3A1B28790B00F2E3BD /* User.m */,
+				F2A46E1F1B2EFD840038AD72 /* UserOrders.h */,
+				F2A46E201B2EFD840038AD72 /* UserOrders.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				F2E9DD3B1B28790B00F2E3BD /* User.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
+				F2A46E211B2EFD840038AD72 /* UserOrders.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */,

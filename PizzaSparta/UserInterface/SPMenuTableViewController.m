@@ -9,6 +9,7 @@
 #import "SPMenuTableViewController.h"
 #import "SPMenuItemsTableViewController.h"
 #import "SPUIHeader.h"
+#import "SPManager.h"
 
 @interface SPMenuTableViewController ()
 @property (nonatomic, strong) SPMenuType *selectedMenuType;
@@ -34,7 +35,7 @@
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
-                                                                    style:UIBarButtonItemStyleDone target:nil action:nil];
+                                                                    style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
     self.navigationItem.rightBarButtonItem = rightButton;
 }
 
@@ -67,5 +68,16 @@
                 sender:(id)sender{
     
     [[segue destinationViewController] setSelectedType:self.selectedMenuType];
+}
+
+#pragma mark - logout method
+-(void)logOutAction{
+    NSLog(@"click");
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *logInViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"startAppView"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:logInViewController];
+    [self presentViewController:navController animated:YES completion:^{
+        [[SPManager sharedManager] setLoggedUser:nil];
+    }];
 }
 @end

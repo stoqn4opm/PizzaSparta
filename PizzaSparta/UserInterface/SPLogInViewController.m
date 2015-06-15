@@ -108,53 +108,7 @@
             if ( user ) {
                 [[SPManager sharedManager] setLoggedUser:user];
                 [[SPManager sharedManager] setIsUserLogIn:YES];
-                NSLog(@"%@", [[[SPManager sharedManager] loggedUser] username]);
-                /*for(id element in [[[SPManager sharedManager] loggedUser] addresses]){
-                    NSLog(@"%@", [element address]);
-                }*/
                 
-                //example for insert new adress
-                /*[[SPDatabaseManager sharedDatabaseManager] insertNewAddressForLoggedUser:user AndNewAddress:@"Burgas Nadezda" WithInsertCompletion:^(NSArray* array){
-                    if(array){
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InsertAddress"
-                                                                        message:@"new address insert"
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        
-                    }
-                    else{
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InsertAddress Error"
-                                                                        message:@"new address insert error"
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                    }
-                    
-                }];*/
-                //example delete address for user
-                /*[[SPDatabaseManager sharedDatabaseManager] deleteAddressForLoggedUser:user AndNewAddress:[[user addresses] lastObject] WithDeleteCompletion:^(NSArray* array){
-                    if(array){
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Address"
-                                                                        message:@"succesful"
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        
-                    }
-                    else{
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete Adress"
-                                                                        message:@"error"
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                    }
-                    
-                }];*/
                 UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                 UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainController"];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];

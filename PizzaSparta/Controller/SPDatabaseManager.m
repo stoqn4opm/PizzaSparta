@@ -151,10 +151,10 @@
 }
 
 //returns array with dictionaries. Every dictionary has information for one address.
--(void)readAllAddressesForLoggedUser:(User*) user WithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion{
-    if(([[SPManager sharedManager] isUserLogIn] == YES)&&(user != nil)){
+-(void)readAllAddressesForLoggedUserWithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
         [[[[SPManager sharedManager] loggedUser] addresses] removeAllObjects];
-        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=readData&userId=%ld",(long)[user userId] ]];
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=readData&userId=%ld",(long)[[[SPManager sharedManager] loggedUser] userId] ]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
@@ -180,9 +180,9 @@
     
 }
 
--(void)insertNewAddressForLoggedUser:(User*)user AndNewAddress:(NSString*)address WithInsertCompletion:(SPDatabaseManagerSuccessBlockAddress)completionInsert{
-     if(([[SPManager sharedManager] isUserLogIn] == YES)&&(user != nil)){
-          NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=insert&userId=%ld&newadress=%@",(long)[user userId],[address stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
+-(void)insertNewAddressForLoggedUserAndNewAddress:(NSString*)address WithInsertCompletion:(SPDatabaseManagerSuccessBlockAddress)completionInsert{
+     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+          NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=insert&userId=%ld&newadress=%@",(long)[[[SPManager sharedManager] loggedUser] userId],[address stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
          NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
          NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
          
@@ -196,7 +196,7 @@
                                                                 dispatch_async(dispatch_get_main_queue(), ^{
                                                                     
                                                                     if([[result valueForKey:@"address"] isEqualToString:@"successful"]){
-                                                                        [self readAllAddressesForLoggedUser:user WithCompletion:^(NSArray* array){
+                                                                        [self readAllAddressesForLoggedUserWithCompletion:^(NSArray* array){
                                                                             if ( array ) {
                                                                                 completionInsert(array);
                                                                             } else {
@@ -217,9 +217,9 @@
 }
 
 
--(void)deleteAddressForLoggedUser:(User*)user AndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete{
-    if(([[SPManager sharedManager] isUserLogIn] == YES)&&(user != nil)){
-        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=delete&userId=%ld&adressId=%ld",(long)[user userId],[address addressID]]];
+-(void)deleteAddressForLoggedUserAndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=delete&userId=%ld&adressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],[address addressID]]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
@@ -233,7 +233,7 @@
                                                                dispatch_async(dispatch_get_main_queue(), ^{
                                                                    
                                                                    if([[result valueForKey:@"address"] isEqualToString:@"successful"]){
-                                                                       [self readAllAddressesForLoggedUser:user WithCompletion:^(NSArray* array){
+                                                                       [self readAllAddressesForLoggedUserWithCompletion:^(NSArray* array){
                                                                            if ( array ) {
                                                                                completionDelete(array);
                                                                            } else {
@@ -253,5 +253,155 @@
     }
 }
 
+-(void)addProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=addProduct&productType=normal&orderId=%@&productId=%@&numberOfProduct=%@&size=%@",orderId,[product objectForKey:@"prodictId"],[product objectForKey:@"numberOfProduct"], [product objectForKey:@"size"]]];
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
+        
+        NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
+                                                           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                                                               NSError *parseError;
+                                                               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                                                               if(parseError){
+                                                                   NSLog(@"parse Error-%@", parseError);
+                                                               }
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   
+                                                                   NSLog(@"%@", [result objectForKey:@"product"]);
+                                                                   
+                                                               });
+                                                           }];
+        [registrationSession resume];
 
+    }
+}
+
+-(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts AndCustomProducts:(NSArray*)allcustomproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=create&userId=%ld&addressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],[address addressID]]];
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
+        
+        NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
+                                                           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                                                               NSError *parseError;
+                                                               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                                                               if(parseError){
+                                                                   NSLog(@"parse Error-%@", parseError);
+                                                               }
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   
+                                                                   if(![[result valueForKey:@"order"] isEqualToString:@"fail"]){
+                                                                       NSLog(@"%@", result);
+                                                                       for(id element in allproducts){
+                                                                           [self addProductsToOrder:element ForOrderWithID:[result objectForKey:@"order"]];
+                                                                       }
+                                                                       NSLog(@"here");
+                                                                       completionOrder(@"success");
+                                                                   }
+                                                                   else{
+                                                                       completionOrder(nil);
+                                                                   }
+                                                                   
+                                                               });
+                                                           }];
+        [registrationSession resume];
+
+    }
+}
+
+//get all orders or by entring type choose to show delivered or not delivered orders
+//type = all
+//type = delivered
+//type = isnotdelivered
+-(void)getAllOrderstoGet:(NSString*) type WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=getAllOrders&userId=%ld&get=%@",[[[SPManager sharedManager] loggedUser] userId],type]];
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
+        
+        NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
+                                                           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                                                               NSError *parseError;
+                                                               NSArray * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                                                               if(parseError){
+                                                                   NSLog(@"parse Error-%@", parseError);
+                                                               }
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   
+                                                                   if(![[[result objectAtIndex:0] valueForKey:@"id"] isEqualToString:@"none"]){
+                                                                       
+                                                                       completionOrder(result);
+                                                                   }
+                                                                   else{
+                                                                       completionOrder(nil);
+                                                                   }
+                                                                   
+                                                               });
+                                                           }];
+        [registrationSession resume];
+        
+    }
+
+}
+-(void)getOrderWithId:(NSInteger*)orderId WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=getOrder&orderId=%ld",(long)orderId]];
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
+        
+        NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
+                                                           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                                                               NSError *parseError;
+                                                               NSArray * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                                                               if(parseError){
+                                                                   NSLog(@"parse Error-%@", parseError);
+                                                               }
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   
+                                                                   if(![[[result objectAtIndex:0] valueForKey:@"id"] isEqualToString:@"none"]){
+                                                                       
+                                                                       completionOrder(result);
+                                                                   }
+                                                                   else{
+                                                                       completionOrder(nil);
+                                                                   }
+                                                                   
+                                                               });
+                                                           }];
+        [registrationSession resume];
+        
+    }
+}
+-(void)deleteOrederWithId:(NSInteger)orderId WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=deleteOrder&orderId=%ld",(long)orderId]];
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
+        
+        NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
+                                                           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                                                               NSError *parseError;
+                                                               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                                                               if(parseError){
+                                                                   NSLog(@"parse Error-%@", parseError);
+                                                               }
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   
+                                                                   if([[result valueForKey:@"order"] isEqualToString:@"successful"]){
+                                                                       NSLog(@"%@", result);
+                                                                       
+                                                                      completionOrder(@"successful");
+                                                                   }
+                                                                   else{
+                                                                       completionOrder(nil);
+                                                                   }
+                                                                   
+                                                               });
+                                                           }];
+        [registrationSession resume];
+        
+    }
+}
 @end

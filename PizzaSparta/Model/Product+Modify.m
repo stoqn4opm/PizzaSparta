@@ -35,7 +35,7 @@
 
 #pragma mark - property setters and getters
 
-- (BOOL) isPromo{
+/*- (BOOL) isPromo{
     if ([self.isPromo  isEqual: @1])
         return YES;
     else
@@ -47,7 +47,7 @@
         self.isPromo = @1;
     else
         self.isPromo = @0;
-}
+}*/
 
 - (NSURL *) urlPhoto{
     return [NSURL URLWithString: self.photoURL];

@@ -18,6 +18,7 @@
         _password=@"";
         _name=@"";
         _addresses=[[NSMutableArray alloc] init];
+        _orders=[[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -41,5 +42,20 @@
         }
     }
     return NO;
+}
+-(void)readAllOrders:(NSArray *)allorders{
+    [self.orders removeAllObjects];
+    for(NSDictionary* element in allorders){
+        UserOrders* ord=[[UserOrders alloc]init];
+        [ord setOrderId:[[element valueForKey:@"id"] integerValue]];
+        [ord setUserId:[[element valueForKey:@"userId"] integerValue]];
+        [ord setAddressID:[[element valueForKey:@"adressId"] integerValue]];
+        [ord setIsDelivered:[[element valueForKey:@"isDelivered"] integerValue]];
+        [ord setDateOrder:[element valueForKey:@"dateOrder"]];
+        /*if(![[element valueForKey:@"products"] isEqualToString:@"none"]){
+            [ord setProducts:[element valueForKey:@"products"]];
+        }*/
+        [self.orders addObject:ord];
+    }
 }
 @end

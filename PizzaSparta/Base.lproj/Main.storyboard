@@ -1050,7 +1050,7 @@
         <!--Sign In-->
         <scene sceneID="Noy-cY-nza">
             <objects>
-                <viewController storyboardIdentifier="loginController" title="Sign In" id="bM9-AT-NGe" customClass="SPLogInViewController" sceneMemberID="viewController">
+                <viewController title="Sign In" id="bM9-AT-NGe" customClass="SPLogInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pEY-DE-kru"/>
                         <viewControllerLayoutGuide type="bottom" id="MfV-IH-WOs"/>
@@ -1257,7 +1257,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qou-zP-g5P">
             <objects>
-                <tabBarController id="mJn-EZ-IH7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="startAppView" id="mJn-EZ-IH7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="iNM-SQ-dDJ"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VJN-2x-l5F">

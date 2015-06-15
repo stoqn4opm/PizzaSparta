@@ -214,11 +214,12 @@
     }
 }
 
+#pragma mark - logout method
 -(void)logOutAction{
     NSLog(@"click");
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
+    UIViewController *logInViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"startAppView"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:logInViewController];
     [self presentViewController:navController animated:YES completion:^{
         [[SPManager sharedManager] setLoggedUser:nil];
     }];
