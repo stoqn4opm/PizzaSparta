@@ -23,13 +23,12 @@
 @property(nonatomic)BOOL doesUserExist;
 
 + (instancetype) sharedManager;
+
 - (NSManagedObjectContext *) privateChildMOContext;
 
-// returns all of the logged in accounts
-- (NSArray *) savedAccounts;
-
-// use this method to log in an already stored accounts
-- (void) logInCustomerWithAccountName: (NSString *) username;
+- (void) logInUser: (User *) user;
+- (BOOL) hasAccountBeenLoggedIn;
+- (void) clearLoggedAccounts;
 
 - (void) saveParentContextToStore;
 

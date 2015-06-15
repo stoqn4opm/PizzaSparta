@@ -21,6 +21,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self.window setTintColor:SPCOLOR_RED];
+    [[SPManager sharedManager] updateMenu];
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Product"];
+//    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+//    NSArray *matches = [context executeFetchRequest: request error: NULL];
+//    NSLog(@"%@", matches);
 
 //    Uncomment these to test population of data across views and core data
 //    Product *pr1 = [Product productWithTitle:@"Pizza 1" description:@"Short desc" andType:SPPizza];

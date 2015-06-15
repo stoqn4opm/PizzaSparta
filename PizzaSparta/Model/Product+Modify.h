@@ -17,6 +17,8 @@
                         price: (NSNumber *) price
                   description: (NSString *) description
                       Type: (NSString *) type
+                       isPromo: (NSNumber* ) isPromo
+                      poductID: (NSNumber *) productID
                    andPhotoURL: (NSString *) URL;
 
 //isPromo setters and getters

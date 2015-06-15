@@ -78,6 +78,7 @@
                                         }];
     [test resume];
 }
+
 -(void)loggInUserWithUsername:(NSString *)username AndPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{
     
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=readData&username=%@&password=%@",username, password ]];

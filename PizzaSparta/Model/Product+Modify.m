@@ -16,6 +16,8 @@
                          price: (NSNumber *) price
                    description: (NSString *) description
                           Type: (NSString *) type
+                       isPromo: (NSNumber* ) isPromo
+                      poductID: (NSNumber *) productID
                    andPhotoURL: (NSString *) URL{
 
     Product *newProduct = nil;
@@ -27,7 +29,8 @@
     newProduct.price = price;
     newProduct.productDesc = description;
     newProduct.type = type;
-    newProduct.isPromo = @0;
+    newProduct.idProduct = productID;
+    newProduct.isPromo = isPromo;
     newProduct.photoURL = URL;
     [context save: NULL];
     return newProduct;
