@@ -13,6 +13,7 @@
 		03C300FF1B30033700154C49 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C300FC1B30033700154C49 /* FBSDKCoreKit.framework */; };
 		03C301001B30033700154C49 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C300FD1B30033700154C49 /* FBSDKLoginKit.framework */; };
 		03C301011B30033700154C49 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C300FE1B30033700154C49 /* FBSDKShareKit.framework */; };
+		03C301041B3032A600154C49 /* SPCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C301031B3032A600154C49 /* SPCartTableViewCell.m */; };
 		9007CE9F1B1F2A4C00F4650F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CE9E1B1F2A4C00F4650F /* main.m */; };
 		9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEA91B1F2A4D00F4650F /* Main.storyboard */; };
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
@@ -65,6 +66,8 @@
 		03C300FC1B30033700154C49 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		03C300FD1B30033700154C49 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		03C300FE1B30033700154C49 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		03C301021B3032A600154C49 /* SPCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCartTableViewCell.h; path = UserInterface/SPCartTableViewCell.h; sourceTree = "<group>"; };
+		03C301031B3032A600154C49 /* SPCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCartTableViewCell.m; path = UserInterface/SPCartTableViewCell.m; sourceTree = "<group>"; };
 		9007CE991B1F2A4C00F4650F /* PizzaSparta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSparta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CE9D1B1F2A4C00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CE9E1B1F2A4C00F4650F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +155,15 @@
 			name = "Facebook Frameworks";
 			sourceTree = "<group>";
 		};
+		03C301051B303F3300154C49 /* Detailed Views */ = {
+			isa = PBXGroup;
+			children = (
+				90C16B221B23621F0045788C /* SPItemDetailsTableViewController.h */,
+				90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */,
+			);
+			name = "Detailed Views";
+			sourceTree = "<group>";
+		};
 		9007CE901B1F2A4C00F4650F = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,8 @@
 				90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */,
 				90C16B1F1B235BA90045788C /* SPItemTableViewCell.h */,
 				90C16B201B235BA90045788C /* SPItemTableViewCell.m */,
+				03C301021B3032A600154C49 /* SPCartTableViewCell.h */,
+				03C301031B3032A600154C49 /* SPCartTableViewCell.m */,
 				906E59911B20F8DC00186629 /* Samples */,
 			);
 			name = Resources;
@@ -291,11 +305,10 @@
 		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F274392B1B25BA4A00356D1F /* LogIn and Registration */,
+				03C301051B303F3300154C49 /* Detailed Views */,
+				F274392B1B25BA4A00356D1F /* Login and Registration */,
 				90C16B2E1B23AA7A0045788C /* Menu */,
 				90C16B2F1B23AA900045788C /* More */,
-				90C16B221B23621F0045788C /* SPItemDetailsTableViewController.h */,
-				90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */,
 				90C16B301B23AAA10045788C /* Promo */,
 				90C16B311B23AAA90045788C /* Cart */,
 			);
@@ -335,7 +348,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		F274392B1B25BA4A00356D1F /* LogIn and Registration */ = {
+		F274392B1B25BA4A00356D1F /* Login and Registration */ = {
 			isa = PBXGroup;
 			children = (
 				03C300C61B2F5A8700154C49 /* SPRegistrationTableViewController.h */,
@@ -343,7 +356,7 @@
 				03C300C11B2F29EA00154C49 /* SPLoginTableViewController.h */,
 				03C300C21B2F29EA00154C49 /* SPLoginTableViewController.m */,
 			);
-			name = "LogIn and Registration";
+			name = "Login and Registration";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +475,7 @@
 				90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */,
 				F2E9DD3B1B28790B00F2E3BD /* User.m in Sources */,
 				03C300C51B2F4E1600154C49 /* SPUIHeader.m in Sources */,
+				03C301041B3032A600154C49 /* SPCartTableViewCell.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
