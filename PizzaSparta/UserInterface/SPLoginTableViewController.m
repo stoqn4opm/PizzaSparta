@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _firstEntrance = TRUE;
-    [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
+    //[[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
     
     self.btnFBLogin.readPermissions = @[@"email"];
     
@@ -151,11 +151,7 @@
         [self.activityIndicator stopAnimating];
         return;
     }
-    
-    [[SPDatabaseManager sharedDatabaseManager]
-     loginUserWithUsername:self.txtUsername.text andPassword:self.txtPassword.text
-     
-     completion:^(User *user){
+    [[SPDatabaseManager sharedDatabaseManager]loggInUserWithUsername:self.txtUsername.text AndPassword:self.txtPassword.text completion:^(User *user){
          if ( user ) {
             [[SPManager sharedManager] setLoggedUser:user];
             [[SPManager sharedManager] setIsUserLogIn:YES];

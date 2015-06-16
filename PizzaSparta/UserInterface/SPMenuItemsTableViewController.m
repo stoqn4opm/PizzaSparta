@@ -52,9 +52,16 @@
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setUpImageBackButton];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
-                                                                    style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    if([[SPManager sharedManager] isUserLogIn]){
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+    else{
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
 }
 
 #pragma mark - <UITableViewDataSource> Methods
@@ -220,7 +227,11 @@
     UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
     [self presentViewController:navController animated:YES completion:^{
-        [[SPManager sharedManager] setLoggedUser:nil];
+        if ([[SPManager sharedManager] isUserLogIn]) {
+            [[SPManager sharedManager] setLoggedUser:nil];
+            [[SPManager sharedManager ]setIsUserLogIn:NO];
+        }
+        
     }];
 }
 @end

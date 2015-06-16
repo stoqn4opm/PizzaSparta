@@ -9,6 +9,7 @@
 #import "SPMenuTableViewController.h"
 #import "SPMenuItemsTableViewController.h"
 #import "SPUIHeader.h"
+#import "SPManager.h"
 
 @interface SPMenuTableViewController ()
 @property (nonatomic, strong) SPMenuType *selectedMenuType;
@@ -33,9 +34,17 @@
     
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
-                                                                    style:UIBarButtonItemStyleDone target:nil action:nil];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    if([[SPManager sharedManager] isUserLogIn]){
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+    else{
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
 }
 
 #pragma mark - <UITableViewDataSource> Methods
@@ -67,5 +76,20 @@
                 sender:(id)sender{
     
     [[segue destinationViewController] setSelectedType:self.selectedMenuType];
+}
+
+
+-(void)logOutAction{
+    NSLog(@"click");
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
+    [self presentViewController:navController animated:YES completion:^{
+        if ([[SPManager sharedManager] isUserLogIn]) {
+            [[SPManager sharedManager] setLoggedUser:nil];
+            [[SPManager sharedManager ]setIsUserLogIn:NO];
+        }
+        
+    }];
 }
 @end

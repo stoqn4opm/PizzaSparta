@@ -113,25 +113,20 @@
         [self.createUserActivity stopAnimating];
         return;
     }
+    [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:self.txtUsername.text Password:self.txtPassword.text Name:self.txtName.text AndFirstAdress:self.txtAddress.text completion:^(User *user){
+        if ( user ) {
+            [[SPManager sharedManager] setLoggedUser:user];
+            [[SPManager sharedManager] setIsUserLogIn:YES];
+            [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
+        }
+        else if ([[SPManager sharedManager] doesUserExist]){
+            [SPUIHeader alertViewWithType:SPALERT_TYPE_USER_ALREADY_REGISTERED];
+        }else{
+            [SPUIHeader alertViewWithType:SPALERT_TYPE_REGISTER_ERROR];
+        }
+        [self.createUserActivity stopAnimating];
+    }];
     
-    [[SPDatabaseManager sharedDatabaseManager]
-     registerNewUserWithUsername:self.txtUsername.text
-     password:self.txtPassword.text
-     name:self.txtName.text
-     andFirstAdress:self.txtAddress.text
-     completion:^(User *user){
-         if ( user ) {
-             [[SPManager sharedManager] setLoggedUser:user];
-             [[SPManager sharedManager] setIsUserLogIn:YES];
-             [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
-         }
-         else if ([[SPManager sharedManager] doesUserExist]){
-             [SPUIHeader alertViewWithType:SPALERT_TYPE_USER_ALREADY_REGISTERED];
-         }else{
-             [SPUIHeader alertViewWithType:SPALERT_TYPE_REGISTER_ERROR];
-         }
-         [self.createUserActivity stopAnimating];
-     }];
 }
 
 #pragma mark - User Actions Helper Methods
