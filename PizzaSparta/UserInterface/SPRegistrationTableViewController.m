@@ -132,8 +132,6 @@
          }
          [self.createUserActivity stopAnimating];
      }];
-    
-   
 }
 
 #pragma mark - User Actions Helper Methods

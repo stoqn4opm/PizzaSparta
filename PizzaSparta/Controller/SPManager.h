@@ -22,6 +22,7 @@
 @property (strong, nonatomic) User* loggedUser;
 @property(nonatomic)BOOL isUserLogIn;
 @property(nonatomic)BOOL doesUserExist;
+@property(nonatomic)BOOL autoLoginEnabled;
 
 + (instancetype) sharedManager;
 

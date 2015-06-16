@@ -10,20 +10,22 @@
 #import "SPUIHeader.h"
 #import "SPDatabaseManager.h"
 #import "NSString+Check.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface SPLoginTableViewController () <UITextFieldDelegate>{
+@interface SPLoginTableViewController () <UITextFieldDelegate, FBSDKLoginButtonDelegate>{
     BOOL _firstEntrance;
+    BOOL _autoLogin;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *curvedTiles;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
-@property (weak, nonatomic) IBOutlet UIButton *btnFBLogin;
-@property (weak, nonatomic) IBOutlet UIImageView *fbIcon;
 @property (weak, nonatomic) IBOutlet UIButton *btnRegister;
 @property (weak, nonatomic) IBOutlet UIButton *btnSkipLogin;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *btnFBLogin;
 
 @end
 
@@ -33,7 +35,26 @@
     [super viewDidLoad];
     _firstEntrance = TRUE;
     [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
-
+    
+    self.btnFBLogin.readPermissions = @[@"email"];
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        // User is logged in facebook on this device,
+        // do work such as go to next view controller, if autologin is enabled
+        
+        
+        /* sample way to get dictionary with logged facebook user info:
+         
+             [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+             
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error){
+                 if (!error) {
+                     NSLog(@"fetched user:%@", result);
+                 }
+             }];
+         
+         */
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -50,12 +71,7 @@
     UITapGestureRecognizer *dismissKeyboardTap = [[UITapGestureRecognizer alloc]
                                                   initWithTarget:self action:@selector(dismissKB)];
     
-    UITapGestureRecognizer *fbIconTap = [[UITapGestureRecognizer alloc]
-                                         initWithTarget:self action:@selector(fbLoginTapped)];
-    
     [self.view addGestureRecognizer:dismissKeyboardTap];
-    [self.fbIcon addGestureRecognizer:fbIconTap];
-    [self.fbIcon setUserInteractionEnabled:YES];
     if (_firstEntrance) {
         [self firstEntranceAnimation];
         _firstEntrance = FALSE;
@@ -153,28 +169,26 @@
          }}];
 }
 
-- (IBAction)fbLoginTapped {
-    [self.fbIcon setAlpha:0.5];
-    [UIView animateWithDuration:0.2 animations:^{
-        [self.fbIcon setAlpha:1];
-    }];
-    NSLog(@"Will Be implemented soon");
-}
-
 - (IBAction)registerTapped {
     [self presentRegistration];
 }
 
-#pragma mark - User Actions Helper Methods
+#pragma mark User Actions Helper Methods
 -(BOOL) emptyFields{
 return [NSString isEmptyString:self.txtUsername.text] ||
        [NSString isEmptyString:self.txtPassword.text];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"RegisterSegue"]) {
-//        [self presentRegisterAnimation];
-        
-    }
+#pragma mark - Facebook Related Methods
+-(void)loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+             error:(NSError *)error{
+
+    
 }
+
+-(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    
+}
+
 @end
