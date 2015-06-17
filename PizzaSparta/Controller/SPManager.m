@@ -242,9 +242,10 @@
 ////    Product *pr2 = [Product productWithTitle: @"Pizza pepperoni"size: @"medium" price: @15 description: @"A classic pizza pepperoni" Type: SPPizza andPhotoURL: @"http://bluewallpaperhd.com/wp-content/uploads/2014/08/pepperoni-pizza-pizza-hut-slice.jpg"];
 ////    
 ////    Product *pr3 = [Product productWithTitle: @"Pasta bolognese" size: @"400g" price: @7 description: @"A portion of the classic bolognese pasta" Type: SPPasta andPhotoURL: @"http://031b7b3.netsolhost.com/WordPress/wp-content/uploads/2013/12/tofu-bolognese.jpg"];
-////    Product *pt4 = [Product productWithTitle: @"Four cheese pasta" size: @"400g" price: @8 description: @"A portion of the classic four cheese pasta" Type: SPPasta andPhotoURL: @"http://www.cellocheese.com/wp-content/uploads/2012/02/fourcheesepasta.jpg"];
-////    
-////    [pt4 setIsPromo:@1];
+    
+//    Product *pt4 = [Product productWithTitle:@"asd" size:@"400g" price:@10 description:@"fdfgfgf" Type:SPPizza isPromo:@1 poductID:@123 andPhotoURL:nil];
+//    
+//    [pt4 setIsPromo:@1];
 }
 
 @end
