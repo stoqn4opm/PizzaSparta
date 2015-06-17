@@ -165,21 +165,20 @@
         return;
     }
     
-    [[SPDatabaseManager sharedDatabaseManager]
-     loginUserWithUsername:self.txtUsername.text andPassword:self.txtPassword.text
-     
-     completion:^(User *user){
-         if ( user ) {
-            [[SPManager sharedManager] setLoggedUser:user];
-            [[SPManager sharedManager] setIsUserLogIn:YES];
-            NSLog(@"%@", [[[SPManager sharedManager] loggedUser] username]);
-             [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
-             [self.activityIndicator stopAnimating];
-        }
-         else{
-             [SPUIHeader alertViewWithType:SPALERT_TYPE_WRONG_USERNAME_PASSWORD];
-             [self.activityIndicator stopAnimating];
-         }}];
+    [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:self.txtUsername.text
+                                                          AndPassword:self.txtPassword.text
+                                                           completion:^(User *user){
+                                                               if ( user ) {
+                                                                   [[SPManager sharedManager] setLoggedUser:user];
+                                                                   [[SPManager sharedManager] setIsUserLogIn:YES];
+                                                                   NSLog(@"%@", [[[SPManager sharedManager] loggedUser] username]);
+                                                                   [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
+                                                                   [self.activityIndicator stopAnimating];
+                                                               }
+                                                               else{
+                                                                   [SPUIHeader alertViewWithType:SPALERT_TYPE_WRONG_USERNAME_PASSWORD];
+                                                                   [self.activityIndicator stopAnimating];
+                                                               }}];
 }
 
 - (IBAction)registerTapped {
