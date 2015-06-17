@@ -38,16 +38,17 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [[[[SPManager sharedManager] cart]objectForKey:@"Product"]count];
+    return [[[SPManager sharedManager] cart] count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SPCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPCartTableViewCell" forIndexPath:indexPath];
     
-    Product *currProduct = [[[SPManager sharedManager]cart] objectForKey:@"Product"][indexPath.row];
-    NSNumber *amount     = [[[SPManager sharedManager]cart] objectForKey:@"Amount"][indexPath.row];
+    Product *currProduct = [[[[SPManager sharedManager]cart] objectAtIndex:indexPath.row] valueForKey: @"Product"];
+    NSNumber *amount     = [[[[SPManager sharedManager]cart] objectAtIndex:indexPath.row] valueForKey: @"Amount"];
     
     [cell configureCartCellWithProduct:currProduct andAmount:amount];
+    
     return cell;
 }
 @end

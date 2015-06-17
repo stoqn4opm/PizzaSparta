@@ -10,9 +10,6 @@
 		03C300C31B2F29EA00154C49 /* SPLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C21B2F29EA00154C49 /* SPLoginTableViewController.m */; };
 		03C300C51B2F4E1600154C49 /* SPUIHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C41B2F4E1600154C49 /* SPUIHeader.m */; };
 		03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */; };
-		03C300FF1B30033700154C49 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C300FC1B30033700154C49 /* FBSDKCoreKit.framework */; };
-		03C301001B30033700154C49 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C300FD1B30033700154C49 /* FBSDKLoginKit.framework */; };
-		03C301011B30033700154C49 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C300FE1B30033700154C49 /* FBSDKShareKit.framework */; };
 		03C301041B3032A600154C49 /* SPCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C301031B3032A600154C49 /* SPCartTableViewCell.m */; };
 		9007CE9F1B1F2A4C00F4650F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CE9E1B1F2A4C00F4650F /* main.m */; };
 		9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEA91B1F2A4D00F4650F /* Main.storyboard */; };
@@ -43,6 +40,9 @@
 		F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFA81B304BAA009EEE8B /* Ingredient.m */; };
 		F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
+		F1918A721B31C7F5005CCCA7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */; };
+		F1918A731B31C7F5005CCCA7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */; };
+		F1918A741B31C7F5005CCCA7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
 		F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
@@ -65,9 +65,6 @@
 		03C300C41B2F4E1600154C49 /* SPUIHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPUIHeader.m; path = UserInterface/SPUIHeader.m; sourceTree = "<group>"; };
 		03C300C61B2F5A8700154C49 /* SPRegistrationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRegistrationTableViewController.h; path = UserInterface/SPRegistrationTableViewController.h; sourceTree = "<group>"; };
 		03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationTableViewController.m; path = UserInterface/SPRegistrationTableViewController.m; sourceTree = "<group>"; };
-		03C300FC1B30033700154C49 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		03C300FD1B30033700154C49 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		03C300FE1B30033700154C49 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		03C301021B3032A600154C49 /* SPCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCartTableViewCell.h; path = UserInterface/SPCartTableViewCell.h; sourceTree = "<group>"; };
 		03C301031B3032A600154C49 /* SPCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCartTableViewCell.m; path = UserInterface/SPCartTableViewCell.m; sourceTree = "<group>"; };
 		9007CE991B1F2A4C00F4650F /* PizzaSparta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSparta.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +117,9 @@
 		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
@@ -135,9 +135,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C301001B30033700154C49 /* FBSDKLoginKit.framework in Frameworks */,
-				03C300FF1B30033700154C49 /* FBSDKCoreKit.framework in Frameworks */,
-				03C301011B30033700154C49 /* FBSDKShareKit.framework in Frameworks */,
+				F1918A731B31C7F5005CCCA7 /* FBSDKLoginKit.framework in Frameworks */,
+				F1918A721B31C7F5005CCCA7 /* FBSDKCoreKit.framework in Frameworks */,
+				F1918A741B31C7F5005CCCA7 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,9 +154,9 @@
 		03C300FB1B3002B000154C49 /* Facebook Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03C300FC1B30033700154C49 /* FBSDKCoreKit.framework */,
-				03C300FD1B30033700154C49 /* FBSDKLoginKit.framework */,
-				03C300FE1B30033700154C49 /* FBSDKShareKit.framework */,
+				F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */,
+				F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */,
+				F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */,
 			);
 			name = "Facebook Frameworks";
 			sourceTree = "<group>";
@@ -634,6 +634,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/stoyanstoyanov/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/PizzaSparta",
 				);
 				INFOPLIST_FILE = PizzaSparta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -650,6 +651,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/stoyanstoyanov/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/PizzaSparta",
 				);
 				INFOPLIST_FILE = PizzaSparta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

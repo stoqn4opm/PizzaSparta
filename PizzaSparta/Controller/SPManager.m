@@ -114,6 +114,7 @@
                 [dict setValue: amount forKey: @"Amount"];
                 return;
             }
+            return;
         }
     }
     

@@ -73,7 +73,11 @@
     
     if (self.lblAmmount.text.intValue > 0) {
         self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
-        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
+//        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
+        NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+        [product setValue: self.currentProduct forKey: @"Product"];
+        [product setValue: @(--self.currentAmount) forKey: @"Amount"];
+        [product setValue: @"Large" forKey: @"Size"];
     }
 }
 
@@ -86,7 +90,11 @@
     }];
     
     self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)++self.currentAmount];
-    [[SPManager sharedManager] addProductToCart:self.currentProduct amount:1];
+//    [[SPManager sharedManager] addProductToCart:self.currentProduct amount:1];
+    NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+    [product setValue: self.currentProduct forKey: @"Product"];
+    [product setValue: @(1) forKey: @"Amount"];
+    [product setValue: @"Large" forKey: @"Size"];
 }
 
 @end
