@@ -40,16 +40,14 @@
 		F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFA81B304BAA009EEE8B /* Ingredient.m */; };
 		F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
-		F1918A721B31C7F5005CCCA7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */; };
-		F1918A731B31C7F5005CCCA7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */; };
-		F1918A741B31C7F5005CCCA7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */; };
+		F25ABCE51B31FCFA005D11AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE41B31FCFA005D11AD /* User.m */; };
+		F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */; };
+		F25ABCEA1B31FEBB005D11AD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */; };
+		F25ABCED1B31FEE0005D11AD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */; };
+		F25ABCEE1B31FEE0005D11AD /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */; };
+		F25ABCF21B31FF8D005D11AD /* UserOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCF11B31FF8D005D11AD /* UserOrders.m */; };
+		F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCF51B320087005D11AD /* SPCustomVC.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
-		F2862BAF1B304149005E3472 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BAE1B304149005E3472 /* User.m */; };
-		F2862BB21B304151005E3472 /* UserOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BB11B304151005E3472 /* UserOrders.m */; };
-		F2862BB51B30415F005E3472 /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BB41B30415F005E3472 /* SPDatabaseManager.m */; };
-		F2862BBB1B3058AD005E3472 /* SPCustomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BB81B3058AD005E3472 /* SPCustomVC.m */; };
-		F2862BBC1B3058AD005E3472 /* SPIngredientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BBA1B3058AD005E3472 /* SPIngredientsCell.m */; };
-		F2862BC21B305A16005E3472 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BC11B305A16005E3472 /* Ingredient.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
 /* End PBXBuildFile section */
 
@@ -121,22 +119,26 @@
 		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
-		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
-=======
 		F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
->>>>>>> 0e06416e54224da1778222462514e1cc2307a363
+		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
+		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
+		F25ABCE31B31FCFA005D11AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		F25ABCE41B31FCFA005D11AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F25ABCE61B31FD2D005D11AD /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
+		F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
+		F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F25ABCF01B31FF8D005D11AD /* UserOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOrders.h; sourceTree = "<group>"; };
+		F25ABCF11B31FF8D005D11AD /* UserOrders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOrders.m; sourceTree = "<group>"; };
+		F25ABCF41B320087005D11AD /* SPCustomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomVC.h; path = UserInterface/SPCustomVC.h; sourceTree = "<group>"; };
+		F25ABCF51B320087005D11AD /* SPCustomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomVC.m; path = UserInterface/SPCustomVC.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
-		F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
-		F2E5A3B71B2B1465002A9891 /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
 		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
 		F2E9DD371B2874AF00F2E3BD /* UserAdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAdress.m; sourceTree = "<group>"; };
-		F2E9DD391B28790B00F2E3BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		F2E9DD3A1B28790B00F2E3BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +146,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1918A731B31C7F5005CCCA7 /* FBSDKLoginKit.framework in Frameworks */,
-				F1918A721B31C7F5005CCCA7 /* FBSDKCoreKit.framework in Frameworks */,
-				F1918A741B31C7F5005CCCA7 /* FBSDKShareKit.framework in Frameworks */,
+				F25ABCEA1B31FEBB005D11AD /* FBSDKCoreKit.framework in Frameworks */,
+				F25ABCED1B31FEE0005D11AD /* FBSDKLoginKit.framework in Frameworks */,
+				F25ABCEE1B31FEE0005D11AD /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,9 +184,9 @@
 		9007CE901B1F2A4C00F4650F = {
 			isa = PBXGroup;
 			children = (
-				F28628E71B303C0E005E3472 /* FBSDKShareKit */,
-				F286241C1B303BE8005E3472 /* FBSDKCoreKit */,
-				F28623231B303B80005E3472 /* FBSDKLoginKit */,
+				F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */,
+				F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */,
+				F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */,
 				9007CE9B1B1F2A4C00F4650F /* PizzaSparta */,
 				9007CEB81B1F2A4D00F4650F /* PizzaSpartaTests */,
 				9007CE9A1B1F2A4C00F4650F /* Products */,
@@ -323,13 +325,9 @@
 		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				F2862BB61B305890005E3472 /* Custom Pizza */,
-				F274392B1B25BA4A00356D1F /* LogIn and Registration */,
-=======
+				F25ABCF31B32005B005D11AD /* Custom Pizza */,
 				03C301051B303F3300154C49 /* Detailed Views */,
 				F274392B1B25BA4A00356D1F /* Login and Registration */,
->>>>>>> 0e06416e54224da1778222462514e1cc2307a363
 				90C16B2E1B23AA7A0045788C /* Menu */,
 				90C16B2F1B23AA900045788C /* More */,
 				90C16B301B23AAA10045788C /* Promo */,
@@ -341,6 +339,10 @@
 		90F1119B1B21FD7C0044AA63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F25ABCE31B31FCFA005D11AD /* User.h */,
+				F25ABCE41B31FCFA005D11AD /* User.m */,
+				F25ABCF01B31FF8D005D11AD /* UserOrders.h */,
+				F25ABCF11B31FF8D005D11AD /* UserOrders.m */,
 				90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */,
 				F12FCDE41B287E7500CCE789 /* Account.h */,
 				F12FCDE51B287E7500CCE789 /* Account.m */,
@@ -352,23 +354,12 @@
 				F27439301B25BFA700356D1F /* NSString+Check.m */,
 				F2E9DD361B2874AF00F2E3BD /* UserAdress.h */,
 				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
-<<<<<<< HEAD
-				F2862BAD1B304149005E3472 /* User.h */,
-				F2862BAE1B304149005E3472 /* User.m */,
-				F2862BB01B304151005E3472 /* UserOrders.h */,
-				F2862BB11B304151005E3472 /* UserOrders.m */,
-				F2862BC01B305A16005E3472 /* Ingredient.h */,
-				F2862BC11B305A16005E3472 /* Ingredient.m */,
 				F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */,
 				F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */,
-=======
-				F2E9DD391B28790B00F2E3BD /* User.h */,
-				F2E9DD3A1B28790B00F2E3BD /* User.m */,
 				F130DFA71B304BAA009EEE8B /* Ingredient.h */,
 				F130DFA81B304BAA009EEE8B /* Ingredient.m */,
 				F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */,
 				F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */,
->>>>>>> 0e06416e54224da1778222462514e1cc2307a363
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,12 +369,21 @@
 			children = (
 				90F111AC1B21FD7C0044AA63 /* SPAppDelegate.h */,
 				90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */,
+				F25ABCE61B31FD2D005D11AD /* SPDatabaseManager.h */,
+				F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */,
 				90F111AE1B21FD7C0044AA63 /* SPManager.h */,
 				90F111AF1B21FD7C0044AA63 /* SPManager.m */,
-				F2862BB31B30415F005E3472 /* SPDatabaseManager.h */,
-				F2862BB41B30415F005E3472 /* SPDatabaseManager.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F25ABCF31B32005B005D11AD /* Custom Pizza */ = {
+			isa = PBXGroup;
+			children = (
+				F25ABCF41B320087005D11AD /* SPCustomVC.h */,
+				F25ABCF51B320087005D11AD /* SPCustomVC.m */,
+			);
+			name = "Custom Pizza";
 			sourceTree = "<group>";
 		};
 		F274392B1B25BA4A00356D1F /* Login and Registration */ = {
@@ -509,26 +509,25 @@
 				90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */,
 				90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */,
 				90A954CC1B202525006A0D8E /* SPPromoTableViewController.m in Sources */,
+				F25ABCF21B31FF8D005D11AD /* UserOrders.m in Sources */,
 				90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */,
 				90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */,
-				F2862BAF1B304149005E3472 /* User.m in Sources */,
 				03C300C51B2F4E1600154C49 /* SPUIHeader.m in Sources */,
 				03C301041B3032A600154C49 /* SPCartTableViewCell.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
-				F2862BB51B30415F005E3472 /* SPDatabaseManager.m in Sources */,
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
-				F2862BBC1B3058AD005E3472 /* SPIngredientsCell.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */,
-				F2862BBB1B3058AD005E3472 /* SPCustomVC.m in Sources */,
-				F2862BB21B304151005E3472 /* UserOrders.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
+				F25ABCE51B31FCFA005D11AD /* User.m in Sources */,
+				F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
 				F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
+				F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */,
 				90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */,
 				90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */,
 				03C300C31B2F29EA00154C49 /* SPLoginTableViewController.m in Sources */,
@@ -664,8 +663,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/stoyanstoyanov/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/PizzaSparta",
+					/Users/student03/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = PizzaSparta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -681,8 +679,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/stoyanstoyanov/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/PizzaSparta",
+					/Users/student03/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = PizzaSparta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

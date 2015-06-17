@@ -35,15 +35,9 @@
     self = [super init];
     if (self) {
         _cart = [[NSMutableArray alloc] init];
-<<<<<<< HEAD
-        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
-        [_cart setValue: emptyArr forKey: @"Product"];
-        [_cart setValue: emptyArr forKey: @"Amount"];
-=======
 //        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
 //        [_cart setValue: emptyArr forKey: @"Product"];
 //        [_cart setValue: emptyArr forKey: @"Amount"];
->>>>>>> 0e06416e54224da1778222462514e1cc2307a363
         _loggedUser=[[User alloc] init];
         _isUserLogIn = NO;
         _doesUserExist= NO;
