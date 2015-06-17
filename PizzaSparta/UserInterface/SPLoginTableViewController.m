@@ -34,28 +34,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _firstEntrance = TRUE;
-    //[[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
+    [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
     
     self.btnFBLogin.readPermissions = @[@"email"];
     
     if ([FBSDKAccessToken currentAccessToken]) {
         // User is logged in facebook on this device,
         // do work such as go to next view controller, if autologin is enabled
-        NSString *fbUser = @"";
-        NSString *fbCurrentCity = @"";
-        [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:fbUser AndPassword:fbUser completion:^(User *user) {
-            if (user) {
-                // segue to main screen
-            }else{
-                [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:fbUser Password:fbUser Name:fbUser AndFirstAdress:fbCurrentCity completion:^(User *user) {
-                        if (user) {
-                            // segue to main screen
-                        }else{
-//                            not logged in but again to main screen
-                        }
-                }];
-            }
-        }];
+//        NSString *fbUser = @"";
+//        
+//        [[SPDatabaseManager sharedDatabaseManager]loginUserWithUsername:fbUser andPassword:fbUser completion:^(User *user) {
+//            if (user) {
+//                // segue to main screen
+//            }else{
+//                    [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:fbUser password:fbUser name:fbName andFirstAdress:fbCurrentCity completion:^(User *user) {
+//                        if (user) {
+//                            // segue to main screen
+//                        }else{
+////                            not logged in but again to main screen
+//                        }
+//                    }]
+//            }
+//        }];
         /* sample way to get dictionary with logged facebook user info:
          
              [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
@@ -164,7 +164,11 @@
         [self.activityIndicator stopAnimating];
         return;
     }
-    [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:self.txtUsername.text AndPassword:self.txtPassword.text completion:^(User *user){
+    
+    [[SPDatabaseManager sharedDatabaseManager]
+     loginUserWithUsername:self.txtUsername.text andPassword:self.txtPassword.text
+     
+     completion:^(User *user){
          if ( user ) {
             [[SPManager sharedManager] setLoggedUser:user];
             [[SPManager sharedManager] setIsUserLogIn:YES];
