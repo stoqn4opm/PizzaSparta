@@ -41,8 +41,21 @@
     if ([FBSDKAccessToken currentAccessToken]) {
         // User is logged in facebook on this device,
         // do work such as go to next view controller, if autologin is enabled
+        NSString *fbUser = @"";
         
-        
+        [[SPDatabaseManager sharedDatabaseManager]loginUserWithUsername:fbUser andPassword:fbUser completion:^(User *user) {
+            if (user) {
+                // segue to main screen
+            }else{
+                    [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:fbUser password:fbUser name:fbName andFirstAdress:fbCurrentCity completion:^(User *user) {
+                        if (user) {
+                            // segue to main screen
+                        }else{
+//                            not logged in but again to main screen
+                        }
+                    }]
+            }
+        }];
         /* sample way to get dictionary with logged facebook user info:
          
              [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]

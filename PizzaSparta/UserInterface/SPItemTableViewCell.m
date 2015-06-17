@@ -78,6 +78,7 @@
         [product setValue: self.currentProduct forKey: @"Product"];
         [product setValue: @(--self.currentAmount) forKey: @"Amount"];
         [product setValue: @"Large" forKey: @"Size"];
+        [[SPManager sharedManager] addProductToCart: product];
     }
 }
 
@@ -95,6 +96,8 @@
     [product setValue: self.currentProduct forKey: @"Product"];
     [product setValue: @(1) forKey: @"Amount"];
     [product setValue: @"Large" forKey: @"Size"];
+    [[SPManager sharedManager] addProductToCart: product];
+
 }
 
 @end
