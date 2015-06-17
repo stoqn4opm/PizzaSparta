@@ -51,8 +51,32 @@
                        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
                        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"idProduct  == %@ ", [element valueForKey:@"id"]];
                        NSError *error = nil;
-                       NSInteger cn = [context countForFetchRequest:fetchRequest error:&error];
-                       if(cn < 1){
+//                       NSInteger cn = [context countForFetchRequest:fetchRequest error:&error];
+                       NSArray *matches = [context executeFetchRequest: fetchRequest error: &error];
+                       if([matches count] == 0){
+                           Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
+                           [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
+                           [newProduct setTitle:[element objectForKey:@"title"]];
+                           [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
+                           [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
+                           [newProduct setType:[element objectForKey:@"type"]];
+                           [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
+                           [newProduct setSize:[element objectForKey:@"size"]];
+                           
+                           __block BOOL success = YES;
+                           while (context && success) {
+                               [context performBlockAndWait:^{
+                                   NSError * error_context = nil;
+                                   
+                                   success = [context save:&error_context];
+                                   if(success == false){
+                                       NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
+                                   }
+                               }];
+                               context = context.parentContext;
+                           }
+                       }else if (![self productIsSame: matches[0] coparedTo: element]){
+                           [context deleteObject: matches[0]];
                            Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
                            [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
                            [newProduct setTitle:[element objectForKey:@"title"]];
@@ -80,6 +104,17 @@
                });
            }];
     [test resume];
+}
+
+- (BOOL) productIsSame: (Product *) product coparedTo: (NSDictionary *) dict{
+    BOOL result = YES;
+    
+    result = (result && [product.title isEqualToString: [dict valueForKey: @"title"]]);
+    result = (result && [product.price isEqual: [NSNumber numberWithInteger:[[dict objectForKey:@"price"] integerValue]]]);
+    result = (result && [product.productDesc isEqualToString: [dict valueForKey: @"productDesc"]]);
+    result = (result && [product.isPromo isEqual: [NSNumber numberWithInteger:[[dict objectForKey:@"isPromo"] integerValue]]]);
+   
+    return result;
 }
 
 -(void)loginUserWithUsername:(NSString *)username andPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{

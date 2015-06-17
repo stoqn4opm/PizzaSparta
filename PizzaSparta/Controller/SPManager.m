@@ -12,6 +12,7 @@
 #import "Account.h"
 #import "Product+Modify.h"
 #import "SPDatabaseManager.h"
+#import "SPCustomPizza.h"
 
 @implementation SPManager
 
@@ -26,13 +27,17 @@
     return sharedManager;
 }
 
+//product *      //
+//amount    int
+//suze  SPSize
+
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _cart = [[NSMutableDictionary alloc] init];
-        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
-        [_cart setValue: emptyArr forKey: @"Product"];
-        [_cart setValue: emptyArr forKey: @"Amount"];
+        _cart = [[NSMutableArray alloc] init];
+//        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
+//        [_cart setValue: emptyArr forKey: @"Product"];
+//        [_cart setValue: emptyArr forKey: @"Amount"];
         _loggedUser=[[User alloc] init];
         _isUserLogIn = NO;
         _doesUserExist= NO;
@@ -79,6 +84,9 @@
         NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
         NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
         NSArray *matches = [context executeFetchRequest: request error: NULL];
+//        [context performBlock:^{
+//            context executeFetchRequest:<#(NSFetchRequest *)#> error:<#(NSError *__autoreleasing *)#>
+//        }];
         return [matches[0] username];
     }
     return NULL;
@@ -97,19 +105,19 @@
 
 #pragma mark - cart
 
-- (void) addProductToCart:(Product *) product amount:(NSInteger) count{
-    NSMutableArray *products = [[self cart] valueForKey: @"Product"];
-    NSMutableArray *amount = [[self cart] valueForKey: @"Amount"];
-    
-    for (int i = 0; i < [products count]; i++) {
-        if ([products[i] idProduct] == [product idProduct]) {
-            amount[i] = [NSNumber numberWithLong: ([amount[i] longValue] + count)];
-            return;
+- (void) addProductToCart:(NSMutableDictionary *) product{
+
+    for (NSMutableDictionary* dict in self.cart) {
+        if ([[dict valueForKey: @"Product"] productID] == [[product valueForKey: @"Product"] productID]) {
+            if ([[dict valueForKey: @"Size"] isEqualToString: [product valueForKey: @"Size"]]) {
+                NSNumber *amount = @([[dict valueForKey: @"Amount"] longValue] + [[product valueForKey: @"Amount"] longValue]);
+                [dict setValue: amount forKey: @"Amount"];
+                return;
+            }
         }
     }
-    [products addObject: product];
-    [amount addObject: [NSNumber numberWithLong:count]];
     
+    [self.cart addObject: product];
 }
 
 

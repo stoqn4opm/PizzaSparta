@@ -18,7 +18,9 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong, nonatomic) NSMutableDictionary* cart;
+//@property (strong, nonatomic) NSMutableDictionary* cart;
+@property (strong, nonatomic) NSMutableArray *cart;
+
 @property (strong, nonatomic) User* loggedUser;
 @property(nonatomic)BOOL isUserLogIn;
 @property(nonatomic)BOOL doesUserExist;
@@ -36,7 +38,7 @@
 - (NSString *) storedAccPassword;
 
 //cart
-- (void) addProductToCart:(Product *) product amount:(NSInteger) count;
+- (void) addProductToCart:(NSMutableDictionary *) product;
 
 - (void) saveParentContextToStore;
 

@@ -39,6 +39,8 @@
 		90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */; };
 		90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AF1B21FD7C0044AA63 /* SPManager.m */; };
 		F12FCDE61B287E7500CCE789 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE51B287E7500CCE789 /* Account.m */; };
+		F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFA81B304BAA009EEE8B /* Ingredient.m */; };
+		F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
 		F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5A3B51B2B1324002A9891 /* SPDatabaseManager.m */; };
@@ -109,6 +111,10 @@
 		90F111AF1B21FD7C0044AA63 /* SPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPManager.m; sourceTree = "<group>"; };
 		F12FCDE41B287E7500CCE789 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		F12FCDE51B287E7500CCE789 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		F130DFA71B304BAA009EEE8B /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		F130DFA81B304BAA009EEE8B /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomPizza.h; sourceTree = "<group>"; };
+		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
@@ -318,6 +324,10 @@
 				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
 				F2E9DD391B28790B00F2E3BD /* User.h */,
 				F2E9DD3A1B28790B00F2E3BD /* User.m */,
+				F130DFA71B304BAA009EEE8B /* Ingredient.h */,
+				F130DFA81B304BAA009EEE8B /* Ingredient.m */,
+				F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */,
+				F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -469,7 +479,9 @@
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				F2E5A3B61B2B1324002A9891 /* SPDatabaseManager.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
+				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
+				F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
 				90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */,
