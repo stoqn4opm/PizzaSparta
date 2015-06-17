@@ -12,6 +12,7 @@
 #import "Account.h"
 #import "Product+Modify.h"
 #import "SPDatabaseManager.h"
+#import "SPCustomPizza.h"
 
 @implementation SPManager
 
@@ -26,13 +27,23 @@
     return sharedManager;
 }
 
+//product *      //
+//amount    int
+//suze  SPSize
+
 - (instancetype) init {
     self = [super init];
     if (self) {
         _cart = [[NSMutableArray alloc] init];
+<<<<<<< HEAD
         NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
         [_cart setValue: emptyArr forKey: @"Product"];
         [_cart setValue: emptyArr forKey: @"Amount"];
+=======
+//        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
+//        [_cart setValue: emptyArr forKey: @"Product"];
+//        [_cart setValue: emptyArr forKey: @"Amount"];
+>>>>>>> 0e06416e54224da1778222462514e1cc2307a363
         _loggedUser=[[User alloc] init];
         _isUserLogIn = NO;
         _doesUserExist= NO;
@@ -79,6 +90,9 @@
         NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
         NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
         NSArray *matches = [context executeFetchRequest: request error: NULL];
+//        [context performBlock:^{
+//            context executeFetchRequest:<#(NSFetchRequest *)#> error:<#(NSError *__autoreleasing *)#>
+//        }];
         return [matches[0] username];
     }
     return NULL;
@@ -97,19 +111,20 @@
 
 #pragma mark - cart
 
-- (void) addProductToCart:(Product *) product amount:(NSInteger) count{
-    NSMutableArray *products = [[self cart] valueForKey: @"Product"];
-    NSMutableArray *amount = [[self cart] valueForKey: @"Amount"];
-    
-    for (int i = 0; i < [products count]; i++) {
-        if ([products[i] idProduct] == [product idProduct]) {
-            amount[i] = [NSNumber numberWithLong: ([amount[i] longValue] + count)];
+- (void) addProductToCart:(NSMutableDictionary *) product{
+
+    for (NSMutableDictionary* dict in self.cart) {
+        if ([[dict valueForKey: @"Product"] productID] == [[product valueForKey: @"Product"] productID]) {
+            if ([[dict valueForKey: @"Size"] isEqualToString: [product valueForKey: @"Size"]]) {
+                NSNumber *amount = @([[dict valueForKey: @"Amount"] longValue] + [[product valueForKey: @"Amount"] longValue]);
+                [dict setValue: amount forKey: @"Amount"];
+                return;
+            }
             return;
         }
     }
-    [products addObject: product];
-    [amount addObject: [NSNumber numberWithLong:count]];
     
+    [self.cart addObject: product];
 }
 
 
@@ -234,9 +249,10 @@
 ////    Product *pr2 = [Product productWithTitle: @"Pizza pepperoni"size: @"medium" price: @15 description: @"A classic pizza pepperoni" Type: SPPizza andPhotoURL: @"http://bluewallpaperhd.com/wp-content/uploads/2014/08/pepperoni-pizza-pizza-hut-slice.jpg"];
 ////    
 ////    Product *pr3 = [Product productWithTitle: @"Pasta bolognese" size: @"400g" price: @7 description: @"A portion of the classic bolognese pasta" Type: SPPasta andPhotoURL: @"http://031b7b3.netsolhost.com/WordPress/wp-content/uploads/2013/12/tofu-bolognese.jpg"];
-////    Product *pt4 = [Product productWithTitle: @"Four cheese pasta" size: @"400g" price: @8 description: @"A portion of the classic four cheese pasta" Type: SPPasta andPhotoURL: @"http://www.cellocheese.com/wp-content/uploads/2012/02/fourcheesepasta.jpg"];
-////    
-////    [pt4 setIsPromo:@1];
+    
+//    Product *pt4 = [Product productWithTitle:@"asd" size:@"400g" price:@10 description:@"fdfgfgf" Type:SPPizza isPromo:@1 poductID:@123 andPhotoURL:nil];
+//    
+//    [pt4 setIsPromo:@1];
 }
 
 @end

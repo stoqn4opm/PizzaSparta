@@ -21,9 +21,11 @@
                       poductID: (NSNumber *) productID
                    andPhotoURL: (NSString *) URL;
 
+
 //isPromo setters and getters
 - (BOOL) promo;
 - (void) setPromo: (BOOL) isPromo;
+- (NSInteger) productID;
 
 - (NSURL *) urlPhoto;
 

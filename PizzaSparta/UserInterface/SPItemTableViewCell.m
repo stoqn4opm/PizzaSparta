@@ -8,6 +8,7 @@
 
 #import "SPItemTableViewCell.h"
 #import "SPUIHeader.h"
+#import "SPManager.h"
 
 @interface SPItemTableViewCell ()
 @property (nonatomic, weak) IBOutlet UILabel *lblName;
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
 @property (weak, nonatomic) IBOutlet UILabel *lblAmmount;
 
+@property NSUInteger currentAmount;
+@property (strong, nonatomic) Product *currentProduct;
 @end
 
 @implementation SPItemTableViewCell
@@ -29,9 +32,13 @@
     [self.lblDesc setText:[product productDesc]];
     [self.lblDesc.layer setCornerRadius:SPCORNER_RADIUS];
     [self.lblDesc setClipsToBounds:YES];
+    [self.lblAmmount setText:@""];
     [self setupUserInteraction];
     // Currency for now is hardcoded
     [self.lblCurrency setText:@"BGN"];
+    
+    self.currentAmount = 0;
+    self.currentProduct = product;
 }
 
 -(void) setupUserInteraction {
@@ -64,6 +71,15 @@
         [self.imgMinus setAlpha:1];
     }];
     
+    if (self.lblAmmount.text.intValue > 0) {
+        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
+//        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
+        NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+        [product setValue: self.currentProduct forKey: @"Product"];
+        [product setValue: @(--self.currentAmount) forKey: @"Amount"];
+        [product setValue: @"Large" forKey: @"Size"];
+        [[SPManager sharedManager] addProductToCart: product];
+    }
 }
 
 - (void)plusTapped{
@@ -73,5 +89,15 @@
     [UIView animateWithDuration:0.3 animations:^{
         [self.imgPlus setAlpha:1];
     }];
+    
+    self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)++self.currentAmount];
+//    [[SPManager sharedManager] addProductToCart:self.currentProduct amount:1];
+    NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+    [product setValue: self.currentProduct forKey: @"Product"];
+    [product setValue: @(1) forKey: @"Amount"];
+    [product setValue: @"Large" forKey: @"Size"];
+    [[SPManager sharedManager] addProductToCart: product];
+
 }
+
 @end

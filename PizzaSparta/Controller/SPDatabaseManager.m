@@ -33,6 +33,7 @@
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
     
+<<<<<<< HEAD
     NSURLSessionDataTask *test = [session dataTaskWithURL:[NSURL URLWithString:@"http://geit-dev.info/public/ios/product.php"]
                                         completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
                                             NSError *parseError;
@@ -79,6 +80,93 @@
     [test resume];
 }
 -(void)loggInUserWithUsername:(NSString *)username AndPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{
+=======
+    NSURLSessionDataTask *test =
+    [session dataTaskWithURL:[NSURL URLWithString:@"http://geit-dev.info/public/ios/product.php"]
+           completionHandler:
+     
+     ^(NSData* data, NSURLResponse *response, NSError *error) {
+               
+               NSError *parseError;
+               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+               if(parseError){
+                   NSLog(@"parse Error-%@", parseError);
+               }
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   for(id element in result){
+                       
+                       NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+                       NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
+                       fetchRequest.predicate = [NSPredicate predicateWithFormat:@"idProduct  == %@ ", [element valueForKey:@"id"]];
+                       NSError *error = nil;
+//                       NSInteger cn = [context countForFetchRequest:fetchRequest error:&error];
+                       NSArray *matches = [context executeFetchRequest: fetchRequest error: &error];
+                       if([matches count] == 0){
+                           Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
+                           [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
+                           [newProduct setTitle:[element objectForKey:@"title"]];
+                           [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
+                           [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
+                           [newProduct setType:[element objectForKey:@"type"]];
+                           [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
+                           [newProduct setSize:[element objectForKey:@"size"]];
+                           
+                           __block BOOL success = YES;
+                           while (context && success) {
+                               [context performBlockAndWait:^{
+                                   NSError * error_context = nil;
+                                   
+                                   success = [context save:&error_context];
+                                   if(success == false){
+                                       NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
+                                   }
+                               }];
+                               context = context.parentContext;
+                           }
+                       }else if (![self productIsSame: matches[0] coparedTo: element]){
+                           [context deleteObject: matches[0]];
+                           Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
+                           [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
+                           [newProduct setTitle:[element objectForKey:@"title"]];
+                           [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
+                           [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
+                           [newProduct setType:[element objectForKey:@"type"]];
+                           [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
+                           [newProduct setSize:[element objectForKey:@"size"]];
+                           
+                           __block BOOL success = YES;
+                           while (context && success) {
+                               [context performBlockAndWait:^{
+                                   NSError * error_context = nil;
+                                   
+                                   success = [context save:&error_context];
+                                   if(success == false){
+                                       NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
+                                   }
+                               }];
+                               context = context.parentContext;
+                           }
+                       }
+                       
+                   }
+               });
+           }];
+    [test resume];
+}
+
+- (BOOL) productIsSame: (Product *) product coparedTo: (NSDictionary *) dict{
+    BOOL result = YES;
+    
+    result = (result && [product.title isEqualToString: [dict valueForKey: @"title"]]);
+    result = (result && [product.price isEqual: [NSNumber numberWithInteger:[[dict objectForKey:@"price"] integerValue]]]);
+    result = (result && [product.productDesc isEqualToString: [dict valueForKey: @"productDesc"]]);
+    result = (result && [product.isPromo isEqual: [NSNumber numberWithInteger:[[dict objectForKey:@"isPromo"] integerValue]]]);
+   
+    return result;
+}
+
+-(void)loginUserWithUsername:(NSString *)username andPassword:(NSString *)password completion:(SPDatabaseManagerSuccessBlock)completion{
+>>>>>>> 0e06416e54224da1778222462514e1cc2307a363
     
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=readData&username=%@&password=%@",username, password ]];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];

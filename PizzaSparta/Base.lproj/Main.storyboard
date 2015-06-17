@@ -703,19 +703,12 @@
         <scene sceneID="Yce-Tp-2F3">
             <objects>
                 <tableViewController title="Promo" id="FZh-fe-Lpp" customClass="SPPromoTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dCb-Ne-eee">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" id="dCb-Ne-eee">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PromoCell" id="ws4-Jr-e4B">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ws4-Jr-e4B" id="sAk-z2-2ca">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SPItemTableViewCell" rowHeight="180" id="q0Q-1v-P6K" customClass="SPItemTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q0Q-1v-P6K" id="pB6-a0-7we">
@@ -872,18 +865,79 @@
         <scene sceneID="W7E-eQ-ile">
             <objects>
                 <tableViewController title="Cart" id="UWs-u9-HUf" customClass="SPCartTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nJt-qf-4Gz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="nJt-qf-4Gz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartCell" id="1yW-jU-ldZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SPCartTableViewCell" rowHeight="84" id="1yW-jU-ldZ" customClass="SPCartTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1yW-jU-ldZ" id="3AF-Ep-xnG">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-jL-VAy">
+                                            <rect key="frame" x="0.0" y="5" width="85" height="74"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="85" id="2lu-er-c95"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza Name name name name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BJ-IW-6qP">
+                                            <rect key="frame" x="93" y="8" width="423" height="67"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CartCellFrame" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-ar-JZB">
+                                            <rect key="frame" x="524" y="0.0" width="68" height="83"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="68" id="16M-Fc-9xT"/>
+                                                <constraint firstAttribute="height" constant="83" id="HYU-BV-xZ1"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in Cart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfw-vy-Jow">
+                                            <rect key="frame" x="537" y="56" width="42" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="19" id="6za-Wv-nFJ"/>
+                                                <constraint firstAttribute="width" constant="42" id="gdl-M9-R08"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-a2-KkN">
+                                            <rect key="frame" x="537" y="8" width="42" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="7wG-M8-TEo"/>
+                                                <constraint firstAttribute="height" constant="46" id="zpG-E4-qkG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8kC-a2-KkN" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" id="2Vp-Ml-lQH"/>
+                                        <constraint firstItem="6BJ-IW-6qP" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" id="7Lt-wp-LeA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FT4-ar-JZB" secondAttribute="bottom" constant="-8" id="7cV-nq-lc4"/>
+                                        <constraint firstItem="FT4-ar-JZB" firstAttribute="leading" secondItem="6BJ-IW-6qP" secondAttribute="trailing" constant="8" id="FwP-0y-3zV"/>
+                                        <constraint firstItem="STZ-jL-VAy" firstAttribute="leading" secondItem="3AF-Ep-xnG" secondAttribute="leadingMargin" constant="-8" id="H7a-Ya-1Ua"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8kC-a2-KkN" secondAttribute="trailing" constant="13" id="Hmq-13-s4m"/>
+                                        <constraint firstItem="6BJ-IW-6qP" firstAttribute="leading" secondItem="STZ-jL-VAy" secondAttribute="trailing" constant="8" id="MBb-xx-vgo"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dfw-vy-Jow" secondAttribute="trailing" constant="13" id="UIi-ga-Csz"/>
+                                        <constraint firstItem="STZ-jL-VAy" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" constant="-3" id="Y8F-9k-mKV"/>
+                                        <constraint firstItem="dfw-vy-Jow" firstAttribute="bottom" secondItem="3AF-Ep-xnG" secondAttribute="bottomMargin" id="bMr-Om-F5M"/>
+                                        <constraint firstItem="6BJ-IW-6qP" firstAttribute="bottom" secondItem="3AF-Ep-xnG" secondAttribute="bottomMargin" id="em6-2Y-9s2"/>
+                                        <constraint firstItem="FT4-ar-JZB" firstAttribute="trailing" secondItem="3AF-Ep-xnG" secondAttribute="trailingMargin" id="vVa-3D-Vg4"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="STZ-jL-VAy" secondAttribute="bottom" constant="-4" id="zcD-ty-Dkc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="cellImage" destination="STZ-jL-VAy" id="4Dm-C7-Z1o"/>
+                                    <outlet property="lblAmountIncart" destination="8kC-a2-KkN" id="rQg-vF-yCJ"/>
+                                    <outlet property="lblTitle" destination="6BJ-IW-6qP" id="zbP-dl-2xd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1108,7 +1162,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="192"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="5dC-Ci-NVf">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="5dC-Ci-NVf">
                                     <rect key="frame" x="193" y="0.0" width="215" height="192"/>
                                 </imageView>
                             </subviews>
@@ -1925,6 +1979,7 @@
         <image name="AccountImage" width="200" height="200"/>
         <image name="AccountLabel" width="133" height="40"/>
         <image name="BussinesHoursLabel" width="227" height="40"/>
+        <image name="CartCellFrame" width="67" height="84"/>
         <image name="CartImage" width="171" height="171"/>
         <image name="CartTabBarIcon" width="30" height="30"/>
         <image name="DrinksImage" width="171" height="171"/>

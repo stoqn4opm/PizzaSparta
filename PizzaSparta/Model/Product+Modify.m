@@ -36,7 +36,12 @@
     return newProduct;
 }
 
+
+
 #pragma mark - property setters and getters
+- (NSInteger) productID{
+    return [self.idProduct longValue];
+}
 
 - (BOOL) promo{
     if ([self.isPromo  isEqual: @1])
