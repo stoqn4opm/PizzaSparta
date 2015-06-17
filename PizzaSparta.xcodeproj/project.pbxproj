@@ -40,6 +40,7 @@
 		90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AF1B21FD7C0044AA63 /* SPManager.m */; };
 		F12FCDE61B287E7500CCE789 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE51B287E7500CCE789 /* Account.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
+		F25ABCE21B31CBA4005D11AD /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
 		F2862BAF1B304149005E3472 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BAE1B304149005E3472 /* User.m */; };
 		F2862BB21B304151005E3472 /* UserOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = F2862BB11B304151005E3472 /* UserOrders.m */; };
@@ -157,6 +158,8 @@
 		F12FCDE51B287E7500CCE789 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
+		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		F28623281B303B80005E3472 /* dgph */ = {isa = PBXFileReference; lastKnownFileType = file; path = dgph; sourceTree = "<group>"; };
@@ -2465,6 +2468,8 @@
 				F2862BB11B304151005E3472 /* UserOrders.m */,
 				F2862BC01B305A16005E3472 /* Ingredient.h */,
 				F2862BC11B305A16005E3472 /* Ingredient.m */,
+				F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */,
+				F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5369,6 +5374,7 @@
 				F2862BB21B304151005E3472 /* UserOrders.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
+				F25ABCE21B31CBA4005D11AD /* SPCustomPizza.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
 				F2862BC21B305A16005E3472 /* Ingredient.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,

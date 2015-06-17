@@ -11,7 +11,7 @@
 @interface Ingredient : NSObject
 @property (strong, nonatomic) NSString *name;
 @property (nonatomic) float price;
-@property (nonatomic) BOOL isIncluded;
+@property (nonatomic) NSInteger isIncluded;
 
 - (instancetype) initWithName: (NSString *) name andPrice: (float) price;
 @end

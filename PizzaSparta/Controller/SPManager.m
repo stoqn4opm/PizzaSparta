@@ -29,7 +29,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _cart = [[NSMutableDictionary alloc] init];
+        _cart = [[NSMutableArray alloc] init];
         NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
         [_cart setValue: emptyArr forKey: @"Product"];
         [_cart setValue: emptyArr forKey: @"Amount"];

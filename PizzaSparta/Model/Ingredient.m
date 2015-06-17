@@ -15,7 +15,7 @@
     if (self) {
         _name = name;
         _price = price;
-        _isIncluded = NO;
+        _isIncluded = 0;
     }
     return self;
 }

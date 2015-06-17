@@ -52,16 +52,30 @@
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setUpImageBackButton];
-    if([[SPManager sharedManager] isUserLogIn]){
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
+    
+    /*if ([self.selectedType isEqualToString:SPPizza]) {
+        if([[SPManager sharedManager] isUserLogIn]){*/
+            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Custom Pizza"
+                                                                            style:UIBarButtonItemStyleBordered target:self action:@selector(goToCustomPizzaVC)];
+            self.navigationItem.rightBarButtonItem = rightButton;
+        /*}
+        else{
+            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+                                                                            style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+            self.navigationItem.rightBarButtonItem = rightButton;
+        }
+    }else{
+        if([[SPManager sharedManager] isUserLogIn]){
+            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
-    else{
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+            self.navigationItem.rightBarButtonItem = rightButton;
+        }
+        else{
+            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
+            self.navigationItem.rightBarButtonItem = rightButton;
+        }
+    }*/
 }
 
 #pragma mark - <UITableViewDataSource> Methods
@@ -144,9 +158,10 @@
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
-    
-    Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
-    [[segue destinationViewController] setSelectedProduct:selectedProduct];
+    if(![[segue identifier]isEqualToString:@"showCustomPizza"]){
+        Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
+        [[segue destinationViewController] setSelectedProduct:selectedProduct];
+    }
 }
 
 #pragma mark - NSResultsFetchController Init
@@ -224,8 +239,8 @@
 -(void)logOutAction{
     NSLog(@"click");
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
+    UIViewController *goToLogInVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:goToLogInVC];
     [self presentViewController:navController animated:YES completion:^{
         if ([[SPManager sharedManager] isUserLogIn]) {
             [[SPManager sharedManager] setLoggedUser:nil];
@@ -234,4 +249,15 @@
         
     }];
 }
+
+#pragma mark - Go to Custom Pizza VC
+-(void)goToCustomPizzaVC{
+    [self performSegueWithIdentifier:@"showCustomPizza" sender:self];
+   /* UIViewController *viewController = [[UIViewController alloc] initWithNibName:@"CustomPizzaVC" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    // push a new stack
+    [self.navigationController pushViewController:navController animated:YES];*/
+}
+
 @end
