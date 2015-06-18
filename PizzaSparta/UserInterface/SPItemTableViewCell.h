@@ -10,5 +10,7 @@
 #import "Product+Modify.h"
 
 @interface SPItemTableViewCell : UITableViewCell
+@property (nonatomic) NSInteger currentAmount;
+
 - (void)configureItemCell :(Product *)product;
 @end

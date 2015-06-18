@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
 @property (weak, nonatomic) IBOutlet UILabel *lblAmmount;
 
-@property NSUInteger currentAmount;
 @property (strong, nonatomic) Product *currentProduct;
 @end
 
@@ -37,8 +36,15 @@
     // Currency for now is hardcoded
     [self.lblCurrency setText:@"BGN"];
     
-    self.currentAmount = 0;
+    [self currentAmout: [[SPManager sharedManager] amountForProductInCart: product withSize: @"Large"]];
+//    [self currentAmout: 0];
+
     self.currentProduct = product;
+}
+
+- (void) currentAmout:(NSInteger)currentAmount{
+    self.currentAmount = currentAmount;
+    self.lblAmmount.text = [NSString stringWithFormat: @"%ld", self.currentAmount];
 }
 
 -(void) setupUserInteraction {
@@ -71,12 +77,13 @@
         [self.imgMinus setAlpha:1];
     }];
     
-    if (self.lblAmmount.text.intValue > 0) {
-        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
+    if (self.currentAmount > 0) {
+//        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
 //        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
+        [self currentAmout: self.currentAmount -1];
         NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
         [product setValue: self.currentProduct forKey: @"Product"];
-        [product setValue: @(--self.currentAmount) forKey: @"Amount"];
+        [product setValue: @(-1) forKey: @"Amount"];
         [product setValue: @"Large" forKey: @"Size"];
         [[SPManager sharedManager] addProductToCart: product];
     }

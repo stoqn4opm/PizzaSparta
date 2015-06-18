@@ -106,19 +106,31 @@
 #pragma mark - cart
 
 - (void) addProductToCart:(NSMutableDictionary *) product{
-
-    for (NSMutableDictionary* dict in self.cart) {
+    for (int i = 0; i < [self.cart count]; i++){
+        NSMutableDictionary *dict = self.cart[i];
         if ([[dict valueForKey: @"Product"] productID] == [[product valueForKey: @"Product"] productID]) {
             if ([[dict valueForKey: @"Size"] isEqualToString: [product valueForKey: @"Size"]]) {
-                NSNumber *amount = @([[dict valueForKey: @"Amount"] longValue] + [[product valueForKey: @"Amount"] longValue]);
-                [dict setValue: amount forKey: @"Amount"];
+                NSInteger amount = [[dict valueForKey: @"Amount"] longValue] + [[product valueForKey: @"Amount"] longValue];
+                if (amount < 1) {
+                    [self.cart removeObjectAtIndex: i];
+                }else
+                    [dict setValue: @(amount) forKey: @"Amount"];
                 return;
             }
             return;
         }
     }
-    
     [self.cart addObject: product];
+}
+
+
+- (NSInteger) amountForProductInCart:(Product *) product withSize:(NSString *) size{
+    for (NSMutableDictionary *dict in self.cart) {
+        if ([[dict valueForKey: @"Product"] productID] == [product productID] && [[dict valueForKey: @"Size"] isEqualToString: size]) {
+            return [[dict valueForKey: @"Amount"] longValue];
+        }
+    }
+    return 0;
 }
 
 

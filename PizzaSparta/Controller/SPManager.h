@@ -38,6 +38,7 @@
 
 //cart
 - (void) addProductToCart:(NSMutableDictionary *) product;
+- (NSInteger) amountForProductInCart:(Product *) product withSize:(NSString *) size;
 
 - (void) saveParentContextToStore;
 
