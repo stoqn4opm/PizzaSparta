@@ -113,7 +113,7 @@
         [self.createUserActivity stopAnimating];
         return;
     }
-    [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:self.txtUsername.text Password:self.txtPassword.text Name:self.txtName.text AndFirstAdress:self.txtAddress.text completion:^(User *user){
+    [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:self.txtUsername.text password:self.txtPassword.text name:self.txtName.text andFirstAdress:self.txtAddress.text completion:^(User *user){
         if ( user ) {
             [[SPManager sharedManager] setLoggedUser:user];
             [[SPManager sharedManager] setIsUserLogIn:YES];

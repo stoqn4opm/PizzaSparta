@@ -91,7 +91,7 @@
     return result;
 }
 
--(void)loggInUserWithUsername:(NSString*)username AndPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion{
+-(void)logInUserWithUsername:(NSString*)username andPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion{
     
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=readData&username=%@&password=%@",username, password ]];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -125,7 +125,7 @@
 }
 
 
--(void)registerNewUserWithUsername:(NSString *)username Password:(NSString *)password Name:(NSString *)name AndFirstAdress:(NSString *)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
+-(void)registerNewUserWithUsername:(NSString *)username password:(NSString *)password name:(NSString *)name andFirstAdress:(NSString *)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=insert&username=%@&password=%@&realName=%@&adress=%@",[username stringByReplacingOccurrencesOfString:@" " withString:@"+"], [password stringByReplacingOccurrencesOfString:@" " withString:@"+"], [name stringByReplacingOccurrencesOfString:@" " withString:@"+"], [adress stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
@@ -140,7 +140,7 @@
                                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                                
                                                                if([[result valueForKey:@"username"] isEqualToString:@"successful"]){
-                                                                   [self loggInUserWithUsername:username AndPassword:password completion:^(User *user){
+                                                                   [self logInUserWithUsername:username andPassword:password completion:^(User *user){
                                                                        if ( user ) {
                                                                            completionRegistration(user);
                                                                        } else {

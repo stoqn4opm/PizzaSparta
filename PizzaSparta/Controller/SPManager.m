@@ -57,7 +57,7 @@
     [self saveParentContextToStore];
 }
 
-- (BOOL) hasAccountBeenLoggedIn{
+- (BOOL) hasAccountBeenStoredForAutologIn{
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     NSArray *matches = [context executeFetchRequest: request error: NULL];
@@ -80,7 +80,7 @@
 }
 
 - (NSString *) storedAccUsername{
-    if ([self hasAccountBeenLoggedIn]) {
+    if ([self hasAccountBeenStoredForAutologIn]) {
         NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
         NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
         NSArray *matches = [context executeFetchRequest: request error: NULL];
@@ -93,7 +93,7 @@
 }
 
 - (NSString *) storedAccPassword{
-    if ([self hasAccountBeenLoggedIn]) {
+    if ([self hasAccountBeenStoredForAutologIn]) {
         NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
         NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
         NSArray *matches = [context executeFetchRequest: request error: NULL];
