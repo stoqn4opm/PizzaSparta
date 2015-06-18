@@ -12,7 +12,7 @@
 #import "Product+Modify.h"
 #import "SPItemDetailsTableViewController.h"
 #import "SPManager.h"
-#import "UIViewController+SPImageBackButton.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPMenuItemsTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchController;

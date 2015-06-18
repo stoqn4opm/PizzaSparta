@@ -12,6 +12,7 @@
 #import "SPCartTableViewCell.h"
 #import "SPManager.h"
 #import "SPItemDetailsTableViewController.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPCartTableViewController ()
 
@@ -22,9 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar
-     setBackgroundImage:[UIImage imageNamed:@"TiledBackgroundWithStatusBar"]
-     forBarMetrics:UIBarMetricsDefault];
+    [self setupNavigationBarBackground];
     
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];

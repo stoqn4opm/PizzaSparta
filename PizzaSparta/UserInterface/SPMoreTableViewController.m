@@ -7,6 +7,7 @@
 //
 
 #import "SPMoreTableViewController.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPMoreTableViewController ()
 
@@ -16,15 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.navigationController.navigationBar
-     setBackgroundImage:[UIImage imageNamed:@"TiledBackgroundWithStatusBar"]
-     forBarMetrics:UIBarMetricsDefault];
-    
-    [self.navigationItem
-     setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"SpartaLabel"]]];
-    
 
+    [self setupNavigationBarBackground];
+    [self setupSpartaLabel];
 }
 
 #pragma mark - Table view data source

@@ -30,7 +30,7 @@
 - (NSManagedObjectContext *) privateChildMOContext;
 
 //makes an account from user and stores it in CoreData
-- (void) saveUserAccount: (User *) user;
+- (void) saveLoggedUserForAutologin;
 - (BOOL) hasAccountBeenStoredForAutologIn;
 - (void) clearLoggedAccounts;
 - (NSString *) storedAccUsername;

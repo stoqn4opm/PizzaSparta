@@ -17,6 +17,9 @@
 		9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */; };
 		9007CEBC1B1F2A4D00F4650F /* PizzaSpartaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */; };
 		90376E121B32C20100791FA4 /* SPMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90376E111B32C20100791FA4 /* SPMainTabBarViewController.m */; };
+		90376E171B32CB8E00791FA4 /* SPAccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90376E161B32CB8E00791FA4 /* SPAccountTableViewController.m */; };
+		90376E1A1B32DDEB00791FA4 /* SPAutoLoginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90376E191B32DDEB00791FA4 /* SPAutoLoginTableViewCell.m */; };
+		90376E1D1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90376E1C1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m */; };
 		906E599B1B20F8DC00186629 /* UI Sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59921B20F8DC00186629 /* UI Sample.png */; };
 		906E599C1B20F8DC00186629 /* cartTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59931B20F8DC00186629 /* cartTabBarIcon.png */; };
 		906E599D1B20F8DC00186629 /* colorPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59941B20F8DC00186629 /* colorPreview.png */; };
@@ -31,7 +34,7 @@
 		90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B1D1B2359000045788C /* SPMenuItemsTableViewController.m */; };
 		90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B201B235BA90045788C /* SPItemTableViewCell.m */; };
 		90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */; };
-		90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */; };
+		90C16B2A1B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B291B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m */; };
 		90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */; };
 		90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */; };
 		90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A81B21FD7C0044AA63 /* Product+Modify.m */; };
@@ -81,6 +84,12 @@
 		9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaSpartaTests.m; sourceTree = "<group>"; };
 		90376E101B32C20100791FA4 /* SPMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMainTabBarViewController.h; path = UserInterface/SPMainTabBarViewController.h; sourceTree = "<group>"; };
 		90376E111B32C20100791FA4 /* SPMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMainTabBarViewController.m; path = UserInterface/SPMainTabBarViewController.m; sourceTree = "<group>"; };
+		90376E151B32CB8E00791FA4 /* SPAccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAccountTableViewController.h; path = UserInterface/SPAccountTableViewController.h; sourceTree = "<group>"; };
+		90376E161B32CB8E00791FA4 /* SPAccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAccountTableViewController.m; path = UserInterface/SPAccountTableViewController.m; sourceTree = "<group>"; };
+		90376E181B32DDEB00791FA4 /* SPAutoLoginTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAutoLoginTableViewCell.h; path = UserInterface/SPAutoLoginTableViewCell.h; sourceTree = "<group>"; };
+		90376E191B32DDEB00791FA4 /* SPAutoLoginTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAutoLoginTableViewCell.m; path = UserInterface/SPAutoLoginTableViewCell.m; sourceTree = "<group>"; };
+		90376E1B1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderHistoryTableViewCell.h; path = UserInterface/SPOrderHistoryTableViewCell.h; sourceTree = "<group>"; };
+		90376E1C1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderHistoryTableViewCell.m; path = UserInterface/SPOrderHistoryTableViewCell.m; sourceTree = "<group>"; };
 		906E59921B20F8DC00186629 /* UI Sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI Sample.png"; sourceTree = "<group>"; };
 		906E59931B20F8DC00186629 /* cartTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartTabBarIcon.png; sourceTree = "<group>"; };
 		906E59941B20F8DC00186629 /* colorPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorPreview.png; sourceTree = "<group>"; };
@@ -103,8 +112,8 @@
 		90C16B201B235BA90045788C /* SPItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPItemTableViewCell.m; path = UserInterface/SPItemTableViewCell.m; sourceTree = "<group>"; };
 		90C16B221B23621F0045788C /* SPItemDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPItemDetailsTableViewController.h; path = UserInterface/SPItemDetailsTableViewController.h; sourceTree = "<group>"; };
 		90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPItemDetailsTableViewController.m; path = UserInterface/SPItemDetailsTableViewController.m; sourceTree = "<group>"; };
-		90C16B281B2393FE0045788C /* UIViewController+SPImageBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SPImageBackButton.h"; path = "UserInterface/UIResources/UIViewController+SPImageBackButton.h"; sourceTree = "<group>"; };
-		90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SPImageBackButton.m"; path = "UserInterface/UIResources/UIViewController+SPImageBackButton.m"; sourceTree = "<group>"; };
+		90C16B281B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SPCustomNavControllerSetup.h"; path = "UserInterface/UIResources/UIViewController+SPCustomNavControllerSetup.h"; sourceTree = "<group>"; };
+		90C16B291B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SPCustomNavControllerSetup.m"; path = "UserInterface/UIResources/UIViewController+SPCustomNavControllerSetup.m"; sourceTree = "<group>"; };
 		90C16B2B1B23AA640045788C /* SPAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAboutTableViewController.h; path = UserInterface/SPAboutTableViewController.h; sourceTree = "<group>"; };
 		90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAboutTableViewController.m; path = UserInterface/SPAboutTableViewController.m; sourceTree = "<group>"; };
 		90F111A61B21FD7C0044AA63 /* PizzaSparta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSparta.xcdatamodel; sourceTree = "<group>"; };
@@ -246,6 +255,21 @@
 			name = "Auto Login Related";
 			sourceTree = "<group>";
 		};
+		90376E141B32CA2C00791FA4 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				90376E181B32DDEB00791FA4 /* SPAutoLoginTableViewCell.h */,
+				90376E191B32DDEB00791FA4 /* SPAutoLoginTableViewCell.m */,
+				90C16B1F1B235BA90045788C /* SPItemTableViewCell.h */,
+				90C16B201B235BA90045788C /* SPItemTableViewCell.m */,
+				03C301021B3032A600154C49 /* SPCartTableViewCell.h */,
+				03C301031B3032A600154C49 /* SPCartTableViewCell.m */,
+				90376E1B1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.h */,
+				90376E1C1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		906E59911B20F8DC00186629 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,12 +289,9 @@
 			children = (
 				90A954D31B202D44006A0D8E /* SPUIHeader.h */,
 				03C300C41B2F4E1600154C49 /* SPUIHeader.m */,
-				90C16B281B2393FE0045788C /* UIViewController+SPImageBackButton.h */,
-				90C16B291B2393FE0045788C /* UIViewController+SPImageBackButton.m */,
-				90C16B1F1B235BA90045788C /* SPItemTableViewCell.h */,
-				90C16B201B235BA90045788C /* SPItemTableViewCell.m */,
-				03C301021B3032A600154C49 /* SPCartTableViewCell.h */,
-				03C301031B3032A600154C49 /* SPCartTableViewCell.m */,
+				90C16B281B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.h */,
+				90C16B291B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m */,
+				90376E141B32CA2C00791FA4 /* Custom Cells */,
 				906E59911B20F8DC00186629 /* Samples */,
 			);
 			name = Resources;
@@ -294,6 +315,8 @@
 				90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */,
 				90A954D01B20255A006A0D8E /* SPMoreTableViewController.h */,
 				90A954D11B20255A006A0D8E /* SPMoreTableViewController.m */,
+				90376E151B32CB8E00791FA4 /* SPAccountTableViewController.h */,
+				90376E161B32CB8E00791FA4 /* SPAccountTableViewController.m */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -524,6 +547,7 @@
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
+				90376E1D1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m in Sources */,
 				03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
@@ -537,9 +561,11 @@
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
 				F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */,
 				90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */,
-				90C16B2A1B2393FE0045788C /* UIViewController+SPImageBackButton.m in Sources */,
+				90C16B2A1B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m in Sources */,
 				03C300C31B2F29EA00154C49 /* SPLoginTableViewController.m in Sources */,
 				90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */,
+				90376E1A1B32DDEB00791FA4 /* SPAutoLoginTableViewCell.m in Sources */,
+				90376E171B32CB8E00791FA4 /* SPAccountTableViewController.m in Sources */,
 				F27439311B25BFA700356D1F /* NSString+Check.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

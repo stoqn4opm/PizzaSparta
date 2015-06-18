@@ -40,7 +40,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
         
-        [[SPManager sharedManager]saveUserAccount:[[SPManager sharedManager] loggedUser]];
+        [[SPManager sharedManager]saveLoggedUserForAutologin];
     }
 }
 @end
