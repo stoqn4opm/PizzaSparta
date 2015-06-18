@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SPOrderHistoryTableViewCell : UITableViewCell
-+(SPOrderHistoryTableViewCell *)configureWithOrder;
+//+(SPOrderHistoryTableViewCell *)configureWithOrder;
 @end

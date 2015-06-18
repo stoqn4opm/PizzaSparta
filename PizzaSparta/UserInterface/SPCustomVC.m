@@ -203,8 +203,8 @@
     }
     NSMutableDictionary *product = [[NSMutableDictionary alloc] init];
     [product setValue: newPizza forKey: @"Product"];
-    [product setValue: [NSString stringWithFormat:@"%ld", self.productAmount] forKey: @"Amount"];
-    [product setValue: [NSString stringWithFormat:@"%ld", self.productSize ] forKey: @"Size"];
+    [product setValue: [NSString stringWithFormat:@"%ld", (long)self.productAmount] forKey: @"Amount"];
+    [product setValue: [NSString stringWithFormat:@"%ld", (long)self.productSize ] forKey: @"Size"];
     [[[SPManager sharedManager]cart] addObject:product];
     
     //    [[SPManager sharedManager] addProductToCart: product];
