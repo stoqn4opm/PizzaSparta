@@ -9,9 +9,10 @@
 #import "SPItemDetailsTableViewController.h"
 #import "SPUIHeader.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
+#import "SPManager.h"
 
 @interface SPItemDetailsTableViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView __block *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
 @property (weak, nonatomic) IBOutlet UITextField *txtAmmount;
@@ -32,9 +33,15 @@
     [self.lblDescription setText:self.selectedProduct.productDesc];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
 
-#warning TODO Load image in background thread
-    NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
-    [self.imageView setImage:[UIImage imageWithData:image]];
+    [[[SPManager sharedManager]uiOperationQueue] addOperationWithBlock:^{
+        
+        NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [self.imageView setImage:[UIImage imageWithData:image]];
+        }];
+    }];
 
     
     [self prepareUI];

@@ -41,6 +41,7 @@
         _loggedUser=[[User alloc] init];
         _isUserLogIn = NO;
         _doesUserExist= NO;
+        _uiOperationQueue = [NSOperationQueue new];
     }
     return self;
 }

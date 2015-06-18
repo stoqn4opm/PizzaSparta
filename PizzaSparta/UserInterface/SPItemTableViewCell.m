@@ -11,13 +11,14 @@
 #import "SPManager.h"
 
 @interface SPItemTableViewCell ()
-@property (nonatomic, weak) IBOutlet UILabel *lblName;
-@property (nonatomic, weak) IBOutlet UITextView *lblDesc;
+@property (nonatomic, weak) IBOutlet UITextView *lblName;
+@property (weak, nonatomic) IBOutlet UIImageView __block *productImage;
 @property (nonatomic, weak) IBOutlet UILabel *lblPrice;
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrency;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMinus;
 @property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
 @property (weak, nonatomic) IBOutlet UILabel *lblAmmount;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentLargeMedium;
 
 @property (strong, nonatomic) Product *currentProduct;
 @end
@@ -28,23 +29,38 @@
     
     [self.lblName setText:[product title]];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@", [product price]]];
-    [self.lblDesc setText:[product productDesc]];
-    [self.lblDesc.layer setCornerRadius:SPCORNER_RADIUS];
-    [self.lblDesc setClipsToBounds:YES];
     [self.lblAmmount setText:@""];
     [self setupUserInteraction];
+    
     // Currency for now is hardcoded
     [self.lblCurrency setText:@"BGN"];
     
-    [self currentAmout: [[SPManager sharedManager] amountForProductInCart: product withSize: @"Large"]];
-//    [self currentAmout: 0];
-
+    NSString *size;
+    if (self.segmentLargeMedium.selectedSegmentIndex == 0) {
+       size = @"Medium";
+    }else if (self.segmentLargeMedium.selectedSegmentIndex == 1){
+       size = @"Large";
+    }
+    [self currentAmount:[[SPManager sharedManager] amountForProductInCart:product withSize:size]];
+    self.lblName.font = [UIFont fontWithName:@"Chalkboard SE" size:25];
+    [self.lblName setTextColor:[UIColor whiteColor]];
     self.currentProduct = product;
+    
+    [[[SPManager sharedManager]uiOperationQueue] addOperationWithBlock:^{
+    
+        NSData *imgData =
+        [NSData dataWithContentsOfURL:[NSURL URLWithString:self.currentProduct.photoURL]];
+        
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            [self.productImage setImage:[UIImage imageWithData:imgData]];
+        }];
+        
+    }];
 }
 
-- (void) currentAmout:(NSInteger)currentAmount{
+- (void) currentAmount:(NSInteger)currentAmount{
     self.currentAmount = currentAmount;
-    self.lblAmmount.text = [NSString stringWithFormat: @"%ld", self.currentAmount];
+    self.lblAmmount.text = [NSString stringWithFormat: @"%ld", (long)self.currentAmount];
 }
 
 -(void) setupUserInteraction {
@@ -78,13 +94,16 @@
     }];
     
     if (self.currentAmount > 0) {
-//        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
-//        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
-        [self currentAmout: self.currentAmount -1];
+
+        [self currentAmount: self.currentAmount -1];
         NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
         [product setValue: self.currentProduct forKey: @"Product"];
         [product setValue: @(-1) forKey: @"Amount"];
-        [product setValue: @"Large" forKey: @"Size"];
+        if (self.segmentLargeMedium.selectedSegmentIndex == 0) {
+            [product setValue:@"Medium" forKey:@"Size"];
+        }else if (self.segmentLargeMedium.selectedSegmentIndex == 1){
+            [product setValue: @"Large" forKey: @"Size"];
+        }
         [[SPManager sharedManager] addProductToCart: product];
     }
 }
@@ -98,11 +117,15 @@
     }];
     
     self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)++self.currentAmount];
-//    [[SPManager sharedManager] addProductToCart:self.currentProduct amount:1];
     NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
     [product setValue: self.currentProduct forKey: @"Product"];
     [product setValue: @(1) forKey: @"Amount"];
-    [product setValue: @"Large" forKey: @"Size"];
+    
+    if (self.segmentLargeMedium.selectedSegmentIndex == 0) {
+        [product setValue:@"Medium" forKey:@"Size"];
+    }else if (self.segmentLargeMedium.selectedSegmentIndex == 1){
+        [product setValue: @"Large" forKey: @"Size"];
+    }
     [[SPManager sharedManager] addProductToCart: product];
 
 }

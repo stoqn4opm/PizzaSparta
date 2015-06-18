@@ -24,7 +24,7 @@
 @property(nonatomic)BOOL isUserLogIn;
 @property(nonatomic)BOOL doesUserExist;
 
-
+@property (atomic, strong) NSOperationQueue *uiOperationQueue;
 + (instancetype) sharedManager;
 
 - (NSManagedObjectContext *) privateChildMOContext;
