@@ -53,12 +53,12 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setUpImageBackButton];
     
-    /*if ([self.selectedType isEqualToString:SPPizza]) {
-        if([[SPManager sharedManager] isUserLogIn]){*/
+    if ([self.selectedType isEqualToString:SPPizza]) {
+        if([[SPManager sharedManager] isUserLogIn]){
             UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Custom Pizza"
                                                                             style:UIBarButtonItemStyleBordered target:self action:@selector(goToCustomPizzaVC)];
             self.navigationItem.rightBarButtonItem = rightButton;
-        /*}
+        }
         else{
             UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
                                                                             style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
@@ -75,7 +75,7 @@
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
             self.navigationItem.rightBarButtonItem = rightButton;
         }
-    }*/
+    }
 }
 
 #pragma mark - <UITableViewDataSource> Methods
@@ -158,7 +158,7 @@
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
-    if(![[segue identifier]isEqualToString:@"showCustomPizza"]){
+    if(![[segue identifier]isEqualToString:@"CustomPizza"]){
         Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
         [[segue destinationViewController] setSelectedProduct:selectedProduct];
     }
@@ -252,12 +252,8 @@
 
 #pragma mark - Go to Custom Pizza VC
 -(void)goToCustomPizzaVC{
-    [self performSegueWithIdentifier:@"showCustomPizza" sender:self];
-   /* UIViewController *viewController = [[UIViewController alloc] initWithNibName:@"CustomPizzaVC" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    // push a new stack
-    [self.navigationController pushViewController:navController animated:YES];*/
+    [self performSegueWithIdentifier:@"CustomPizza" sender:self];
+  
 }
 
 @end

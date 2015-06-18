@@ -20,7 +20,7 @@
 - (void) setIngredient:(Ingredient *)ingredient{
     _ingredient = ingredient;
     self.nameLabel.text = _ingredient.name;
-    self.priceLabel.text = [NSString stringWithFormat: @"+ %f BGN", _ingredient.price];
+    self.priceLabel.text = [NSString stringWithFormat: @"+ %.2f BGN", _ingredient.priceIngredient];
     [self.includeSwitch setOn: _ingredient.isIncluded];
 }
 

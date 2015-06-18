@@ -38,7 +38,6 @@
 		90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AF1B21FD7C0044AA63 /* SPManager.m */; };
 		F12FCDE61B287E7500CCE789 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = F12FCDE51B287E7500CCE789 /* Account.m */; };
 		F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFA81B304BAA009EEE8B /* Ingredient.m */; };
-		F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
 		F25ABCE51B31FCFA005D11AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE41B31FCFA005D11AD /* User.m */; };
 		F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */; };
@@ -48,6 +47,8 @@
 		F25ABCF21B31FF8D005D11AD /* UserOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCF11B31FF8D005D11AD /* UserOrders.m */; };
 		F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCF51B320087005D11AD /* SPCustomVC.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
+		F2E96ED51B32D8F6003CE849 /* SPIngredientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E96ED41B32D8F6003CE849 /* SPIngredientsCell.m */; };
+		F2E9A98B1B32EC79003CE849 /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9A98A1B32EC79003CE849 /* SPCustomPizza.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
 /* End PBXBuildFile section */
 
@@ -115,15 +116,8 @@
 		F12FCDE51B287E7500CCE789 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		F130DFA71B304BAA009EEE8B /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		F130DFA81B304BAA009EEE8B /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
-		F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomPizza.h; sourceTree = "<group>"; };
-		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
-		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
 		F25ABCE31B31FCFA005D11AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F25ABCE41B31FCFA005D11AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F25ABCE61B31FD2D005D11AD /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
@@ -137,10 +131,12 @@
 		F25ABCF51B320087005D11AD /* SPCustomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomVC.m; path = UserInterface/SPCustomVC.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		F2E96ED31B32D8F6003CE849 /* SPIngredientsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPIngredientsCell.h; path = UserInterface/SPIngredientsCell.h; sourceTree = "<group>"; };
+		F2E96ED41B32D8F6003CE849 /* SPIngredientsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPIngredientsCell.m; path = UserInterface/SPIngredientsCell.m; sourceTree = "<group>"; };
+		F2E9A9891B32EC79003CE849 /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
+		F2E9A98A1B32EC79003CE849 /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
 		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
 		F2E9DD371B2874AF00F2E3BD /* UserAdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAdress.m; sourceTree = "<group>"; };
-		F2E9DD391B28790B00F2E3BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		F2E9DD3A1B28790B00F2E3BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F53FDCEB1B3200880097ED54 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F53FDCEC1B3200880097ED54 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F53FDCED1B3200880097ED54 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -344,6 +340,8 @@
 		90F1119B1B21FD7C0044AA63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F2E9A9891B32EC79003CE849 /* SPCustomPizza.h */,
+				F2E9A98A1B32EC79003CE849 /* SPCustomPizza.m */,
 				F25ABCE31B31FCFA005D11AD /* User.h */,
 				F25ABCE41B31FCFA005D11AD /* User.m */,
 				F25ABCF01B31FF8D005D11AD /* UserOrders.h */,
@@ -359,12 +357,8 @@
 				F27439301B25BFA700356D1F /* NSString+Check.m */,
 				F2E9DD361B2874AF00F2E3BD /* UserAdress.h */,
 				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
-				F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */,
-				F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */,
 				F130DFA71B304BAA009EEE8B /* Ingredient.h */,
 				F130DFA81B304BAA009EEE8B /* Ingredient.m */,
-				F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */,
-				F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,6 +379,8 @@
 		F25ABCF31B32005B005D11AD /* Custom Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				F2E96ED31B32D8F6003CE849 /* SPIngredientsCell.h */,
+				F2E96ED41B32D8F6003CE849 /* SPIngredientsCell.m */,
 				F25ABCF41B320087005D11AD /* SPCustomVC.h */,
 				F25ABCF51B320087005D11AD /* SPCustomVC.m */,
 			);
@@ -466,6 +462,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = 9007CE901B1F2A4C00F4650F;
 			productRefGroup = 9007CE9A1B1F2A4C00F4650F /* Products */;
@@ -523,13 +520,14 @@
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */,
+				F2E96ED51B32D8F6003CE849 /* SPIngredientsCell.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
-				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
 				F25ABCE51B31FCFA005D11AD /* User.m in Sources */,
 				F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,
 				F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */,
+				F2E9A98B1B32EC79003CE849 /* SPCustomPizza.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
 				F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */,
@@ -666,10 +664,67 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/PizzaSparta/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/PizzaSparta/Frameworks",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/ios",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/osx",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release-iphoneos",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release-iphonesimulator",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release-universal",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/build",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/internal/voltron/vendor/MoPub-SDK/Specs/Externals/PivotalCoreKit/Externals/FakeHTTP/Specs/Frameworks",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/internal/voltron/vendor/MoPub-SDK/Specs/MoPubSDKSpecs/Frameworks",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/appledoc/Libraries",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Products/Release",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/Vendor",
+				);
 				INFOPLIST_FILE = PizzaSparta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphoneos/Bolts.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphoneos/Bolts.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphoneos/Bolts.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphonesimulator/Bolts.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphonesimulator/Bolts.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphoneos/FBSDKCoreKit.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphoneos/FBSDKCoreKit.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphoneos/FBSDKCoreKit.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphonesimulator/FBSDKCoreKit.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphonesimulator/FBSDKCoreKit.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphoneos/FBSDKLoginKit.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphoneos/FBSDKLoginKit.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphoneos/FBSDKLoginKit.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphonesimulator/FBSDKLoginKit.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphonesimulator/FBSDKLoginKit.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphoneos/FBSDKShareKit.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphoneos/FBSDKShareKit.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphoneos/FBSDKShareKit.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphonesimulator/FBSDKShareKit.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphonesimulator/FBSDKShareKit.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/internal/voltron/vendor/MoPub-SDK/Specs/Externals/CedarAsync",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/appledoc/Libraries",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/iOS5Example/usr/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/iOS7Example/usr/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/iPhoneExample/Libraries",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/SwiftExamples/usr/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-ios.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-ios.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-osx.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-osx.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-ios.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-ios.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-osx.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-osx.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/sim-shim.build/Release/sim-shim.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/sim-shim.build/Release/sim-shim.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Products/Release/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Products/Release",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/xctool/xctool-tests/TestData/KiwiTests/Build/Products/Debug-iphonesimulator",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/xctool/xctool-tests/TestData/tests-osx-test-bundle",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -679,10 +734,67 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/PizzaSparta/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/PizzaSparta/Frameworks",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/ios",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/osx",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release-iphoneos",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release-iphonesimulator",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Release-universal",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/build",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/internal/voltron/vendor/MoPub-SDK/Specs/Externals/PivotalCoreKit/Externals/FakeHTTP/Specs/Frameworks",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/internal/voltron/vendor/MoPub-SDK/Specs/MoPubSDKSpecs/Frameworks",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/appledoc/Libraries",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Products/Release",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/Vendor",
+				);
 				INFOPLIST_FILE = PizzaSparta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphoneos/Bolts.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphoneos/Bolts.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphoneos/Bolts.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphonesimulator/Bolts.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/Bolts-IOS/build/Bolts.build/Release-iphonesimulator/Bolts.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphoneos/FBSDKCoreKit.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphoneos/FBSDKCoreKit.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphoneos/FBSDKCoreKit.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphonesimulator/FBSDKCoreKit.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKCoreKit/build/FBSDKCoreKit.build/Debug-iphonesimulator/FBSDKCoreKit.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphoneos/FBSDKLoginKit.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphoneos/FBSDKLoginKit.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphoneos/FBSDKLoginKit.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphonesimulator/FBSDKLoginKit.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKLoginKit/build/FBSDKLoginKit.build/Debug-iphonesimulator/FBSDKLoginKit.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphoneos/FBSDKShareKit.build/Objects-normal/arm64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphoneos/FBSDKShareKit.build/Objects-normal/armv7",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphoneos/FBSDKShareKit.build/Objects-normal/armv7s",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphonesimulator/FBSDKShareKit.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/FBSDKShareKit/build/FBSDKShareKit.build/Debug-iphonesimulator/FBSDKShareKit.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/internal/voltron/vendor/MoPub-SDK/Specs/Externals/CedarAsync",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/appledoc/Libraries",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/iOS5Example/usr/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/iOS7Example/usr/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/iPhoneExample/Libraries",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/OCMock/Examples/SwiftExamples/usr/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-ios.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-ios.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-osx.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-query.build/Release/otest-query-lib-osx.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-ios.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-ios.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-osx.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/otest-shim.build/Release/otest-shim-osx.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/sim-shim.build/Release/sim-shim.build/Objects-normal/i386",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Intermediates/sim-shim.build/Release/sim-shim.build/Objects-normal/x86_64",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Products/Release/lib",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/build/b8a5965/6C131e/Products/Release",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/xctool/xctool-tests/TestData/KiwiTests/Build/Products/Debug-iphonesimulator",
+					"/Users/student03/Documents/Nikolai/facebook-ios-sdk/vendor/xctool/xctool/xctool-tests/TestData/tests-osx-test-bundle",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

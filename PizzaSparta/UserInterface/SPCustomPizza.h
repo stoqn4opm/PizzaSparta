@@ -17,7 +17,11 @@
 @property Ingredient *spinach;
 @property Ingredient *olives;
 @property Ingredient *pineapple;
+@property (strong, nonatomic)NSString* title;
+@property (strong, nonatomic)NSString* photoURL;
 
+
+-(id)initCustomPizzaWithName:(NSString*) tmpTitle WithImage:(NSString*)image;
 - (NSInteger) productID;
 
 @end
