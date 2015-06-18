@@ -768,7 +768,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CartCellFrame" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-ar-JZB">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AmountCornerImage" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-ar-JZB">
                                             <rect key="frame" x="524" y="0.0" width="68" height="83"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="16M-Fc-9xT"/>
@@ -776,7 +776,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in Cart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfw-vy-Jow">
-                                            <rect key="frame" x="537" y="56" width="42" height="19"/>
+                                            <rect key="frame" x="545" y="56" width="42" height="19"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="19" id="6za-Wv-nFJ"/>
                                                 <constraint firstAttribute="width" constant="42" id="gdl-M9-R08"/>
@@ -786,25 +786,25 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kC-a2-KkN">
-                                            <rect key="frame" x="537" y="8" width="42" height="46"/>
+                                            <rect key="frame" x="551" y="33" width="42" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="7wG-M8-TEo"/>
-                                                <constraint firstAttribute="height" constant="46" id="zpG-E4-qkG"/>
+                                                <constraint firstAttribute="height" constant="26" id="zpG-E4-qkG"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="29"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8kC-a2-KkN" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" id="2Vp-Ml-lQH"/>
+                                        <constraint firstItem="8kC-a2-KkN" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" constant="25" id="2Vp-Ml-lQH"/>
                                         <constraint firstItem="6BJ-IW-6qP" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" id="7Lt-wp-LeA"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="FT4-ar-JZB" secondAttribute="bottom" constant="-8" id="7cV-nq-lc4"/>
                                         <constraint firstItem="FT4-ar-JZB" firstAttribute="leading" secondItem="6BJ-IW-6qP" secondAttribute="trailing" constant="8" id="FwP-0y-3zV"/>
                                         <constraint firstItem="STZ-jL-VAy" firstAttribute="leading" secondItem="3AF-Ep-xnG" secondAttribute="leadingMargin" constant="-8" id="H7a-Ya-1Ua"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8kC-a2-KkN" secondAttribute="trailing" constant="13" id="Hmq-13-s4m"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8kC-a2-KkN" secondAttribute="trailing" constant="-1" id="Hmq-13-s4m"/>
                                         <constraint firstItem="6BJ-IW-6qP" firstAttribute="leading" secondItem="STZ-jL-VAy" secondAttribute="trailing" constant="8" id="MBb-xx-vgo"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dfw-vy-Jow" secondAttribute="trailing" constant="13" id="UIi-ga-Csz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dfw-vy-Jow" secondAttribute="trailing" constant="5" id="UIi-ga-Csz"/>
                                         <constraint firstItem="STZ-jL-VAy" firstAttribute="top" secondItem="3AF-Ep-xnG" secondAttribute="topMargin" constant="-3" id="Y8F-9k-mKV"/>
                                         <constraint firstItem="dfw-vy-Jow" firstAttribute="bottom" secondItem="3AF-Ep-xnG" secondAttribute="bottomMargin" id="bMr-Om-F5M"/>
                                         <constraint firstItem="6BJ-IW-6qP" firstAttribute="bottom" secondItem="3AF-Ep-xnG" secondAttribute="bottomMargin" id="em6-2Y-9s2"/>
@@ -1922,9 +1922,9 @@
         <image name="AboutLabel" width="100" height="40"/>
         <image name="AccountImage" width="200" height="200"/>
         <image name="AccountLabel" width="133" height="40"/>
+        <image name="AmountCornerImage" width="70" height="70"/>
         <image name="BackLabel" width="37" height="37"/>
         <image name="BussinesHoursLabel" width="227" height="40"/>
-        <image name="CartCellFrame" width="67" height="84"/>
         <image name="CartImage" width="171" height="171"/>
         <image name="CartTabBarIcon" width="30" height="30"/>
         <image name="DrinksImage" width="171" height="171"/>

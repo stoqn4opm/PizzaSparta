@@ -7,9 +7,10 @@
 //
 
 #import "SPCartTableViewCell.h"
+#import "SPManager.h"
 
 @interface SPCartTableViewCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
+@property (weak, nonatomic) IBOutlet UIImageView __block *cellImage;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblAmountIncart;
 
@@ -22,7 +23,13 @@
     
     [self.lblTitle setText:product.title];
     [self.lblAmountIncart setText:[NSString stringWithFormat:@"%@",amount]];
-    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:product.photoURL]];
-    [self.cellImage setImage:[UIImage imageWithData:imgData]];
+    [[[SPManager sharedManager] uiOperationQueue] addOperationWithBlock:^{
+        
+        NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:product.photoURL]];
+        
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            [self.cellImage setImage:[UIImage imageWithData:imgData]];
+        }];
+    }];
 }
 @end
