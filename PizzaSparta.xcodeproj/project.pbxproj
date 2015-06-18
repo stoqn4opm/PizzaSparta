@@ -331,7 +331,6 @@
 		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				90376E131B32C51A00791FA4 /* Auto Login Related */,
 				F25ABCF31B32005B005D11AD /* Custom Pizza */,
 				03C301051B303F3300154C49 /* Detailed Views */,
 				F274392B1B25BA4A00356D1F /* Login and Registration */,
@@ -396,6 +395,7 @@
 		F274392B1B25BA4A00356D1F /* Login and Registration */ = {
 			isa = PBXGroup;
 			children = (
+				90376E131B32C51A00791FA4 /* Auto Login Related */,
 				03C300C61B2F5A8700154C49 /* SPRegistrationTableViewController.h */,
 				03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */,
 				03C300C11B2F29EA00154C49 /* SPLoginTableViewController.h */,

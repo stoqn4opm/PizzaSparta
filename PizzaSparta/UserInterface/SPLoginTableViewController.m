@@ -13,7 +13,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface SPLoginTableViewController () <UITextFieldDelegate, FBSDKLoginButtonDelegate, UIAlertViewDelegate>{
+@interface SPLoginTableViewController () <UITextFieldDelegate, FBSDKLoginButtonDelegate>{
     BOOL _firstEntrance;
     BOOL _autoLogin;
 }
