@@ -22,8 +22,8 @@ typedef void (^SPDatabaseManagerSuccessBlockReadOrders)(NSArray *array);
 + (instancetype) sharedDatabaseManager;
 
 -(void)getAllProductsFromDataBase;
--(void)loggInUserWithUsername:(NSString*)username AndPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion;
--(void)registerNewUserWithUsername:(NSString*)username Password:(NSString*)password Name:(NSString*)name AndFirstAdress:(NSString*)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
+-(void)logInUserWithUsername:(NSString*)username andPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion;
+-(void)registerNewUserWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name andFirstAdress:(NSString*)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
 -(void)readAllAddressesForLoggedUserWithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion;
 -(void)insertNewAddressForLoggedUserAndNewAddress:(NSString*)address WithInsertCompletion:(SPDatabaseManagerSuccessBlockAddress)completionInsert;
 -(void)deleteAddressForLoggedUserAndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete;

@@ -7,7 +7,7 @@
 //
 
 #import "SPAboutTableViewController.h"
-#import "UIResources/UIViewController+SPImageBackButton.h"
+#import "UIResources/UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPAboutTableViewController ()
 
@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpImageBackButton];
+    [self setupSpartaLabel];
 }
 
 @end

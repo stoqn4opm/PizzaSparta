@@ -1060,17 +1060,80 @@
         <!--Account-->
         <scene sceneID="5rS-Mh-AEU">
             <objects>
-                <tableViewController title="Account" id="nkc-Na-9B2" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QnB-Eq-Nf9">
+                <tableViewController title="Account" id="nkc-Na-9B2" customClass="SPAccountTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="QnB-Eq-Nf9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bhS-VW-CgY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SPAutoLoginCell" rowHeight="59" id="bhS-VW-CgY" customClass="SPAutoLoginTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhS-VW-CgY" id="mGD-U1-UGA">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remember Login Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2j-19-ZVz">
+                                            <rect key="frame" x="8" y="25" width="185" height="25"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2Z-bg-kwx">
+                                            <rect key="frame" x="543" y="19" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="loginSwitchValueChanged:" destination="bhS-VW-CgY" eventType="valueChanged" id="HuR-ci-mR2"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="H2Z-bg-kwx" firstAttribute="bottom" secondItem="mGD-U1-UGA" secondAttribute="bottomMargin" id="8km-AT-fXI"/>
+                                        <constraint firstItem="H2Z-bg-kwx" firstAttribute="trailing" secondItem="mGD-U1-UGA" secondAttribute="trailingMargin" id="OAA-9e-iqJ"/>
+                                        <constraint firstItem="H2Z-bg-kwx" firstAttribute="top" secondItem="mGD-U1-UGA" secondAttribute="topMargin" constant="-2" id="ZaQ-34-DEe"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="ZaQ-34-DEe"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="loginSwitch" destination="H2Z-bg-kwx" id="lsh-sy-mRl"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Hew-wE-h00" customClass="SPOrderHistoryTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hew-wE-h00" id="NGx-Rr-21z">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Placed: YYYY-MM-DD HH:mm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efR-rv-SKJ">
+                                            <rect key="frame" x="8" y="16" width="281" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="281" id="fxH-kb-8dI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackLabel" translatesAutoresizingMaskIntoConstraints="NO" id="84r-vZ-HnG">
+                                            <rect key="frame" x="555" y="4" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="37" id="0AA-kY-Bz0"/>
+                                                <constraint firstAttribute="width" constant="37" id="FWk-RL-4bS"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="efR-rv-SKJ" firstAttribute="bottom" secondItem="NGx-Rr-21z" secondAttribute="bottomMargin" id="5Y1-qx-iac"/>
+                                        <constraint firstItem="84r-vZ-HnG" firstAttribute="bottom" secondItem="NGx-Rr-21z" secondAttribute="bottomMargin" id="LJe-4l-Obi"/>
+                                        <constraint firstItem="efR-rv-SKJ" firstAttribute="leading" secondItem="NGx-Rr-21z" secondAttribute="leadingMargin" id="M9R-uX-U01"/>
+                                        <constraint firstItem="84r-vZ-HnG" firstAttribute="trailing" secondItem="NGx-Rr-21z" secondAttribute="trailingMargin" id="StU-qb-f6l"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="imgGoToDetailedView" destination="84r-vZ-HnG" id="Zd3-ev-VUH"/>
+                                    <outlet property="lblOrderPlaced" destination="efR-rv-SKJ" id="br4-d4-Nl3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1290,10 +1353,10 @@
             </objects>
             <point key="canvasLocation" x="-563" y="-1282"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="67p-sz-87e">
             <objects>
-                <tabBarController storyboardIdentifier="mainController" id="pm1-gA-26D" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainController" id="pm1-gA-26D" customClass="SPMainTabBarViewController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="nA3-cb-DFe"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1319,6 +1382,7 @@
                 <navigationController title="Cart Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Cbp-CU-ufJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cart" image="CartTabBarIcon" id="nQO-MR-cUS"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="X5M-7p-Itr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u9b-KU-DKO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1760,6 +1824,7 @@
         <image name="AboutLabel" width="100" height="40"/>
         <image name="AccountImage" width="200" height="200"/>
         <image name="AccountLabel" width="133" height="40"/>
+        <image name="BackLabel" width="37" height="37"/>
         <image name="BussinesHoursLabel" width="227" height="40"/>
         <image name="CartCellFrame" width="67" height="84"/>
         <image name="CartImage" width="171" height="171"/>

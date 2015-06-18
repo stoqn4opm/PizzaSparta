@@ -36,42 +36,34 @@
     _firstEntrance = TRUE;
     [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
     
-    self.btnFBLogin.readPermissions = @[@"email"];
+    self.btnFBLogin.readPermissions = @[@"email",@"user_location"];
     
     if ([FBSDKAccessToken currentAccessToken]) {
         // User is logged in facebook on this device,
         // do work such as go to next view controller, if autologin is enabled
-//        NSString *fbUser = @"";
-//        
-//        [[SPDatabaseManager sharedDatabaseManager]loginUserWithUsername:fbUser andPassword:fbUser completion:^(User *user) {
-//            if (user) {
-//                // segue to main screen
-//            }else{
-//                    [[SPDatabaseManager sharedDatabaseManager] registerNewUserWithUsername:fbUser password:fbUser name:fbName andFirstAdress:fbCurrentCity completion:^(User *user) {
-//                        if (user) {
-//                            // segue to main screen
-//                        }else{
-////                            not logged in but again to main screen
-//                        }
-//                    }]
-//            }
-//        }];
-        /* sample way to get dictionary with logged facebook user info:
-         
-             [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-             
-             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error){
-                 if (!error) {
-                     NSLog(@"fetched user:%@", result);
-                 }
-             }];
-         
-         */
     }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    if ([[SPManager sharedManager] hasAccountBeenStoredForAutologIn]){
+        
+        [[SPDatabaseManager sharedDatabaseManager]
+         logInUserWithUsername:[[SPManager sharedManager]storedAccUsername]
+         andPassword:[[SPManager sharedManager]storedAccPassword]
+         completion:^(User *user) {
+             
+             if (user) {
+                 [[SPManager sharedManager]setIsUserLogIn:YES];
+                 [[SPManager sharedManager] setLoggedUser:user];
+                 NSLog(@"Auto logged User: %@",user.name);
+                 [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
+             }
+             
+         }];
+    }
+    
     [self prepareUI];
 }
 #pragma mark - UI Related
@@ -165,20 +157,22 @@
         return;
     }
     
-    [[SPDatabaseManager sharedDatabaseManager] loggInUserWithUsername:self.txtUsername.text
-                                                          AndPassword:self.txtPassword.text
-                                                           completion:^(User *user){
-                                                               if ( user ) {
-                                                                   [[SPManager sharedManager] setLoggedUser:user];
-                                                                   [[SPManager sharedManager] setIsUserLogIn:YES];
-                                                                   NSLog(@"%@", [[[SPManager sharedManager] loggedUser] username]);
-                                                                   [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
-                                                                   [self.activityIndicator stopAnimating];
-                                                               }
-                                                               else{
-                                                                   [SPUIHeader alertViewWithType:SPALERT_TYPE_WRONG_USERNAME_PASSWORD];
-                                                                   [self.activityIndicator stopAnimating];
-                                                               }}];
+    [[SPDatabaseManager sharedDatabaseManager]
+     logInUserWithUsername:self.txtUsername.text
+     andPassword:self.txtPassword.text
+     completion:^(User *user){
+     
+         if ( user ) {
+             [[SPManager sharedManager] setLoggedUser:user];
+             [[SPManager sharedManager] setIsUserLogIn:YES];
+             NSLog(@"User %@ logged in", [[[SPManager sharedManager] loggedUser] username]);
+             [self.activityIndicator stopAnimating];
+             [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
+         }
+         else{
+             [SPUIHeader alertViewWithType:SPALERT_TYPE_WRONG_USERNAME_PASSWORD];
+             [self.activityIndicator stopAnimating];
+         }}];
 }
 
 - (IBAction)registerTapped {
@@ -196,11 +190,27 @@ return [NSString isEmptyString:self.txtUsername.text] ||
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
              error:(NSError *)error{
 
+    FBSDKGraphRequest *req = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
+                                                               parameters:nil
+                                                              tokenString:result.token.tokenString
+                                                                  version:nil
+                                                               HTTPMethod:@"GET"];
     
+    [req startWithCompletionHandler:
+     
+     ^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            NSLog(@"fetched user:%@", result);
+//            NSString *fbEmail = [result valueForKey:@"email"];
+//            NSString *fbCity = [result valueForKey:@"location"];
+//            NSString *fbName =[NSString stringWithFormat:@"%@ %@",
+//                               [result valueForKey:@"first_name"], [result valueForKey:@"last_name"]];
+        }
+    }];
 }
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
-    
 }
+
 
 @end

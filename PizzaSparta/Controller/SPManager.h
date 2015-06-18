@@ -23,15 +23,15 @@
 @property (strong, nonatomic) User* loggedUser;
 @property(nonatomic)BOOL isUserLogIn;
 @property(nonatomic)BOOL doesUserExist;
-@property(nonatomic)BOOL autoLoginEnabled;
+
 
 + (instancetype) sharedManager;
 
 - (NSManagedObjectContext *) privateChildMOContext;
 
 //makes an account from user and stores it in CoreData
-- (void) saveUserAccount: (User *) user;
-- (BOOL) hasAccountBeenLoggedIn;
+- (void) saveLoggedUserForAutologin;
+- (BOOL) hasAccountBeenStoredForAutologIn;
 - (void) clearLoggedAccounts;
 - (NSString *) storedAccUsername;
 - (NSString *) storedAccPassword;

@@ -1,5 +1,5 @@
 //
-//  UIViewController+SPImageBackButton.h
+//  UIViewController+SPCustomNavControllerSetup.h
 //  PizzaSparta
 //
 //  Created by Stoqn Stoqnov on 6/6/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (SPImageBackButton)
+@interface UIViewController (SPCustomNavControllerSetup)
 - (void)setUpImageBackButton;
+-(void)setupNavigationBarBackground;
+-(void)setupSpartaLabel;
 @end

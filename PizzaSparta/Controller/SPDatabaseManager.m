@@ -91,7 +91,7 @@
     return result;
 }
 
--(void)loggInUserWithUsername:(NSString*)username AndPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion{
+-(void)logInUserWithUsername:(NSString*)username andPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion{
     
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=readData&username=%@&password=%@",username, password ]];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -125,7 +125,7 @@
 }
 
 
--(void)registerNewUserWithUsername:(NSString *)username Password:(NSString *)password Name:(NSString *)name AndFirstAdress:(NSString *)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
+-(void)registerNewUserWithUsername:(NSString *)username password:(NSString *)password name:(NSString *)name andFirstAdress:(NSString *)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration{
     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/userController.php?action=insert&username=%@&password=%@&realName=%@&adress=%@",[username stringByReplacingOccurrencesOfString:@" " withString:@"+"], [password stringByReplacingOccurrencesOfString:@" " withString:@"+"], [name stringByReplacingOccurrencesOfString:@" " withString:@"+"], [adress stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
@@ -140,7 +140,7 @@
                                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                                
                                                                if([[result valueForKey:@"username"] isEqualToString:@"successful"]){
-                                                                   [self loggInUserWithUsername:username AndPassword:password completion:^(User *user){
+                                                                   [self logInUserWithUsername:username andPassword:password completion:^(User *user){
                                                                        if ( user ) {
                                                                            completionRegistration(user);
                                                                        } else {
@@ -232,7 +232,7 @@
 
 -(void)deleteAddressForLoggedUserAndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete{
     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
-        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=delete&userId=%ld&adressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],[address addressID]]];
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/adressController.php?action=delete&userId=%ld&adressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],(long)[address addressID]]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
@@ -292,7 +292,7 @@
 
 -(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts AndCustomProducts:(NSArray*)allcustomproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder{
     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
-     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=create&userId=%ld&addressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],[address addressID]]];
+     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=create&userId=%ld&addressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],(long)[address addressID]]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
@@ -330,7 +330,7 @@
 //type = isnotdelivered
 -(void)getAllOrderstoGet:(NSString*) type WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder{
     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
-        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=getAllOrders&userId=%ld&get=%@",[[[SPManager sharedManager] loggedUser] userId],type]];
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=getAllOrders&userId=%ld&get=%@",(long)[[[SPManager sharedManager] loggedUser] userId],type]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         

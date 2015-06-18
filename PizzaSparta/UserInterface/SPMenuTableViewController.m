@@ -10,6 +10,7 @@
 #import "SPMenuItemsTableViewController.h"
 #import "SPUIHeader.h"
 #import "SPManager.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPMenuTableViewController ()
 @property (nonatomic, strong) SPMenuType *selectedMenuType;
@@ -25,9 +26,7 @@
 #pragma mark - UI Preparation
 -(void) prepareUI{
     
-    [self.navigationController.navigationBar
-     setBackgroundImage:[UIImage imageNamed:@"TiledBackgroundWithStatusBar"]
-     forBarMetrics:UIBarMetricsDefault];
+    [self setupNavigationBarBackground];
     
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"MenuLabel"]]];

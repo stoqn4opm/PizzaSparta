@@ -11,6 +11,7 @@
 #import "SPItemTableViewCell.h"
 #import "SPItemDetailsTableViewController.h"
 #import "SPManager.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPPromoTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchController;
@@ -23,9 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar
-     setBackgroundImage:[UIImage imageNamed:@"TiledBackgroundWithStatusBar"]
-     forBarMetrics:UIBarMetricsDefault];
+    [self setupNavigationBarBackground];
     
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"PromoLabel"]]];

@@ -8,7 +8,7 @@
 
 #import "SPItemDetailsTableViewController.h"
 #import "SPUIHeader.h"
-#import "UIViewController+SPImageBackButton.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPItemDetailsTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
