@@ -16,6 +16,7 @@
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
 		9007CEB01B1F2A4D00F4650F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */; };
 		9007CEBC1B1F2A4D00F4650F /* PizzaSpartaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */; };
+		90376E121B32C20100791FA4 /* SPMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90376E111B32C20100791FA4 /* SPMainTabBarViewController.m */; };
 		906E599B1B20F8DC00186629 /* UI Sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59921B20F8DC00186629 /* UI Sample.png */; };
 		906E599C1B20F8DC00186629 /* cartTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59931B20F8DC00186629 /* cartTabBarIcon.png */; };
 		906E599D1B20F8DC00186629 /* colorPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 906E59941B20F8DC00186629 /* colorPreview.png */; };
@@ -78,6 +79,8 @@
 		9007CEB51B1F2A4D00F4650F /* PizzaSpartaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaSpartaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CEBA1B1F2A4D00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CEBB1B1F2A4D00F4650F /* PizzaSpartaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaSpartaTests.m; sourceTree = "<group>"; };
+		90376E101B32C20100791FA4 /* SPMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMainTabBarViewController.h; path = UserInterface/SPMainTabBarViewController.h; sourceTree = "<group>"; };
+		90376E111B32C20100791FA4 /* SPMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMainTabBarViewController.m; path = UserInterface/SPMainTabBarViewController.m; sourceTree = "<group>"; };
 		906E59921B20F8DC00186629 /* UI Sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI Sample.png"; sourceTree = "<group>"; };
 		906E59931B20F8DC00186629 /* cartTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartTabBarIcon.png; sourceTree = "<group>"; };
 		906E59941B20F8DC00186629 /* colorPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorPreview.png; sourceTree = "<group>"; };
@@ -119,18 +122,15 @@
 		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		F1918A6F1B31C7F5005CCCA7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		F1918A701B31C7F5005CCCA7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		F1918A711B31C7F5005CCCA7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
 		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
 		F25ABCE31B31FCFA005D11AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F25ABCE41B31FCFA005D11AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F25ABCE61B31FD2D005D11AD /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
 		F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatabaseManager.m; sourceTree = "<group>"; };
-		F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F25ABCF01B31FF8D005D11AD /* UserOrders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOrders.h; sourceTree = "<group>"; };
 		F25ABCF11B31FF8D005D11AD /* UserOrders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOrders.m; sourceTree = "<group>"; };
 		F25ABCF41B320087005D11AD /* SPCustomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomVC.h; path = UserInterface/SPCustomVC.h; sourceTree = "<group>"; };
@@ -139,11 +139,6 @@
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
 		F2E9DD371B2874AF00F2E3BD /* UserAdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAdress.m; sourceTree = "<group>"; };
-		F2E9DD391B28790B00F2E3BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		F2E9DD3A1B28790B00F2E3BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		F53FDCEB1B3200880097ED54 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		F53FDCEC1B3200880097ED54 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		F53FDCED1B3200880097ED54 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,9 +165,9 @@
 		03C300FB1B3002B000154C49 /* Facebook Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F53FDCEB1B3200880097ED54 /* FBSDKCoreKit.framework */,
-				F53FDCEC1B3200880097ED54 /* FBSDKLoginKit.framework */,
-				F53FDCED1B3200880097ED54 /* FBSDKShareKit.framework */,
+				F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */,
+				F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */,
+				F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */,
 			);
 			name = "Facebook Frameworks";
 			sourceTree = "<group>";
@@ -189,9 +184,6 @@
 		9007CE901B1F2A4C00F4650F = {
 			isa = PBXGroup;
 			children = (
-				F25ABCEB1B31FEE0005D11AD /* FBSDKLoginKit.framework */,
-				F25ABCEC1B31FEE0005D11AD /* FBSDKShareKit.framework */,
-				F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */,
 				9007CE9B1B1F2A4C00F4650F /* PizzaSparta */,
 				9007CEB81B1F2A4D00F4650F /* PizzaSpartaTests */,
 				9007CE9A1B1F2A4C00F4650F /* Products */,
@@ -243,6 +235,15 @@
 				9007CEBA1B1F2A4D00F4650F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90376E131B32C51A00791FA4 /* Auto Login Related */ = {
+			isa = PBXGroup;
+			children = (
+				90376E101B32C20100791FA4 /* SPMainTabBarViewController.h */,
+				90376E111B32C20100791FA4 /* SPMainTabBarViewController.m */,
+			);
+			name = "Auto Login Related";
 			sourceTree = "<group>";
 		};
 		906E59911B20F8DC00186629 /* Samples */ = {
@@ -330,6 +331,7 @@
 		90C1E34F1B1FB0B700B6605B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				90376E131B32C51A00791FA4 /* Auto Login Related */,
 				F25ABCF31B32005B005D11AD /* Custom Pizza */,
 				03C301051B303F3300154C49 /* Detailed Views */,
 				F274392B1B25BA4A00356D1F /* Login and Registration */,
@@ -526,6 +528,7 @@
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
+				90376E121B32C20100791FA4 /* SPMainTabBarViewController.m in Sources */,
 				F25ABCE51B31FCFA005D11AD /* User.m in Sources */,
 				F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */,
 				90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */,

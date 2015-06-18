@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *btnFBLogin;
 
-@property (strong, nonatomic) __block User *autoLoginCandidate;
 @end
 
 @implementation SPLoginTableViewController
@@ -167,8 +166,6 @@
              [[SPManager sharedManager] setLoggedUser:user];
              [[SPManager sharedManager] setIsUserLogIn:YES];
              NSLog(@"User %@ logged in", [[[SPManager sharedManager] loggedUser] username]);
-             self.autoLoginCandidate = user;
-             [self askAutoLogin];
              [self.activityIndicator stopAnimating];
              [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
          }
@@ -186,16 +183,6 @@
 -(BOOL) emptyFields{
 return [NSString isEmptyString:self.txtUsername.text] ||
        [NSString isEmptyString:self.txtPassword.text];
-}
-
--(void) askAutoLogin{
-    [[[UIAlertView alloc]
-      initWithTitle:@"Remember Login Details"
-      message:@"Would you like PizzaSparta app to remember your login details in order to log you in automatically?"
-      delegate:self
-      cancelButtonTitle:@"No"
-      otherButtonTitles:@"Yes", nil] show];
-    
 }
 
 #pragma mark - Facebook Related Methods
@@ -225,13 +212,5 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
 }
 
-#pragma mark - <UIAlertViewDelegate> Methods
--(void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
-        
-        [[SPManager sharedManager]saveUserAccount:[[SPManager sharedManager] loggedUser]];
-    }
-}
+
 @end

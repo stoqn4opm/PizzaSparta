@@ -1290,10 +1290,10 @@
             </objects>
             <point key="canvasLocation" x="-563" y="-1282"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="67p-sz-87e">
             <objects>
-                <tabBarController storyboardIdentifier="mainController" id="pm1-gA-26D" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainController" id="pm1-gA-26D" customClass="SPMainTabBarViewController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="nA3-cb-DFe"/>
                     <nil key="simulatedBottomBarMetrics"/>
