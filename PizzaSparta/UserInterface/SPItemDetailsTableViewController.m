@@ -17,10 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
 @property (weak, nonatomic) IBOutlet UITextField *txtAmmount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrency;
-@property (weak, nonatomic) IBOutlet UIView *priceBackgroundView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMinus;
 @property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
 @property (weak, nonatomic) IBOutlet UILabel *lblPrice;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentLargeMedium;
 
 @end
 
@@ -52,9 +52,6 @@
     [self.navigationItem setTitle:@""];
     [self shoppingCartActionsInit];
     [self setUpImageBackButton];
-    
-    [self.priceBackgroundView.layer setCornerRadius:SPCORNER_RADIUS];
-    [self.priceBackgroundView setClipsToBounds:YES];
 }
 
 #pragma mark - Cart Actions
