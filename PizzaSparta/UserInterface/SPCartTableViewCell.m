@@ -32,22 +32,22 @@
 
     if ([product isKindOfClass: [Product class]]) {
         [self.lblTitle setText: [product title]];
-        NSData *imgData = [NSData dataWithContentsOfURL: [product urlPhoto]];
-        [self.cellImage setImage:[UIImage imageWithData:imgData]];
+        
+        [[[SPManager sharedManager] uiOperationQueue] addOperationWithBlock:^{
+
+            NSString *urlStr = [product photoURL];
+            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
+            
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                [self.cellImage setImage:[UIImage imageWithData:imgData]];
+            }];
+        }];
     }
     else{
         [self.lblTitle setText: @"Custom pizza"];
         [self.cellImage setImage: [UIImage imageNamed: @"PizzaImage"]];
     }
     [self.lblAmountIncart setText:[NSString stringWithFormat:@"%@",amount]];
-    [[[SPManager sharedManager] uiOperationQueue] addOperationWithBlock:^{
-        
-        NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:product.photoURL]];
-        
-        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-            [self.cellImage setImage:[UIImage imageWithData:imgData]];
-        }];
-    }];
-}
+   }
 
 @end

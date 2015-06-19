@@ -44,12 +44,13 @@
     }];
 
     
+    
     [self prepareUI];
 }
 
 - (void) currentAmout:(NSInteger)currentAmount{
     self.currentAmount = currentAmount;
-    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", self.currentAmount];
+    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", (long)self.currentAmount];
 }
 
 - (void)prepareUI{
