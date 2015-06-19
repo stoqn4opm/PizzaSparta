@@ -50,6 +50,7 @@
     [newProduct setType:[element objectForKey:@"type"]];
     [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
     [newProduct setSize:[element objectForKey:@"size"]];
+    [newProduct setPhotoURL: [element objectForKey: @"photoURL"]];
     
     
     [context save: NULL];

@@ -9,6 +9,7 @@
 #import "SPItemDetailsTableViewController.h"
 #import "SPUIHeader.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
+#import "SPManager.h"
 
 @interface SPItemDetailsTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -31,17 +32,29 @@
     [self.lblName setText:self.selectedProduct.title];
     [self.lblDescription setText:self.selectedProduct.productDesc];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
-
-#warning TODO Load image in background thread
-    NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
-    [self.imageView setImage:[UIImage imageWithData:image]];
-
+    self.currentAmount = 0;
+//#warning TODO Load image in background thread
+//    NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
+//    [self.imageView setImage:[UIImage imageWithData:image]];
+    
     
     [self prepareUI];
 }
 
+- (void) currentAmout:(NSInteger)currentAmount{
+    self.currentAmount = currentAmount;
+    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", self.currentAmount];
+}
+
 - (void)prepareUI{
-    
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.selectedProduct.photoURL]];
+        if ( data == nil )
+            return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = [UIImage imageWithData: data];
+        });
+    });
     [self.navigationItem setTitle:@""];
     [self shoppingCartActionsInit];
     [self setUpImageBackButton];
@@ -84,14 +97,20 @@
 -(void) minusPressed{
 
     [self.imgMinus setAlpha:0];
+    
     [UIView animateWithDuration:0.3 animations:^{
         [self.imgMinus setAlpha:1];
     }];
     
-    NSInteger amm = self.txtAmmount.text.integerValue;
-    if (amm > 0) {
-        
-        [self.txtAmmount setText:[NSString stringWithFormat:@"%ld",(long)--amm]];
+    if (self.currentAmount > 0) {
+        //        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
+        //        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
+        [self currentAmout: self.currentAmount -1];
+        NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+        [product setValue: self.selectedProduct forKey: @"Product"];
+        [product setValue: @(-1) forKey: @"Amount"];
+        [product setValue: @"Large" forKey: @"Size"];
+        [[SPManager sharedManager] addProductToCart: product];
     }
 }
 
@@ -99,12 +118,21 @@
 -(void) plusPressed{
     
     [self.imgPlus setAlpha:0];
+    
     [UIView animateWithDuration:0.3 animations:^{
         [self.imgPlus setAlpha:1];
     }];
-    
-    NSInteger amm = self.txtAmmount.text.integerValue;
-    [self.txtAmmount setText:[NSString stringWithFormat:@"%ld",(long)++amm]];
+    [self currentAmout: self.currentAmount +1];
+
+    if (self.currentAmount > 0) {
+        //        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
+        //        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
+        NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+        [product setValue: self.selectedProduct forKey: @"Product"];
+        [product setValue: @(1) forKey: @"Amount"];
+        [product setValue: @"Large" forKey: @"Size"];
+        [[SPManager sharedManager] addProductToCart: product];
+    }
 }
 
 @end

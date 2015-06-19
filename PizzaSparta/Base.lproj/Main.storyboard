@@ -294,7 +294,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="183"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleMenuItemImage" translatesAutoresizingMaskIntoConstraints="NO" id="2tE-LP-qat">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tE-LP-qat">
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="183"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIm-jj-V6J">
@@ -1846,7 +1846,6 @@
         <image name="PreferencesLabel" width="200" height="40"/>
         <image name="PriceCornerImage" width="70" height="70"/>
         <image name="PromoTabBarIcon" width="30" height="30"/>
-        <image name="SampleMenuItemImage" width="774" height="461"/>
         <image name="SaturdaySundayLabel" width="277" height="43"/>
         <image name="SettingsTabBarIcon" width="30" height="30"/>
         <image name="TabBarBackground" width="10" height="10"/>
