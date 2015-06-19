@@ -1166,7 +1166,7 @@
         <!--Login-->
         <scene sceneID="kEv-RJ-59W">
             <objects>
-                <tableViewController title="Login" id="HuF-63-oGc" customClass="SPLoginTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="loginController" title="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HuF-63-oGc" customClass="SPLoginTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NgM-7h-UGg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
