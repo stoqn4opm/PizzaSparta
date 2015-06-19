@@ -32,7 +32,7 @@
     [self.lblName setText:self.selectedProduct.title];
     [self.lblDescription setText:self.selectedProduct.productDesc];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
-    self.currentAmount = 0;
+    [self currentAmout: [[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize: @"Large"]];
 //#warning TODO Load image in background thread
 //    NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
 //    [self.imageView setImage:[UIImage imageWithData:image]];
