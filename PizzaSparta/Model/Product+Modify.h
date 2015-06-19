@@ -21,6 +21,7 @@
                       poductID: (NSNumber *) productID
                    andPhotoURL: (NSString *) URL;
 
++ (Product *) productFromDictionarry: (NSDictionary *) element;
 
 //isPromo setters and getters
 - (BOOL) promo;
