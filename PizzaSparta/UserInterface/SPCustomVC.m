@@ -195,20 +195,16 @@
     newPizza.onions = self.ingredients[3];
     newPizza.spinach = self.ingredients[4];
     newPizza.pineapple = self.ingredients[5];
+    
+    NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+    [product setValue: newPizza forKey: @"Product"];
+    [product setValue: @(self.productAmount) forKey: @"Amount"];
     if(self.productSize ==0){
          NSLog(@"normal");
     }
     else{
         NSLog(@"large");
     }
-    NSMutableDictionary *product = [[NSMutableDictionary alloc] init];
-    [product setValue: newPizza forKey: @"Product"];
-    [product setValue: [NSString stringWithFormat:@"%ld", (long)self.productAmount] forKey: @"Amount"];
-    [product setValue: [NSString stringWithFormat:@"%ld", (long)self.productSize ] forKey: @"Size"];
-    [[[SPManager sharedManager]cart] addObject:product];
-    
-    //    [[SPManager sharedManager] addProductToCart: product];
-    
 }
 
 @end
