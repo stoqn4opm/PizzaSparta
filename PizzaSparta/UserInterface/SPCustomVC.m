@@ -219,7 +219,7 @@
     newPizza.spinach = self.ingredients[4];
     newPizza.pineapple = self.ingredients[5];
     
-    NSLog(@"%@ and %ld", [newPizza title], [[newPizza bacon] isIncluded]);
+    NSLog(@"%@ and %ld", [newPizza title], (long)[[newPizza bacon] isIncluded]);
     NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
     [product setValue: newPizza forKey: @"Product"];
     [product setValue: @(self.productAmount) forKey: @"Amount"];
