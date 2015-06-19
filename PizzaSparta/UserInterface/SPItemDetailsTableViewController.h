@@ -11,4 +11,6 @@
 
 @interface SPItemDetailsTableViewController : UITableViewController
 @property (nonatomic, strong) Product *selectedProduct;
+@property (nonatomic) NSInteger currentAmount;
+
 @end

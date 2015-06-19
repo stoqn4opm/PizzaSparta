@@ -47,32 +47,20 @@
                                                     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
                                                     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"idProduct  == %@ ", [element valueForKey:@"id"]];
                                                     NSError *error = nil;
-                                                    NSInteger cn= [context countForFetchRequest:fetchRequest error:&error];
-                                                    if(cn < 1){
-                                                        Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
-                                                        [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
-                                                        [newProduct setTitle:[element objectForKey:@"title"]];
-                                                        [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
-                                                        [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
-                                                        [newProduct setType:[element objectForKey:@"type"]];
-                                                        [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
-                                                        [newProduct setSize:[element objectForKey:@"size"]];
-                                                        
-                                                        
-                                                        __block BOOL success = YES;
-                                                        while (context && success) {
-                                                            [context performBlockAndWait:^{
-                                                                NSError * error_context=nil;
-                                                                
-                                                                success = [context save:&error_context];
-                                                                if(success == false){
-                                                                    NSLog(@"Save did not complete successfully, Error: %@", [error_context localizedDescription]);
-                                                                }
-                                                            }];
-                                                            context = context.parentContext;
-                                                        }
-                                                    }
+                                                    NSArray *matches = [context executeFetchRequest: fetchRequest error: &error];
                                                     
+                                                    if([matches count] < 1){
+                                                        [Product productFromDictionarry: element];
+                                                        [[SPManager sharedManager] saveParentContextToStore];
+
+                                                    }
+                                                    else if (![self productIsSame: [matches objectAtIndex: 0] coparedTo:element]){
+                                                        [context deleteObject: [matches objectAtIndex: 0]];
+                                                        [Product productFromDictionarry: element];
+                                                        [[SPManager sharedManager] saveParentContextToStore];
+                                                    }
+
+
                                                 }
                                             });
                                         }];

@@ -10,6 +10,8 @@
 #import "Product+Modify.h"
 
 @interface SPCartTableViewCell : UITableViewCell
-- (void)configureCartCellWithProduct:(Product *)product andAmount:(NSNumber *) amount;
+
+//- (void)configureCartCellWithProduct:(Product *)product andAmount:(NSNumber *) amount;
+- (void)configureCartCellWithProduct:(id) product andAmount:(NSNumber *) amount;
 
 @end

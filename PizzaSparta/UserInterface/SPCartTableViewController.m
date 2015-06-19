@@ -24,7 +24,8 @@
     [super viewDidLoad];
     
     [self setupNavigationBarBackground];
-    
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];
 }
@@ -49,5 +50,19 @@
     [cell configureCartCellWithProduct:currProduct andAmount:amount];
     
     return cell;
+}
+#pragma mark - <UITableViewDelegate> Methods
+-(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == [[[SPManager sharedManager] cart] count]) {
+        return NO;
+    }
+    return YES;
+}
+
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[[SPManager sharedManager] cart] removeObjectAtIndex: indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: YES];
+    }
 }
 @end
