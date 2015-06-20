@@ -258,7 +258,7 @@
 
 -(void)addProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId{
     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
-        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=addProduct&productType=normal&orderId=%@&productId=%@&numberOfProduct=%@&size=%@",orderId,[product objectForKey:@"prodictId"],[product objectForKey:@"numberOfProduct"], [product objectForKey:@"size"]]];
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=addProduct&productType=normal&orderId=%@&productId=%@&numberOfProduct=%@&size=%@",orderId,[self returnProductID:[product objectForKey:@"Product"]],[product objectForKey:@"Amount"], [product objectForKey:@"Size"]]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
@@ -276,7 +276,6 @@
                                                                });
                                                            }];
         [registrationSession resume];
-
     }
 }
 

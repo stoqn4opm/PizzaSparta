@@ -45,6 +45,11 @@
 		F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFA81B304BAA009EEE8B /* Ingredient.m */; };
 		F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */ = {isa = PBXBuildFile; fileRef = F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */; };
 		F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = F1448E3C1B25EA2B009CCF1E /* Product.m */; };
+		F259CDEE1B3591720029BA68 /* SPUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDED1B3591720029BA68 /* SPUserInfoTableViewCell.m */; };
+		F259CDF11B35A9CC0029BA68 /* SPAddressesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF01B35A9CC0029BA68 /* SPAddressesTableViewController.m */; };
+		F259CDF41B35ACA60029BA68 /* SPUserAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF31B35ACA60029BA68 /* SPUserAddressTableViewCell.m */; };
+		F259CDF71B35D8900029BA68 /* SPOrderDietailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF61B35D8900029BA68 /* SPOrderDietailsTableViewController.m */; };
+		F259CDFA1B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */; };
 		F25ABCE51B31FCFA005D11AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE41B31FCFA005D11AD /* User.m */; };
 		F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */; };
 		F25ABCEA1B31FEBB005D11AD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25ABCE91B31FEBB005D11AD /* FBSDKCoreKit.framework */; };
@@ -135,6 +140,16 @@
 		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
 		F1448E3B1B25EA2B009CCF1E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		F1448E3C1B25EA2B009CCF1E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		F259CDEC1B3591720029BA68 /* SPUserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPUserInfoTableViewCell.h; path = UserInterface/SPUserInfoTableViewCell.h; sourceTree = "<group>"; };
+		F259CDED1B3591720029BA68 /* SPUserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPUserInfoTableViewCell.m; path = UserInterface/SPUserInfoTableViewCell.m; sourceTree = "<group>"; };
+		F259CDEF1B35A9CC0029BA68 /* SPAddressesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAddressesTableViewController.h; path = UserInterface/SPAddressesTableViewController.h; sourceTree = "<group>"; };
+		F259CDF01B35A9CC0029BA68 /* SPAddressesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAddressesTableViewController.m; path = UserInterface/SPAddressesTableViewController.m; sourceTree = "<group>"; };
+		F259CDF21B35ACA60029BA68 /* SPUserAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPUserAddressTableViewCell.h; path = UserInterface/SPUserAddressTableViewCell.h; sourceTree = "<group>"; };
+		F259CDF31B35ACA60029BA68 /* SPUserAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPUserAddressTableViewCell.m; path = UserInterface/SPUserAddressTableViewCell.m; sourceTree = "<group>"; };
+		F259CDF51B35D8900029BA68 /* SPOrderDietailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderDietailsTableViewController.h; path = UserInterface/SPOrderDietailsTableViewController.h; sourceTree = "<group>"; };
+		F259CDF61B35D8900029BA68 /* SPOrderDietailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDietailsTableViewController.m; path = UserInterface/SPOrderDietailsTableViewController.m; sourceTree = "<group>"; };
+		F259CDF81B35D8E00029BA68 /* SPOrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderDetailsTableViewCell.h; path = UserInterface/SPOrderDetailsTableViewCell.h; sourceTree = "<group>"; };
+		F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDetailsTableViewCell.m; path = UserInterface/SPOrderDetailsTableViewCell.m; sourceTree = "<group>"; };
 		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
 		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
 		F25ABCE31B31FCFA005D11AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -272,6 +287,12 @@
 				03C301031B3032A600154C49 /* SPCartTableViewCell.m */,
 				90376E1B1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.h */,
 				90376E1C1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m */,
+				F259CDEC1B3591720029BA68 /* SPUserInfoTableViewCell.h */,
+				F259CDED1B3591720029BA68 /* SPUserInfoTableViewCell.m */,
+				F259CDF21B35ACA60029BA68 /* SPUserAddressTableViewCell.h */,
+				F259CDF31B35ACA60029BA68 /* SPUserAddressTableViewCell.m */,
+				F259CDF81B35D8E00029BA68 /* SPOrderDetailsTableViewCell.h */,
+				F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -325,6 +346,10 @@
 				90A954D11B20255A006A0D8E /* SPMoreTableViewController.m */,
 				90376E151B32CB8E00791FA4 /* SPAccountTableViewController.h */,
 				90376E161B32CB8E00791FA4 /* SPAccountTableViewController.m */,
+				F259CDEF1B35A9CC0029BA68 /* SPAddressesTableViewController.h */,
+				F259CDF01B35A9CC0029BA68 /* SPAddressesTableViewController.m */,
+				F259CDF51B35D8900029BA68 /* SPOrderDietailsTableViewController.h */,
+				F259CDF61B35D8900029BA68 /* SPOrderDietailsTableViewController.m */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -545,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F259CDF71B35D8900029BA68 /* SPOrderDietailsTableViewController.m in Sources */,
 				F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */,
 				90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */,
 				90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */,
@@ -555,11 +581,14 @@
 				03C300C51B2F4E1600154C49 /* SPUIHeader.m in Sources */,
 				03C301041B3032A600154C49 /* SPCartTableViewCell.m in Sources */,
 				90A954D21B20255A006A0D8E /* SPMoreTableViewController.m in Sources */,
+				F259CDF11B35A9CC0029BA68 /* SPAddressesTableViewController.m in Sources */,
 				F12FCDE61B287E7500CCE789 /* Account.m in Sources */,
 				90A954B61B2024AE006A0D8E /* SPMenuTableViewController.m in Sources */,
 				90376E1D1B32DE1700791FA4 /* SPOrderHistoryTableViewCell.m in Sources */,
 				03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */,
+				F259CDFA1B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
+				F259CDF41B35ACA60029BA68 /* SPUserAddressTableViewCell.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				90C6D3F71B34D0E90084DF9F /* AsyncImageView.m in Sources */,
 				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
@@ -571,6 +600,7 @@
 				F130DFA91B304BAA009EEE8B /* Ingredient.m in Sources */,
 				F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */,
 				90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */,
+				F259CDEE1B3591720029BA68 /* SPUserInfoTableViewCell.m in Sources */,
 				F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */,
 				90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */,
 				90C16B2A1B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m in Sources */,

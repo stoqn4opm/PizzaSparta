@@ -88,6 +88,30 @@
                      cancelButtonTitle:@"OK"
                      otherButtonTitles:nil];
             break;
+        case SPALERT_TYPE_ADDRESS_EXIST:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Add Address Error"
+                     message:@"Address exist"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_ADDRESS_DELETE_ERROR:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Delete Address Error"
+                     message:@"Connection Error. Try again Later"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_ADDRESS_DELETE_LAST:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Delete Address Error"
+                     message:@"Only one address left"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
         default:
             break;
     }

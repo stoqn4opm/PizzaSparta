@@ -19,6 +19,7 @@
         _name=@"";
         _addresses=[[NSMutableArray alloc] init];
         _orders=[[NSMutableArray alloc] init];
+        //_currentOrderDetails=[[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -52,12 +53,14 @@
         [ord setAddressID:[[element valueForKey:@"adressId"] integerValue]];
         [ord setIsDelivered:[[element valueForKey:@"isDelivered"] integerValue]];
         [ord setDateOrder:[element valueForKey:@"dateOrder"]];
-        //if(![[element valueForKey:@"products"] isEqualToString:@"none"]){
-        //  [ord setProducts:[element valueForKey:@"products"]];
-        //}
-        // if(![[element valueForKey:@"customproducts"] isEqualToString:@"none"]){
-        //     [ord setProducts:[element valueForKey:@"customproducts"]];
-        // }
+        if([element valueForKey:@"products"] != nil){
+            [ord setProducts:[element valueForKey:@"products"]];
+            
+        }
+        if([element valueForKey:@"customproducts"] != nil){
+            [ord setProducts:[element valueForKey:@"customproducts"]];
+        }
+        
         [self.orders addObject:ord];
     }
 }

@@ -248,4 +248,57 @@
     [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
 }
 
+
+-(void)readUserAddresses{
+    if((self.loggedUser != nil) && (self.isUserLogIn == YES)){
+        [[SPDatabaseManager sharedDatabaseManager] readAllAddressesForLoggedUserWithCompletion:^(NSArray* array){
+            if(array){
+                [self.loggedUser readAllAddresses:array];
+            }
+            else{
+                NSLog(@"error reading addresses");
+            }
+        }];
+    }
+}
+-(void)logOutUser{
+    if(self.isUserLogIn) {
+        [self clearLoggedAccounts];
+        [self setLoggedUser:nil];
+        [self setIsUserLogIn:NO];
+        [self.cart removeAllObjects];
+    }
+}
+
+-(NSArray*)getUserInfoAsArray{
+    return [[NSArray alloc] initWithObjects:[self.loggedUser username], [self.loggedUser name],@"Addresses", nil];
+}
+
+-(void)addForCurrentUserNewAddress:(NSString*)newAddress{
+    if((self.loggedUser != nil) && (self.isUserLogIn == YES)){
+        [[SPDatabaseManager sharedDatabaseManager] insertNewAddressForLoggedUserAndNewAddress:newAddress WithInsertCompletion:^(NSArray* array){
+            if(array){
+                [self.loggedUser readAllAddresses:array];
+            }
+            else{
+                NSLog(@"error reading new address");
+            }
+        }];
+    }
+}
+
+-(void)deleteForCurrentUserAddress:(UserAdress*)address completion:(SPManagerSuccessBlock)completion{
+    if((self.loggedUser != nil) && (self.isUserLogIn == YES)){
+        [[SPDatabaseManager sharedDatabaseManager] deleteAddressForLoggedUserAndNewAddress:address WithDeleteCompletion:^(NSArray* array){
+            if(array){
+                [self.loggedUser readAllAddresses:array];
+                completion(@"success");
+            }
+            else{
+                completion(@"error");
+            }
+        }];
+    }
+}
+
 @end

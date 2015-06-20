@@ -221,12 +221,7 @@
     UIViewController *goToLogInVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:goToLogInVC];
     [self presentViewController:navController animated:YES completion:^{
-        if ([[SPManager sharedManager] isUserLogIn]) {
-            [[SPManager sharedManager] clearLoggedAccounts];
-            [[SPManager sharedManager] setLoggedUser:nil];
-            [[SPManager sharedManager ]setIsUserLogIn:NO];
-        }
-        
+        [[SPManager sharedManager] logOutUser];
     }];
 }
 

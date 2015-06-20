@@ -17,6 +17,7 @@
     @property(strong, nonatomic)NSString* name;
     @property(strong, nonatomic)NSMutableArray* addresses;
     @property(strong, nonatomic)NSMutableArray* orders;
+    @property(strong, nonatomic)NSMutableArray* currentOrderDetails;
 
     -(void)readAllAddresses:(NSArray*)alladdresses;
     -(void)readAllOrders:(NSArray*)allorders;

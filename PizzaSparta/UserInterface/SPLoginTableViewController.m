@@ -57,6 +57,7 @@
              if (user) {
                  [[SPManager sharedManager]setIsUserLogIn:YES];
                  [[SPManager sharedManager] setLoggedUser:user];
+                 [[SPManager sharedManager] readUserAddresses];
                  NSLog(@"Auto logged User: %@",user.name);
                  [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
              }
@@ -166,6 +167,7 @@
          if ( user ) {
              [[SPManager sharedManager] setLoggedUser:user];
              [[SPManager sharedManager] setIsUserLogIn:YES];
+             [[SPManager sharedManager] readUserAddresses];
              NSLog(@"User %@ logged in", [[[SPManager sharedManager] loggedUser] username]);
              [self.activityIndicator stopAnimating];
              [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
