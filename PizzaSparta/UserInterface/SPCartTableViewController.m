@@ -96,8 +96,13 @@
     self.sendOrderLabel = [[UIImageView alloc]
                                    initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
     
-    [self.sendOrderLabel setBackgroundColor:SPCOLOR_GREEN];
-    [self.sendOrderLabel setImage:[UIImage imageNamed:@"SendOrderLabel"]];
+    [self.sendOrderLabel setBackgroundColor:SPCOLOR_RED];
+    if ([[[SPManager sharedManager]cart]count] > 0) {
+        
+        [self.sendOrderLabel setImage:[UIImage imageNamed:@"SendOrderLabel"]];
+    }else{
+        [self.sendOrderLabel setImage:[UIImage imageNamed:@"EmptyLabel"]];
+    }
     [self.sendOrderLabel setContentMode:UIViewContentModeScaleAspectFit];
     [self.sendOrderLabel setUserInteractionEnabled:YES];
     [header addSubview:self.sendOrderLabel];

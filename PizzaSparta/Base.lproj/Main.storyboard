@@ -983,7 +983,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="nJt-qf-4Gz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SPCartTableViewCell" rowHeight="84" id="1yW-jU-ldZ" customClass="SPCartTableViewCell">
