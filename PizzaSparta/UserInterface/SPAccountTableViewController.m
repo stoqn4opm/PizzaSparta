@@ -119,7 +119,7 @@
     [headerImage setUserInteractionEnabled:YES];
     
     UIView *brownLine = [[UIView alloc]
-                         initWithFrame:CGRectMake(0, 30, header.frame.size.width, 2)];
+                         initWithFrame:CGRectMake(0, 30, header.frame.size.width, 10)];
     
     [brownLine setBackgroundColor:SPCOLOR_DARK_BROWN];
     [header addSubview:headerImage];

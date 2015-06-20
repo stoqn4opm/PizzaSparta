@@ -170,6 +170,10 @@
     UITextField * alertTextFieldNewAddress = [alertView textFieldAtIndex:0];
     if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
         [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
+        return;
+    }
+    else if ([alertTextFieldNewAddress.text isEqualToString:@""]){
+        return;
     }
     else{
         [[SPManager sharedManager] addForCurrentUserNewAddress:alertTextFieldNewAddress.text];
