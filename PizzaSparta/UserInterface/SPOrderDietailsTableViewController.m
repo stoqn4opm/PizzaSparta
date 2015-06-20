@@ -40,7 +40,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if([[[[SPManager sharedManager] loggedUser] currentOrderDetails] count]>0){
-        NSLog(@"%ld",[[[[SPManager sharedManager] loggedUser] currentOrderDetails] count]);
+        NSLog(@"%ld",(unsigned long)[[[[SPManager sharedManager] loggedUser] currentOrderDetails] count]);
         return [[[[SPManager sharedManager] loggedUser] currentOrderDetails] count];
     }
     return 0;

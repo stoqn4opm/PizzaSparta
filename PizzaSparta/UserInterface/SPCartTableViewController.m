@@ -25,8 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- // nesum siguren 4e trqbva   self.tableView.allowsMultipleSelectionDuringEditing = NO;
-
+    // nesum siguren 4e trqbva   self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
     
     [self prepareUI];
 }
@@ -35,22 +35,10 @@
 }
 
 -(void) prepareUI{
-    
-    if([[SPManager sharedManager] isUserLogIn]){
-        
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Order"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(showActionSheetChooseAddress)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
-    else{
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
+    [self setupNavigationBarBackground];
+    [self.navigationItem
+     setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];
 }
-
 
 #pragma mark - <UITableViewDataSource> Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -80,6 +68,24 @@
     }];
     
     if([[[SPManager sharedManager] cart]count] < 1){
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_CART];
+    }
+    else{
+        [[SPDatabaseManager sharedDatabaseManager]
+         createNewOrderForAddressWithId:[[[[SPManager sharedManager] loggedUser]addresses] lastObject]
+         withProducts:[[SPManager sharedManager] cart]
+         WithCompletion:^(NSString* status){
+             
+             if([status isEqualToString:@"success"]){
+                 [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
+                 [[[SPManager sharedManager] cart] removeAllObjects];
+                 [self.tableView reloadData];
+             }
+             else{
+                 [SPUIHeader alertViewWithType:SPALERT_TYPE_ORDER_ERROR];
+             }
+         }];
+    }
 }
 
 -(void)showActionSheetChooseAddress{
@@ -96,7 +102,7 @@
     [actionSheet addButtonWithTitle:addNewAddress];
     
     if([[[[SPManager sharedManager] loggedUser] addresses] count]>0){
-    
+        
         for (UserAdress *element in [[[SPManager sharedManager] loggedUser] addresses]) {
             [actionSheet addButtonWithTitle:[element address]];
         }
@@ -149,7 +155,7 @@
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     
     self.sendOrderLabel = [[UIImageView alloc]
-                                   initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
+                           initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
     
     [self.sendOrderLabel setBackgroundColor:SPCOLOR_RED];
     if ([[[SPManager sharedManager]cart]count] > 0) {
@@ -163,8 +169,8 @@
     [header addSubview:self.sendOrderLabel];
     
     UITapGestureRecognizer *sendOrderTapped = [[UITapGestureRecognizer alloc]
-                                                 initWithTarget:self
-                                                 action:@selector(makeOrder)];
+                                               initWithTarget:self
+                                               action:@selector(makeOrder)];
     [sendOrderTapped setNumberOfTapsRequired:1];
     [sendOrderTapped setNumberOfTouchesRequired:1];
     
@@ -178,15 +184,15 @@
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];
 }
-    - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-        
-        UITextField * alertTextFieldNewAddress = [alertView textFieldAtIndex:0];
-        if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
-            [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
-        }
-        else{
-            [[SPManager sharedManager] addForCurrentUserNewAddress:alertTextFieldNewAddress.text];
-        }
-        
-    }}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    UITextField * alertTextFieldNewAddress = [alertView textFieldAtIndex:0];
+    if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
+    }
+    else{
+        [[SPManager sharedManager] addForCurrentUserNewAddress:alertTextFieldNewAddress.text];
+    }
+}
 @end

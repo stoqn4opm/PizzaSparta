@@ -189,13 +189,18 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.refreshControl endRefreshing];
 }
 
+#pragma mark - <SPAutoLoginTableViewCellDelagate> Methods
+-(void)dismissToLogin{
+    [self.tabBarController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
     
     if([[segue identifier]isEqualToString:@"showDetailsOrder"]){
-        NSLog(@"%ld", [sender section]);
-        NSLog(@"%ld", self.selectedRow);
+        NSLog(@"%ld", (long)[sender section]);
+        NSLog(@"%ld", (long)self.selectedRow);
             [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:nil];
             [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:[[self.allOrdersHistory objectAtIndex:self.selectedRow] products]];
             for(id element in [[[SPManager sharedManager] loggedUser] currentOrderDetails]){
@@ -203,11 +208,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             }
         
     }
-}
-
-#pragma mark - <SPAutoLoginTableViewCellDelagate> Methods
--(void)dismissToLogin{
-    [self.tabBarController dismissViewControllerAnimated:YES completion:nil];
 }
 @end
 

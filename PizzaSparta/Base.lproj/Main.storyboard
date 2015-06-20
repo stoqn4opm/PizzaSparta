@@ -1418,8 +1418,8 @@
                                                 <action selector="loginSwitchValueChanged:" destination="bhS-VW-CgY" eventType="valueChanged" id="HuR-ci-mR2"/>
                                             </connections>
                                         </switch>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QW-ZF-mGA">
-                                            <rect key="frame" x="8" y="0.0" width="51" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QW-ZF-mGA">
+                                            <rect key="frame" x="8" y="0.0" width="47" height="35"/>
                                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                             <state key="normal" title="Button">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1455,8 +1455,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DoV-OE-EIY" id="zzd-kp-ext">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UserName: ivan_9391" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ch-hn-Qdl">
-                                            <rect key="frame" x="8" y="16" width="281" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName: ivan_9391" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ch-hn-Qdl">
+                                            <rect key="frame" x="8" y="10" width="281" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="281" id="s2u-Se-Vgu"/>
                                             </constraints>
@@ -1464,8 +1464,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BackLabel" translatesAutoresizingMaskIntoConstraints="NO" id="665-nt-lV5">
-                                            <rect key="frame" x="555" y="6" width="37" height="37"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FrontLabel" translatesAutoresizingMaskIntoConstraints="NO" id="665-nt-lV5">
+                                            <rect key="frame" x="555" y="3" width="37" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="37" id="V0w-Kn-A5N"/>
                                                 <constraint firstAttribute="width" constant="37" id="wz0-hc-YHr"/>
@@ -1500,15 +1500,15 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="FrontLabel" translatesAutoresizingMaskIntoConstraints="NO" id="84r-vZ-HnG">
-                                            <rect key="frame" x="555" y="15" width="37" height="37"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FrontLabel" translatesAutoresizingMaskIntoConstraints="NO" id="84r-vZ-HnG">
+                                            <rect key="frame" x="555" y="-2" width="37" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="37" id="0AA-kY-Bz0"/>
                                                 <constraint firstAttribute="width" constant="37" id="FWk-RL-4bS"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="out for Delivered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIA-Ee-uwu">
-                                            <rect key="frame" x="8" y="30" width="140" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="out for Delivered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIA-Ee-uwu">
+                                            <rect key="frame" x="8" y="13" width="140" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="140" id="yFX-ZS-adf"/>
                                             </constraints>
@@ -1542,7 +1542,7 @@
                     </tableView>
                     <connections>
                         <segue destination="vkF-57-Lcx" kind="push" identifier="showAddressesTVC" id="nr5-lp-APy"/>
-                        <segue destination="Oh4-Pc-Hvs" kind="push" identifier="showDetailsOrder" id="APh-Wo-G5z"/>
+                        <segue destination="Oh4-Pc-Hvs" kind="show" identifier="showDetailsOrder" id="APh-Wo-G5z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhH-OI-yKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2365,7 +2365,6 @@
         <image name="AccountImage" width="200" height="200"/>
         <image name="AccountLabel" width="133" height="40"/>
         <image name="AmountCornerImage" width="70" height="70"/>
-        <image name="BackLabel" width="37" height="37"/>
         <image name="BussinesHoursLabel" width="227" height="40"/>
         <image name="CartImage" width="171" height="171"/>
         <image name="CartTabBarIcon" width="30" height="30"/>
