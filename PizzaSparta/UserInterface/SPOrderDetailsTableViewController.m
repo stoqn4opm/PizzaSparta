@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 MentorMate Academy. All rights reserved.
 //
 
-#import "SPOrderDietailsTableViewController.h"
+#import "SPOrderDetailsTableViewController.h"
 #import "SPManager.h"
 #import "SPUIHeader.h"
 #import "SPOrderDetailsTableViewCell.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
 
-@interface SPOrderDietailsTableViewController ()
+@interface SPOrderDetailsTableViewController ()
 
 @end
 
-@implementation SPOrderDietailsTableViewController
+@implementation SPOrderDetailsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

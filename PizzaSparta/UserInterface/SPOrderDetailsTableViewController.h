@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPOrderDietailsTableViewController : UITableViewController
+@interface SPOrderDetailsTableViewController : UITableViewController
 
 @end

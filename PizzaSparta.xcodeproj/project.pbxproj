@@ -48,7 +48,7 @@
 		F259CDEE1B3591720029BA68 /* SPUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDED1B3591720029BA68 /* SPUserInfoTableViewCell.m */; };
 		F259CDF11B35A9CC0029BA68 /* SPAddressesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF01B35A9CC0029BA68 /* SPAddressesTableViewController.m */; };
 		F259CDF41B35ACA60029BA68 /* SPUserAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF31B35ACA60029BA68 /* SPUserAddressTableViewCell.m */; };
-		F259CDF71B35D8900029BA68 /* SPOrderDietailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF61B35D8900029BA68 /* SPOrderDietailsTableViewController.m */; };
+		F259CDF71B35D8900029BA68 /* SPOrderDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF61B35D8900029BA68 /* SPOrderDetailsTableViewController.m */; };
 		F259CDFA1B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */; };
 		F25ABCE51B31FCFA005D11AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE41B31FCFA005D11AD /* User.m */; };
 		F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCE71B31FD2D005D11AD /* SPDatabaseManager.m */; };
@@ -146,8 +146,8 @@
 		F259CDF01B35A9CC0029BA68 /* SPAddressesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAddressesTableViewController.m; path = UserInterface/SPAddressesTableViewController.m; sourceTree = "<group>"; };
 		F259CDF21B35ACA60029BA68 /* SPUserAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPUserAddressTableViewCell.h; path = UserInterface/SPUserAddressTableViewCell.h; sourceTree = "<group>"; };
 		F259CDF31B35ACA60029BA68 /* SPUserAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPUserAddressTableViewCell.m; path = UserInterface/SPUserAddressTableViewCell.m; sourceTree = "<group>"; };
-		F259CDF51B35D8900029BA68 /* SPOrderDietailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderDietailsTableViewController.h; path = UserInterface/SPOrderDietailsTableViewController.h; sourceTree = "<group>"; };
-		F259CDF61B35D8900029BA68 /* SPOrderDietailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDietailsTableViewController.m; path = UserInterface/SPOrderDietailsTableViewController.m; sourceTree = "<group>"; };
+		F259CDF51B35D8900029BA68 /* SPOrderDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderDetailsTableViewController.h; path = UserInterface/SPOrderDetailsTableViewController.h; sourceTree = "<group>"; };
+		F259CDF61B35D8900029BA68 /* SPOrderDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDetailsTableViewController.m; path = UserInterface/SPOrderDetailsTableViewController.m; sourceTree = "<group>"; };
 		F259CDF81B35D8E00029BA68 /* SPOrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderDetailsTableViewCell.h; path = UserInterface/SPOrderDetailsTableViewCell.h; sourceTree = "<group>"; };
 		F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDetailsTableViewCell.m; path = UserInterface/SPOrderDetailsTableViewCell.m; sourceTree = "<group>"; };
 		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
@@ -348,8 +348,8 @@
 				90376E161B32CB8E00791FA4 /* SPAccountTableViewController.m */,
 				F259CDEF1B35A9CC0029BA68 /* SPAddressesTableViewController.h */,
 				F259CDF01B35A9CC0029BA68 /* SPAddressesTableViewController.m */,
-				F259CDF51B35D8900029BA68 /* SPOrderDietailsTableViewController.h */,
-				F259CDF61B35D8900029BA68 /* SPOrderDietailsTableViewController.m */,
+				F259CDF51B35D8900029BA68 /* SPOrderDetailsTableViewController.h */,
+				F259CDF61B35D8900029BA68 /* SPOrderDetailsTableViewController.m */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -570,7 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F259CDF71B35D8900029BA68 /* SPOrderDietailsTableViewController.m in Sources */,
+				F259CDF71B35D8900029BA68 /* SPOrderDetailsTableViewController.m in Sources */,
 				F1448E3D1B25EA2B009CCF1E /* Product.m in Sources */,
 				90F111B91B21FD7C0044AA63 /* SPManager.m in Sources */,
 				90C16B211B235BA90045788C /* SPItemTableViewCell.m in Sources */,
