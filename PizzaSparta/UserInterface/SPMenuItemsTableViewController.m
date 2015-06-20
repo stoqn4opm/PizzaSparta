@@ -86,6 +86,13 @@
     [self performSegueWithIdentifier:@"ShowDetails" sender:nil];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    if ([self.selectedType isEqualToString:SPPizza]) {
+        return 40;
+    }
+    return 0;
+}
 -(UIView *)tableView:(UITableView *)tableView
     viewForHeaderInSection:(NSInteger)section{
     
