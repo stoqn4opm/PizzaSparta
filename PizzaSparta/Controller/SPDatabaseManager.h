@@ -12,6 +12,11 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
+#define ORDER_TYPE_ALL @"all"
+#define ORDER_TYPE_DELIVERED @"delivered"
+#define ORDER_TYPE_NOT_DELIVERED @"isnotdelivered"
+typedef NSString SPGetOrderType;
+
 typedef void (^SPDatabaseManagerSuccessBlock)(User *user);
 typedef void (^SPDatabaseManagerSuccessBlockAddress)(NSArray* array);
 typedef void (^SPDatabaseManagerSuccessBlockOrders)(NSString *status);
@@ -31,7 +36,7 @@ typedef void (^SPDatabaseManagerSuccessBlockReadOrders)(NSArray *array);
 -(void)addProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId;
 -(void)addCustomProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId;
 -(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
--(void)getAllOrderstoGet:(NSString*) type WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
+-(void)allOrdersWithType:(SPGetOrderType *) type completion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
 -(void)getOrderWithId:(NSInteger*)orderId WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
 -(void)deleteOrederWithId:(NSInteger)orderId WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
 @end

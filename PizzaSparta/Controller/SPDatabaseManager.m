@@ -351,7 +351,7 @@
 //type = all
 //type = delivered
 //type = isnotdelivered
--(void)getAllOrderstoGet:(NSString*) type WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder{
+-(void)allOrdersWithType:(SPGetOrderType *) type completion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder{
     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
         NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=getAllOrders&userId=%ld&get=%@",(long)[[[SPManager sharedManager] loggedUser] userId],type]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];

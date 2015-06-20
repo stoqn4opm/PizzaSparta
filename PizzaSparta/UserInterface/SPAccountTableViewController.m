@@ -99,8 +99,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 #pragma mark - Order History
 -(void)getAllOrdersForUser{
-    [[SPDatabaseManager sharedDatabaseManager] getAllOrderstoGet:@"all" WithCompletion:^(NSArray* array){
-        if(array){
+    
+    [[SPDatabaseManager sharedDatabaseManager]
+     allOrdersWithType:ORDER_TYPE_ALL
+     completion:^(NSArray* array){
+     
+         if(array){
             [[[SPManager sharedManager] loggedUser] readAllOrders:array];
             self.allOrdersHistory = [[[SPManager sharedManager] loggedUser] orders];
             [self.tableView reloadData];
@@ -109,9 +113,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             NSLog(@"not found");
         }
     }];
-    
-    
-    
 }
 
 #pragma mark - User Actions
