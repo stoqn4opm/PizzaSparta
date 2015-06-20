@@ -168,11 +168,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     UITextField * alertTextFieldNewAddress = [alertView textFieldAtIndex:0];
-    if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
-        [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
+    if ([alertTextFieldNewAddress.text isEqualToString:@""]){
         return;
     }
-    else if ([alertTextFieldNewAddress.text isEqualToString:@""]){
+    else if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
         return;
     }
     else{

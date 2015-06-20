@@ -136,8 +136,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     UITextField * alertTextFieldNewAddress = [alertView textFieldAtIndex:0];
-    if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
+    if ([alertTextFieldNewAddress.text isEqualToString:@""]){
+        return;
+    }
+    else if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
         [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
+        return;
     }
     else{
         [[SPManager sharedManager] addForCurrentUserNewAddress:alertTextFieldNewAddress.text];
