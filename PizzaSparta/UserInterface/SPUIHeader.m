@@ -88,6 +88,14 @@
                      cancelButtonTitle:@"OK"
                      otherButtonTitles:nil];
             break;
+        case SPALERT_TYPE_ERROR_ORDER_NOT_LOGGED_IN:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Order Error"
+                     message:@"You must Log In with your username to be able to place orders. Go to More > Account > Log In"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
         case SPALERT_TYPE_ADDRESS_EXIST:
             alert = [[UIAlertView alloc]
                      initWithTitle:@"Add Address Error"

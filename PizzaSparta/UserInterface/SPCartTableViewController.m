@@ -25,9 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // nesum siguren 4e trqbva   self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    
-    
     [self prepareUI];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -60,12 +57,45 @@
     return cell;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    
+    self.sendOrderLabel = [[UIImageView alloc]
+                           initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
+    
+    [self.sendOrderLabel setBackgroundColor:SPCOLOR_RED];
+    if ([[[SPManager sharedManager]cart]count] > 0) {
+        
+        [self.sendOrderLabel setImage:[UIImage imageNamed:@"SendOrderLabel"]];
+    }else{
+        [self.sendOrderLabel setImage:[UIImage imageNamed:@"EmptyLabel"]];
+    }
+    [self.sendOrderLabel setContentMode:UIViewContentModeScaleAspectFit];
+    [self.sendOrderLabel setUserInteractionEnabled:YES];
+    [header addSubview:self.sendOrderLabel];
+    
+    UITapGestureRecognizer *sendOrderTapped = [[UITapGestureRecognizer alloc]
+                                               initWithTarget:self
+                                               action:@selector(makeOrder)];
+    [sendOrderTapped setNumberOfTapsRequired:1];
+    [sendOrderTapped setNumberOfTouchesRequired:1];
+    
+    [self.sendOrderLabel addGestureRecognizer:sendOrderTapped];
+    return header;
+}
+
+#pragma mark - User Actions
 -(void)makeOrder{
     
     [self.sendOrderLabel setAlpha:0];
     [UIView animateWithDuration:0.3 animations:^{
         [self.sendOrderLabel setAlpha:1.0];
     }];
+    if (![[SPManager sharedManager] isUserLogIn]) {
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_ERROR_ORDER_NOT_LOGGED_IN];
+        return;
+    }
     
     if([[[SPManager sharedManager] cart]count] < 1){
         [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_CART];
@@ -148,34 +178,6 @@
             }
         }];
     }
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    
-    self.sendOrderLabel = [[UIImageView alloc]
-                           initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
-    
-    [self.sendOrderLabel setBackgroundColor:SPCOLOR_RED];
-    if ([[[SPManager sharedManager]cart]count] > 0) {
-        
-        [self.sendOrderLabel setImage:[UIImage imageNamed:@"SendOrderLabel"]];
-    }else{
-        [self.sendOrderLabel setImage:[UIImage imageNamed:@"EmptyLabel"]];
-    }
-    [self.sendOrderLabel setContentMode:UIViewContentModeScaleAspectFit];
-    [self.sendOrderLabel setUserInteractionEnabled:YES];
-    [header addSubview:self.sendOrderLabel];
-    
-    UITapGestureRecognizer *sendOrderTapped = [[UITapGestureRecognizer alloc]
-                                               initWithTarget:self
-                                               action:@selector(makeOrder)];
-    [sendOrderTapped setNumberOfTapsRequired:1];
-    [sendOrderTapped setNumberOfTouchesRequired:1];
-    
-    [self.sendOrderLabel addGestureRecognizer:sendOrderTapped];
-    return header;
 }
 
 -(void)addNewAddress{

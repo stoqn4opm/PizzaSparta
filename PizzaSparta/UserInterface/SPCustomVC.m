@@ -72,6 +72,10 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+         [self.navigationController setTitle:@"Menu"];
+}
+
 #pragma mark - Pizza layers & ingredients setup
 - (void) setUpIngredients{
     
