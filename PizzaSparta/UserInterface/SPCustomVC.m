@@ -11,6 +11,7 @@
 #import "Ingredient.h"
 #import "SPManager.h"
 #import "SPCustomPizza.h"
+#import "UIViewController+SPCustomNavControllerSetup.h"
 
 #define BASE_PRICE 6
 
@@ -51,6 +52,8 @@
     self.productAmount=1;
     self.AmountLabel.text =@"1";
     [self setTotalPrice:self.totalPrice];
+    [self setUpImageBackButton];
+    
 }
 
 

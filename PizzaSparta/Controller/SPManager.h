@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Product.h"
 
+typedef void (^SPManagerSuccessBlock)(NSString* status);
 
 @interface SPManager : NSObject
 @property (readonly, strong, nonatomic) NSManagedObjectContext *privateParentMOContext;
@@ -44,4 +45,12 @@
 
 - (void) updateMenu;
 
+-(void)readUserAddresses;
+
+-(void)logOutUser;
+
+-(NSArray*)getUserInfoAsArray;
+
+-(void)addForCurrentUserNewAddress:(NSString*)newAddress;
+-(void)deleteForCurrentUserAddress:(UserAdress*)address completion:(SPManagerSuccessBlock)completion;
 @end

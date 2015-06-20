@@ -16,7 +16,7 @@
 #import "SPItemDetailsTableViewController.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
 
-@interface SPCartTableViewController ()
+@interface SPCartTableViewController ()<UIActionSheetDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -41,7 +41,7 @@
     if([[SPManager sharedManager] isUserLogIn]){
         
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Order"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(makeOrder)];
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(showActionSheetChooseAddress)];
         rightButton.tintColor=[UIColor whiteColor];
         self.navigationItem.rightBarButtonItem = rightButton;
     }
@@ -85,12 +85,57 @@
         
     }];
 }
--(void)makeOrder{
+
+-(void)showActionSheetChooseAddress{
+    NSString* actionSheetTitle =@"Choose order address";
+    NSString* destructiveTitle = @"Delete products from cart";
+    NSString* addNewAddress = @"Add new address";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:actionSheetTitle
+                                  delegate:self
+                                  cancelButtonTitle:nil
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles: nil];
+    
+    [actionSheet addButtonWithTitle:addNewAddress];
+    
+    if([[[[SPManager sharedManager] loggedUser] addresses] count]>0){
+    
+        for (UserAdress *element in [[[SPManager sharedManager] loggedUser] addresses]) {
+            [actionSheet addButtonWithTitle:[element address]];
+        }
+    }
+    
+    actionSheet.destructiveButtonIndex = [actionSheet addButtonWithTitle:destructiveTitle];
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if([actionSheet cancelButtonIndex] == buttonIndex){
+        NSLog(@"cancel");
+    }
+    else if([actionSheet destructiveButtonIndex] == buttonIndex){
+        [[[SPManager sharedManager] cart] removeAllObjects];
+        [self.tableView reloadData];
+    }
+    else if(buttonIndex == 0){
+        NSLog(@"add address");
+        [self addNewAddress];
+    }
+    else if(buttonIndex-1 < [[[[SPManager sharedManager] loggedUser] addresses] count]){
+        UserAdress* currentAddr = [[[[SPManager sharedManager] loggedUser] addresses] objectAtIndex:(buttonIndex-1)];
+        [self makeOrderWithAddressId:currentAddr];
+    }
+}
+
+-(void)makeOrderWithAddressId:(UserAdress*)currentAddress{
     if([[[SPManager sharedManager] cart]count] <1){
         [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_CART];
     }
     else{
-        [[SPDatabaseManager sharedDatabaseManager] createNewOrderForAddressWithId:[[[[SPManager sharedManager] loggedUser]addresses] lastObject] withProducts:[[SPManager sharedManager] cart] WithCompletion:^(NSString* status){
+        [[SPDatabaseManager sharedDatabaseManager] createNewOrderForAddressWithId:currentAddress withProducts:[[SPManager sharedManager] cart] WithCompletion:^(NSString* status){
             if([status isEqualToString:@"success"]){
                 [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
                 [[[SPManager sharedManager] cart] removeAllObjects];
@@ -101,5 +146,24 @@
             }
         }];
     }
+}
+
+-(void)addNewAddress{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add new address" message:@" ex. Sofia Motevideo 25" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil] ;
+    alertView.tag = 2;
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    UITextField * alertTextFieldNewAddress = [alertView textFieldAtIndex:0];
+    if([[[SPManager sharedManager] loggedUser] checkIfAddressExist:alertTextFieldNewAddress.text]){
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_ADDRESS_EXIST];
+    }
+    else{
+        [[SPManager sharedManager] addForCurrentUserNewAddress:alertTextFieldNewAddress.text];
+    }
+    
 }
 @end

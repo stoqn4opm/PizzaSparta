@@ -12,9 +12,12 @@
 #import "SPUIHeader.h"
 #import "SPAutoLoginTableViewCell.h"
 #import "SPOrderHistoryTableViewCell.h"
+#import "SPUserInfoTableViewCell.h"
 
 @interface SPAccountTableViewController ()
 @property (nonatomic, strong) NSArray __block *allOrdersHistory;
+@property (nonatomic, strong) NSArray *userInfo;
+@property (nonatomic)NSInteger selectedRow;
 @end
 
 @implementation SPAccountTableViewController
@@ -31,19 +34,23 @@
     [refreshControl addTarget:self action:@selector(startReload) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     
-    
+    _userInfo=[[NSArray alloc] initWithArray:[[SPManager sharedManager] getUserInfoAsArray]];
+   
     [self getAllOrdersForUser];
-    NSLog(@"Current User History Orders: %@. ", self.allOrdersHistory.description);
+    
 }
 
 #pragma mark - <UITableViewDataSource> Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
+    }
+    else if (section == 1) {
+        return [self.userInfo count];
     }
     if(self.allOrdersHistory.count<1){
         return 0;
@@ -58,6 +65,24 @@
         SPAutoLoginTableViewCell *loginCell = [tableView dequeueReusableCellWithIdentifier:@"SPAutoLoginCell" forIndexPath:indexPath];
         [loginCell configure];
         return loginCell;
+        
+    }
+    else if(indexPath.section == 1){
+        SPUserInfoTableViewCell *infoCell = [tableView dequeueReusableCellWithIdentifier:@"SPUserInfoCell" forIndexPath:indexPath];
+        
+        if(indexPath.row == 0){
+            [infoCell configureWithString:[NSString stringWithFormat:@"UserName:  %@",self.userInfo[indexPath.row]]];
+        }
+        else if(indexPath.row == 1){
+            [infoCell configureWithString:[NSString stringWithFormat:@"Name:   %@",self.userInfo[indexPath.row]]];
+        }
+        else{
+            [infoCell configureWithString:self.userInfo[indexPath.row]];
+        }
+        
+        
+        return infoCell;
+        
     }else if(self.allOrdersHistory.count>0){
         SPOrderHistoryTableViewCell *orderCell = [tableView dequeueReusableCellWithIdentifier:@"orderCell" forIndexPath:indexPath];
         [orderCell configureWithOrder:self.allOrdersHistory[indexPath.row]];
@@ -77,7 +102,11 @@
     
     if (section == 0) {
         [headerImage setImage:[UIImage imageNamed:@"AutoLoginLabel"]];
-    }else{
+    }
+    else if(section == 1){
+        [headerImage setImage:[UIImage imageNamed:@"AccountLabel"]];
+    }
+    else{
         [headerImage setImage:[UIImage imageNamed:@"OrderHistoryLabel"]];
     }
     [headerImage setBackgroundColor:SPCOLOR_GREEN];
@@ -92,6 +121,21 @@
     [header addSubview:brownLine];
     return header;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 1){
+        if(indexPath.row ==2){
+            [self performSegueWithIdentifier:@"showAddressesTVC" sender:nil];
+        }
+    }
+    if(indexPath.section == 2){
+        
+        self.selectedRow=indexPath.row;
+
+        [self performSegueWithIdentifier:@"showDetailsOrder" sender:nil];
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
@@ -120,6 +164,22 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(void)endReload{
     [self.refreshControl endRefreshing];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue
+                sender:(id)sender{
+    
+    if([[segue identifier]isEqualToString:@"showDetailsOrder"]){
+        NSLog(@"%ld", [sender section]);
+        NSLog(@"%ld", self.selectedRow);
+            [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:nil];
+            [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:[[self.allOrdersHistory objectAtIndex:self.selectedRow] products]];
+            for(id element in [[[SPManager sharedManager] loggedUser] currentOrderDetails]){
+                NSLog(@"%@", [element valueForKey:@"title"]);
+            }
+        
+    }
 }
 @end
 

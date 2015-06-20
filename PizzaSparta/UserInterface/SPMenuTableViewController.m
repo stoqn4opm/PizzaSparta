@@ -37,11 +37,13 @@
     if([[SPManager sharedManager] isUserLogIn]){
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        rightButton.tintColor=[UIColor whiteColor];
         self.navigationItem.rightBarButtonItem = rightButton;
     }
     else{
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        rightButton.tintColor=[UIColor whiteColor];
         self.navigationItem.rightBarButtonItem = rightButton;
     }
 }
@@ -79,18 +81,12 @@
 
 
 -(void)logOutAction{
-    NSLog(@"click");
     [[SPManager sharedManager] clearLoggedAccounts];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
     [self presentViewController:navController animated:YES completion:^{
-        if ([[SPManager sharedManager] isUserLogIn]) {
-            [[SPManager sharedManager] clearLoggedAccounts];
-            [[SPManager sharedManager] setLoggedUser:nil];
-            [[SPManager sharedManager ]setIsUserLogIn:NO];
-        }
-        
+        [[SPManager sharedManager] logOutUser];
     }];
 }
 @end
