@@ -171,10 +171,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     }];
 }
 
--(void)loginAction{
-    
-}
-
 #pragma mark Order History Actions
 -(void)startReload{
     [NSTimer scheduledTimerWithTimeInterval:10.0
