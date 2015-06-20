@@ -33,10 +33,31 @@
     newProduct.isPromo = isPromo;
     newProduct.photoURL = URL;
     [context save: NULL];
+//    [[SPManager sharedManager] saveParentContextToStore];
+
     return newProduct;
 }
 
++ (Product *) productFromDictionarry: (NSDictionary *) element{
 
+    NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
+    Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
+   
+    [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
+    [newProduct setTitle:[element objectForKey:@"title"]];
+    [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
+    [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
+    [newProduct setType:[element objectForKey:@"type"]];
+    [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
+    [newProduct setSize:[element objectForKey:@"size"]];
+    [newProduct setPhotoURL: [element objectForKey: @"photoURL"]];
+    
+    
+    [context save: NULL];
+    
+    return newProduct;
+
+}
 
 #pragma mark - property setters and getters
 - (NSInteger) productID{

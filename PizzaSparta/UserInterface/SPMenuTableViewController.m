@@ -80,6 +80,7 @@
 
 -(void)logOutAction{
     NSLog(@"click");
+    [[SPManager sharedManager] clearLoggedAccounts];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];

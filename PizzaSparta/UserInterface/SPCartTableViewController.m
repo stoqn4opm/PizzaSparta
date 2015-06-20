@@ -26,7 +26,8 @@
     [super viewDidLoad];
     
     [self setupNavigationBarBackground];
-    
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];
     [self prepareUI];

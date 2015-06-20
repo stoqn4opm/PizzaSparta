@@ -30,6 +30,9 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 #pragma mark - UI Preparation
 -(void) prepareUI{
     
