@@ -9,6 +9,7 @@
 #import "SPItemTableViewCell.h"
 #import "SPUIHeader.h"
 #import "SPManager.h"
+#import "AsyncImageView.h"
 
 @interface SPItemTableViewCell ()
 @property (nonatomic, weak) IBOutlet UITextView *lblName;
@@ -45,17 +46,7 @@
     self.lblName.font = [UIFont fontWithName:@"Chalkboard SE" size:25];
     [self.lblName setTextColor:[UIColor whiteColor]];
     self.currentProduct = product;
-    
-    [[[SPManager sharedManager]uiOperationQueue] addOperationWithBlock:^{
-    
-        NSData *imgData =
-        [NSData dataWithContentsOfURL:[NSURL URLWithString:self.currentProduct.photoURL]];
-        
-        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-            [self.productImage setImage:[UIImage imageWithData:imgData]];
-        }];
-        
-    }];
+    [self.productImage setImageURL:[NSURL URLWithString:self.currentProduct.photoURL]];
 }
 
 - (void) currentAmount:(NSInteger)currentAmount{

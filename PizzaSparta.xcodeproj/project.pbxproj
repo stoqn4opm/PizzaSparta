@@ -36,6 +36,7 @@
 		90C16B241B23621F0045788C /* SPItemDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B231B23621F0045788C /* SPItemDetailsTableViewController.m */; };
 		90C16B2A1B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B291B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m */; };
 		90C16B2D1B23AA640045788C /* SPAboutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */; };
+		90C6D3F71B34D0E90084DF9F /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C6D3F61B34D0E90084DF9F /* AsyncImageView.m */; };
 		90F111B51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A51B21FD7C0044AA63 /* PizzaSparta.xcdatamodeld */; };
 		90F111B61B21FD7C0044AA63 /* Product+Modify.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111A81B21FD7C0044AA63 /* Product+Modify.m */; };
 		90F111B81B21FD7C0044AA63 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F111AD1B21FD7C0044AA63 /* SPAppDelegate.m */; };
@@ -117,6 +118,8 @@
 		90C16B291B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SPCustomNavControllerSetup.m"; path = "UserInterface/UIResources/UIViewController+SPCustomNavControllerSetup.m"; sourceTree = "<group>"; };
 		90C16B2B1B23AA640045788C /* SPAboutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAboutTableViewController.h; path = UserInterface/SPAboutTableViewController.h; sourceTree = "<group>"; };
 		90C16B2C1B23AA640045788C /* SPAboutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAboutTableViewController.m; path = UserInterface/SPAboutTableViewController.m; sourceTree = "<group>"; };
+		90C6D3F51B34D0E90084DF9F /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncImageView.h; path = UserInterface/UIResources/AsyncImageView.h; sourceTree = "<group>"; };
+		90C6D3F61B34D0E90084DF9F /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncImageView.m; path = UserInterface/UIResources/AsyncImageView.m; sourceTree = "<group>"; };
 		90F111A61B21FD7C0044AA63 /* PizzaSparta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSparta.xcdatamodel; sourceTree = "<group>"; };
 		90F111A71B21FD7C0044AA63 /* Product+Modify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Product+Modify.h"; sourceTree = "<group>"; };
 		90F111A81B21FD7C0044AA63 /* Product+Modify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Product+Modify.m"; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 		90A954A01B202395006A0D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90C6D3F51B34D0E90084DF9F /* AsyncImageView.h */,
+				90C6D3F61B34D0E90084DF9F /* AsyncImageView.m */,
 				90A954D31B202D44006A0D8E /* SPUIHeader.h */,
 				03C300C41B2F4E1600154C49 /* SPUIHeader.m */,
 				90C16B281B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.h */,
@@ -556,6 +561,7 @@
 				03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */,
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
+				90C6D3F71B34D0E90084DF9F /* AsyncImageView.m in Sources */,
 				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
 				F29A8F511B348E43004DE926 /* SPIngredientsCell.m in Sources */,
 				90376E121B32C20100791FA4 /* SPMainTabBarViewController.m in Sources */,

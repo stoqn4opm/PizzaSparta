@@ -10,6 +10,7 @@
 #import "SPUIHeader.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
 #import "SPManager.h"
+#import "AsyncImageView.h"
 
 @interface SPItemDetailsTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView __block *imageView;
@@ -32,19 +33,7 @@
     [self.lblName setText:self.selectedProduct.title];
     [self.lblDescription setText:self.selectedProduct.productDesc];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
-
-    [[[SPManager sharedManager]uiOperationQueue] addOperationWithBlock:^{
-        
-        NSData  *image = [NSData dataWithContentsOfURL:[self.selectedProduct urlPhoto]];
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [self.imageView setImage:[UIImage imageWithData:image]];
-        }];
-    }];
-
-    
-    
+    [self.imageView setImageURL:[self.selectedProduct urlPhoto]];
     [self prepareUI];
 }
 

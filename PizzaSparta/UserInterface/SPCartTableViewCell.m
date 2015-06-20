@@ -8,6 +8,7 @@
 
 #import "SPCartTableViewCell.h"
 #import "SPManager.h"
+#import "AsyncImageView.h"
 
 @interface SPCartTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView __block *cellImage;
@@ -23,16 +24,7 @@
 
     if ([product isKindOfClass: [Product class]]) {
         [self.lblTitle setText: [product title]];
-        
-        [[[SPManager sharedManager] uiOperationQueue] addOperationWithBlock:^{
-
-            NSString *urlStr = [product photoURL];
-            NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
-            
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                [self.cellImage setImage:[UIImage imageWithData:imgData]];
-            }];
-        }];
+        [self.cellImage setImageURL:[NSURL URLWithString:[product photoURL]]];
     }
     else{
         [self.lblTitle setText: @"Custom pizza"];
