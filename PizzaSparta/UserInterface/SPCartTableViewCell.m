@@ -19,15 +19,6 @@
 @implementation SPCartTableViewCell
 
 #pragma mark - Cell Configuration
-//-(void)configureCartCellWithProduct:(Product *)product andAmount:(NSNumber *)amount{
-//    
-//    [self.lblTitle setText:product.title];
-//    [self.lblAmountIncart setText:[NSString stringWithFormat:@"%@",amount]];
-//    NSData *imgData = [NSData dataWithContentsOfURL: [product urlPhoto]];
-//    [self.cellImage setImage:[UIImage imageWithData:imgData]];
-//}
-
-
 - (void)configureCartCellWithProduct:(id) product andAmount:(NSNumber *) amount{
 
     if ([product isKindOfClass: [Product class]]) {

@@ -96,6 +96,8 @@
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
+
+#pragma mark - Order History
 -(void)getAllOrdersForUser{
     [[SPDatabaseManager sharedDatabaseManager] getAllOrderstoGet:@"all" WithCompletion:^(NSArray* array){
         if(array){
@@ -112,14 +114,35 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
--(void)startReload{
-    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(endReload) userInfo:nil repeats:NO];
-    [self getAllOrdersForUser];
+#pragma mark - User Actions
+-(void)logOutAction{
     
+    [self.tabBarController dismissViewControllerAnimated:YES completion:^{
+        if ([[SPManager sharedManager] isUserLogIn]) {
+            [[SPManager sharedManager] clearLoggedAccounts];
+            [[SPManager sharedManager] setLoggedUser:nil];
+            [[SPManager sharedManager] setIsUserLogIn:NO];
+        }
+    }];
+}
+
+-(void)loginAction{
+    
+}
+
+#pragma mark Order History Actions
+-(void)startReload{
+    [NSTimer scheduledTimerWithTimeInterval:10.0
+                                     target:self
+                                   selector:@selector(endReload)
+                                   userInfo:nil
+                                    repeats:NO];
+    [self getAllOrdersForUser];
 }
 
 -(void)endReload{
     [self.refreshControl endRefreshing];
 }
+
 @end
 

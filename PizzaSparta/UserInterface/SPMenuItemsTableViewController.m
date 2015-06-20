@@ -55,20 +55,6 @@
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setUpImageBackButton];
-    
-    if([[SPManager sharedManager] isUserLogIn]){
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
-    else{
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
-
 }
 
 #pragma mark - <UITableViewDataSource> Methods

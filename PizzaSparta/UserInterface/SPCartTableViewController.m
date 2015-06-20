@@ -18,18 +18,16 @@
 
 @interface SPCartTableViewController ()
 
+@property (nonatomic, strong) UIImageView *sendOrderLabel;
 @end
 
 @implementation SPCartTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setupNavigationBarBackground];
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+ // nesum siguren 4e trqbva   self.tableView.allowsMultipleSelectionDuringEditing = NO;
 
-    [self.navigationItem
-     setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];
+    
     [self prepareUI];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -37,20 +35,9 @@
 }
 
 -(void) prepareUI{
-    
-    if([[SPManager sharedManager] isUserLogIn]){
-        
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Order"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(makeOrder)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
-    else{
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
-                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
+    [self setupNavigationBarBackground];
+    [self.navigationItem
+     setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];
 }
 
 
@@ -73,18 +60,56 @@
     
     return cell;
 }
-#pragma mark - <UITableViewDelegate> Methods
--(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == [[[SPManager sharedManager] cart] count]) {
-        return NO;
+
+-(void)makeOrder{
+    
+    [self.sendOrderLabel setAlpha:0];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.sendOrderLabel setAlpha:1.0];
+    }];
+    
+    if([[[SPManager sharedManager] cart]count] < 1){
+        [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_CART];
     }
-    return YES;
+    else{
+        [[SPDatabaseManager sharedDatabaseManager]
+         createNewOrderForAddressWithId:[[[[SPManager sharedManager] loggedUser]addresses] lastObject]
+         withProducts:[[SPManager sharedManager] cart]
+         WithCompletion:^(NSString* status){
+         
+             if([status isEqualToString:@"success"]){
+                [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
+                [[[SPManager sharedManager] cart] removeAllObjects];
+                [self.tableView reloadData];
+            }
+            else{
+                [SPUIHeader alertViewWithType:SPALERT_TYPE_ORDER_ERROR];
+            }
+        }];
+    }
 }
 
--(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[[SPManager sharedManager] cart] removeObjectAtIndex: indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: YES];
-    }
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    
+    self.sendOrderLabel = [[UIImageView alloc]
+                                   initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
+    
+    [self.sendOrderLabel setBackgroundColor:SPCOLOR_GREEN];
+    [self.sendOrderLabel setImage:[UIImage imageNamed:@"SendOrderLabel"]];
+    [self.sendOrderLabel setContentMode:UIViewContentModeScaleAspectFit];
+    [self.sendOrderLabel setUserInteractionEnabled:YES];
+    [header addSubview:self.sendOrderLabel];
+    
+    UITapGestureRecognizer *sendOrderTapped = [[UITapGestureRecognizer alloc]
+                                                 initWithTarget:self
+                                                 action:@selector(makeOrder)];
+    [sendOrderTapped setNumberOfTapsRequired:1];
+    [sendOrderTapped setNumberOfTouchesRequired:1];
+    
+    [self.sendOrderLabel addGestureRecognizer:sendOrderTapped];
+    return header;
 }
+
 @end
