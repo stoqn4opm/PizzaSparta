@@ -1394,10 +1394,10 @@
         <scene sceneID="5rS-Mh-AEU">
             <objects>
                 <tableViewController title="Account" id="nkc-Na-9B2" customClass="SPAccountTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="QnB-Eq-Nf9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="QnB-Eq-Nf9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SPAutoLoginCell" rowHeight="59" id="bhS-VW-CgY" customClass="SPAutoLoginTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1432,45 +1432,45 @@
                                     <outlet property="loginSwitch" destination="H2Z-bg-kwx" id="lsh-sy-mRl"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" id="Hew-wE-h00" customClass="SPOrderHistoryTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="61" id="Hew-wE-h00" customClass="SPOrderHistoryTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hew-wE-h00" id="NGx-Rr-21z">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Placed: YYYY-MM-DD HH:mm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efR-rv-SKJ">
-                                            <rect key="frame" x="8" y="16" width="281" height="25"/>
+                                            <rect key="frame" x="8" y="4" width="279" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="281" id="fxH-kb-8dI"/>
+                                                <constraint firstAttribute="width" constant="279" id="dGn-ov-0Ly"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackLabel" translatesAutoresizingMaskIntoConstraints="NO" id="84r-vZ-HnG">
-                                            <rect key="frame" x="555" y="4" width="37" height="37"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FrontLabel" translatesAutoresizingMaskIntoConstraints="NO" id="84r-vZ-HnG">
+                                            <rect key="frame" x="555" y="15" width="37" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="37" id="0AA-kY-Bz0"/>
                                                 <constraint firstAttribute="width" constant="37" id="FWk-RL-4bS"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="out for Delivered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIA-Ee-uwu">
-                                            <rect key="frame" x="407" y="16" width="140" height="25"/>
+                                            <rect key="frame" x="8" y="30" width="140" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="140" id="3cD-7f-Jeg"/>
+                                                <constraint firstAttribute="width" constant="140" id="yFX-ZS-adf"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="84r-vZ-HnG" firstAttribute="leading" secondItem="yIA-Ee-uwu" secondAttribute="trailing" constant="8" symbolic="YES" id="0yh-Gh-S6G"/>
-                                        <constraint firstItem="yIA-Ee-uwu" firstAttribute="baseline" secondItem="efR-rv-SKJ" secondAttribute="baseline" id="5HU-H3-r2A"/>
-                                        <constraint firstItem="efR-rv-SKJ" firstAttribute="bottom" secondItem="NGx-Rr-21z" secondAttribute="bottomMargin" id="5Y1-qx-iac"/>
+                                        <constraint firstItem="efR-rv-SKJ" firstAttribute="top" secondItem="NGx-Rr-21z" secondAttribute="topMargin" constant="-4" id="B8I-sh-chM"/>
+                                        <constraint firstItem="efR-rv-SKJ" firstAttribute="leading" secondItem="NGx-Rr-21z" secondAttribute="leadingMargin" id="DT9-eW-dxJ"/>
                                         <constraint firstItem="84r-vZ-HnG" firstAttribute="bottom" secondItem="NGx-Rr-21z" secondAttribute="bottomMargin" id="LJe-4l-Obi"/>
-                                        <constraint firstItem="efR-rv-SKJ" firstAttribute="leading" secondItem="NGx-Rr-21z" secondAttribute="leadingMargin" id="M9R-uX-U01"/>
                                         <constraint firstItem="84r-vZ-HnG" firstAttribute="trailing" secondItem="NGx-Rr-21z" secondAttribute="trailingMargin" id="StU-qb-f6l"/>
+                                        <constraint firstItem="yIA-Ee-uwu" firstAttribute="leading" secondItem="NGx-Rr-21z" secondAttribute="leadingMargin" id="eVh-C6-43I"/>
+                                        <constraint firstItem="yIA-Ee-uwu" firstAttribute="bottom" secondItem="NGx-Rr-21z" secondAttribute="bottomMargin" id="wTr-u4-lDo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -2170,12 +2170,12 @@
         <image name="AccountImage" width="200" height="200"/>
         <image name="AccountLabel" width="133" height="40"/>
         <image name="AmountCornerImage" width="70" height="70"/>
-        <image name="BackLabel" width="37" height="37"/>
         <image name="BussinesHoursLabel" width="227" height="40"/>
         <image name="CartImage" width="171" height="171"/>
         <image name="CartTabBarIcon" width="30" height="30"/>
         <image name="DrinksImage" width="171" height="171"/>
         <image name="DrinksLabel" width="138" height="40"/>
+        <image name="FrontLabel" width="37" height="37"/>
         <image name="Interval1Label" width="207" height="33"/>
         <image name="Interval2Label" width="213" height="33"/>
         <image name="Logo" width="215" height="165"/>

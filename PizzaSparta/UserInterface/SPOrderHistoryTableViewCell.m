@@ -16,15 +16,16 @@
 
 @implementation SPOrderHistoryTableViewCell
 -(void)configureWithOrder:(UserOrders*)order{
-    _lblOrderPlaced.text=[order dateOrder];
+    
+    _lblOrderPlaced.text= [NSString stringWithFormat:@"Placed: %@",[order dateOrder]];
     if([order isDelivered] == 0){
-        _isDelivered.text = @": not Delivered";
+        _isDelivered.text = @"not Delivered";
     }
     else if([order isDelivered] == 2){
-        _isDelivered.text = @": out for Delivery";
+        _isDelivered.text = @"out for Delivery";
     }
     else{
-        _isDelivered.text = @": Delivered";
+        _isDelivered.text = @"Delivered";
     }
     
 }
