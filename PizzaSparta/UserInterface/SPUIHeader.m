@@ -64,6 +64,30 @@
                      cancelButtonTitle:@"OK"
                      otherButtonTitles:nil];
             break;
+        case SPALERT_TYPE_EMPTY_CART:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Order Error"
+                     message:@"Empty Cart"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_ORDER_ERROR:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Order Error"
+                     message:@"Connection Error. Try again Later"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
+        case SPALERT_TYPE_SUCCESS_ORDER:
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"Order Success"
+                     message:@"Order has been send"
+                     delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+            break;
         default:
             break;
     }

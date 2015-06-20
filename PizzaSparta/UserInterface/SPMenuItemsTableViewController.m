@@ -53,29 +53,19 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self setUpImageBackButton];
     
-    /*if ([self.selectedType isEqualToString:SPPizza]) {
-        if([[SPManager sharedManager] isUserLogIn]){*/
-            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Custom Pizza"
-                                                                            style:UIBarButtonItemStyleBordered target:self action:@selector(goToCustomPizzaVC)];
-            self.navigationItem.rightBarButtonItem = rightButton;
-        /*}
-        else{
-            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
-                                                                            style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-            self.navigationItem.rightBarButtonItem = rightButton;
-        }
-    }else{
-        if([[SPManager sharedManager] isUserLogIn]){
-            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
+    if([[SPManager sharedManager] isUserLogIn]){
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logOut"
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-            self.navigationItem.rightBarButtonItem = rightButton;
-        }
-        else{
-            UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+        rightButton.tintColor=[UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+    else{
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-            self.navigationItem.rightBarButtonItem = rightButton;
-        }
-    }*/
+        rightButton.tintColor=[UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+
 }
 
 #pragma mark - <UITableViewDataSource> Methods
@@ -152,13 +142,13 @@
         [self.createCustomPizza setAlpha:1.0];
     }];
     NSLog(@"custom pizza");
-    //[self performSegueWithIdentifier:@"CustomPizza" sender:nil];
+    [self performSegueWithIdentifier:@"CustomPizza" sender:nil];
 }
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
-    if(![[segue identifier]isEqualToString:@"showCustomPizza"]){
+    if(![[segue identifier]isEqualToString:@"CustomPizza"]){
         Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
         [[segue destinationViewController] setSelectedProduct:selectedProduct];
     }
@@ -243,6 +233,7 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:goToLogInVC];
     [self presentViewController:navController animated:YES completion:^{
         if ([[SPManager sharedManager] isUserLogIn]) {
+            [[SPManager sharedManager] clearLoggedAccounts];
             [[SPManager sharedManager] setLoggedUser:nil];
             [[SPManager sharedManager ]setIsUserLogIn:NO];
         }
@@ -250,14 +241,6 @@
     }];
 }
 
-#pragma mark - Go to Custom Pizza VC
--(void)goToCustomPizzaVC{
-    [self performSegueWithIdentifier:@"showCustomPizza" sender:self];
-   /* UIViewController *viewController = [[UIViewController alloc] initWithNibName:@"CustomPizzaVC" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    // push a new stack
-    [self.navigationController pushViewController:navController animated:YES];*/
-}
+
 
 @end

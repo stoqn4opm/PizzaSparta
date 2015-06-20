@@ -52,9 +52,12 @@
         [ord setAddressID:[[element valueForKey:@"adressId"] integerValue]];
         [ord setIsDelivered:[[element valueForKey:@"isDelivered"] integerValue]];
         [ord setDateOrder:[element valueForKey:@"dateOrder"]];
-        /*if(![[element valueForKey:@"products"] isEqualToString:@"none"]){
-            [ord setProducts:[element valueForKey:@"products"]];
-        }*/
+        //if(![[element valueForKey:@"products"] isEqualToString:@"none"]){
+        //  [ord setProducts:[element valueForKey:@"products"]];
+        //}
+        // if(![[element valueForKey:@"customproducts"] isEqualToString:@"none"]){
+        //     [ord setProducts:[element valueForKey:@"customproducts"]];
+        // }
         [self.orders addObject:ord];
     }
 }

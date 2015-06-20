@@ -7,6 +7,8 @@
 //
 
 #import "SPDatabaseManager.h"
+#import "Product.h"
+#import "SPCustomPizza.h"
 
 @implementation SPDatabaseManager
 
@@ -290,9 +292,38 @@
     }
 }
 
--(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts AndCustomProducts:(NSArray*)allcustomproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder{
+-(void)addCustomProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId{
     if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
-     NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=create&userId=%ld&addressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],(long)[address addressID]]];
+        NSString* urlString =[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=addProduct&productType=custom&orderId=%@&bacon=%@&pepperoni=%@&olives=%@&onions=%@&spinach=%@&pineapple=%@&title=%@&numberOfProduct=%@&productSize=%@",orderId,[self returnIfIngInclude:[[product objectForKey:@"Product"] bacon]],[self returnIfIngInclude:[[product objectForKey:@"Product"] pepperoni]],[self returnIfIngInclude:[[product objectForKey:@"Product"] olives]],[self returnIfIngInclude:[[product objectForKey:@"Product"] onions]],[self returnIfIngInclude:[[product objectForKey:@"Product"] spinach]],[self returnIfIngInclude:[[product objectForKey:@"Product"] pineapple]],[[product objectForKey:@"Product"] title],[product objectForKey:@"Amount"], [product objectForKey:@"Size"]];
+        
+        NSURL* url = [[NSURL alloc] initWithString:[urlString stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+        NSLog(@"%@", [[product objectForKey:@"Product"] title]);
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
+        
+        NSURLSessionDataTask *registrationSession = [session dataTaskWithURL:url
+                                                           completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
+                                                               NSError *parseError;
+                                                               NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                                                               if(parseError){
+                                                                   NSLog(@"parse Error-%@", parseError);
+                                                               }
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   
+                                                                   NSLog(@"%@", [result objectForKey:@"product"]);
+                                                                   
+                                                                   
+                                                               });
+                                                           }];
+        [registrationSession resume];
+        
+    }
+    
+}
+
+-(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder{
+    if(([[SPManager sharedManager] isUserLogIn] == YES)&&([[SPManager sharedManager] loggedUser] != nil)){
+        NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=create&userId=%ld&addressId=%ld",(long)[[[SPManager sharedManager]loggedUser] userId],[address addressID]]];
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:nil];
         
@@ -308,9 +339,13 @@
                                                                    if(![[result valueForKey:@"order"] isEqualToString:@"fail"]){
                                                                        NSLog(@"%@", result);
                                                                        for(id element in allproducts){
-                                                                           [self addProductsToOrder:element ForOrderWithID:[result objectForKey:@"order"]];
+                                                                           if([[element objectForKey:@"Product"] isKindOfClass:[Product class]]){
+                                                                               [self addProductsToOrder:element ForOrderWithID:[result objectForKey:@"order"]];
+                                                                           }
+                                                                           else if([[element objectForKey:@"Product"] isKindOfClass:[SPCustomPizza class]]) {
+                                                                               [self addCustomProductsToOrder:element ForOrderWithID:[result objectForKey:@"order"]];
+                                                                           }
                                                                        }
-                                                                       NSLog(@"here");
                                                                        completionOrder(@"success");
                                                                    }
                                                                    else{
@@ -320,7 +355,7 @@
                                                                });
                                                            }];
         [registrationSession resume];
-
+        
     }
 }
 
@@ -416,5 +451,14 @@
         [registrationSession resume];
         
     }
+}
+-(NSString*)returnProductID:(Product*) element{
+    NSInteger productId = [[element idProduct] integerValue];
+    return [NSString stringWithFormat:@"%ld", (long)productId];
+}
+
+-(NSString*)returnIfIngInclude:(Ingredient*)element{
+    NSLog(@"%@", [NSString stringWithFormat:@"%ld", (long)[element isIncluded]]);
+    return [NSString stringWithFormat:@"%ld", (long)[element isIncluded]];
 }
 @end

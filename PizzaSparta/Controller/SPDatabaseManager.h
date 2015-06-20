@@ -29,7 +29,8 @@ typedef void (^SPDatabaseManagerSuccessBlockReadOrders)(NSArray *array);
 -(void)deleteAddressForLoggedUserAndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete;
 
 -(void)addProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId;
--(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts AndCustomProducts:(NSArray*)allcustomproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
+-(void)addCustomProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId;
+-(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
 -(void)getAllOrderstoGet:(NSString*) type WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
 -(void)getOrderWithId:(NSInteger*)orderId WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
 -(void)deleteOrederWithId:(NSInteger)orderId WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;

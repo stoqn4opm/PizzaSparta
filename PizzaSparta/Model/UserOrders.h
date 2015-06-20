@@ -15,4 +15,5 @@
     @property(nonatomic)NSInteger isDelivered;
     @property(strong, nonatomic)NSString* dateOrder;
     @property(strong, nonatomic)NSMutableArray* products;
+    @property(strong, nonatomic)NSMutableArray* customProduct;
 @end

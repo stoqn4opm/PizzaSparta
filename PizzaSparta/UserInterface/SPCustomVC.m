@@ -31,6 +31,8 @@
 @property (nonatomic) NSInteger productAmount;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMinus;
 @property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
+@property (weak, nonatomic) IBOutlet UILabel *AmountLabel;
+@property (nonatomic) NSInteger sizePrice;
 @end
 
 @implementation SPCustomVC
@@ -45,7 +47,10 @@
     self.totalPrice = BASE_PRICE;
     [self prepareUI];
     self.productSize=0;
+    self.sizePrice=0;
     self.productAmount=1;
+    self.AmountLabel.text =@"1";
+    [self setTotalPrice:self.totalPrice];
 }
 
 
@@ -56,15 +61,24 @@
 
 - (void) setTotalPrice:(float)totalPrice{
     _totalPrice = totalPrice;
-    self.priceLabel.text = [NSString stringWithFormat: @"%f", totalPrice];
+   self.priceLabel.text = [NSString stringWithFormat: @"%.2f", (totalPrice*self.productAmount)];
 }
 
 - (void)prepareUI{
     
     [self.navigationController setTitle:[NSString stringWithFormat:@"Custom Pizza of %@",[[[SPManager sharedManager] loggedUser] name]]];
+     if([[SPManager sharedManager] isUserLogIn]){
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
                                                                     style:UIBarButtonItemStyleBordered target:self action:@selector(doneButtonTapped:)];
+    rightButton.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = rightButton;
+     }
+     else{
+         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+         rightButton.tintColor=[UIColor whiteColor];
+         self.navigationItem.rightBarButtonItem = rightButton;
+     }
 }
 #pragma mark - Pizza layers & ingredients setup
 
@@ -121,11 +135,11 @@
         }
     }
     if ([self.ingredients[index] isIncluded]) {
-        //self.totalPrice -= [self.ingredients[index] price];
+        self.totalPrice -= [[self.ingredients objectAtIndex:index] priceIngredient];
         [self.ingredients[index] setIsIncluded: 0];
         [self.layers[index] setHidden: YES];
     }else{
-        //self.totalPrice += [self.ingredients[index] price];
+        self.totalPrice += [self.ingredients[index] priceIngredient];
         [self.ingredients[index] setIsIncluded: 1];
         [self.layers[index] setHidden: NO];
     }
@@ -161,6 +175,11 @@
     [UIView animateWithDuration:0.3 animations:^{
         [self.imgMinus setAlpha:1];
     }];
+    if (self.AmountLabel.text.intValue > 1) {
+        self.AmountLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.productAmount];
+        [self setTotalPrice:self.totalPrice];
+    }
+
     
 }
 
@@ -171,6 +190,8 @@
     [UIView animateWithDuration:0.3 animations:^{
         [self.imgPlus setAlpha:1];
     }];
+    self.AmountLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)++self.productAmount];
+    [self setTotalPrice:self.totalPrice];
 }
 
 -(IBAction)chooseSize:(id)sender{
@@ -179,15 +200,24 @@
     
     if (selectedSegment == 0) {
         self.productSize=0;
+        if(self.sizePrice == 10){
+            self.totalPrice-=self.sizePrice;
+            self.sizePrice=0;
+            [self setTotalPrice:self.totalPrice];
+        }
     }
     else{
         self.productSize=1;
+        if(self.sizePrice == 0){
+            self.sizePrice=10;
+            self.totalPrice+=self.sizePrice;
+            [self setTotalPrice:self.totalPrice];
+        }
     }
 }
 
 -(IBAction)doneButtonTapped:(id)sender{
-    SPCustomPizza *newPizza = [[SPCustomPizza alloc] init];
-    
+    SPCustomPizza *newPizza = [[SPCustomPizza alloc] initCustomPizzaWithName:[NSString stringWithFormat:@"Custom Pizza N%ld",(long)arc4random_uniform(100)+15] WithImage:@""];
     
     newPizza.pepperoni = self.ingredients[0];
     newPizza.bacon = self.ingredients[1];
@@ -195,20 +225,31 @@
     newPizza.onions = self.ingredients[3];
     newPizza.spinach = self.ingredients[4];
     newPizza.pineapple = self.ingredients[5];
+    [newPizza setPrice:self.totalPrice];
+    
+    NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+    [product setValue: newPizza forKey: @"Product"];
+    [product setValue: @(self.productAmount) forKey: @"Amount"];
     if(self.productSize ==0){
-         NSLog(@"normal");
+        [product setValue: @"Normal" forKey: @"Size"];
     }
     else{
-        NSLog(@"large");
+        [product setValue: @"Large" forKey: @"Size"];
     }
-    NSMutableDictionary *product = [[NSMutableDictionary alloc] init];
-    [product setValue: newPizza forKey: @"Product"];
-    [product setValue: [NSString stringWithFormat:@"%ld", (long)self.productAmount] forKey: @"Amount"];
-    [product setValue: [NSString stringWithFormat:@"%ld", (long)self.productSize ] forKey: @"Size"];
-    [[[SPManager sharedManager]cart] addObject:product];
-    
-    //    [[SPManager sharedManager] addProductToCart: product];
-    
+    [[SPManager sharedManager] addProductToCart: product];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+-(void)logOutAction{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *addAlbumViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
+    [self presentViewController:navController animated:YES completion:^{
+        if ([[SPManager sharedManager] isUserLogIn]) {
+            [[SPManager sharedManager] setLoggedUser:nil];
+            [[SPManager sharedManager ]setIsUserLogIn:NO];
+        }
+        
+    }];
 }
 
 @end
