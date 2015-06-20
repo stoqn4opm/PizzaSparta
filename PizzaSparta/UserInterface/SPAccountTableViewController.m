@@ -33,7 +33,6 @@
     
     
     [self getAllOrdersForUser];
-    NSLog(@"Current User History Orders: %@. ", self.allOrdersHistory.description);
 }
 
 #pragma mark - <UITableViewDataSource> Methods

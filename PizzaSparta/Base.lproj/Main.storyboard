@@ -1404,7 +1404,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhS-VW-CgY" id="mGD-U1-UGA">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remember Login Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2j-19-ZVz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Login Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2j-19-ZVz">
                                             <rect key="frame" x="8" y="25" width="185" height="25"/>
                                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1420,7 +1420,9 @@
                                     <constraints>
                                         <constraint firstItem="H2Z-bg-kwx" firstAttribute="bottom" secondItem="mGD-U1-UGA" secondAttribute="bottomMargin" id="8km-AT-fXI"/>
                                         <constraint firstItem="H2Z-bg-kwx" firstAttribute="trailing" secondItem="mGD-U1-UGA" secondAttribute="trailingMargin" id="OAA-9e-iqJ"/>
+                                        <constraint firstItem="N2j-19-ZVz" firstAttribute="bottom" secondItem="mGD-U1-UGA" secondAttribute="bottomMargin" id="Rts-ir-Key"/>
                                         <constraint firstItem="H2Z-bg-kwx" firstAttribute="top" secondItem="mGD-U1-UGA" secondAttribute="topMargin" constant="-2" id="ZaQ-34-DEe"/>
+                                        <constraint firstItem="N2j-19-ZVz" firstAttribute="leading" secondItem="mGD-U1-UGA" secondAttribute="leadingMargin" id="liy-Ux-Ymi"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">

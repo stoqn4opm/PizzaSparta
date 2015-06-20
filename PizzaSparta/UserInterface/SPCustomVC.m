@@ -46,17 +46,11 @@
     
     self.totalPrice = BASE_PRICE;
     [self prepareUI];
-    self.productSize=0;
-    self.sizePrice=0;
-    self.productAmount=1;
-    self.AmountLabel.text =@"1";
+    self.productSize = 0;
+    self.sizePrice = 0;
+    self.productAmount = 1;
+    self.AmountLabel.text = @"1";
     [self setTotalPrice:self.totalPrice];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) setTotalPrice:(float)totalPrice{
@@ -66,46 +60,41 @@
 
 - (void)prepareUI{
     
-    [self.navigationController setTitle:[NSString stringWithFormat:@"Custom Pizza of %@",[[[SPManager sharedManager] loggedUser] name]]];
-     if([[SPManager sharedManager] isUserLogIn]){
+    [self.navigationController setTitle:@"Custom Pizza"];
+    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
                                                                     style:UIBarButtonItemStyleBordered target:self action:@selector(doneButtonTapped:)];
-    rightButton.tintColor=[UIColor whiteColor];
+    rightButton.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = rightButton;
-     }
-     else{
-         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
-                                                                         style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
-         rightButton.tintColor=[UIColor whiteColor];
-         self.navigationItem.rightBarButtonItem = rightButton;
-     }
+    
 }
-#pragma mark - Pizza layers & ingredients setup
 
+#pragma mark - Pizza layers & ingredients setup
 - (void) setUpIngredients{
-    Ingredient *pepperonni = [[Ingredient alloc] initWithName:@"Pepperoni" andPrice: 4];
-    Ingredient *bacon = [[Ingredient alloc] initWithName: @"Bacon" andPrice: 4];
-    Ingredient *olives = [[Ingredient alloc] initWithName: @"Olives" andPrice: 2];
-    Ingredient *onions = [[Ingredient alloc] initWithName: @"Onions" andPrice: 2];
-    Ingredient *spinach = [[Ingredient alloc] initWithName: @"Spinach" andPrice: 2];
-    Ingredient *pineapple = [[Ingredient alloc] initWithName: @"Pineapple" andPrice: 2];
     
-                 
+    Ingredient *pepperonni  = [[Ingredient alloc] initWithName:@"Pepperoni" andPrice: 4];
+    Ingredient *bacon       = [[Ingredient alloc] initWithName: @"Bacon" andPrice: 4];
+    Ingredient *olives      = [[Ingredient alloc] initWithName: @"Olives" andPrice: 2];
+    Ingredient *onions      = [[Ingredient alloc] initWithName: @"Onions" andPrice: 2];
+    Ingredient *spinach     = [[Ingredient alloc] initWithName: @"Spinach" andPrice: 2];
+    Ingredient *pineapple   = [[Ingredient alloc] initWithName: @"Pineapple" andPrice: 2];
     
-    self.ingredients = [[NSArray alloc] initWithObjects: pepperonni, bacon, olives, onions, spinach, pineapple, nil];
+    self.ingredients = [[NSArray alloc]
+                        initWithObjects: pepperonni, bacon, olives, onions, spinach, pineapple, nil];
 }
 
 - (void) setUpLayers{
-    self.layers = [[NSArray alloc] initWithObjects: self.pepperoniLayer, self.baconLayer, self.olivesLayer, self.onionsLayer, self.spinachLayer, self.pineappleLayer, nil];
-    //hide layers
     
+    self.layers = [[NSArray alloc] initWithObjects: self.pepperoniLayer,
+                   self.baconLayer, self.olivesLayer, self.onionsLayer,
+                   self.spinachLayer, self.pineappleLayer, nil];
+    //hide layers
     for (UIImageView *layer in self.layers) {
         [layer setHidden: YES];
     }
 }
 
-#pragma mark - UITableViewDelegate & UITableViewDataSource
-
+#pragma mark - <UITableViewDelegate> & <UITableViewDataSource>
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SPIngredientsCell *cell = [tableView dequeueReusableCellWithIdentifier: @"igredientCell" forIndexPath: indexPath];
     
@@ -199,25 +188,29 @@
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
     if (selectedSegment == 0) {
-        self.productSize=0;
+        self.productSize = 0;
         if(self.sizePrice == 10){
-            self.totalPrice-=self.sizePrice;
-            self.sizePrice=0;
+            self.totalPrice -= self.sizePrice;
+            self.sizePrice = 0;
             [self setTotalPrice:self.totalPrice];
         }
     }
     else{
         self.productSize=1;
         if(self.sizePrice == 0){
-            self.sizePrice=10;
-            self.totalPrice+=self.sizePrice;
+            self.sizePrice = 10;
+            self.totalPrice += self.sizePrice;
             [self setTotalPrice:self.totalPrice];
         }
     }
 }
 
 -(IBAction)doneButtonTapped:(id)sender{
-    SPCustomPizza *newPizza = [[SPCustomPizza alloc] initCustomPizzaWithName:[NSString stringWithFormat:@"Custom Pizza N%ld",(long)arc4random_uniform(100)+15] WithImage:@""];
+    
+    SPCustomPizza *newPizza = [[SPCustomPizza alloc]
+                               initCustomPizzaWithName:[NSString stringWithFormat:@"Custom Pizza N%ld",
+                                                        (long)arc4random_uniform(100) + 15]
+                               WithImage:@""];
     
     newPizza.pepperoni = self.ingredients[0];
     newPizza.bacon = self.ingredients[1];
@@ -229,12 +222,12 @@
     NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
     [product setValue: newPizza forKey: @"Product"];
     [product setValue: @(self.productAmount) forKey: @"Amount"];
-    if(self.productSize ==0){
+    if(self.productSize == 0){
         [product setValue: @"Normal" forKey: @"Size"];
     }
     else{
         [product setValue: @"Large" forKey: @"Size"];
     }
+    [[SPManager sharedManager] addProductToCart:product];
 }
-
 @end
