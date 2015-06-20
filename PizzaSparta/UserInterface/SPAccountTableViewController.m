@@ -26,12 +26,13 @@
     [self setupSpartaLabel];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [[SPDatabaseManager sharedDatabaseManager]
-     getAllOrderstoGet:@"delivered"
-     WithCompletion:^(NSArray *array) {
-      
-         self.allOrdersHistory = array;
-    }];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor greenColor];
+    [refreshControl addTarget:self action:@selector(startReload) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
+    
+    [self getAllOrdersForUser];
     NSLog(@"Current User History Orders: %@. ", self.allOrdersHistory.description);
 }
 
@@ -44,6 +45,9 @@
     if (section == 0) {
         return 1;
     }
+    if(self.allOrdersHistory.count<1){
+        return 0;
+    }
     return self.allOrdersHistory.count;
 }
 
@@ -54,8 +58,10 @@
         SPAutoLoginTableViewCell *loginCell = [tableView dequeueReusableCellWithIdentifier:@"SPAutoLoginCell" forIndexPath:indexPath];
         [loginCell configure];
         return loginCell;
-    }else{
-        //return [SPOrderHistoryTableViewCell configureWithOrder:self.allOrdersHistory[indexPath.row]];
+    }else if(self.allOrdersHistory.count>0){
+        SPOrderHistoryTableViewCell *orderCell = [tableView dequeueReusableCellWithIdentifier:@"orderCell" forIndexPath:indexPath];
+        [orderCell configureWithOrder:self.allOrdersHistory[indexPath.row]];
+        return orderCell;
     }
     return nil;
 }
@@ -89,6 +95,31 @@
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
+}
+-(void)getAllOrdersForUser{
+    [[SPDatabaseManager sharedDatabaseManager] getAllOrderstoGet:@"all" WithCompletion:^(NSArray* array){
+        if(array){
+            [[[SPManager sharedManager] loggedUser] readAllOrders:array];
+            self.allOrdersHistory = [[[SPManager sharedManager] loggedUser] orders];
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        }else{
+            NSLog(@"not found");
+        }
+    }];
+    
+    
+    
+}
+
+-(void)startReload{
+    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(endReload) userInfo:nil repeats:NO];
+    [self getAllOrdersForUser];
+    
+}
+
+-(void)endReload{
+    [self.refreshControl endRefreshing];
 }
 @end
 

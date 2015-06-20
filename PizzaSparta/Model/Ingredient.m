@@ -10,11 +10,11 @@
 
 @implementation Ingredient
 
-- (instancetype) initWithName: (NSString *) name andPrice: (float) price{
+- (instancetype) initWithName: (NSString *) name andPrice: (float) tmpPrice{
     self = [super init];
     if (self) {
         _name = name;
-        _price = price;
+        _priceIngredient = tmpPrice;
         _isIncluded = 0;
     }
     return self;

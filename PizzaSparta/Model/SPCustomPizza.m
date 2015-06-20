@@ -9,6 +9,14 @@
 #import "SPCustomPizza.h"
 
 @implementation SPCustomPizza
+-(id)initCustomPizzaWithName:(NSString*) tmpTitle WithImage:(NSString*)image{
+    self =[super init];
+    if(self){
+        _title=[[NSString alloc] initWithString:tmpTitle];
+        _photoURL=[[NSString alloc] initWithString:image];
+    }
+    return self;
+}
 
 - (NSInteger) productID{
     NSInteger pizzaid = 1000000;

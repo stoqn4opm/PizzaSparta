@@ -11,6 +11,8 @@
 #import "Product+Modify.h"
 #import "SPCartTableViewCell.h"
 #import "SPManager.h"
+#import "SPDatabaseManager.h"
+#import "SPUIHeader.h"
 #import "SPItemDetailsTableViewController.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
 
@@ -28,10 +30,30 @@
 
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CartLabel"]]];
+    [self prepareUI];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
 }
+
+-(void) prepareUI{
+    
+    if([[SPManager sharedManager] isUserLogIn]){
+        
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Order"
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(makeOrder)];
+        rightButton.tintColor=[UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+    else{
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logIn"
+                                                                        style:UIBarButtonItemStyleBordered target:self action:@selector(logOutAction)];
+        rightButton.tintColor=[UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+}
+
+
 #pragma mark - <UITableViewDataSource> Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

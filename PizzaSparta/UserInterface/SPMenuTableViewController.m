@@ -86,6 +86,7 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addAlbumViewController];
     [self presentViewController:navController animated:YES completion:^{
         if ([[SPManager sharedManager] isUserLogIn]) {
+            [[SPManager sharedManager] clearLoggedAccounts];
             [[SPManager sharedManager] setLoggedUser:nil];
             [[SPManager sharedManager ]setIsUserLogIn:NO];
         }

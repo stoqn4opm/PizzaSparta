@@ -10,8 +10,8 @@
 
 @interface Ingredient : NSObject
 @property (strong, nonatomic) NSString *name;
-@property (nonatomic) float price;
+@property (nonatomic) float priceIngredient;
 @property (nonatomic) NSInteger isIncluded;
 
-- (instancetype) initWithName: (NSString *) name andPrice: (float) price;
+- (instancetype) initWithName: (NSString *) name andPrice: (float) tmpPrice;
 @end

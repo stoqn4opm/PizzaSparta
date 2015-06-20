@@ -52,6 +52,7 @@
 		F25ABCF21B31FF8D005D11AD /* UserOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCF11B31FF8D005D11AD /* UserOrders.m */; };
 		F25ABCF61B320087005D11AD /* SPCustomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F25ABCF51B320087005D11AD /* SPCustomVC.m */; };
 		F27439311B25BFA700356D1F /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = F27439301B25BFA700356D1F /* NSString+Check.m */; };
+		F29A8F511B348E43004DE926 /* SPIngredientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F29A8F501B348E43004DE926 /* SPIngredientsCell.m */; };
 		F2E9DD381B2874AF00F2E3BD /* UserAdress.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E9DD371B2874AF00F2E3BD /* UserAdress.m */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,8 @@
 		F25ABCF51B320087005D11AD /* SPCustomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomVC.m; path = UserInterface/SPCustomVC.m; sourceTree = "<group>"; };
 		F274392F1B25BFA700356D1F /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		F27439301B25BFA700356D1F /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		F29A8F4F1B348E43004DE926 /* SPIngredientsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPIngredientsCell.h; path = UserInterface/SPIngredientsCell.h; sourceTree = "<group>"; };
+		F29A8F501B348E43004DE926 /* SPIngredientsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPIngredientsCell.m; path = UserInterface/SPIngredientsCell.m; sourceTree = "<group>"; };
 		F2E9DD361B2874AF00F2E3BD /* UserAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAdress.h; sourceTree = "<group>"; };
 		F2E9DD371B2874AF00F2E3BD /* UserAdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAdress.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -409,6 +412,8 @@
 		F25ABCF31B32005B005D11AD /* Custom Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				F29A8F4F1B348E43004DE926 /* SPIngredientsCell.h */,
+				F29A8F501B348E43004DE926 /* SPIngredientsCell.m */,
 				F25ABCF41B320087005D11AD /* SPCustomVC.h */,
 				F25ABCF51B320087005D11AD /* SPCustomVC.m */,
 			);
@@ -552,6 +557,7 @@
 				90C16B1E1B2359000045788C /* SPMenuItemsTableViewController.m in Sources */,
 				9007CE9F1B1F2A4C00F4650F /* main.m in Sources */,
 				F130DFAC1B304BDF009EEE8B /* SPCustomPizza.m in Sources */,
+				F29A8F511B348E43004DE926 /* SPIngredientsCell.m in Sources */,
 				90376E121B32C20100791FA4 /* SPMainTabBarViewController.m in Sources */,
 				F25ABCE51B31FCFA005D11AD /* User.m in Sources */,
 				F25ABCE81B31FD2D005D11AD /* SPDatabaseManager.m in Sources */,
