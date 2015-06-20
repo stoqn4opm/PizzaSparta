@@ -28,15 +28,15 @@
     [self getUserAddresses];
     [self prepareUI];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    //self.tableView.allowsMultipleSelectionDuringEditing = NO;
 }
 
 - (void)prepareUI{
     
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewAddress)];
-        rightButton.tintColor=[UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem = rightButton;
-   
+    UIButton *addAdressButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 26, 26)];
+    [addAdressButton setBackgroundImage:[UIImage imageNamed:@"PlusLabel"] forState:UIControlStateNormal];
+    UIBarButtonItem *addAdressBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addAdressButton];
+    [addAdressButton addTarget:self action:@selector(addNewAddress) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = addAdressBarButtonItem;
 }
 
 #pragma mark - <UITableViewDataSource> Methods
