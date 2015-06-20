@@ -45,7 +45,7 @@
     if (section == 0) {
         return 1;
     }
-    if(self.allOrdersHistory.count<1){
+    if(self.allOrdersHistory.count < 1){
         return 0;
     }
     return self.allOrdersHistory.count;
@@ -58,8 +58,10 @@
         SPAutoLoginTableViewCell *loginCell = [tableView dequeueReusableCellWithIdentifier:@"SPAutoLoginCell" forIndexPath:indexPath];
         [loginCell configure];
         return loginCell;
-    }else if(self.allOrdersHistory.count>0){
-        SPOrderHistoryTableViewCell *orderCell = [tableView dequeueReusableCellWithIdentifier:@"orderCell" forIndexPath:indexPath];
+    }else if(self.allOrdersHistory.count > 0){
+
+        SPOrderHistoryTableViewCell *orderCell =
+        [tableView dequeueReusableCellWithIdentifier:@"orderCell" forIndexPath:indexPath];
         [orderCell configureWithOrder:self.allOrdersHistory[indexPath.row]];
         return orderCell;
     }
@@ -85,18 +87,18 @@
     [headerImage setUserInteractionEnabled:YES];
     
     UIView *brownLine = [[UIView alloc]
-                         initWithFrame:CGRectMake(0, 30, header.frame.size.width, 10)];
+                         initWithFrame:CGRectMake(0, 30, header.frame.size.width, 2)];
     
     [brownLine setBackgroundColor:SPCOLOR_DARK_BROWN];
     [header addSubview:headerImage];
     [header addSubview:brownLine];
     return header;
 }
--(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     return 60;
 }
-
 #pragma mark - Order History
 -(void)getAllOrdersForUser{
     
