@@ -1397,7 +1397,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QnB-Eq-Nf9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27058823529999998" green="0.46666666670000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SPAutoLoginCell" rowHeight="59" id="bhS-VW-CgY" customClass="SPAutoLoginTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1416,12 +1416,24 @@
                                                 <action selector="loginSwitchValueChanged:" destination="bhS-VW-CgY" eventType="valueChanged" id="HuR-ci-mR2"/>
                                             </connections>
                                         </switch>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QW-ZF-mGA">
+                                            <rect key="frame" x="8" y="0.0" width="51" height="30"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="btnLoginPressed:" destination="bhS-VW-CgY" eventType="touchUpInside" id="TpU-ob-giJ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="H2Z-bg-kwx" firstAttribute="bottom" secondItem="mGD-U1-UGA" secondAttribute="bottomMargin" id="8km-AT-fXI"/>
                                         <constraint firstItem="H2Z-bg-kwx" firstAttribute="trailing" secondItem="mGD-U1-UGA" secondAttribute="trailingMargin" id="OAA-9e-iqJ"/>
                                         <constraint firstItem="N2j-19-ZVz" firstAttribute="bottom" secondItem="mGD-U1-UGA" secondAttribute="bottomMargin" id="Rts-ir-Key"/>
+                                        <constraint firstItem="8QW-ZF-mGA" firstAttribute="top" secondItem="mGD-U1-UGA" secondAttribute="topMargin" constant="-8" placeholder="YES" id="VJR-dN-eKN"/>
                                         <constraint firstItem="H2Z-bg-kwx" firstAttribute="top" secondItem="mGD-U1-UGA" secondAttribute="topMargin" constant="-2" id="ZaQ-34-DEe"/>
+                                        <constraint firstItem="8QW-ZF-mGA" firstAttribute="leading" secondItem="mGD-U1-UGA" secondAttribute="leadingMargin" placeholder="YES" id="elR-f8-N3q"/>
                                         <constraint firstItem="N2j-19-ZVz" firstAttribute="leading" secondItem="mGD-U1-UGA" secondAttribute="leadingMargin" id="liy-Ux-Ymi"/>
                                     </constraints>
                                     <variation key="default">
@@ -1431,6 +1443,8 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="lblRemember" destination="N2j-19-ZVz" id="X7K-Wf-fSk"/>
+                                    <outlet property="loginButton" destination="8QW-ZF-mGA" id="Bzg-3v-0bX"/>
                                     <outlet property="loginSwitch" destination="H2Z-bg-kwx" id="lsh-sy-mRl"/>
                                 </connections>
                             </tableViewCell>

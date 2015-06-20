@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SPAutoLoginTableViewCellDelegate <NSObject>
+
+-(void)dismissToLogin;
+@end
+
 @interface SPAutoLoginTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id<SPAutoLoginTableViewCellDelegate> delegate;
 -(void) configure;
 @end

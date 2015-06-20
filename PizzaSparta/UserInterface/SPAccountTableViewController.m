@@ -13,7 +13,7 @@
 #import "SPAutoLoginTableViewCell.h"
 #import "SPOrderHistoryTableViewCell.h"
 
-@interface SPAccountTableViewController ()
+@interface SPAccountTableViewController () <SPAutoLoginTableViewCellDelegate>
 @property (nonatomic, strong) NSArray __block *allOrdersHistory;
 @end
 
@@ -55,6 +55,7 @@
     
     if (indexPath.section == 0) {
         SPAutoLoginTableViewCell *loginCell = [tableView dequeueReusableCellWithIdentifier:@"SPAutoLoginCell" forIndexPath:indexPath];
+        [loginCell setDelegate:self];
         [loginCell configure];
         return loginCell;
     }else if(self.allOrdersHistory.count > 0){
@@ -146,5 +147,9 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.refreshControl endRefreshing];
 }
 
+#pragma mark - <SPAutoLoginTableViewCellDelagate> Methods
+-(void)dismissToLogin{
+    [self.tabBarController dismissViewControllerAnimated:YES completion:nil];
+}
 @end
 

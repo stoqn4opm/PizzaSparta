@@ -71,6 +71,7 @@
 
     [self.txtUsername setDelegate:self];
     [self.txtPassword setDelegate:self];
+    [self.txtPassword setText:@""];
     [self.txtPassword setSecureTextEntry:YES];
     [self.activityIndicator setHidesWhenStopped:YES];
     UITapGestureRecognizer *dismissKeyboardTap = [[UITapGestureRecognizer alloc]
