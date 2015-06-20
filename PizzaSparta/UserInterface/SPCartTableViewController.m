@@ -77,7 +77,7 @@
     
     UITapGestureRecognizer *sendOrderTapped = [[UITapGestureRecognizer alloc]
                                                initWithTarget:self
-                                               action:@selector(makeOrder)];
+                                               action:@selector(showActionSheetChooseAddress)];
     [sendOrderTapped setNumberOfTapsRequired:1];
     [sendOrderTapped setNumberOfTouchesRequired:1];
     
@@ -86,7 +86,7 @@
 }
 
 #pragma mark - User Actions
--(void)makeOrder{
+-(void)showActionSheetChooseAddress{
     
     [self.sendOrderLabel setAlpha:0];
     [UIView animateWithDuration:0.3 animations:^{
@@ -96,29 +96,11 @@
         [SPUIHeader alertViewWithType:SPALERT_TYPE_ERROR_ORDER_NOT_LOGGED_IN];
         return;
     }
-    
     if([[[SPManager sharedManager] cart]count] < 1){
         [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_CART];
+        return;
     }
-    else{
-        [[SPDatabaseManager sharedDatabaseManager]
-         createNewOrderForAddressWithId:[[[[SPManager sharedManager] loggedUser]addresses] lastObject]
-         withProducts:[[SPManager sharedManager] cart]
-         WithCompletion:^(NSString* status){
-             
-             if([status isEqualToString:@"success"]){
-                 [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
-                 [[[SPManager sharedManager] cart] removeAllObjects];
-                 [self.tableView reloadData];
-             }
-             else{
-                 [SPUIHeader alertViewWithType:SPALERT_TYPE_ORDER_ERROR];
-             }
-         }];
-    }
-}
-
--(void)showActionSheetChooseAddress{
+    
     NSString* actionSheetTitle =@"Choose order address";
     NSString* destructiveTitle = @"Delete products from cart";
     NSString* addNewAddress = @"Add new address";
@@ -163,21 +145,17 @@
 }
 
 -(void)makeOrderWithAddressId:(UserAdress*)currentAddress{
-    if([[[SPManager sharedManager] cart]count] <1){
-        [SPUIHeader alertViewWithType:SPALERT_TYPE_EMPTY_CART];
-    }
-    else{
-        [[SPDatabaseManager sharedDatabaseManager] createNewOrderForAddressWithId:currentAddress withProducts:[[SPManager sharedManager] cart] WithCompletion:^(NSString* status){
-            if([status isEqualToString:@"success"]){
-                [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
-                [[[SPManager sharedManager] cart] removeAllObjects];
-                [self.tableView reloadData];
-            }
-            else{
-                [SPUIHeader alertViewWithType:SPALERT_TYPE_ORDER_ERROR];
-            }
-        }];
-    }
+    
+    [[SPDatabaseManager sharedDatabaseManager] createNewOrderForAddressWithId:currentAddress withProducts:[[SPManager sharedManager] cart] WithCompletion:^(NSString* status){
+        if([status isEqualToString:@"success"]){
+            [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
+            [[[SPManager sharedManager] cart] removeAllObjects];
+            [self.tableView reloadData];
+        }
+        else{
+            [SPUIHeader alertViewWithType:SPALERT_TYPE_ORDER_ERROR];
+        }
+    }];
 }
 
 -(void)addNewAddress{
