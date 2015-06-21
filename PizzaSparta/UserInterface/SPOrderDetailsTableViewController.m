@@ -39,7 +39,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if([[[[SPManager sharedManager] loggedUser] currentOrderDetails] count]>0){
+    if([[[[SPManager sharedManager] loggedUser] currentOrderDetails] count] > 0){
         NSLog(@"%ld",(unsigned long)[[[[SPManager sharedManager] loggedUser] currentOrderDetails] count]);
         return [[[[SPManager sharedManager] loggedUser] currentOrderDetails] count];
     }
@@ -53,7 +53,7 @@
                                          dequeueReusableCellWithIdentifier:@"SPDetailsOrderTableViewCell"
                                          forIndexPath:indexPath];
     
-    [cell configureCartCellWithProduct:[[[[SPManager sharedManager] loggedUser] currentOrderDetails] objectAtIndex:indexPath.row]];
+    [cell configureCartCellWithProduct:[[[SPManager sharedManager] loggedUser] currentOrderDetails][indexPath.row]];
     return cell;
 }
 @end

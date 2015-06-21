@@ -71,7 +71,7 @@ NSString *const AsyncImageErrorKey = @"error";
 
 - (void)start;
 - (void)cancel;
-- (BOOL)isInCache;
+@property (NS_NONATOMIC_IOSONLY, getter=isInCache, readonly) BOOL inCache;
 
 @end
 
@@ -604,7 +604,7 @@ NSString *const AsyncImageErrorKey = @"error";
 	self.crossfadeDuration = 0.4;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame]))
     {
@@ -613,7 +613,7 @@ NSString *const AsyncImageErrorKey = @"error";
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder]))
     {

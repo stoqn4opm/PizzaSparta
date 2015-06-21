@@ -88,15 +88,14 @@
     Ingredient *spinach     = [[Ingredient alloc] initWithName: @"Spinach"  andPrice: 2];
     Ingredient *pineapple   = [[Ingredient alloc] initWithName: @"Pineapple"andPrice: 2];
     
-    self.ingredients = [[NSArray alloc]
-                        initWithObjects: pepperonni, bacon, olives, onions, spinach, pineapple, nil];
+    self.ingredients = @[pepperonni, bacon, olives, onions, spinach, pineapple];
 }
 
 - (void) setUpLayers{
     
-    self.layers = [[NSArray alloc] initWithObjects: self.pepperoniLayer,
+    self.layers = @[self.pepperoniLayer,
                    self.baconLayer, self.olivesLayer, self.onionsLayer,
-                   self.spinachLayer, self.pineappleLayer, nil];
+                   self.spinachLayer, self.pineappleLayer];
     //hide layers
     for (UIImageView *layer in self.layers) {
         [layer setHidden: YES];
@@ -142,7 +141,7 @@
     }
     if ([self.ingredients[index] isIncluded]) {
         
-        self.totalPrice -= [[self.ingredients objectAtIndex:index] priceIngredient];
+        self.totalPrice -= [(self.ingredients)[index] priceIngredient];
         [self.ingredients[index] setIsIncluded: 0];
         [self.layers[index] setHidden: YES];
     }else{

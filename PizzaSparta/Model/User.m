@@ -9,7 +9,7 @@
 #import "User.h"
 
 @implementation User
--(id)init{
+-(instancetype)init{
     self=[super init];
     if(self)
     {

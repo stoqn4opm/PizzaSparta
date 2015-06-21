@@ -49,8 +49,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SPCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPCartTableViewCell" forIndexPath:indexPath];
     
-    Product *currProduct = [[[[SPManager sharedManager]cart] objectAtIndex:indexPath.row] valueForKey: @"Product"];
-    NSNumber *amount     = [[[[SPManager sharedManager]cart] objectAtIndex:indexPath.row] valueForKey: @"Amount"];
+    Product *currProduct = [[[SPManager sharedManager]cart][indexPath.row] valueForKey: @"Product"];
+    NSNumber *amount     = [[[SPManager sharedManager]cart][indexPath.row] valueForKey: @"Amount"];
     
     [cell configureCartCellWithProduct:currProduct andAmount:amount];
     
@@ -160,7 +160,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         [self addNewAddress];
     }
     else if(buttonIndex - 1 < [[[[SPManager sharedManager] loggedUser] addresses] count]){
-        UserAdress* currentAddr = [[[[SPManager sharedManager] loggedUser] addresses] objectAtIndex:(buttonIndex - 1)];
+        UserAdress* currentAddr = [[[SPManager sharedManager] loggedUser] addresses][(buttonIndex - 1)];
         [self makeOrderWithAddressId:currentAddr];
     }
 }

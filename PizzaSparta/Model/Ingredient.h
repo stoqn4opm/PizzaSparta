@@ -13,5 +13,5 @@
 @property (nonatomic) float priceIngredient;
 @property (nonatomic) NSInteger isIncluded;
 
-- (instancetype) initWithName: (NSString *) name andPrice: (float) tmpPrice;
+- (instancetype) initWithName: (NSString *) name andPrice: (float) tmpPrice NS_DESIGNATED_INITIALIZER;
 @end

@@ -10,7 +10,7 @@
 
 @implementation SPCustomPizza
 
--(id)initCustomPizzaWithName:(NSString*) tmpTitle WithImage:(NSString*)image{
+-(instancetype)initCustomPizzaWithName:(NSString*) tmpTitle WithImage:(NSString*)image{
     self = [super init];
     if(self){
         _title = [[NSString alloc] initWithString:tmpTitle];

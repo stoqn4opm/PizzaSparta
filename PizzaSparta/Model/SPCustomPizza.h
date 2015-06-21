@@ -22,6 +22,6 @@
 @property (strong, nonatomic)NSString* photoURL;
 
 
--(id)initCustomPizzaWithName:(NSString*) tmpTitle WithImage:(NSString*)image;
-- (NSInteger) productID;
+-(instancetype)initCustomPizzaWithName:(NSString*) tmpTitle WithImage:(NSString*)image NS_DESIGNATED_INITIALIZER;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger productID;
 @end

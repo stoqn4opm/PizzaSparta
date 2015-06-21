@@ -62,8 +62,8 @@
                            [[SPManager sharedManager] saveParentContextToStore];
                            
                        }
-                       else if (![self productIsSame: [matches objectAtIndex: 0] coparedTo:element]){
-                           [context deleteObject: [matches objectAtIndex: 0]];
+                       else if (![self productIsSame: matches[0] coparedTo:element]){
+                           [context deleteObject: matches[0]];
                            [Product productFromDictionarry: element];
                            [[SPManager sharedManager] saveParentContextToStore];
                        }
@@ -79,8 +79,8 @@
     
     result = (result && [product.title       isEqualToString: [dict valueForKey: @"title"]]);
     result = (result && [product.productDesc isEqualToString: [dict valueForKey: @"productDesc"]]);
-    result = (result && [product.price       isEqual: [NSNumber numberWithInteger:[[dict objectForKey:@"price"] integerValue]]]);
-    result = (result && [product.isPromo     isEqual: [NSNumber numberWithInteger:[[dict objectForKey:@"isPromo"] integerValue]]]);
+    result = (result && [product.price       isEqual: @([dict[@"price"] integerValue])]);
+    result = (result && [product.isPromo     isEqual: @([dict[@"isPromo"] integerValue])]);
    
     return result;
 }
@@ -111,11 +111,11 @@
                        
                        User *newUser = [[User alloc] init];
                        
-                       [newUser setUserId:          [[result objectForKey:@"id"] integerValue]];
-                       [newUser setUsername:        [result objectForKey:@"username"]];
-                       [newUser setPassword:        [result objectForKey:@"password"]];
-                       [newUser setName:            [result objectForKey:@"realName"]];
-                       [newUser readAllAddresses:   [result objectForKey:@"addresses"]];
+                       [newUser setUserId:          [result[@"id"] integerValue]];
+                       [newUser setUsername:        result[@"username"]];
+                       [newUser setPassword:        result[@"password"]];
+                       [newUser setName:            result[@"realName"]];
+                       [newUser readAllAddresses:   result[@"addresses"]];
                        
                        completion(newUser);
                    }
@@ -319,9 +319,9 @@
         ([[SPManager sharedManager] loggedUser] != nil)){
         
         NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=addProduct&productType=normal&orderId=%@&productId=%@&numberOfProduct=%@&size=%@",
-                                                    orderId,[self returnProductID:[product objectForKey:@"Product"]],
-                                                    [product objectForKey:@"Amount"],
-                                                    [product objectForKey:@"Size"]]];
+                                                    orderId,[self returnProductID:product[@"Product"]],
+                                                    product[@"Amount"],
+                                                    product[@"Size"]]];
         
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig
@@ -341,7 +341,7 @@
                    }
                    dispatch_async(dispatch_get_main_queue(), ^{
                        
-                       NSLog(@"%@", [result objectForKey:@"product"]);
+                       NSLog(@"%@", result[@"product"]);
                    });
                }];
         [registrationSession resume];
@@ -356,18 +356,18 @@
         
         NSString* urlString =[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=addProduct&productType=custom&orderId=%@&bacon=%@&pepperoni=%@&olives=%@&onions=%@&spinach=%@&pineapple=%@&title=%@&numberOfProduct=%@&productSize=%@",
                               orderId,
-                              [self returnIfIngInclude:[[product objectForKey:@"Product"] bacon]],
-                              [self returnIfIngInclude:[[product objectForKey:@"Product"] pepperoni]],
-                              [self returnIfIngInclude:[[product objectForKey:@"Product"] olives]],
-                              [self returnIfIngInclude:[[product objectForKey:@"Product"] onions]],
-                              [self returnIfIngInclude:[[product objectForKey:@"Product"] spinach]],
-                              [self returnIfIngInclude:[[product objectForKey:@"Product"] pineapple]],
-                              [[product objectForKey:@"Product"] title],
-                              [product objectForKey:@"Amount"],
-                              [product objectForKey:@"Size"]];
+                              [self returnIfIngInclude:[product[@"Product"] bacon]],
+                              [self returnIfIngInclude:[product[@"Product"] pepperoni]],
+                              [self returnIfIngInclude:[product[@"Product"] olives]],
+                              [self returnIfIngInclude:[product[@"Product"] onions]],
+                              [self returnIfIngInclude:[product[@"Product"] spinach]],
+                              [self returnIfIngInclude:[product[@"Product"] pineapple]],
+                              [product[@"Product"] title],
+                              product[@"Amount"],
+                              product[@"Size"]];
         
         NSURL* url = [[NSURL alloc] initWithString:[urlString stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
-        NSLog(@"%@", [[product objectForKey:@"Product"] title]);
+        NSLog(@"%@", [product[@"Product"] title]);
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig
                                                               delegate:nil
@@ -387,7 +387,7 @@
                    }
                    dispatch_async(dispatch_get_main_queue(), ^{
                        
-                       NSLog(@"%@", [result objectForKey:@"product"]);
+                       NSLog(@"%@", result[@"product"]);
                    });
                }];
         [registrationSession resume];
@@ -426,11 +426,11 @@
                        if(![[result valueForKey:@"order"] isEqualToString:@"fail"]){
                            NSLog(@"%@", result);
                            for(id element in allproducts){
-                               if([[element objectForKey:@"Product"] isKindOfClass:[Product class]]){
-                                   [self addProductsToOrder:element ForOrderWithID:[result objectForKey:@"order"]];
+                               if([element[@"Product"] isKindOfClass:[Product class]]){
+                                   [self addProductsToOrder:element ForOrderWithID:result[@"order"]];
                                }
-                               else if([[element objectForKey:@"Product"] isKindOfClass:[SPCustomPizza class]]) {
-                                   [self addCustomProductsToOrder:element ForOrderWithID:[result objectForKey:@"order"]];
+                               else if([element[@"Product"] isKindOfClass:[SPCustomPizza class]]) {
+                                   [self addCustomProductsToOrder:element ForOrderWithID:result[@"order"]];
                                }
                            }
                            completionOrder(@"success");
@@ -473,7 +473,7 @@
                    }
                    dispatch_async(dispatch_get_main_queue(), ^{
                        
-                       if(![[[result objectAtIndex:0] valueForKey:@"id"] isEqualToString:@"none"]){
+                       if(![[result[0] valueForKey:@"id"] isEqualToString:@"none"]){
                            
                            completionOrder(result);
                        }
@@ -513,7 +513,7 @@
                    }
                    dispatch_async(dispatch_get_main_queue(), ^{
                        
-                       if(![[[result objectAtIndex:0] valueForKey:@"id"] isEqualToString:@"none"]){
+                       if(![[result[0] valueForKey:@"id"] isEqualToString:@"none"]){
                            
                            completionOrder(result);
                        }

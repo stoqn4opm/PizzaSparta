@@ -256,7 +256,7 @@
 }
 
 -(NSArray*)getUserInfoAsArray{
-    return [[NSArray alloc] initWithObjects:[self.loggedUser username], [self.loggedUser name],@"Addresses", nil];
+    return @[[self.loggedUser username], [self.loggedUser name],@"Addresses"];
 }
 
 -(void)addForCurrentUserNewAddress:(NSString*)newAddress{

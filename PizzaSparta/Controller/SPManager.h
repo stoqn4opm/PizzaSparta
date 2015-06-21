@@ -28,14 +28,14 @@ typedef void (^SPManagerSuccessBlock)(NSString* status);
 @property (atomic, strong) NSOperationQueue *uiOperationQueue;
 + (instancetype) sharedManager;
 
-- (NSManagedObjectContext *) privateChildMOContext;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) NSManagedObjectContext *privateChildMOContext;
 
 //makes an account from user and stores it in CoreData
 - (void) saveLoggedUserForAutologin;
-- (BOOL) hasAccountBeenStoredForAutologIn;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasAccountBeenStoredForAutologIn;
 - (void) clearLoggedAccounts;
-- (NSString *) storedAccUsername;
-- (NSString *) storedAccPassword;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *storedAccUsername;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *storedAccPassword;
 
 //cart
 - (void) addProductToCart:(NSMutableDictionary *) product;
@@ -46,7 +46,7 @@ typedef void (^SPManagerSuccessBlock)(NSString* status);
 - (void) readUserAddresses;
 - (void) logOutUser;
 
-- (NSArray*)getUserInfoAsArray;
+@property (NS_NONATOMIC_IOSONLY, getter=getUserInfoAsArray, readonly, copy) NSArray *userInfoAsArray;
 
 - (void) addForCurrentUserNewAddress:(NSString*)newAddress;
 - (void) deleteForCurrentUserAddress:(UserAdress*)address completion:(SPManagerSuccessBlock)completion;

@@ -62,7 +62,7 @@
                                                dequeueReusableCellWithIdentifier:@"SPUserSingleAddress"
                                                forIndexPath:indexPath];
     
-    [addressCell configureAddressLabel:[self.currentAddresses objectAtIndex:indexPath.row]];
+    [addressCell configureAddressLabel:(self.currentAddresses)[indexPath.row]];
     return addressCell;
 }
 

@@ -29,7 +29,7 @@ typedef NSString SPMenuType;
 #define SPPasta     @"Pasta"
 #define SPDrinks    @"Drinks"
 
-typedef enum{
+typedef NS_ENUM(unsigned int, SPAlertType){
     SPALERT_TYPE_WRONG_USERNAME_PASSWORD = 0,
     SPALERT_TYPE_EMPTY_LOGIN_FIELDS,
     SPALERT_TYPE_EMPTY_REGISTER_FIELDS,
@@ -43,7 +43,7 @@ typedef enum{
     SPALERT_TYPE_ADDRESS_EXIST,
     SPALERT_TYPE_ADDRESS_DELETE_ERROR,
     SPALERT_TYPE_ADDRESS_DELETE_LAST
-}SPAlertType;
+};
 
 @interface SPUIHeader : NSObject
 + (void) alertViewWithType:(SPAlertType) alertType;

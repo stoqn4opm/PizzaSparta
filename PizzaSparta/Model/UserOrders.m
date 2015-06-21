@@ -9,7 +9,7 @@
 #import "UserOrders.h"
 
 @implementation UserOrders
--(id)init{
+-(instancetype)init{
     self = [super init];
     if(self){
         _products=[[NSMutableArray alloc] init];

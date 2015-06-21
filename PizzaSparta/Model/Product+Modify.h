@@ -24,11 +24,10 @@
 + (Product *) productFromDictionarry: (NSDictionary *) element;
 
 //isPromo setters and getters
-- (BOOL) promo;
-- (void) setPromo: (BOOL) isPromo;
-- (NSInteger) productID;
+@property (NS_NONATOMIC_IOSONLY) BOOL promo;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger productID;
 
-- (NSURL *) urlPhoto;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *urlPhoto;
 
 - (void) setPromo: (BOOL) isPromo andNewPrice: (NSNumber *) newPrice;
 

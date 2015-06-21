@@ -199,8 +199,7 @@
         NSLog(@"%ld", (long)[sender section]);
         NSLog(@"%ld", (long)self.selectedRow);
         [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:nil];
-        [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:[[self.allOrdersHistory
-                                                                         objectAtIndex:self.selectedRow] products]];
+        [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:[(self.allOrdersHistory)[self.selectedRow] products]];
         
         for(id element in [[[SPManager sharedManager] loggedUser] currentOrderDetails]){
             NSLog(@"%@", [element valueForKey:@"title"]);

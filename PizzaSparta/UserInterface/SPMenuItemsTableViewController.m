@@ -178,7 +178,7 @@
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title"
                                                                    ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     _fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                            managedObjectContext:uiContext
@@ -206,12 +206,12 @@
     switch (type) {
             
         case NSFetchedResultsChangeInsert: {
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
                                   withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
         case NSFetchedResultsChangeDelete: {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
@@ -223,9 +223,9 @@
             break;
         }
         case NSFetchedResultsChangeMove: {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
                                   withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
