@@ -64,11 +64,15 @@
 - (void)prepareUI{
     
     [self.navigationController setTitle:@"Custom Pizza"];
+    [self.navigationItem
+     setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"MyPizzaLabel"]]];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                    style:UIBarButtonItemStyleBordered target:self action:@selector(doneButtonTapped:)];
-    rightButton.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    UIButton *addToCartButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 32)];
+    [addToCartButton setBackgroundImage:[UIImage imageNamed:@"CustomPizzaToCart"] forState:UIControlStateNormal];
+    UIBarButtonItem *barAddToCart = [[UIBarButtonItem alloc] initWithCustomView:addToCartButton];
+    [addToCartButton addTarget:self action:@selector(doneButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = barAddToCart;
     
 }
 
