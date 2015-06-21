@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
 @property (weak, nonatomic) IBOutlet UILabel *lblAmmount;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentLargeMedium;
+@property (weak, nonatomic) IBOutlet UIImageView *priceCournerImageView;
 
 @property (strong, nonatomic) Product *currentProduct;
 @end
@@ -48,6 +49,12 @@
     [self.lblName setTextColor:[UIColor whiteColor]];
     self.currentProduct = product;
     [self.productImage setImageURL:[NSURL URLWithString:self.currentProduct.photoURL]];
+    if ([self.currentProduct promo]) {
+        self.priceCournerImageView.image = [UIImage imageNamed: @"yelowLBL.png"];
+        self.backgroundColor = [UIColor colorWithRed: 105/255 green: 0 blue: 51/255 alpha: 1];
+        self.lblPrice.textColor = [UIColor blackColor];
+        self.lblCurrency.textColor = [UIColor blackColor];
+    }
 }
 
 - (void) currentAmount:(NSInteger)currentAmount{
