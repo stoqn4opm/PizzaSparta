@@ -50,11 +50,10 @@
     self.segmentLargeMedium.layer.cornerRadius = 4;
     self.currentProduct = product;
     [self.productImage setImageURL:[NSURL URLWithString:self.currentProduct.photoURL]];
-    if ([self.currentProduct promo]) {
-        self.priceCournerImageView.image = [UIImage imageNamed: @"yelowLBL.png"];
-        self.backgroundColor = [UIColor colorWithRed: 105/255 green: 0 blue: 51/255 alpha: 1];
-        self.lblPrice.textColor = [UIColor blackColor];
-        self.lblCurrency.textColor = [UIColor blackColor];
+    if ([self.currentProduct.type isEqualToString: SPPasta] || [self.currentProduct.type isEqualToString: SPDrinks]) {
+        [self.segmentLargeMedium removeSegmentAtIndex: 1 animated: NO];
+        [self.segmentLargeMedium setSelectedSegmentIndex: 0];
+        [self.segmentLargeMedium setTitle: @"One size" forSegmentAtIndex: 0];
     }
 }
 

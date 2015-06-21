@@ -62,6 +62,10 @@
                       forControlEvents: UIControlEventValueChanged];
     [self.segmentLargeMedium setSelectedSegmentIndex: 1];
     [self updateAmountTF];
+    if ([self.selectedProduct.type isEqualToString: SPPasta] || [self.selectedProduct.type isEqualToString: SPDrinks]) {
+        [self.segmentLargeMedium removeSegmentAtIndex: 1 animated: NO];
+        [self.segmentLargeMedium setSelectedSegmentIndex: 0];
+        [self.segmentLargeMedium setTitle: @"One size" forSegmentAtIndex: 0];    }
 }
 
 - (void) changedValue{
