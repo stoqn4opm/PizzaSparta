@@ -60,7 +60,7 @@
     [self.segmentLargeMedium addTarget: self
                                 action: @selector(changedValue)
                       forControlEvents: UIControlEventValueChanged];
-    
+    [self.segmentLargeMedium setSelectedSegmentIndex: 1];
     [self updateAmountTF];
 }
 
