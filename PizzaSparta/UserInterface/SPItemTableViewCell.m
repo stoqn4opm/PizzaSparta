@@ -47,6 +47,7 @@
     [self currentAmount:[[SPManager sharedManager] amountForProductInCart:product withSize:size]];
     self.lblName.font = [UIFont fontWithName:@"Chalkboard SE" size:25];
     [self.lblName setTextColor:[UIColor whiteColor]];
+    self.segmentLargeMedium.layer.cornerRadius = 4;
     self.currentProduct = product;
     [self.productImage setImageURL:[NSURL URLWithString:self.currentProduct.photoURL]];
     if ([self.currentProduct promo]) {
