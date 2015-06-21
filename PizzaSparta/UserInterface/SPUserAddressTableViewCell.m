@@ -16,6 +16,8 @@
 @implementation SPUserAddressTableViewCell
 
 -(void)configureAddressLabel:(UserAdress*) address{
+
     self.addressLabel.text = [address address];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 @end

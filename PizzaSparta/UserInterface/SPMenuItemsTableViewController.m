@@ -146,7 +146,6 @@
     [UIView animateWithDuration:0.3 animations:^{
         [self.createCustomPizza setAlpha:1.0];
     }];
-    NSLog(@"custom pizza");
     [self performSegueWithIdentifier:@"CustomPizza" sender:nil];
 }
 

@@ -102,7 +102,6 @@
 }
 
 #pragma mark - <UITableViewDelegate> Methods
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
@@ -140,7 +139,7 @@
     }
     if(indexPath.section == 2){
         
-        self.selectedRow=indexPath.row;
+        self.selectedRow = indexPath.row;
         [self performSegueWithIdentifier:@"showDetailsOrder" sender:nil];
     }
 }
@@ -152,6 +151,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     return 40;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView
+  willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.selectionStyle == UITableViewCellSelectionStyleNone){
+        return nil;
+    }
+    return indexPath;
 }
 
 #pragma mark - Order History
@@ -200,10 +209,6 @@
         NSLog(@"%ld", (long)self.selectedRow);
         [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:nil];
         [[[SPManager sharedManager] loggedUser] setCurrentOrderDetails:[(self.allOrdersHistory)[self.selectedRow] products]];
-        
-        for(id element in [[[SPManager sharedManager] loggedUser] currentOrderDetails]){
-            NSLog(@"%@", [element valueForKey:@"title"]);
-        }
     }
 }
 @end

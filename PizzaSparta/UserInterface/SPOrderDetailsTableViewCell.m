@@ -20,6 +20,7 @@
 
 - (void)configureCartCellWithProduct:(NSDictionary*)product{
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [self.lblTitle setText:       [product valueForKey:@"title"]];
     [self.lblAmountIncart setText:[product valueForKey:@"numberOfProduct"]];

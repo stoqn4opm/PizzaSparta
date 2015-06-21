@@ -130,6 +130,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }];
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.selectionStyle == UITableViewCellSelectionStyleNone){
+        return nil;
+    }
+    return indexPath;
+}
 
 -(void)addNewAddress{
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add new address" message:@" ex. Sofia Motevideo 25" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil] ;

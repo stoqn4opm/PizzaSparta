@@ -22,10 +22,11 @@
     [super viewDidLoad];
     [self setUpImageBackButton];
     [self setupNavigationBarBackground];
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     [self.navigationItem
      setTitleView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"OrderHistoryLabel"]]];
+
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
@@ -40,7 +41,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if([[[[SPManager sharedManager] loggedUser] currentOrderDetails] count] > 0){
-        NSLog(@"%ld",(unsigned long)[[[[SPManager sharedManager] loggedUser] currentOrderDetails] count]);
+
         return [[[[SPManager sharedManager] loggedUser] currentOrderDetails] count];
     }
     return 0;
@@ -55,5 +56,14 @@
     
     [cell configureCartCellWithProduct:[[[SPManager sharedManager] loggedUser] currentOrderDetails][indexPath.row]];
     return cell;
+}
+
+#pragma mark - <UITableViewDelegate> Methods
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.selectionStyle == UITableViewCellSelectionStyleNone){
+        return nil;
+    }
+    return indexPath;
 }
 @end

@@ -19,6 +19,7 @@
 @implementation SPAutoLoginTableViewCell
 
 -(void)configure{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     if ([[SPManager sharedManager] hasAccountBeenStoredForAutologIn]) {
         [self.loginSwitch setOn:YES];
     }else{

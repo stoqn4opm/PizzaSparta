@@ -16,13 +16,14 @@
 @implementation SPUserInfoTableViewCell
 
 -(void)configureWithString:(NSString*) labelString{
-   
+    
     if ([labelString isEqualToString:@"Addresses"]) {
         self.userInfoCell.text = labelString;
     }
     else{
         self.userInfoCell.text = labelString;
         [self.imgGoToDetailedView setHidden:YES];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 }
 @end
