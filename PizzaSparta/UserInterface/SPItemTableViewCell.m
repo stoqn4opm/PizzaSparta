@@ -32,7 +32,7 @@
     [self.lblPrice setText:[NSString stringWithFormat:@"%@", [product price]]];
     [self.lblAmmount setText:@""];
     [self setupUserInteraction];
-    
+    [self.segmentLargeMedium addTarget: self action: @selector(changedValue) forControlEvents: UIControlEventValueChanged];
     // Currency for now is hardcoded
     [self.lblCurrency setText:@"BGN"];
     
@@ -119,6 +119,11 @@
     }
     [[SPManager sharedManager] addProductToCart: product];
 
+}
+
+- (void) changedValue{
+//    self.lblAmmount.text = [[SPManager sharedManager] amountForProductInCart:self.currentProduct withSize: [self.segmentLargeMedium titleForSegmentAtIndex: self.segmentLargeMedium.selectedSegmentIndex]];
+    self.lblAmmount.text = [NSString stringWithFormat: @"%ld",(long)[[SPManager sharedManager] amountForProductInCart:self.currentProduct withSize: [self.segmentLargeMedium titleForSegmentAtIndex: self.segmentLargeMedium.selectedSegmentIndex]]];
 }
 
 @end
