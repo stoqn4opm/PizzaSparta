@@ -163,19 +163,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     }];
 }
 
-#pragma mark - User Actions
--(void)logOutAction{
-    
-    [self.tabBarController dismissViewControllerAnimated:YES completion:^{
-        if ([[SPManager sharedManager] isUserLogIn]) {
-            [[SPManager sharedManager] clearLoggedAccounts];
-            [[SPManager sharedManager] setLoggedUser:nil];
-            [[SPManager sharedManager] setIsUserLogIn:NO];
-        }
-    }];
-}
-
-#pragma mark Order History Actions
+#pragma mark - Order History Actions
 -(void)startReload{
     [NSTimer scheduledTimerWithTimeInterval:10.0
                                      target:self

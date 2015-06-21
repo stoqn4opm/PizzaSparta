@@ -92,6 +92,7 @@
         [[SPManager sharedManager] setIsUserLogIn:NO];
         [[SPManager sharedManager] setLoggedUser:nil];
     }
+    [[[SPManager sharedManager] cart] removeAllObjects];
     [self.delegate dismissToLogin];
 }
 @end
