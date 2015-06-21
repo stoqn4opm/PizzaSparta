@@ -9,6 +9,7 @@
 #import "SPItemTableViewCell.h"
 #import "SPUIHeader.h"
 #import "SPManager.h"
+#import "SPUIHeader.h"
 #import "AsyncImageView.h"
 
 @interface SPItemTableViewCell ()
@@ -48,6 +49,9 @@
     [self.lblName setTextColor:[UIColor whiteColor]];
     self.currentProduct = product;
     [self.productImage setImageURL:[NSURL URLWithString:self.currentProduct.photoURL]];
+    if ([self.currentProduct.type isEqualToString: SPPasta] || [self.currentProduct.type isEqualToString: SPDrinks]) {
+        [self.segmentLargeMedium setHidden: YES];
+    }
 }
 
 - (void) currentAmount:(NSInteger)currentAmount{

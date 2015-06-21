@@ -57,6 +57,9 @@
     self.txtAmmount.delegate = self;
     [self.segmentLargeMedium addTarget: self action: @selector(changedValue) forControlEvents: UIControlEventValueChanged];
     [self updateAmountTF];
+    if ([self.selectedProduct.type isEqualToString: SPPasta] || [self.selectedProduct.type isEqualToString: SPDrinks]) {
+        [self.segmentLargeMedium setHidden: YES];
+    }
 }
 
 - (void) changedValue{
