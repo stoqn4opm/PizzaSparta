@@ -85,6 +85,22 @@
     return header;
 }
 
+#pragma mark - <UITableViewDelegate> Methods
+-(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == [[[SPManager sharedManager] cart] count]) {
+        return NO;
+    }
+    return YES;
+}
+
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[[SPManager sharedManager] cart] removeObjectAtIndex: indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: YES];
+    }
+    [self.tableView reloadData];
+}
+
 #pragma mark - User Actions
 -(void)showActionSheetChooseAddress{
     
