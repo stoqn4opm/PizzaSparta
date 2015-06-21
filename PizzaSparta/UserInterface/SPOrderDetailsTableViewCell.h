@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SPOrderDetailsTableViewCell : UITableViewCell
-- (void)configureCartCellWithProduct:(NSDictionary*)product;
+
+- (void) configureCartCellWithProduct:(NSDictionary*)product;
 @end

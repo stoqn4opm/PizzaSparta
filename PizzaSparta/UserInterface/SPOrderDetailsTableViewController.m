@@ -46,12 +46,14 @@
     return 0;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SPOrderDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPDetailsOrderTableViewCell" forIndexPath:indexPath];
+-(UITableViewCell *)tableView:(UITableView *)tableView
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SPOrderDetailsTableViewCell *cell = [tableView
+                                         dequeueReusableCellWithIdentifier:@"SPDetailsOrderTableViewCell"
+                                         forIndexPath:indexPath];
     
     [cell configureCartCellWithProduct:[[[[SPManager sharedManager] loggedUser] currentOrderDetails] objectAtIndex:indexPath.row]];
-    
     return cell;
 }
-
 @end

@@ -8,12 +8,15 @@
 
 #import "SPUserInfoTableViewCell.h"
 @interface SPUserInfoTableViewCell()
-@property (weak, nonatomic) IBOutlet UILabel *userInfoCell;
-@property (weak, nonatomic) IBOutlet UIImageView *imgGoToDetailedView;
+@property (weak, nonatomic) IBOutlet UILabel        *userInfoCell;
+@property (weak, nonatomic) IBOutlet UIImageView    *imgGoToDetailedView;
 
 @end
+
 @implementation SPUserInfoTableViewCell
+
 -(void)configureWithString:(NSString*) labelString{
+   
     if ([labelString isEqualToString:@"Addresses"]) {
         self.userInfoCell.text = labelString;
     }

@@ -10,6 +10,6 @@
 #import "UserOrders.h"
 
 @interface SPOrderHistoryTableViewCell : UITableViewCell
-//+(SPOrderHistoryTableViewCell *)configureWithOrder;
+
 -(void)configureWithOrder:(UserOrders*)order;
 @end

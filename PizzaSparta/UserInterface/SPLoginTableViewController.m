@@ -19,9 +19,9 @@
 }
 @property (weak, nonatomic) IBOutlet UIImageView *curvedTiles;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImage;
-@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
-@property (weak, nonatomic) IBOutlet UIButton *btnRegister;
-@property (weak, nonatomic) IBOutlet UIButton *btnSkipLogin;
+@property (weak, nonatomic) IBOutlet UIButton    *btnLogin;
+@property (weak, nonatomic) IBOutlet UIButton    *btnRegister;
+@property (weak, nonatomic) IBOutlet UIButton    *btnSkipLogin;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -37,11 +37,6 @@
     [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
     
     self.btnFBLogin.readPermissions = @[@"email",@"user_location"];
-    
-    if ([FBSDKAccessToken currentAccessToken]) {
-        // User is logged in facebook on this device,
-        // do work such as go to next view controller, if autologin is enabled
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -61,12 +56,11 @@
                  NSLog(@"Auto logged User: %@",user.name);
                  [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
              }
-             
          }];
     }
-    
     [self prepareUI];
 }
+
 #pragma mark - UI Related
 -(void) prepareUI{
 
@@ -106,6 +100,7 @@
         }];
     }];
 }
+
 -(void)secondEntranceAnimation{
     self.curvedTiles.frame = CGRectMake(self.curvedTiles.frame.origin.x, 300,
                                         self.curvedTiles.frame.size.width,
@@ -125,6 +120,7 @@
                                           self.logoImage.frame.size.height);
     }];
 }
+
 - (void) presentRegistration{
     
     [UIView animateWithDuration:2 animations:^{
@@ -140,7 +136,6 @@
         
         [self performSegueWithIdentifier:@"RegisterSegue" sender:nil];
     }];
-
 }
 
 #pragma mark - <UITextFieldDelegate> Methods
@@ -200,7 +195,6 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                                                                HTTPMethod:@"GET"];
     
     [req startWithCompletionHandler:
-     
      ^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         if (!error) {
             NSLog(@"fetched user:%@", result);
@@ -214,6 +208,4 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
 }
-
-
 @end

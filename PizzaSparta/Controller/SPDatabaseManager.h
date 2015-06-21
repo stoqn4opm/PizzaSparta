@@ -12,9 +12,10 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-#define ORDER_TYPE_ALL @"all"
-#define ORDER_TYPE_DELIVERED @"delivered"
-#define ORDER_TYPE_NOT_DELIVERED @"isnotdelivered"
+// Order types for Method allOrdersWithType:completion:
+#define ORDER_TYPE_ALL              @"all"
+#define ORDER_TYPE_DELIVERED        @"delivered"
+#define ORDER_TYPE_NOT_DELIVERED    @"isnotdelivered"
 typedef NSString SPGetOrderType;
 
 typedef void (^SPDatabaseManagerSuccessBlock)(User *user);
@@ -27,16 +28,41 @@ typedef void (^SPDatabaseManagerSuccessBlockReadOrders)(NSArray *array);
 + (instancetype) sharedDatabaseManager;
 
 -(void)getAllProductsFromDataBase;
--(void)logInUserWithUsername:(NSString*)username andPassword:(NSString*)password completion:(SPDatabaseManagerSuccessBlock)completion;
--(void)registerNewUserWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name andFirstAdress:(NSString*)adress completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
--(void)readAllAddressesForLoggedUserWithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion;
--(void)insertNewAddressForLoggedUserAndNewAddress:(NSString*)address WithInsertCompletion:(SPDatabaseManagerSuccessBlockAddress)completionInsert;
--(void)deleteAddressForLoggedUserAndNewAddress:(UserAdress*)address WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete;
 
--(void)addProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId;
--(void)addCustomProductsToOrder:(NSDictionary*)product ForOrderWithID:(NSString*)orderId;
--(void)createNewOrderForAddressWithId:(UserAdress*)address withProducts:(NSArray*)allproducts WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
--(void)allOrdersWithType:(SPGetOrderType *) type completion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
--(void)getOrderWithId:(NSInteger*)orderId WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
--(void)deleteOrederWithId:(NSInteger)orderId WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
+-(void)logInUserWithUsername:(NSString*)username
+                 andPassword:(NSString*)password
+                  completion:(SPDatabaseManagerSuccessBlock)completion;
+
+-(void)registerNewUserWithUsername:(NSString*)username
+                          password:(NSString*)password
+                              name:(NSString*)name
+                    andFirstAdress:(NSString*)adress
+                        completion:(SPDatabaseManagerSuccessBlock)completionRegistration;
+
+-(void)readAllAddressesForLoggedUserWithCompletion:(SPDatabaseManagerSuccessBlockAddress)completion;
+
+-(void)insertNewAddressForLoggedUserAndNewAddress:(NSString*)address
+                             WithInsertCompletion:(SPDatabaseManagerSuccessBlockAddress)completionInsert;
+
+-(void)deleteAddressForLoggedUserAndNewAddress:(UserAdress*)address
+                          WithDeleteCompletion:(SPDatabaseManagerSuccessBlockAddress)completionDelete;
+
+-(void)addProductsToOrder:(NSDictionary*)product
+           ForOrderWithID:(NSString*)orderId;
+
+-(void)addCustomProductsToOrder:(NSDictionary*)product
+                 ForOrderWithID:(NSString*)orderId;
+
+-(void)createNewOrderForAddressWithId:(UserAdress*)address
+                         withProducts:(NSArray*)allproducts
+                       withCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
+
+-(void)allOrdersWithType:(SPGetOrderType *)type
+              completion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
+
+-(void)getOrderWithId:(NSInteger*)orderId
+       WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
+
+-(void)deleteOrederWithId:(NSInteger)orderId
+           WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
 @end

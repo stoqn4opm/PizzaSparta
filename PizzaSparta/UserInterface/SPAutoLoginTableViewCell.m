@@ -84,6 +84,7 @@
         [[SPManager sharedManager]clearLoggedAccounts];
     }
 }
+
 - (IBAction)btnLoginPressed:(UIButton *)sender {
 
     if ([[SPManager sharedManager]isUserLogIn]) {

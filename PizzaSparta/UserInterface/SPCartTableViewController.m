@@ -93,7 +93,10 @@
     return YES;
 }
 
--(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void) tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[[SPManager sharedManager] cart] removeObjectAtIndex: indexPath.row];
         [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: YES];
@@ -117,9 +120,10 @@
         return;
     }
     
-    NSString* actionSheetTitle =@"Choose order address";
-    NSString* destructiveTitle = @"Delete products from cart";
-    NSString* addNewAddress = @"Add new address";
+    NSString* actionSheetTitle  = @"Choose order address";
+    NSString* destructiveTitle  = @"Delete products from cart";
+    NSString* addNewAddress     = @"Add new address";
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:actionSheetTitle
                                   delegate:self
@@ -143,6 +147,7 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
     if([actionSheet cancelButtonIndex] == buttonIndex){
         NSLog(@"cancel");
     }
@@ -154,15 +159,19 @@
         NSLog(@"add address");
         [self addNewAddress];
     }
-    else if(buttonIndex-1 < [[[[SPManager sharedManager] loggedUser] addresses] count]){
-        UserAdress* currentAddr = [[[[SPManager sharedManager] loggedUser] addresses] objectAtIndex:(buttonIndex-1)];
+    else if(buttonIndex - 1 < [[[[SPManager sharedManager] loggedUser] addresses] count]){
+        UserAdress* currentAddr = [[[[SPManager sharedManager] loggedUser] addresses] objectAtIndex:(buttonIndex - 1)];
         [self makeOrderWithAddressId:currentAddr];
     }
 }
 
--(void)makeOrderWithAddressId:(UserAdress*)currentAddress{
+- (void)makeOrderWithAddressId:(UserAdress*)currentAddress{
     
-    [[SPDatabaseManager sharedDatabaseManager] createNewOrderForAddressWithId:currentAddress withProducts:[[SPManager sharedManager] cart] WithCompletion:^(NSString* status){
+    [[SPDatabaseManager sharedDatabaseManager]
+     createNewOrderForAddressWithId:currentAddress
+     withProducts:[[SPManager sharedManager] cart]
+     withCompletion:^(NSString* status){
+         
         if([status isEqualToString:@"success"]){
             [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
             [[[SPManager sharedManager] cart] removeAllObjects];
@@ -175,7 +184,12 @@
 }
 
 -(void)addNewAddress{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add new address" message:@" ex. Sofia Motevideo 25" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil] ;
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add new address"
+                                                        message:@" ex. Sofia Motevideo 25"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Save", nil];
     alertView.tag = 2;
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];

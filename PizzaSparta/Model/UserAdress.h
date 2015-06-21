@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface UserAdress : NSObject
-    @property(nonatomic)NSInteger addressID;
-    @property(strong, nonatomic)NSString* address;
+@property(nonatomic)NSInteger addressID;
+@property(strong, nonatomic)NSString* address;
 @end

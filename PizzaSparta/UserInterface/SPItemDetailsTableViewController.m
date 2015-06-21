@@ -13,14 +13,15 @@
 #import "AsyncImageView.h"
 
 @interface SPItemDetailsTableViewController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView __block *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UITextView *lblDescription;
-@property (weak, nonatomic) IBOutlet UITextField *txtAmmount;
-@property (weak, nonatomic) IBOutlet UILabel *lblCurrency;
-@property (weak, nonatomic) IBOutlet UIImageView *imgMinus;
-@property (weak, nonatomic) IBOutlet UIImageView *imgPlus;
-@property (weak, nonatomic) IBOutlet UILabel *lblPrice;
+
+@property (weak, nonatomic) IBOutlet UIImageView        *imageView;
+@property (weak, nonatomic) IBOutlet UILabel            *lblName;
+@property (weak, nonatomic) IBOutlet UITextView         *lblDescription;
+@property (weak, nonatomic) IBOutlet UITextField        *txtAmmount;
+@property (weak, nonatomic) IBOutlet UILabel            *lblCurrency;
+@property (weak, nonatomic) IBOutlet UIImageView        *imgMinus;
+@property (weak, nonatomic) IBOutlet UIImageView        *imgPlus;
+@property (weak, nonatomic) IBOutlet UILabel            *lblPrice;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentLargeMedium;
 
 @end
@@ -44,6 +45,7 @@
 
 - (void)prepareUI{
     dispatch_async(dispatch_get_global_queue(0,0), ^{
+       
         NSData * data = [[NSData alloc] initWithContentsOfURL: [self.selectedProduct urlPhoto]];
         if ( data == nil )
             return;
@@ -55,21 +57,29 @@
     [self shoppingCartActionsInit];
     [self setUpImageBackButton];
     self.txtAmmount.delegate = self;
-    [self.segmentLargeMedium addTarget: self action: @selector(changedValue) forControlEvents: UIControlEventValueChanged];
+    [self.segmentLargeMedium addTarget: self
+                                action: @selector(changedValue)
+                      forControlEvents: UIControlEventValueChanged];
+    
     [self updateAmountTF];
 }
 
 - (void) changedValue{
     [self updateAmountTF];
     if (self.segmentLargeMedium.selectedSegmentIndex == 0) {
+        
         self.lblPrice.text = [NSString stringWithFormat: @"%ld", [self.selectedProduct.price longValue] -3];
     }else
         self.lblPrice.text = [NSString stringWithFormat: @"%ld", [self.selectedProduct.price longValue]];
 }
-- (void) updateAmountTF{
-    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", (long)[[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize: [self.segmentLargeMedium titleForSegmentAtIndex: self.segmentLargeMedium.selectedSegmentIndex]]];
 
+- (void) updateAmountTF{
+    self.txtAmmount.text = [NSString stringWithFormat: @"%ld",
+                            (long)[[SPManager sharedManager] amountForProductInCart: self.selectedProduct
+                                                                           withSize: [self.segmentLargeMedium
+                                                                                      titleForSegmentAtIndex: self.segmentLargeMedium.selectedSegmentIndex]]];
 }
+
 #pragma mark - Cart Actions
 - (void)shoppingCartActionsInit{
     
@@ -142,14 +152,13 @@
 }
 
 #pragma mark - <UITextFieldDelegate>
-
 - (BOOL) textFieldShouldReturn:(UITextField *)textField{
     return YES;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    NSInteger total = [textField.text integerValue ] - [[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize:[self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]]];
+    
+    NSInteger total = [textField.text integerValue] - [[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize:[self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]]];
     
     [self createOrderForCurrentProduct: @(total)];
-
 }
 @end

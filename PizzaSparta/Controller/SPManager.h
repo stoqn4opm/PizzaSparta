@@ -14,16 +14,16 @@
 typedef void (^SPManagerSuccessBlock)(NSString* status);
 
 @interface SPManager : NSObject
-@property (readonly, strong, nonatomic) NSManagedObjectContext *privateParentMOContext;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *mainUIMOContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSManagedObjectContext       *privateParentMOContext;
+@property (readonly, strong, nonatomic) NSManagedObjectContext       *mainUIMOContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel         *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) NSMutableArray* cart;
 
 @property (strong, nonatomic) User* loggedUser;
-@property(nonatomic)BOOL isUserLogIn;
-@property(nonatomic)BOOL doesUserExist;
+@property (nonatomic)          BOOL isUserLogIn;
+@property (nonatomic)          BOOL doesUserExist;
 
 @property (atomic, strong) NSOperationQueue *uiOperationQueue;
 + (instancetype) sharedManager;
@@ -42,15 +42,12 @@ typedef void (^SPManagerSuccessBlock)(NSString* status);
 - (NSInteger) amountForProductInCart:(Product *) product withSize:(NSString *) size;
 
 - (void) saveParentContextToStore;
-
 - (void) updateMenu;
+- (void) readUserAddresses;
+- (void) logOutUser;
 
--(void)readUserAddresses;
+- (NSArray*)getUserInfoAsArray;
 
--(void)logOutUser;
-
--(NSArray*)getUserInfoAsArray;
-
--(void)addForCurrentUserNewAddress:(NSString*)newAddress;
--(void)deleteForCurrentUserAddress:(UserAdress*)address completion:(SPManagerSuccessBlock)completion;
+- (void) addForCurrentUserNewAddress:(NSString*)newAddress;
+- (void) deleteForCurrentUserAddress:(UserAdress*)address completion:(SPManagerSuccessBlock)completion;
 @end

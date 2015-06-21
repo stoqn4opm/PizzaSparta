@@ -28,11 +28,6 @@
 
 @implementation SPRegistrationTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self prepareUI];
@@ -132,15 +127,14 @@
         }
         [self.createUserActivity stopAnimating];
     }];
-    
 }
 
 #pragma mark - User Actions Helper Methods
 -(BOOL)fieldsAreEmpty{
     
-    return [NSString isEmptyString:self.txtAddress.text] ||
-           [NSString isEmptyString:self.txtName.text] ||
-           [NSString isEmptyString:self.txtPassword.text] ||
+    return [NSString isEmptyString:self.txtAddress.text]        ||
+           [NSString isEmptyString:self.txtName.text]           ||
+           [NSString isEmptyString:self.txtPassword.text]       ||
            [NSString isEmptyString:self.txtRepeatPassword.text] ||
            [NSString isEmptyString:self.txtUsername.text];
 }

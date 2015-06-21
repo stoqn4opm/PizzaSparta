@@ -10,7 +10,6 @@
 
 @interface SPIngredientsCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @end
@@ -23,15 +22,4 @@
     self.priceLabel.text = [NSString stringWithFormat: @"+ %.2f BGN", _ingredient.priceIngredient];
     [self.includeSwitch setOn: _ingredient.isIncluded];
 }
-
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
-
 @end

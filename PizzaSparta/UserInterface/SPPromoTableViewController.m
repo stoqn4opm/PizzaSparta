@@ -68,6 +68,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
     [[segue destinationViewController] setSelectedProduct:selectedProduct];
 }
+
 #pragma mark - NSResultsFetchController Init
 -(NSFetchedResultsController *)fetchController{
     

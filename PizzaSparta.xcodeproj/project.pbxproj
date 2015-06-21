@@ -153,8 +153,6 @@
 		F259CDF61B35D8900029BA68 /* SPOrderDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDetailsTableViewController.m; path = UserInterface/SPOrderDetailsTableViewController.m; sourceTree = "<group>"; };
 		F259CDF81B35D8E00029BA68 /* SPOrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPOrderDetailsTableViewCell.h; path = UserInterface/SPOrderDetailsTableViewCell.h; sourceTree = "<group>"; };
 		F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPOrderDetailsTableViewCell.m; path = UserInterface/SPOrderDetailsTableViewCell.m; sourceTree = "<group>"; };
-		F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCustomPizza.h; path = PizzaSparta/UserInterface/SPCustomPizza.h; sourceTree = SOURCE_ROOT; };
-		F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCustomPizza.m; path = PizzaSparta/UserInterface/SPCustomPizza.m; sourceTree = SOURCE_ROOT; };
 		F25ABCE31B31FCFA005D11AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F25ABCE41B31FCFA005D11AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F25ABCE61B31FD2D005D11AD /* SPDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatabaseManager.h; sourceTree = "<group>"; };
@@ -421,8 +419,6 @@
 				F27439301B25BFA700356D1F /* NSString+Check.m */,
 				F2E9DD361B2874AF00F2E3BD /* UserAdress.h */,
 				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
-				F25ABCE01B31CBA4005D11AD /* SPCustomPizza.h */,
-				F25ABCE11B31CBA4005D11AD /* SPCustomPizza.m */,
 				F130DFA71B304BAA009EEE8B /* Ingredient.h */,
 				F130DFA81B304BAA009EEE8B /* Ingredient.m */,
 				F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */,

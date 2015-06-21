@@ -27,6 +27,5 @@
     else{
         _isDelivered.text = @"Delivered";
     }
-    
 }
 @end

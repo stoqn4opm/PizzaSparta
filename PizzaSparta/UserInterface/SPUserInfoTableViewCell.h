@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SPUserInfoTableViewCell : UITableViewCell
-    -(void)configureWithString:(NSString*) labelString;
+
+- (void) configureWithString:(NSString*) labelString;
 @end

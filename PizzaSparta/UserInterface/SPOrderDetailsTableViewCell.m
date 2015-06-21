@@ -10,9 +10,9 @@
 #import "AsyncImageView.h"
 @interface SPOrderDetailsTableViewCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView __block *cellImage;
-@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblAmountIncart;
+@property (weak, nonatomic) IBOutlet UIImageView         *cellImage;
+@property (weak, nonatomic) IBOutlet UILabel             *lblTitle;
+@property (weak, nonatomic) IBOutlet UILabel             *lblAmountIncart;
 
 @end
 
@@ -21,20 +21,16 @@
 - (void)configureCartCellWithProduct:(NSDictionary*)product{
     
     
-        [self.lblTitle setText: [product valueForKey:@"title"]];
-        [self.lblAmountIncart setText:[product valueForKey:@"numberOfProduct"]];
-        if(![[product valueForKey:@"photoURL"] isEqualToString:@"none"]){
-            NSString* photourl = [product valueForKey:@"photoURL"];
-            [self.cellImage setImageURL:[NSURL URLWithString:photourl]];
-        }
-        else{
-            [self.cellImage setImage: [UIImage imageNamed: @"PizzaImage"]];
-        }
-  
+    [self.lblTitle setText:       [product valueForKey:@"title"]];
+    [self.lblAmountIncart setText:[product valueForKey:@"numberOfProduct"]];
     
-    
-    
+    if(![[product valueForKey:@"photoURL"] isEqualToString:@"none"]){
+        
+        NSString* photourl = [product valueForKey:@"photoURL"];
+        [self.cellImage setImageURL:[NSURL URLWithString:photourl]];
+    }
+    else{
+        [self.cellImage setImage: [UIImage imageNamed: @"PizzaImage"]];
+    }
 }
-
-
 @end

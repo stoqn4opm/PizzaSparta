@@ -11,15 +11,15 @@
 #import "UserOrders.h"
 
 @interface User : NSObject
-    @property(nonatomic)NSInteger userId;
-    @property(strong, nonatomic)NSString* username;
-    @property(strong, nonatomic)NSString* password;
-    @property(strong, nonatomic)NSString* name;
-    @property(strong, nonatomic)NSMutableArray* addresses;
-    @property(strong, nonatomic)NSMutableArray* orders;
-    @property(strong, nonatomic)NSMutableArray* currentOrderDetails;
+@property(nonatomic)NSInteger userId;
+@property(strong, nonatomic)NSString* username;
+@property(strong, nonatomic)NSString* password;
+@property(strong, nonatomic)NSString* name;
+@property(strong, nonatomic)NSMutableArray* addresses;
+@property(strong, nonatomic)NSMutableArray* orders;
+@property(strong, nonatomic)NSMutableArray* currentOrderDetails;
 
-    -(void)readAllAddresses:(NSArray*)alladdresses;
-    -(void)readAllOrders:(NSArray*)allorders;
-    -(BOOL)checkIfAddressExist:(NSString*)checkindAddress;
+-(void)readAllAddresses:(NSArray*)alladdresses;
+-(void)readAllOrders:(NSArray*)allorders;
+-(BOOL)checkIfAddressExist:(NSString*)checkindAddress;
 @end

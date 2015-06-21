@@ -10,7 +10,7 @@
 
 @implementation UserOrders
 -(id)init{
-    self=[super init];
+    self = [super init];
     if(self){
         _products=[[NSMutableArray alloc] init];
     }

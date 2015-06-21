@@ -19,44 +19,42 @@
                        isPromo: (NSNumber* ) isPromo
                       poductID: (NSNumber *) productID
                    andPhotoURL: (NSString *) URL{
-
+    
     Product *newProduct = nil;
     
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
-    newProduct.title = title;
-    newProduct.size = size;
-    newProduct.price = price;
-    newProduct.productDesc = description;
-    newProduct.type = type;
-    newProduct.idProduct = productID;
-    newProduct.isPromo = isPromo;
-    newProduct.photoURL = URL;
+    newProduct.title        = title;
+    newProduct.size         = size;
+    newProduct.price        = price;
+    newProduct.productDesc  = description;
+    newProduct.type         = type;
+    newProduct.idProduct    = productID;
+    newProduct.isPromo      = isPromo;
+    newProduct.photoURL     = URL;
+    
     [context save: NULL];
-//    [[SPManager sharedManager] saveParentContextToStore];
-
+    
     return newProduct;
 }
 
 + (Product *) productFromDictionarry: (NSDictionary *) element{
-
+    
     NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
     Product *newProduct = [NSEntityDescription insertNewObjectForEntityForName: @"Product" inManagedObjectContext:context];
-   
-    [newProduct setIdProduct: [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
-    [newProduct setTitle:[element objectForKey:@"title"]];
-    [newProduct setPrice: [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
-    [newProduct setProductDesc:[element objectForKey:@"productDesc"]];
-    [newProduct setType:[element objectForKey:@"type"]];
-    [newProduct setIsPromo: [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
-    [newProduct setSize:[element objectForKey:@"size"]];
-    [newProduct setPhotoURL: [element objectForKey: @"photoURL"]];
     
+    [newProduct setIdProduct:   [NSNumber numberWithInteger:[[element objectForKey:@"id"] integerValue]]];
+    [newProduct setTitle:       [element objectForKey:@"title"]];
+    [newProduct setPrice:       [NSNumber numberWithInteger:[[element objectForKey:@"price"] integerValue]]];
+    [newProduct setProductDesc: [element objectForKey:@"productDesc"]];
+    [newProduct setType:        [element objectForKey:@"type"]];
+    [newProduct setIsPromo:     [NSNumber numberWithInteger:[[element objectForKey:@"isPromo"] integerValue]]];
+    [newProduct setSize:        [element objectForKey:@"size"]];
+    [newProduct setPhotoURL:    [element objectForKey: @"photoURL"]];
     
     [context save: NULL];
     
     return newProduct;
-
 }
 
 #pragma mark - property setters and getters
@@ -83,7 +81,7 @@
 }
 
 - (void) setPromo: (BOOL) isPromo andNewPrice: (NSNumber *) newPrice{
-
+    
     if (isPromo) {
         self.isPromo = @1;
     }else

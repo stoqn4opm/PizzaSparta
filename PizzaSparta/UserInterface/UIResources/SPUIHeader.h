@@ -25,9 +25,9 @@
 #define SPCORNER_RADIUS 9.0f
 
 typedef NSString SPMenuType;
-#define SPPizza @"Pizza"
-#define SPPasta @"Pasta"
-#define SPDrinks @"Drinks"
+#define SPPizza     @"Pizza"
+#define SPPasta     @"Pasta"
+#define SPDrinks    @"Drinks"
 
 typedef enum{
     SPALERT_TYPE_WRONG_USERNAME_PASSWORD = 0,

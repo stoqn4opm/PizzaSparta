@@ -27,17 +27,10 @@
     return sharedManager;
 }
 
-//product *      //
-//amount    int
-//suze  SPSize
-
 - (instancetype) init {
     self = [super init];
     if (self) {
         _cart = [[NSMutableArray alloc] init];
-//        NSMutableArray *emptyArr = [[NSMutableArray alloc] init];
-//        [_cart setValue: emptyArr forKey: @"Product"];
-//        [_cart setValue: emptyArr forKey: @"Amount"];
         _loggedUser=[[User alloc] init];
         _isUserLogIn = NO;
         _doesUserExist= NO;
@@ -47,7 +40,6 @@
 }
 
 #pragma mark - logged in accounts
-
 - (void) saveLoggedUserForAutologin{
     [self clearLoggedAccounts];
     NSManagedObjectContext *context = [self privateChildMOContext];
@@ -85,9 +77,7 @@
         NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName: @"Account"];
         NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
         NSArray *matches = [context executeFetchRequest: request error: NULL];
-//        [context performBlock:^{
-//            context executeFetchRequest:<#(NSFetchRequest *)#> error:<#(NSError *__autoreleasing *)#>
-//        }];
+        
         return [matches[0] username];
     }
     return NULL;
@@ -105,13 +95,18 @@
 
 
 #pragma mark - cart
-
 - (void) addProductToCart:(NSMutableDictionary *) product{
+    
     for (int i = 0; i < [self.cart count]; i++){
+        
         NSMutableDictionary *dict = self.cart[i];
-        if ([[dict valueForKey: @"Product"] productID] == [[product valueForKey: @"Product"] productID]) {
-            if ([[dict valueForKey: @"Size"] isEqualToString: [product valueForKey: @"Size"]]) {
-                NSInteger amount = [[dict valueForKey: @"Amount"] longValue] + [[product valueForKey: @"Amount"] longValue];
+        if ( [[dict valueForKey: @"Product"] productID] == [[product valueForKey: @"Product"] productID] ) {
+            
+            if ( [[dict valueForKey: @"Size"] isEqualToString: [product valueForKey: @"Size"]] ) {
+                
+                NSInteger amount =
+                [[dict valueForKey: @"Amount"] longValue] + [[product valueForKey: @"Amount"] longValue];
+                
                 if (amount < 1) {
                     [self.cart removeObjectAtIndex: i];
                 }else
@@ -124,23 +119,23 @@
     [self.cart addObject: product];
 }
 
-
 - (NSInteger) amountForProductInCart:(Product *) product withSize:(NSString *) size{
     for (NSMutableDictionary *dict in self.cart) {
-        if ([[dict valueForKey: @"Product"] productID] == [product productID] && [[dict valueForKey: @"Size"] isEqualToString: size]) {
+        
+        if ([[dict valueForKey: @"Product"] productID] == [product productID] &&
+            [[dict valueForKey: @"Size"] isEqualToString: size]) {
+            
             return [[dict valueForKey: @"Amount"] longValue];
         }
     }
     return 0;
 }
 
-
-
 #pragma mark - Core Data stack
-@synthesize privateParentMOContext = _privateParentMOContext;
-@synthesize mainUIMOContext = _mainUIMOContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize privateParentMOContext      = _privateParentMOContext;
+@synthesize mainUIMOContext             = _mainUIMOContext;
+@synthesize managedObjectModel          = _managedObjectModel;
+@synthesize persistentStoreCoordinator  = _persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "MentorMateAcademy.PizzaSparta" in the application's documents directory.
@@ -176,17 +171,13 @@
         dict[NSLocalizedFailureReasonErrorKey] = failureReason;
         dict[NSUnderlyingErrorKey] = error;
         error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
-        // Replace this with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
     }
-    
     return _persistentStoreCoordinator;
 }
 
 #pragma mark - ManagedObjectContexts getters
-
 - (NSManagedObjectContext *)privateParentMOContext {
     if (_privateParentMOContext != nil) {
         return _privateParentMOContext;
@@ -224,7 +215,6 @@
 }
 
 #pragma mark - Core Data Saving support
-
 - (void)saveParentContextToStore {
     
     NSManagedObjectContext *managedObjectContext = self.privateParentMOContext;
@@ -233,12 +223,7 @@
         [self.privateChildMOContext save:&error];
         [self.mainUIMOContext save:&error];
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate.
-            // You should not use this function in a shipping application,
-            // although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
         }
     }
 }
@@ -247,7 +232,6 @@
 - (void) updateMenu{
     [[SPDatabaseManager sharedDatabaseManager] getAllProductsFromDataBase];
 }
-
 
 -(void)readUserAddresses{
     if((self.loggedUser != nil) && (self.isUserLogIn == YES)){
@@ -261,6 +245,7 @@
         }];
     }
 }
+
 -(void)logOutUser{
     if(self.isUserLogIn) {
         [self clearLoggedAccounts];

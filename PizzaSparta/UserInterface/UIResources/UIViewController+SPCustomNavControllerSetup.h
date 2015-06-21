@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (SPCustomNavControllerSetup)
-- (void)setUpImageBackButton;
--(void)setupNavigationBarBackground;
--(void)setupSpartaLabel;
+
+- (void) setUpImageBackButton;
+- (void) setupNavigationBarBackground;
+- (void) setupSpartaLabel;
 @end

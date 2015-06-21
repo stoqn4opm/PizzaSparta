@@ -7,22 +7,13 @@
 //
 
 #import "SPUserAddressTableViewCell.h"
-@interface SPUserAddressTableViewCell()
 
+@interface SPUserAddressTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end
+
 @implementation SPUserAddressTableViewCell
-
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 -(void)configureAddressLabel:(UserAdress*) address{
     self.addressLabel.text = [address address];

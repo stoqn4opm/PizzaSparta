@@ -11,6 +11,5 @@
 
 @interface SPUserAddressTableViewCell : UITableViewCell
 
--(void)configureAddressLabel:(UserAdress*) address;
-
+- (void) configureAddressLabel:(UserAdress*) address;
 @end

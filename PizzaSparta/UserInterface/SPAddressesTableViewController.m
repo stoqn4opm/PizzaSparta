@@ -15,7 +15,6 @@
 @interface SPAddressesTableViewController ()<UIAlertViewDelegate>
 
 @property(nonatomic, strong)NSMutableArray* currentAddresses;
-
 @end
 
 @implementation SPAddressesTableViewController
@@ -27,10 +26,11 @@
     [self setupSpartaLabel];
     [self getUserAddresses];
     [self prepareUI];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)prepareUI{
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     UIButton *addAdressButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 26, 26)];
     [addAdressButton setBackgroundImage:[UIImage imageNamed:@"PlusLabel"] forState:UIControlStateNormal];
@@ -53,11 +53,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.currentAddresses.count <1){
+    
+    if(self.currentAddresses.count < 1){
         return nil;
     }
     
-    SPUserAddressTableViewCell *addressCell = [tableView dequeueReusableCellWithIdentifier:@"SPUserSingleAddress" forIndexPath:indexPath];
+    SPUserAddressTableViewCell *addressCell = [tableView
+                                               dequeueReusableCellWithIdentifier:@"SPUserSingleAddress"
+                                               forIndexPath:indexPath];
+    
     [addressCell configureAddressLabel:[self.currentAddresses objectAtIndex:indexPath.row]];
     return addressCell;
 }
@@ -66,7 +70,10 @@
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if(self.currentAddresses.count>1){
             [self reloadTableContentAfterDeleteAddress:self.currentAddresses[indexPath.row]];
@@ -84,7 +91,6 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
-    
     
     UIImageView *headerImage = [[UIImageView alloc]
                                 initWithFrame:CGRectMake(0, 0, header.frame.size.width, 30)];
@@ -105,14 +111,13 @@
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
 
 -(void)getUserAddresses{
     [self.currentAddresses removeAllObjects];
-    self.currentAddresses=[[NSMutableArray alloc]initWithArray:[[[SPManager sharedManager] loggedUser] addresses]];
+    self.currentAddresses = [[NSMutableArray alloc]initWithArray:[[[SPManager sharedManager] loggedUser] addresses]];
 }
 
 -(void)reloadTableContentAfterDeleteAddress:(UserAdress*) chaddress{
@@ -146,9 +151,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     else{
         [[SPManager sharedManager] addForCurrentUserNewAddress:alertTextFieldNewAddress.text];
         [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(reloadTableViewDate) userInfo:nil repeats:NO];
-        
     }
-    
 }
 
 -(void)reloadTableViewDate{

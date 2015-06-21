@@ -10,7 +10,7 @@
 #import "Ingredient.h"
 
 @interface SPIngredientsCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UISwitch *includeSwitch;
-@property (strong, nonatomic) Ingredient *ingredient;
+@property (weak, nonatomic) IBOutlet UISwitch   *includeSwitch;
+@property (strong, nonatomic) Ingredient        *ingredient;
 
 @end

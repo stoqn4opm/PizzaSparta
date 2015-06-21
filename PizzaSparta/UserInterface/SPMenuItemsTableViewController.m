@@ -16,6 +16,7 @@
 #import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPMenuItemsTableViewController () <NSFetchedResultsControllerDelegate>
+
 @property (nonatomic, strong) NSFetchedResultsController *fetchController;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong) UIImageView *createCustomPizza;
@@ -27,15 +28,14 @@
     [super viewDidLoad];
     [self.fetchController performFetch:nil];
     [self prepareUI];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated{
     [self.tableView reloadData];
 }
+
 #pragma mark - UI Preparation
--(void) prepareUI{
+- (void) prepareUI{
     
     if ([self.selectedType isEqualToString:SPPizza]) {
 
@@ -101,6 +101,7 @@
     }
     return 0;
 }
+
 -(UIView *)tableView:(UITableView *)tableView
     viewForHeaderInSection:(NSInteger)section{
     
@@ -152,7 +153,9 @@
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender{
+    
     if(![[segue identifier]isEqualToString:@"CustomPizza"]){
+        
         Product *selectedProduct = [self.fetchController objectAtIndexPath:self.selectedIndexPath];
         [[segue destinationViewController] setSelectedProduct:selectedProduct];
     }
@@ -183,7 +186,6 @@
                                                                       cacheName:nil];
     [_fetchController setDelegate:self];
     return _fetchController;
-    
 }
 
 #pragma mark - <NSFetchResultsControllerDelegate> Methods
@@ -229,17 +231,4 @@
         }
     }
 }
-
--(void)logOutAction{
-    NSLog(@"click");
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *goToLogInVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"loginController"];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:goToLogInVC];
-    [self presentViewController:navController animated:YES completion:^{
-        [[SPManager sharedManager] logOutUser];
-    }];
-}
-
-
-
 @end
