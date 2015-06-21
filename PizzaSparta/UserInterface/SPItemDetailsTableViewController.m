@@ -12,7 +12,7 @@
 #import "SPManager.h"
 #import "AsyncImageView.h"
 
-@interface SPItemDetailsTableViewController ()
+@interface SPItemDetailsTableViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView __block *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
@@ -54,6 +54,7 @@
     [self.navigationItem setTitle:@""];
     [self shoppingCartActionsInit];
     [self setUpImageBackButton];
+    self.txtAmmount.delegate = self;
 }
 
 #pragma mark - Cart Actions
@@ -96,14 +97,7 @@
     }];
     
     if (self.currentAmount > 0) {
-        //        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
-        //        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
-        [self currentAmout: self.currentAmount -1];
-        NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
-        [product setValue: self.selectedProduct forKey: @"Product"];
-        [product setValue: @(-1) forKey: @"Amount"];
-        [product setValue: @"Large" forKey: @"Size"];
-        [[SPManager sharedManager] addProductToCart: product];
+        [self createOrderForCurrentProduct: @(-1)];
     }
 }
 
@@ -118,14 +112,29 @@
     [self currentAmout: self.currentAmount +1];
 
     if (self.currentAmount > 0) {
-        //        self.lblAmmount.text = [NSString stringWithFormat:@"%ld",(unsigned long)--self.currentAmount];
-        //        [[SPManager sharedManager]addProductToCart:_currentProduct amount:-1];
-        NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
-        [product setValue: self.selectedProduct forKey: @"Product"];
-        [product setValue: @(1) forKey: @"Amount"];
-        [product setValue: @"Large" forKey: @"Size"];
-        [[SPManager sharedManager] addProductToCart: product];
+        [self createOrderForCurrentProduct: @(1)];
     }
 }
 
+- (void) createOrderForCurrentProduct: (NSNumber *) amount{
+    NSMutableDictionary* product = [[NSMutableDictionary alloc] init];
+    [product setValue: self.selectedProduct forKey: @"Product"];
+    [product setValue: amount forKey: @"Amount"];
+    [product setValue: [self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]] forKey: @"Size"];
+    [[SPManager sharedManager] addProductToCart: product];
+    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", [[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize:[self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]]]];
+
+}
+
+#pragma mark - <UITextFieldDelegate>
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    NSInteger total = [textField.text integerValue ] - [[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize:[self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]]];
+    
+    [self createOrderForCurrentProduct: @(total)];
+
+}
 @end
