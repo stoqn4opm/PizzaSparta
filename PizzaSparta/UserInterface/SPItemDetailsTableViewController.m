@@ -55,8 +55,21 @@
     [self shoppingCartActionsInit];
     [self setUpImageBackButton];
     self.txtAmmount.delegate = self;
+    [self.segmentLargeMedium addTarget: self action: @selector(changedValue) forControlEvents: UIControlEventValueChanged];
+    [self updateAmountTF];
 }
 
+- (void) changedValue{
+    [self updateAmountTF];
+    if (self.segmentLargeMedium.selectedSegmentIndex == 0) {
+        self.lblPrice.text = [NSString stringWithFormat: @"%ld", [self.selectedProduct.price longValue] -3];
+    }else
+        self.lblPrice.text = [NSString stringWithFormat: @"%ld", [self.selectedProduct.price longValue]];
+}
+- (void) updateAmountTF{
+    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", (long)[[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize: [self.segmentLargeMedium titleForSegmentAtIndex: self.segmentLargeMedium.selectedSegmentIndex]]];
+
+}
 #pragma mark - Cart Actions
 - (void)shoppingCartActionsInit{
     
@@ -98,6 +111,8 @@
     
     if (self.currentAmount > 0) {
         [self createOrderForCurrentProduct: @(-1)];
+        [self currentAmout: self.currentAmount -1];
+
     }
 }
 
@@ -122,7 +137,7 @@
     [product setValue: amount forKey: @"Amount"];
     [product setValue: [self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]] forKey: @"Size"];
     [[SPManager sharedManager] addProductToCart: product];
-    self.txtAmmount.text = [NSString stringWithFormat: @"%ld", [[SPManager sharedManager] amountForProductInCart: self.selectedProduct withSize:[self.segmentLargeMedium titleForSegmentAtIndex: [self.segmentLargeMedium selectedSegmentIndex]]]];
+    [self updateAmountTF];
 
 }
 
