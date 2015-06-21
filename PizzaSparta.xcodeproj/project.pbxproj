@@ -11,6 +11,7 @@
 		03C300C51B2F4E1600154C49 /* SPUIHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C41B2F4E1600154C49 /* SPUIHeader.m */; };
 		03C300C81B2F5A8700154C49 /* SPRegistrationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */; };
 		03C301041B3032A600154C49 /* SPCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C301031B3032A600154C49 /* SPCartTableViewCell.m */; };
+		088D98131B36F4210088978E /* SPPromoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 088D98121B36F4210088978E /* SPPromoTableViewCell.m */; };
 		9007CE9F1B1F2A4C00F4650F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007CE9E1B1F2A4C00F4650F /* main.m */; };
 		9007CEAB1B1F2A4D00F4650F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEA91B1F2A4D00F4650F /* Main.storyboard */; };
 		9007CEAD1B1F2A4D00F4650F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9007CEAC1B1F2A4D00F4650F /* Images.xcassets */; };
@@ -80,6 +81,8 @@
 		03C300C71B2F5A8700154C49 /* SPRegistrationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRegistrationTableViewController.m; path = UserInterface/SPRegistrationTableViewController.m; sourceTree = "<group>"; };
 		03C301021B3032A600154C49 /* SPCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPCartTableViewCell.h; path = UserInterface/SPCartTableViewCell.h; sourceTree = "<group>"; };
 		03C301031B3032A600154C49 /* SPCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPCartTableViewCell.m; path = UserInterface/SPCartTableViewCell.m; sourceTree = "<group>"; };
+		088D98111B36F4210088978E /* SPPromoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPPromoTableViewCell.h; path = UserInterface/SPPromoTableViewCell.h; sourceTree = "<group>"; };
+		088D98121B36F4210088978E /* SPPromoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPPromoTableViewCell.m; path = UserInterface/SPPromoTableViewCell.m; sourceTree = "<group>"; };
 		9007CE991B1F2A4C00F4650F /* PizzaSparta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSparta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9007CE9D1B1F2A4C00F4650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9007CE9E1B1F2A4C00F4650F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				F259CDF31B35ACA60029BA68 /* SPUserAddressTableViewCell.m */,
 				F259CDF81B35D8E00029BA68 /* SPOrderDetailsTableViewCell.h */,
 				F259CDF91B35D8E00029BA68 /* SPOrderDetailsTableViewCell.m */,
+				088D98111B36F4210088978E /* SPPromoTableViewCell.h */,
+				088D98121B36F4210088978E /* SPPromoTableViewCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				90C16B2A1B2393FE0045788C /* UIViewController+SPCustomNavControllerSetup.m in Sources */,
 				03C300C31B2F29EA00154C49 /* SPLoginTableViewController.m in Sources */,
 				90A954CF1B202546006A0D8E /* SPCartTableViewController.m in Sources */,
+				088D98131B36F4210088978E /* SPPromoTableViewCell.m in Sources */,
 				90376E1A1B32DDEB00791FA4 /* SPAutoLoginTableViewCell.m in Sources */,
 				90376E171B32CB8E00791FA4 /* SPAccountTableViewController.m in Sources */,
 				F27439311B25BFA700356D1F /* NSString+Check.m in Sources */,

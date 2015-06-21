@@ -12,6 +12,7 @@
 #import "Product+Modify.h"
 #import "SPItemDetailsTableViewController.h"
 #import "SPManager.h"
+#import "SPPromoTableViewCell.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
 
 @interface SPMenuItemsTableViewController () <NSFetchedResultsControllerDelegate>
@@ -72,10 +73,17 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     Product *productEntry = [self.fetchController objectAtIndexPath:indexPath];
+    if ([productEntry promo]) {
+        SPPromoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPPromoTableViewCell"
+                                                                   forIndexPath:indexPath];
+        [cell configureItemCell:productEntry];
+        return cell;
+    }else{
     SPItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPItemTableViewCell"
                                                             forIndexPath:indexPath];
-    [cell configureItemCell:productEntry];
-    return cell;
+        [cell configureItemCell:productEntry];
+        return cell;
+    }
 }
 
 #pragma mark - <UITableViewDelegate> Methods

@@ -12,6 +12,7 @@
 #import "SPItemDetailsTableViewController.h"
 #import "SPManager.h"
 #import "UIViewController+SPCustomNavControllerSetup.h"
+#import "SPPromoTableViewCell.h"
 
 @interface SPPromoTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchController;
@@ -46,7 +47,7 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     Product *productEntry = [self.fetchController objectAtIndexPath:indexPath];
-    SPItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPItemTableViewCell"
+    SPPromoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SPItemTableViewCell"
                                                                 forIndexPath:indexPath];
     [cell configureItemCell:productEntry];
     return cell;
