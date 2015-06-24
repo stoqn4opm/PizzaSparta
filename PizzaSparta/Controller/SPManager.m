@@ -13,6 +13,7 @@
 #import "Product+Modify.h"
 #import "SPDatabaseManager.h"
 #import "SPCustomPizza.h"
+#import "SPAppDelegate.h"
 
 @implementation SPManager
 
@@ -284,6 +285,109 @@
             }
         }];
     }
+}
+
+- (float) cartTotal{
+    CGFloat total = 0;
+    
+    for (NSMutableDictionary *dict in self.cart) {
+        if([[dict valueForKey: @"Product"] isKindOfClass:[Product class]]){
+            Product *currentProduct = [dict valueForKey: @"Product"];
+            total = total + [currentProduct.price floatValue];
+            if ([[dict valueForKey: @"Size"] isEqualToString: @"Medium"]) {
+                total -= 3.0f;
+            }
+        }
+        else{
+            SPCustomPizza *currentProduct = [dict valueForKey: @"Product"];
+            total = total + currentProduct.price ;
+            if ([[dict valueForKey: @"Size"] isEqualToString: @"Medium"]) {
+                total -= 3.0f;
+            }
+
+        }
+    }
+    return total;
+}
+-(void)checkOrderStatusDoesChange{
+    [self getAllOrdersForUser];
+    [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                     target:self selector:@selector(checkOrderStatus) userInfo:nil repeats:YES];
+}
+
+-(void)checkOrderStatus{
+    if([[self.loggedUser orders] count] > 0){
+        for(UserOrders * element in [self.loggedUser orders]){
+            if(element.isDelivered == 0){
+                [[SPDatabaseManager sharedDatabaseManager] getOrderWithId:[element orderId] WithCompletion:^(NSDictionary* dict){
+                    if(dict){
+                        if([[dict  valueForKey:@"isDelivered"] isEqualToString:@"2"]){
+                            [element setIsDelivered:2];
+                            NSLog(@"%@ element - %ld",[dict  valueForKey:@"isDelivered"], [element isDelivered]);
+                            
+                            [self addNotification:[NSString stringWithFormat:@"%@ - out for delivery", [element dateOrder]]];
+                        }
+                        else if([[dict  valueForKey:@"isDelivered"] isEqualToString:@"1"]){
+                            [element setIsDelivered:1];
+                             NSLog(@"%@ element - %ld",[dict  valueForKey:@"isDelivered"], [element isDelivered]);
+                            [self addNotification:[NSString stringWithFormat:@"%@ - delivered", [element dateOrder]]];
+                        }
+                    }
+                    else{
+                        NSLog(@"error notification no to go");
+                    }
+                }];
+            }
+            else if(element.isDelivered == 2){
+                [[SPDatabaseManager sharedDatabaseManager] getOrderWithId:[element orderId] WithCompletion:^(NSDictionary* dict){
+                    if(dict){
+                        if([[dict valueForKey:@"isDelivered"] isEqualToString:@"1"]){
+                            [element setIsDelivered:1];
+                            [self addNotification:[NSString stringWithFormat:@"%@ - delivered", [element dateOrder]]];
+                            
+                             NSLog(@"%@ element - %ld",[dict  valueForKey:@"isDelivered"], [element isDelivered]);
+                        }
+                    }
+                    else{
+                        NSLog(@"error notification not delivered");
+                    }
+                }];
+            }
+        }
+        
+    }
+}
+
+-(void)addNotification:(NSString*)text{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    NSDate *now = [NSDate date];
+    
+    
+    localNotification.fireDate = now;
+    localNotification.alertBody = text;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber = 1;
+    
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+}
+
+-(void)getAllOrdersForUser{
+    
+    [[SPDatabaseManager sharedDatabaseManager]
+     allOrdersWithType:ORDER_TYPE_ALL
+     completion:^(NSArray* array){
+         
+         if(array){
+             [[[SPManager sharedManager] loggedUser] readAllOrders:array];
+         }else{
+             NSLog(@"not found");
+         }
+     }];
 }
 
 @end

@@ -79,7 +79,7 @@
     
     result = (result && [product.title       isEqualToString: [dict valueForKey: @"title"]]);
     result = (result && [product.productDesc isEqualToString: [dict valueForKey: @"productDesc"]]);
-    result = (result && [product.price       isEqual: @([dict[@"price"] integerValue])]);
+    result = (result && [product.price       isEqual: @([dict[@"price"] floatValue])]);
     result = (result && [product.isPromo     isEqual: @([dict[@"isPromo"] integerValue])]);
    
     return result;
@@ -486,11 +486,11 @@
     }
 }
 
--(void)getOrderWithId:(NSInteger*)orderId
-       WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder{
+-(void)getOrderWithId:(NSInteger)orderId
+       WithCompletion:(SPDatabaseManagerSuccessBlockReadOrder)completionOrder{
     
     if( ([[SPManager sharedManager] isUserLogIn] == YES) &&
-        ([[SPManager sharedManager] loggedUser] != nil)){
+       ([[SPManager sharedManager] loggedUser] != nil)){
         
         NSURL* url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://geit-dev.info/public/ios/ordersController.php?actionOrder=getOrder&orderId=%ld",
                                                     (long)orderId]];
@@ -503,23 +503,19 @@
         NSURLSessionDataTask *registrationSession =
         [session dataTaskWithURL:url
                completionHandler:^(NSData* data, NSURLResponse *response, NSError *error) {
-        
+                   
                    NSError *parseError;
-                   NSArray * result =[NSJSONSerialization JSONObjectWithData:data
-                                                                     options:NSJSONReadingMutableContainers
-                                                                       error:&parseError];
+                   NSDictionary * result =[NSJSONSerialization JSONObjectWithData:data
+                                                                          options:NSJSONReadingMutableContainers
+                                                                            error:&parseError];
                    if(parseError){
                        NSLog(@"parse Error-%@", parseError);
                    }
                    dispatch_async(dispatch_get_main_queue(), ^{
                        
-                       if(![[result[0] valueForKey:@"id"] isEqualToString:@"none"]){
-                           
-                           completionOrder(result);
-                       }
-                       else{
-                           completionOrder(nil);
-                       }
+                       
+                       completionOrder(result);
+                       
                    });
                }];
         [registrationSession resume];

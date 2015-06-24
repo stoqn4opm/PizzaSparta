@@ -46,6 +46,13 @@ typedef void (^SPManagerSuccessBlock)(NSString* status);
 - (void) readUserAddresses;
 - (void) logOutUser;
 
+- (float)cartTotal;
+
+
+-(void)checkOrderStatusDoesChange;
+-(void)checkOrderStatus;
+-(void)getAllOrdersForUser;
+
 @property (NS_NONATOMIC_IOSONLY, getter=getUserInfoAsArray, readonly, copy) NSArray *userInfoAsArray;
 
 - (void) addForCurrentUserNewAddress:(NSString*)newAddress;

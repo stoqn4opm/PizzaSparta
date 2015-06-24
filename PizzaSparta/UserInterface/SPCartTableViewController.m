@@ -165,6 +165,32 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    
+    UILabel *totalLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, header.frame.size.width, 40)];
+    [totalLabel setBackgroundColor:SPCOLOR_DARK_BROWN];
+    [totalLabel setTintColor:[UIColor whiteColor]];
+    [totalLabel setText:[NSString stringWithFormat:@"Total: %.2f", [[SPManager sharedManager] cartTotal]]];
+    [totalLabel setTextAlignment:NSTextAlignmentCenter];
+    [totalLabel setFont:[UIFont fontWithName:@"Papyrus" size:22]];
+    //[headerImage setContentMode:UIViewContentModeScaleAspectFit];
+    //[headerImage setUserInteractionEnabled:YES];
+    
+    UIView *greenLine = [[UIView alloc]
+                         initWithFrame:CGRectMake(0, 37, header.frame.size.width, 5)];
+    
+    [greenLine setBackgroundColor:SPCOLOR_GREEN];
+    [header addSubview:totalLabel];
+    [header addSubview:greenLine];
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 40;
+}
 - (void)makeOrderWithAddressId:(UserAdress*)currentAddress{
     
     [[SPDatabaseManager sharedDatabaseManager]
@@ -174,6 +200,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
          
         if([status isEqualToString:@"success"]){
             [SPUIHeader alertViewWithType:SPALERT_TYPE_SUCCESS_ORDER];
+            [[SPManager sharedManager] getAllOrdersForUser];
             [[[SPManager sharedManager] cart] removeAllObjects];
             [self.tableView reloadData];
         }

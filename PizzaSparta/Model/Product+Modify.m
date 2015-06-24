@@ -45,7 +45,7 @@
     
     [newProduct setIdProduct:   @([element[@"id"] integerValue])];
     [newProduct setTitle:       element[@"title"]];
-    [newProduct setPrice:       @([element[@"price"] integerValue])];
+    [newProduct setPrice:       @([element[@"price"] floatValue])];
     [newProduct setProductDesc: element[@"productDesc"]];
     [newProduct setType:        element[@"type"]];
     [newProduct setIsPromo:     @([element[@"isPromo"] integerValue])];

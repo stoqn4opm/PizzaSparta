@@ -53,6 +53,7 @@
                  [[SPManager sharedManager]setIsUserLogIn:YES];
                  [[SPManager sharedManager] setLoggedUser:user];
                  [[SPManager sharedManager] readUserAddresses];
+                 [[SPManager sharedManager] checkOrderStatusDoesChange];
                  NSLog(@"Auto logged User: %@",user.name);
                  [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
              }
@@ -163,6 +164,7 @@
              [[SPManager sharedManager] setLoggedUser:user];
              [[SPManager sharedManager] setIsUserLogIn:YES];
              [[SPManager sharedManager] readUserAddresses];
+             [[SPManager sharedManager] checkOrderStatusDoesChange];
              NSLog(@"User %@ logged in", [[[SPManager sharedManager] loggedUser] username]);
              [self.activityIndicator stopAnimating];
              [self performSegueWithIdentifier:@"MainScreenSegue" sender:nil];
@@ -208,4 +210,5 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
 }
+
 @end

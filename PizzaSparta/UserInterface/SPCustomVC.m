@@ -248,5 +248,6 @@
         [product setValue: @"Large" forKey: @"Size"];
     }
     [[SPManager sharedManager] addProductToCart:product];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
