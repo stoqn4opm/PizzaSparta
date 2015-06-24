@@ -30,7 +30,7 @@
 - (void)configureItemCell :(Product *)product{
     
     [self.lblName setText:[product title]];
-    [self.lblPrice setText:[NSString stringWithFormat:@"%@", [product price]]];
+    [self.lblPrice setText:[NSString stringWithFormat:@"%.2f", [product.price floatValue]]];
     [self.lblAmmount setText:@""];
     [self setupUserInteraction];
     [self.segmentLargeMedium addTarget: self action: @selector(changedValue) forControlEvents: UIControlEventValueChanged];
@@ -55,6 +55,8 @@
         [self.segmentLargeMedium setSelectedSegmentIndex: 0];
         [self.segmentLargeMedium setTitle: @"One size" forSegmentAtIndex: 0];
     }
+
+    [self.lblName setUserInteractionEnabled:NO];
 }
 
 - (void) currentAmount:(NSInteger)currentAmount{

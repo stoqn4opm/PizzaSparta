@@ -33,7 +33,7 @@
     
     [self.lblName setText:self.selectedProduct.title];
     [self.lblDescription setText:self.selectedProduct.productDesc];
-    [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
+    [self.lblPrice setText:[NSString stringWithFormat:@"%.2f",[self.selectedProduct.price floatValue]]];
     [self.imageView setImageURL:[self.selectedProduct urlPhoto]];
     [self prepareUI];
 }

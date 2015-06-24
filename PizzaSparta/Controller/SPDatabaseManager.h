@@ -22,6 +22,7 @@ typedef void (^SPDatabaseManagerSuccessBlock)(User *user);
 typedef void (^SPDatabaseManagerSuccessBlockAddress)(NSArray* array);
 typedef void (^SPDatabaseManagerSuccessBlockOrders)(NSString *status);
 typedef void (^SPDatabaseManagerSuccessBlockReadOrders)(NSArray *array);
+typedef void (^SPDatabaseManagerSuccessBlockReadOrder)(NSDictionary *dict);
 
 @interface SPDatabaseManager : NSObject
 
@@ -60,8 +61,8 @@ typedef void (^SPDatabaseManagerSuccessBlockReadOrders)(NSArray *array);
 -(void)allOrdersWithType:(SPGetOrderType *)type
               completion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
 
--(void)getOrderWithId:(NSInteger*)orderId
-       WithCompletion:(SPDatabaseManagerSuccessBlockReadOrders)completionOrder;
+-(void)getOrderWithId:(NSInteger)orderId
+       WithCompletion:(SPDatabaseManagerSuccessBlockReadOrder)completionOrder;
 
 -(void)deleteOrederWithId:(NSInteger)orderId
            WithCompletion:(SPDatabaseManagerSuccessBlockOrders)completionOrder;
