@@ -30,7 +30,7 @@
 - (void)configureItemCell :(Product *)product{
     
     [self.lblName setText:[product title]];
-    [self.lblPrice setText:[NSString stringWithFormat:@"%@", [product price]]];
+    [self.lblPrice setText:[NSString stringWithFormat:@"%.2f", [product.price floatValue]]];
     [self.lblAmmount setText:@""];
     [self setupUserInteraction];
     [self.segmentLargeMedium addTarget: self action: @selector(changedValue) forControlEvents: UIControlEventValueChanged];
@@ -132,9 +132,9 @@
 - (void) changedValue{
     self.lblAmmount.text = [NSString stringWithFormat: @"%ld",(long)[[SPManager sharedManager] amountForProductInCart:self.currentProduct withSize: [self.segmentLargeMedium titleForSegmentAtIndex: self.segmentLargeMedium.selectedSegmentIndex]]];
     if (self.segmentLargeMedium.selectedSegmentIndex == 0) {
-        self.lblPrice.text = [NSString stringWithFormat: @"%ld", [self.currentProduct.price longValue] - 3];
+        self.lblPrice.text = [NSString stringWithFormat: @"%.2f", [self.currentProduct.price floatValue] - 3];
     }else
-        self.lblPrice.text = [NSString stringWithFormat: @"%ld", [self.currentProduct.price longValue]];
+        self.lblPrice.text = [NSString stringWithFormat:@"%.2f", [self.currentProduct.price floatValue]];
 }
 
 @end

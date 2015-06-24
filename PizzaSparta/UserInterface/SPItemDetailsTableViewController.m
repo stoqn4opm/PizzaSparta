@@ -34,7 +34,6 @@
     [self.lblName setText:self.selectedProduct.title];
     [self.lblDescription setText:self.selectedProduct.productDesc];
     [self.lblPrice setText:[NSString stringWithFormat:@"%@",self.selectedProduct.price]];
-    [self.imageView setImageURL:[self.selectedProduct urlPhoto]];
     [self prepareUI];
 }
 

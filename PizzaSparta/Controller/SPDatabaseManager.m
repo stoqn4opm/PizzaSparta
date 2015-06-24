@@ -50,7 +50,6 @@
                }
                dispatch_async(dispatch_get_main_queue(), ^{
                    for(id element in result){
-                       
                        NSManagedObjectContext *context = [[SPManager sharedManager] privateChildMOContext];
                        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
                        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"idProduct  == %@ ", [element valueForKey:@"id"]];
@@ -79,7 +78,7 @@
     
     result = (result && [product.title       isEqualToString: [dict valueForKey: @"title"]]);
     result = (result && [product.productDesc isEqualToString: [dict valueForKey: @"productDesc"]]);
-    result = (result && [product.price       isEqual: @([dict[@"price"] integerValue])]);
+    result = (result && [product.price       isEqual: @([dict[@"price"] floatValue])]);
     result = (result && [product.isPromo     isEqual: @([dict[@"isPromo"] integerValue])]);
    
     return result;

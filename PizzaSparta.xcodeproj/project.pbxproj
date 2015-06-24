@@ -137,7 +137,7 @@
 		90F111AF1B21FD7C0044AA63 /* SPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPManager.m; sourceTree = "<group>"; };
 		F12FCDE41B287E7500CCE789 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		F12FCDE51B287E7500CCE789 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
-		F130DFA71B304BAA009EEE8B /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		F130DFA71B304BAA009EEE8B /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ingredient.h; path = Model/Ingredient.h; sourceTree = "<group>"; };
 		F130DFA81B304BAA009EEE8B /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomPizza.h; sourceTree = "<group>"; };
 		F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPizza.m; sourceTree = "<group>"; };
@@ -378,6 +378,7 @@
 		90C1E34E1B1FB0A600B6605B /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				F130DFA71B304BAA009EEE8B /* Ingredient.h */,
 				9007CEAE1B1F2A4D00F4650F /* LaunchScreen.xib */,
 				9007CEAC1B1F2A4D00F4650F /* Images.xcassets */,
 				9007CEA91B1F2A4D00F4650F /* Main.storyboard */,
@@ -419,7 +420,6 @@
 				F27439301B25BFA700356D1F /* NSString+Check.m */,
 				F2E9DD361B2874AF00F2E3BD /* UserAdress.h */,
 				F2E9DD371B2874AF00F2E3BD /* UserAdress.m */,
-				F130DFA71B304BAA009EEE8B /* Ingredient.h */,
 				F130DFA81B304BAA009EEE8B /* Ingredient.m */,
 				F130DFAA1B304BDF009EEE8B /* SPCustomPizza.h */,
 				F130DFAB1B304BDF009EEE8B /* SPCustomPizza.m */,
